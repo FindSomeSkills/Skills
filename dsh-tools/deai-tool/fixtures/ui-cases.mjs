@@ -13,12 +13,6 @@ export const uiCases = [
     src: '.title { -webkit-background-clip: text; color: transparent; }',
   },
   {
-    name: 'UI-003 玻璃拟态',
-    file: 'c.css',
-    expect: ['UI-003'],
-    src: '.nav { backdrop-filter: blur(12px); background: rgba(255,255,255,0.6); }',
-  },
-  {
     name: 'UI-004 彩色发光阴影',
     file: 'd.css',
     expect: ['UI-004'],
@@ -62,12 +56,6 @@ export const uiCases = [
     file: 'g2.css',
     expect: [],
     src: '.box { background-clip: padding-box; }',
-  },
-  {
-    name: 'GOOD backdrop-filter 关了',
-    file: 'g3.css',
-    expect: [],
-    src: '.nav { backdrop-filter: none; }',
   },
   {
     name: 'GOOD 中性黑阴影',

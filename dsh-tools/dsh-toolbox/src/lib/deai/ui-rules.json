@@ -11,7 +11,13 @@
       "severity": "warn",
       "defaultOn": true,
       "source": "unslop signs §Surfaces and color",
-      "predicate": { "type": "gradient_hue", "hueMin": 190, "hueMax": 320, "minSaturation": 0.35, "minStops": 2 },
+      "predicate": {
+        "type": "gradient_hue",
+        "hueMin": 190,
+        "hueMax": 320,
+        "minSaturation": 0.35,
+        "minStops": 2
+      },
       "fix": "渐变本身没错，紫到蓝的搭配是模板色。换成同色相的两个明度，或者干脆用一块纯色 + 一条分隔线。",
       "fix_en": "Keep the gradient if it carries meaning; drop the purple-to-blue pair.",
       "autofix": null
@@ -24,22 +30,11 @@
       "severity": "error",
       "defaultOn": true,
       "source": "unslop signs §Type + AGENTS§4",
-      "predicate": { "type": "gradient_text" },
+      "predicate": {
+        "type": "gradient_text"
+      },
       "fix": "background-clip:text 加渐变，是最容易被认出来的 AI 版式。改回实色，靠字号和字重建立层次。",
       "fix_en": "Drop background-clip:text. Use size and weight for hierarchy.",
-      "autofix": null
-    },
-    {
-      "id": "UI-003",
-      "title": "玻璃拟态",
-      "title_en": "Glassmorphism",
-      "object": "css",
-      "severity": "warn",
-      "defaultOn": true,
-      "source": "unslop signs §Surfaces and color",
-      "predicate": { "type": "backdrop_blur" },
-      "fix": "backdrop-filter: blur 叠在卡片、导航、弹窗上，是 2021 年的默认审美。真需要遮挡就用实色，模糊只留给全屏遮罩。",
-      "fix_en": "Use an opaque surface. Reserve blur for full-screen overlays.",
       "autofix": null
     },
     {
@@ -50,7 +45,11 @@
       "severity": "warn",
       "defaultOn": true,
       "source": "unslop signs §Surfaces and color",
-      "predicate": { "type": "shadow_glow", "minBlurPx": 24, "minSaturation": 0.35 },
+      "predicate": {
+        "type": "shadow_glow",
+        "minBlurPx": 24,
+        "minSaturation": 0.35
+      },
       "fix": "彩色大模糊阴影是靠发光制造重点。重点应该来自位置和对比，而不是光。",
       "fix_en": "Get emphasis from position and contrast, not from a coloured glow.",
       "autofix": null
@@ -63,7 +62,9 @@
       "severity": "warn",
       "defaultOn": true,
       "source": "unslop signs §Icons + AGENTS§4",
-      "predicate": { "type": "emoji_in_control" },
+      "predicate": {
+        "type": "emoji_in_control"
+      },
       "fix": "按钮和导航里的 emoji 换掉：要么留文字，要么用一条 inline SVG。emoji 在不同系统里长得不一样。",
       "fix_en": "Replace with text or an inline SVG. Emoji render differently per platform.",
       "autofix": "safe"
@@ -76,7 +77,25 @@
       "severity": "info",
       "defaultOn": true,
       "source": "unslop signs §Spacing",
-      "predicate": { "type": "magic_spacing", "grid": 4, "props": ["padding", "margin", "gap", "row-gap", "column-gap", "padding-top", "padding-bottom", "padding-left", "padding-right", "margin-top", "margin-bottom", "margin-left", "margin-right"] },
+      "predicate": {
+        "type": "magic_spacing",
+        "grid": 4,
+        "props": [
+          "padding",
+          "margin",
+          "gap",
+          "row-gap",
+          "column-gap",
+          "padding-top",
+          "padding-bottom",
+          "padding-left",
+          "padding-right",
+          "margin-top",
+          "margin-bottom",
+          "margin-left",
+          "margin-right"
+        ]
+      },
       "fix": "间距值取 4 的倍数（0 和 1px 边框除外）。差 2px 肉眼看不出，但缩放和栅格对齐会出问题。",
       "fix_en": "Round spacing to multiples of 4.",
       "autofix": "safe"
@@ -89,7 +108,17 @@
       "severity": "warn",
       "defaultOn": true,
       "source": "unslop signs §Copy",
-      "predicate": { "type": "fake_data", "patterns": ["Lorem ipsum", "\\$[0-9]{1,3}(,[0-9]{3})+", "[0-9]{1,3}(,[0-9]{3})+\\+\\s*(teams|users|customers|公司|团队)", "\\[X\\]", "New ✨", "Coming soon ✨"] },
+      "predicate": {
+        "type": "fake_data",
+        "patterns": [
+          "Lorem ipsum",
+          "\\$[0-9]{1,3}(,[0-9]{3})+",
+          "[0-9]{1,3}(,[0-9]{3})+\\+\\s*(teams|users|customers|公司|团队)",
+          "\\[X\\]",
+          "New ✨",
+          "Coming soon ✨"
+        ]
+      },
       "fix": "假价格、假用户数、Lorem 占位都会在交付时留下。换成真实数据，或者删掉这一块。",
       "fix_en": "Replace with real data or remove the block.",
       "autofix": null
@@ -102,7 +131,11 @@
       "severity": "info",
       "defaultOn": false,
       "source": "unslop signs §Landing pages and heroes",
-      "predicate": { "type": "hero_three_cta", "minCtas": 3, "withinFirstH2": true },
+      "predicate": {
+        "type": "hero_three_cta",
+        "minCtas": 3,
+        "withinFirstH2": true
+      },
       "fix": "居中大标题 + 副标题 + 三个按钮是落地页模板。留一个主操作，第二个降级成文字链接。",
       "fix_en": "One primary action; demote the rest to text links.",
       "autofix": null
