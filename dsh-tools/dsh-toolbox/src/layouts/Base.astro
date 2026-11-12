@@ -129,7 +129,8 @@ const graph = [
       (() => {
         const btn = document.getElementById('theme-toggle');
         if (!btn) return;
-        const label = { light: '浅色', dark: '深色', auto: '跟随系统' };
+        // 按钮显示当前状态（Apple 的做法），点击后的结果放在 title 与 aria-label 里
+        const name = { light: '浅色', dark: '深色', auto: '跟随系统' };
         const order = ['light', 'dark', 'auto'];
         const apply = (mode) => {
           const resolved = mode === 'auto'
@@ -139,8 +140,10 @@ const graph = [
           root.dataset.theme = resolved;
           root.dataset.themeMode = mode;
           root.style.colorScheme = resolved;
-          btn.textContent = label[mode];
-          btn.setAttribute('aria-label', '主题：' + label[mode] + '，点击切换');
+          const next = order[(order.indexOf(mode) + 1) % order.length];
+          btn.textContent = name[mode];
+          btn.setAttribute('aria-label', '当前' + name[mode] + '，点击切换到' + name[next]);
+          btn.title = '当前' + name[mode] + '，点击切换到' + name[next];
           btn.dataset.mode = mode;
         };
         apply(document.documentElement.dataset.themeMode || 'light');
