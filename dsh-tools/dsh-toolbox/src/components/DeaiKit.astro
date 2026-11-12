@@ -48,7 +48,8 @@ const t = COPY[lang].kit;
 <section data-panel="cli">
   <h2>{t.doctorH}</h2>
   <p>{t.doctorWhy}</p>
-  <pre><code>node "C:\Knowledge base\02-Project\dsh-profile-doctor\src\cli.ts"</code></pre>
+  <pre><code>git clone https://github.com/FindSomeSkills/Skills.git
+node Skills/dsh-tools/dsh-profile-doctor/src/cli.ts</code></pre>
   <table>
     <thead><tr><th>{t.doctorCols[0]}</th><th>{t.doctorCols[1]}</th><th>{t.doctorCols[2]}</th></tr></thead>
     <tbody>
@@ -61,10 +62,11 @@ const t = COPY[lang].kit;
 
   <h2>{t.cliH}</h2>
   <p>{t.cliP}</p>
-  <pre><code>cd C:\Knowledge base\02-Project\deai-tool
+  <pre><code>git clone https://github.com/FindSomeSkills/Skills.git
+cd Skills/dsh-tools/deai-tool
 
-node src/cli.ts text ..\path\to\article.md --json
-node src/cli.ts ui ..\path\to\src --fix
+node src/cli.ts text article.md --json
+node src/cli.ts ui ../your-project/src --fix
 npm run panel</code></pre>
   <p>{t.cliWhy}</p>
 

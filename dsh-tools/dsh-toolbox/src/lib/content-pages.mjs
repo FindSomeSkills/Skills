@@ -68,7 +68,7 @@ export const COPY_PAGES = {
       layoutNote: 'The workspace directory name is a slug of the absolute workspace path, not the workspace id. Two machines with different paths get different directory names for the same workspace.',
       layoutTree: `~/.dsh                          DSH data root (web / CLI / TUI)
 ├─ sessions/
-│  └─ --C-Knowledge~0020base--/  slug of "C:\\Knowledge base"
+│  └─ --C-Users-you-my~0020project--/  slug of "C:\\Users\\you\\my project"
 │     └─ session-<uuid>/         one folder per session, name used verbatim
 │        ├─ session.v4.jsonl.zstd
 │        └─ session.jsonl.zstd   (legacy, may coexist)
@@ -78,7 +78,7 @@ export const COPY_PAGES = {
    ├─ session_projcache/sessions/<id>.json   same data, per session
    └─ schedule.json              device-local reminders (do not sync)`,
       slugH: 'Path slug rule',
-      slugNote: 'Derived from the absolute path: drop the colon, turn backslashes into hyphens, encode spaces as ~0020, wrap in double hyphens. C:\\Knowledge base → --C-Knowledge~0020base--',
+      slugNote: 'Derived from the absolute path: drop the colon, turn backslashes into hyphens, encode spaces as ~0020, wrap in double hyphens. C:\\Users\\you\\my project → --C-Users-you-my~0020project--',
       wsH: 'workspace.json (unit version 2)',
       wsNote: 'This is the file that decides whether a session appears in the list. Syncing payloads without it makes sessions invisible.',
       wsCols: ['Field', 'Meaning', 'Merge rule'],
@@ -238,7 +238,7 @@ export const COPY_PAGES = {
       layoutNote: '工作区目录名是「绝对路径的 slug」，不是 workspace id。两台机器路径不同，同一个工作区会得到两个不同的目录名。',
       layoutTree: `~/.dsh                          DSH 数据根（网页版 / CLI / TUI）
 ├─ sessions/
-│  └─ --C-Knowledge~0020base--/  "C:\\Knowledge base" 的 slug
+│  └─ --C-Users-you-my~0020project--/  "C:\\Users\\you\\my project" 的 slug
 │     └─ session-<uuid>/         一个会话一个目录，目录名原样使用
 │        ├─ session.v4.jsonl.zstd
 │        └─ session.jsonl.zstd   旧格式，可能与 v4 并存
@@ -248,7 +248,7 @@ export const COPY_PAGES = {
    ├─ session_projcache/sessions/<id>.json   同样的数据，逐会话一份
    └─ schedule.json              设备本地提醒（不要同步）`,
       slugH: '路径 slug 规则',
-      slugNote: '由绝对路径推导：去掉冒号，反斜杠换成连字符，空格编码为 ~0020，两端各加两个连字符。C:\\Knowledge base → --C-Knowledge~0020base--',
+      slugNote: '由绝对路径推导：去掉冒号，反斜杠换成连字符，空格编码为 ~0020，两端各加两个连字符。C:\\Users\\you\\my project → --C-Users-you-my~0020project--',
       wsH: 'workspace.json（unit 版本 2）',
       wsNote: '这个文件决定「会话在不在列表里」。只同步会话负载而不同步它，会话就是不可见的。',
       wsCols: ['字段', '含义', '合并规则'],
