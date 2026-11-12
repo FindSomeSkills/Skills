@@ -7,14 +7,14 @@ const t = COPY[lang].kit;
 <p class="lede">{t.lede}</p>
 
 <nav class="tabs" aria-label={t.tabsLabel}>
-  <button type="button" class="tab" data-tab="cli">{t.tabCli}</button>
+  <button type="button" class="tab on" data-tab="cli">{t.tabCli}</button>
   <button type="button" class="tab" data-tab="ui">{t.tabUi}</button>
-  <button type="button" class="tab on" data-tab="text">{t.tabText}</button>
+  <button type="button" class="tab" data-tab="text">{t.tabText}</button>
 </nav>
 
 <div id="err" class="err" hidden></div>
 
-<section data-panel="text">
+<section data-panel="text" hidden>
   <h2>{t.textH}</h2>
   <p>{t.textWhy}</p>
   <p class="explain">{t.textNote}</p>
@@ -45,7 +45,7 @@ const t = COPY[lang].kit;
   </div>
 </section>
 
-<section data-panel="cli" hidden>
+<section data-panel="cli">
   <h2>{t.doctorH}</h2>
   <p>{t.doctorWhy}</p>
   <pre><code>git clone https://github.com/FindSomeSkills/Skills.git
