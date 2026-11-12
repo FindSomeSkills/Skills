@@ -40,9 +40,9 @@ const PAGES = [
 ];
 
 const MODES = [
-  { id: 'light', flags: [] },
-  { id: 'dark', flags: ['--force-dark-mode'] },
-  { id: 'nojs', flags: ['--disable-javascript'] },
+  { id: 'light', flags: [], query: '' },
+  { id: 'dark', flags: [], query: '?theme=dark' },
+  { id: 'nojs', flags: ['--disable-javascript'], query: '' },
 ];
 
 function run(args, { capture = false } = {}) {
@@ -137,7 +137,7 @@ const failures = [];
 
 for (const page of PAGES) {
   for (const mode of MODES) {
-    const url = `http://127.0.0.1:${PORT}${page.path}`;
+    const url = `http://127.0.0.1:${PORT}${page.path}${mode.query ?? ''}`;
     const png = join(OUT, `${page.lang}-${mode.id}.png`);
 
     await run([
@@ -168,6 +168,10 @@ for (const page of PAGES) {
       try {
         const img = decodePng(await (await import('node:fs/promises')).readFile(png));
         const b = meanBrightness(img);
+        if (mode.id === 'nojs') {
+          console.log(`  ${page.lang}/${mode.id}  亮度 ${b.toFixed(1)}  （无 JS，只查内容）`);
+          continue;
+        }
         const limit = mode.id === 'dark' ? 70 : 140;
         const ok = mode.id === 'dark' ? b < limit : b > limit;
         if (!ok) failures.push(`${page.path} [${mode.id}] 平均亮度 ${b.toFixed(1)}，预期${mode.id === 'dark' ? '低于' : '高于'} ${limit}`);

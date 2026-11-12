@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/apple.css';
+import '../styles/theme.css';
 import { SITE, COPY, alternateFor } from '../lib/content.mjs';
 
 const {
@@ -37,6 +38,21 @@ const graph = [
 <!doctype html>
 <html lang={lang === 'zh' ? 'zh-Hans' : 'en'}>
   <head>
+    <script is:inline>
+      // 主题默认浅色。优先级：URL 参数 > 上次选择 > light
+      (() => {
+        const param = new URLSearchParams(location.search).get('theme');
+        const saved = localStorage.getItem('theme');
+        const pick = param || saved || 'light';
+        const resolved = pick === 'auto'
+          ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : pick;
+        document.documentElement.dataset.theme = resolved;
+        document.documentElement.dataset.themeMode = pick;
+        document.documentElement.style.colorScheme = resolved;
+      })();
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
@@ -67,6 +83,8 @@ const graph = [
           <a href={`${homeHref}#tools`}>{copy.nav.tools}</a>
           <a href={`${homeHref}tools/deai-kit/`}>{copy.nav.deai}</a>
           <a href={`${homeHref}sync-hub/`}>Sync Hub</a>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-live="polite">
+          </button>
           <a href={langHref} hreflang={altLang} lang={lang === 'en' ? 'zh-Hans' : 'en'}>{copy.nav.lang}</a>
         </nav>
       </div>
@@ -106,5 +124,36 @@ const graph = [
           targets.forEach((el) => el.classList.add('in'));
         }, 1200);
       }
-    </script>  </body>
+    </script>
+    <script is:inline>
+      (() => {
+        const btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        const label = { light: '浅色', dark: '深色', auto: '跟随系统' };
+        const order = ['light', 'dark', 'auto'];
+        const apply = (mode) => {
+          const resolved = mode === 'auto'
+            ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+            : mode;
+          const root = document.documentElement;
+          root.dataset.theme = resolved;
+          root.dataset.themeMode = mode;
+          root.style.colorScheme = resolved;
+          btn.textContent = label[mode];
+          btn.setAttribute('aria-label', '主题：' + label[mode] + '，点击切换');
+          btn.dataset.mode = mode;
+        };
+        apply(document.documentElement.dataset.themeMode || 'light');
+        btn.addEventListener('click', () => {
+          const now = btn.dataset.mode || 'light';
+          const next = order[(order.indexOf(now) + 1) % order.length];
+          localStorage.setItem('theme', next);
+          apply(next);
+        });
+        matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if ((btn.dataset.mode || 'light') === 'auto') apply('auto');
+        });
+      })();
+    </script>
+  </body>
 </html>
