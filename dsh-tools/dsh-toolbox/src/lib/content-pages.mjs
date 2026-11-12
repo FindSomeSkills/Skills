@@ -29,7 +29,8 @@ export const COPY_PAGES = {
         },
         'deai-kit': {
           outcome: 'You get: the exact lines that read like a template, and one sentence on how to fix each.',
-          demo: '/tools/deai-kit/?demo=1',
+          demo: '/tools/deai-kit/',
+          demoLabel: 'Open the checker →',
         },
       },
     },
@@ -198,7 +199,8 @@ export const COPY_PAGES = {
         },
         'deai-kit': {
           outcome: '你会得到：哪些行读起来像模板，每一处配一句改法。',
-          demo: '/zh/tools/deai-kit/?demo=1',
+          demo: '/zh/tools/deai-kit/',
+          demoLabel: '去检查一下 →',
         },
       },
     },
