@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/apple.css';
 import { SITE, COPY, alternateFor } from '../lib/content.mjs';
 
 const {
@@ -80,5 +81,24 @@ const graph = [
         <p class="footer-line">{copy.footer.note}</p>
       </div>
     </footer>
-  </body>
+    <script is:inline>
+      // 导航：滚动超过 8px 变实，材质对比更明显
+      const head = document.querySelector('header.site');
+      const onScroll = () => head && head.classList.toggle('scrolled', window.scrollY > 8);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // 滚动浮现：逐块淡入，尊重 reduced-motion
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        const targets = document.querySelectorAll('main h2, main > p, main .grid > *, main pre, main table, .kit-strip');
+        targets.forEach((el) => el.classList.add('reveal'));
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+          }
+        }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach((el) => io.observe(el));
+      }
+    </script>  </body>
 </html>

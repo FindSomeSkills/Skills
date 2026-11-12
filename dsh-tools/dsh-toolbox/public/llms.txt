@@ -9,7 +9,7 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 
 ## Tools
 
-- **DSH Sync Hub** — syncs DSH sessions and the workspace index across machines and DSH builds (web / desktop / terminal). Opaque-byte transfer, append-only delta uploads, conflicts keep both copies. Source: https://github.com/FindSomeSkills/workspace/tree/main/projects/dsh-sync-hub
+- **DSH Sync Hub** — syncs DSH sessions and the workspace index across machines and DSH builds (web / desktop / terminal). Opaque-byte transfer, append-only delta uploads, conflicts keep both copies. Source: https://github.com/FindSomeSkills/Skills/tree/main/dsh-tools/dsh-sync-hub
 - **Zstd Frame Inspector** (`/tools/zstd-frame-inspector/`) — counts zstd frames and block boundaries in a `.zstd` session file without decompressing.
 - **Context Budget** (`/tools/context-budget/`) — estimates remaining turns before a DSH session hits its context window.
 - **Session Index Doctor** (`/tools/session-index-doctor/`) — compares `sessions/` against `storages/workspace.json` and `session_projcache.json`; returns the session ids that exist on disk but will never appear in the list.
@@ -53,4 +53,4 @@ DSH keeps three things apart, and conflating them is the source of almost every 
 
 ## Contact
 
-Source: https://github.com/FindSomeSkills/workspace
+Source: https://github.com/FindSomeSkills/Skills

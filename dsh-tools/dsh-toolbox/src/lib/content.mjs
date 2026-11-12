@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'DSH Toolbox',
   short: 'dsh-toolbox',
-  repo: 'https://github.com/FindSomeSkills/workspace',
-  syncHubRepo: 'https://github.com/FindSomeSkills/workspace/tree/main/projects/dsh-sync-hub',
+  repo: 'https://github.com/FindSomeSkills/Skills',
+  syncHubRepo: 'https://github.com/FindSomeSkills/Skills/tree/main/dsh-tools/dsh-sync-hub',
 };
 
 export const TOOLS = [
