@@ -117,3 +117,17 @@ html[data-theme='dark'] .grid > article:hover {
 }
 
 html[data-theme='dark'] .panel.ok h3 { color: #4da3ff; }
+
+/* ---------- 导航对齐：切换按钮和文字链接必须在同一条基线上 ---------- */
+header.site nav { align-items: center; }
+header.site nav a { display: inline-flex; align-items: center; height: 28px; }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  line-height: 1;
+  font-size: 13px;
+  vertical-align: middle;
+}
