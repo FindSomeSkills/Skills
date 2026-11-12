@@ -70,7 +70,7 @@ export const COPY = {
       h1: 'Tools for people who actually run DeepSeek Harness',
       lede: 'Everything here runs in the browser. No signup, no upload, no telemetry — open a page, drop a file, read the numbers.',
       toolsH: 'The tools',
-      toolsNote: '六个工具已上线，之后按使用情况扩展',
+      toolsNote: 'Six tools are live; more land as usage shows',
       whyH: 'Why these five',
       why: [
         {
