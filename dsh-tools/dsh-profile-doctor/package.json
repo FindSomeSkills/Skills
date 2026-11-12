@@ -8,6 +8,7 @@
   "bin": { "dsh-doctor": "./src/cli.ts" },
   "scripts": {
     "test": "node test/doctor.test.ts",
+    "verify": "node tools/verify.mjs",
     "check": "node src/cli.ts"
   },
   "dependencies": {

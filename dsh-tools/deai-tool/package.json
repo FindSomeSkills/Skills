@@ -10,6 +10,6 @@
     "test": "node test/text.test.mjs",
     "text": "node src/cli.ts text",
     "ui": "node src/cli.ts ui",
-    "panel": "node src/serve.ts"
+    "panel": "node src/serve.ts",`n    "verify": "node tools/verify.mjs"
   }
 }
