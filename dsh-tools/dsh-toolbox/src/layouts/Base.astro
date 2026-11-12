@@ -91,14 +91,20 @@ const graph = [
       // 滚动浮现：逐块淡入，尊重 reduced-motion
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduce && 'IntersectionObserver' in window) {
-        const targets = document.querySelectorAll('main h2, main > p, main .grid > *, main pre, main table, .kit-strip');
+        const targets = [...document.querySelectorAll('main h2, main > p, main .grid > *, main pre, main table, .kit-strip')];
         targets.forEach((el) => el.classList.add('reveal'));
+        // 先接管再隐藏：CSS 里只有 html.js-reveal 才会把 .reveal 设为透明
+        document.documentElement.classList.add('js-reveal');
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) {
             if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
           }
         }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
         targets.forEach((el) => io.observe(el));
+        // 保险：1.2 秒后仍未显形的，全部无条件显形
+        setTimeout(() => {
+          targets.forEach((el) => el.classList.add('in'));
+        }, 1200);
       }
     </script>  </body>
 </html>

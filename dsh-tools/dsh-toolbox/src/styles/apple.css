@@ -111,8 +111,9 @@ input[type='text'], textarea { border-radius: var(--radius); border-color: var(-
 input[type='text']:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12); }
 
 /* ---------- 动效：淡入上移，尊重系统偏好 ---------- */
-.reveal { opacity: 0; transform: translateY(16px); }
-.reveal.in { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+.reveal { opacity: 1; transform: none; }
+html.js-reveal .reveal:not(.in) { opacity: 0; transform: translateY(16px); }
+html.js-reveal .reveal.in { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
