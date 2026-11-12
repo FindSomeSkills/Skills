@@ -158,3 +158,21 @@ input[type='text']:focus, textarea:focus { outline: none; border-color: var(--ac
 /* 章节之间留白更像 Apple：大标题前留足呼吸 */
 main { padding-bottom: 64px; }
 section + section { margin-top: 48px; }
+/* ---------- 卡片 CTA：从绿色等宽小字改成可点的按钮式链接 ---------- */
+.card .demo {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  border-bottom: 0;
+  padding-top: 16px;
+  text-decoration: none;
+}
+.card .demo:hover { text-decoration: underline; text-underline-offset: 4px; color: var(--accent); }
+
+@media (prefers-color-scheme: dark) {
+  :root { --accent: #4da3ff; --accent-soft: rgba(77, 163, 255, 0.16); }
+  .panel.ok h3 { color: #4da3ff; }
+  .card .demo, .card a { color: var(--accent); }
+}
