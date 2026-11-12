@@ -1,5 +1,7 @@
 # DSH Toolbox
 
+Site: https://dshtoolbox.com
+
 > Free, client-side tools for DeepSeek Harness (DSH). No account, no upload, no telemetry.
 > Every tool runs in the browser; the only downloadable component (DSH Sync Hub) is a self-hosted Node CLI.
 

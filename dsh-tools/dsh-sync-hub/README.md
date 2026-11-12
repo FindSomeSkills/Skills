@@ -3,7 +3,7 @@
 跨 **DSH 运行面**（网页版 / 桌面版 / TUI）与跨 **操作系统**（Windows / macOS / Linux / Android+Termux）的 DSH 工作区与会话同步中枢。手机（iOS / HarmonyOS）作为只读控制台参与。
 
 > **配套站点**：`projects/dsh-toolbox/`（DSH Toolbox，双语静态站，含在线工具与存储结构参考）。
-> 公开地址待定——申请域名后在这里替换成真实 URL。
+> 站点：https://dshtoolbox.com
 
 > 状态：**MVP 骨架已跑通端到端同步链路**（第 3 步验收通过）。控制台 UI、恢复流程、PWA 尚未实现。
 
