@@ -95,3 +95,25 @@ html[data-theme='dark'] .cta { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
   transition: color 200ms var(--ease), border-color 200ms var(--ease);
 }
 .theme-toggle:hover { color: var(--fg); border-color: rgba(128, 128, 128, 0.4); box-shadow: none; }
+
+
+/* 从 apple.css 迁移过来的悬停态与面板标题 */
+html[data-theme='light'] .card:hover,
+html[data-theme='light'] .grid > a:hover,
+html[data-theme='light'] .grid > article:hover {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 24px 56px rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme='light'] .panel.ok h3 { color: #1a7f37; }
+
+html[data-theme='dark'] .card:hover,
+html[data-theme='dark'] .grid > a:hover,
+html[data-theme='dark'] .grid > article:hover {
+  background: rgba(28, 28, 30, 0.82);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 24px 56px rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme='dark'] .panel.ok h3 { color: #4da3ff; }
