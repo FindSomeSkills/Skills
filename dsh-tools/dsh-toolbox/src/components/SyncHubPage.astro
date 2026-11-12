@@ -1,0 +1,87 @@
+---
+import { COPY, SITE } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].syncHub;
+---
+<h1>{t.h1}</h1>
+<p class="pill ok">{t.status}</p>
+<p class="lede" style="margin-top:16px">{t.lede}</p>
+
+<h2>{t.stepsH}</h2>
+<div class="grid">
+  {t.steps.map((step) => (
+    <div class="card">
+      <div class="head"><code>{step.n}</code></div>
+      <h3>{step.h}</h3>
+      <p style="margin-bottom:12px">{step.p}</p>
+      <pre><code>{step.code}</code></pre>
+    </div>
+  ))}
+</div>
+
+<h2>{lang === 'zh' ? '一眼看清：什么同步，什么不同步' : 'At a glance: what syncs, what does not'}</h2>
+<div class="split">
+  <div class="panel ok">
+    <h3>{t.syncedH}</h3>
+    <ul>
+      {t.synced.map(([path]) => <li><code>{path}</code></li>)}
+    </ul>
+    <p class="panel-note">{lang === 'zh' ? '双向同步。' : 'Two-way.'}</p>
+  </div>
+  <div class="panel no">
+    <h3>{t.neverH}</h3>
+    <ul>
+      <li><code>.credentials.yaml</code></li>
+      <li><code>*.pem</code> <code>*.key</code> <code>id_rsa*</code></li>
+      <li><code>storages/schedule.json</code></li>
+      <li><code>storages/dsh_automation.json</code></li>
+      <li><code>logs/</code> <code>cache/</code></li>
+      <li><code>profiles/</code> <code>skills/</code></li>
+    </ul>
+    <p class="panel-note">{lang === 'zh' ? '不读取、不哈希、不上传。' : 'Never read, hashed, or uploaded.'}</p>
+  </div>
+</div>
+<p class="note">{t.never}</p>
+
+<h2>{t.conflictH}</h2>
+<p>{t.conflictP}</p>
+
+<h2>{t.limitH}</h2>
+<table>
+  <thead>
+    <tr><th>{lang === 'zh' ? '平台' : 'Platform'}</th><th>{lang === 'zh' ? '能力' : 'Capability'}</th></tr>
+  </thead>
+  <tbody>
+    {t.limits.map(([platform, cap]) => (
+      <tr><td>{platform}</td><td>{cap}</td></tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.getH}</h2>
+<p>{t.getP}</p>
+<pre><code>{`git clone ${SITE.repo}.git dsh-workspace
+cd dsh-workspace/projects/dsh-sync-hub
+node src/hub/server.mjs`}</code></pre>
+<h2>{lang === 'zh' ? '使用手册' : 'User guide'}</h2>
+<div class="grid">
+  <a class="card" href={`${SITE.syncHubRepo}/blob/main/docs/USER_GUIDE.${lang === 'zh' ? 'zh-CN' : 'en'}.md`}>
+    <h3>{lang === 'zh' ? '中文使用手册' : 'User guide (English)'}</h3>
+    <p>{lang === 'zh' ? '安装、配对、同步、冲突处理、常见故障，一步一步写。' : 'Install, pair, sync, handle conflicts, fix common failures. Step by step.'}</p>
+  </a>
+  <a class="card" href={`${SITE.syncHubRepo}/blob/main/docs/USER_GUIDE.${lang === 'zh' ? 'en' : 'zh-CN'}.md`}>
+    <h3>{lang === 'zh' ? '英文使用手册' : 'User guide (Chinese)'}</h3>
+    <p>{lang === 'zh' ? '同一份手册的英文版。' : 'The same guide, in Chinese.'}</p>
+  </a>
+</div>
+
+<h2>{lang === 'zh' ? '源码' : 'Source'}</h2>
+<p><a class="btn-link" href={SITE.syncHubRepo}>{lang === 'zh' ? '在 GitHub 上查看源码' : 'View the source on GitHub'}</a></p>
+
+<h2>{t.faqH}</h2>
+{t.faq.map((item) => (
+  <details>
+    <summary>{item.q}</summary>
+    <p>{item.a}</p>
+  </details>
+))}

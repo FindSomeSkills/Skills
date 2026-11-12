@@ -1,0 +1,15 @@
+{
+  "name": "deai-tool",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "确定性去 AI 化预检：给文本与界面做机械项扫描，不评分、不调模型",
+  "engines": { "node": ">=24" },
+  "bin": { "deai": "./src/cli.ts" },
+  "scripts": {
+    "test": "node test/text.test.mjs",
+    "text": "node src/cli.ts text",
+    "ui": "node src/cli.ts ui",
+    "panel": "node src/serve.ts"
+  }
+}

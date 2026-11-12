@@ -1,0 +1,51 @@
+---
+import { TOOLS, COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].home;
+const extra = COPY[lang].homeExtra;
+const prefix = lang === 'zh' ? '/zh' : '/';
+const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${prefix}tools/${slug}/`);
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+<p class="kit-strip"><a href={`${prefix}tools/deai-kit/?demo=1`}>{COPY[lang].kitStrip} →</a></p>
+
+<h2 id="tools">{t.toolsH}</h2>
+<div class="grid">
+  {TOOLS.map((tool) => {
+    const detail = extra.outcomes[tool.slug];
+    return (
+      <div class="card">
+        <div class="head">
+          <code>{tool.slug}</code>
+          <span class:list={['pill', tool.status === 'beta' ? 'beta' : 'ok']}>{tool.status}</span>
+        </div>
+        <h3><a href={toolHref(tool.slug)}>{tool.name}</a></h3>
+        <p>{tool.meta[lang]}</p>
+        {detail?.outcome && <p class="outcome">{detail.outcome}</p>}
+        {detail?.demo && <a class="demo" href={detail.demo}>{detail.demoLabel ?? extra.demoCta}</a>}
+      </div>
+    );
+  })}
+</div>
+<p class="note">{t.toolsNote}</p>
+
+<h2>{t.whyH}</h2>
+{t.why.map((item) => (
+  <div>
+    <h3>{item.h}</h3>
+    <p>{item.p}</p>
+  </div>
+))}
+
+<h2>{t.faqH}</h2>
+{t.faq.map((item) => (
+  <details>
+    <summary>{item.q}</summary>
+    <p>{item.a}</p>
+  </details>
+))}
+
+<p style="margin-top:28px">
+  <a class="pill ok" href={`${prefix}sync-hub/`}>{t.cta} →</a>
+</p>

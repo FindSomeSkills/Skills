@@ -1,0 +1,172 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].doctor;
+const demoLabel = lang === 'zh' ? '试用示例数据' : 'Try sample data';
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<label id="dirDrop" class="toolbar" for="dir" style="display:block;cursor:pointer">
+  <strong>{t.pick}</strong>
+  <p>{t.hint}</p>
+  <input id="dir" type="file" webkitdirectory multiple class="sr-only" />
+</label>
+
+<p style="margin: 12px 0 0"><button id="demo" type="button">{demoLabel}</button></p>
+
+<div id="err" class="err" hidden></div>
+<p id="verdict" class="note" hidden></p>
+
+<section id="out" hidden>
+  <p><span id="health" class="pill">—</span></p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">{t.kpis.sessions}</div><div class="v" id="kSessions">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.payloads}</div><div class="v" id="kPayloads">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.bytes}</div><div class="v" id="kBytes">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.listed}</div><div class="v" id="kListed">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.rows}</div><div class="v" id="kRows">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.issues}</div><div class="v" id="kIssues">—</div></div>
+  </div>
+
+  <div id="issues"></div>
+  <p class="note">{t.note}</p>
+</section>
+
+<p id="empty" class="note">{t.empty}</p>
+
+<h2>{t.checksH}</h2>
+<table>
+  <tbody>
+    {Object.values(t.issues).map((issue, i) => (
+      <tr>
+        <td class="num" style="width:40px;color:var(--muted)">{i + 1}</td>
+        <td><strong>{issue.title}</strong><br /><span style="font-size:13px;color:var(--muted)">{issue.detail}</span></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<script>
+  import { buildInventory, diagnose, safeParse } from '../lib/session-index.mjs';
+  import { sampleInventoryFiles, sampleWorkspace, sampleProjcache } from '../lib/samples.mjs';
+
+  const input = document.getElementById('dir');
+  const errBox = document.getElementById('err');
+  const out = document.getElementById('out');
+  const empty = document.getElementById('empty');
+  const issuesBox = document.getElementById('issues');
+  const zh = document.documentElement.lang.startsWith('zh');
+
+  // 从页面上抓本地化文案（把 issues 的标题/说明/修法交给页面静态渲染更麻烦，
+  // 这里直接读一个内联 JSON）
+  const COPY_NODE = document.getElementById('doctor-copy');
+  const L = COPY_NODE ? JSON.parse(COPY_NODE.textContent) : { health: {}, issues: {} };
+
+  const fmt = (n) => {
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1024 / 1024).toFixed(2) + ' MB';
+  };
+
+  function renderIssue(issue) {
+    const local = (L.issues && L.issues[issue.id]) || {};
+    const title = local.title || issue.title;
+    const detail = local.detail || issue.detail;
+    const fix = local.fix || issue.fix;
+    const cls = issue.severity === 'error' ? 'pill no' : issue.severity === 'warn' ? 'pill beta' : 'pill';
+    const items = (issue.items || [])
+      .map((i) => `<li><code>${i}</code></li>`)
+      .join('');
+    return `
+      <div class="card" style="margin-bottom:12px">
+        <div class="head"><span class="${cls}">${issue.severity}</span><span class="mono" style="color:var(--muted)">${issue.count}</span></div>
+        <h3>${title}</h3>
+        <p>${detail}</p>
+        ${items ? `<ul style="margin:8px 0 12px;padding-left:20px;font-size:13px;color:var(--muted)">${items}</ul>` : ''}
+        <p class="note" style="margin:0"><strong>${zh ? '怎么修' : 'Fix'}</strong> · ${fix}</p>
+      </div>`;
+  }
+
+  async function run(files, override) {
+    errBox.hidden = true;
+    const inv = buildInventory(files);
+
+    const readIndex = async (name) => {
+      const file = inv.indexFiles.get(name);
+      if (!file) return null;
+      const parsed = safeParse(await file.text());
+      if (!parsed.ok) throw new Error(`${name}.json: ${parsed.error}`);
+      return parsed.value;
+    };
+
+    let workspace = override ? override.workspace : null;
+    let projcache = override ? override.projcache : null;
+    if (!override) {
+      try {
+        workspace = await readIndex('workspace');
+        projcache = await readIndex('session_projcache');
+      } catch (err) {
+        errBox.hidden = false;
+        errBox.textContent = err.message;
+        return;
+      }
+    }
+
+    if (!workspace) {
+      errBox.hidden = false;
+      errBox.textContent = zh
+        ? '没找到 storages/workspace.json —— 请选择 DSH 数据根目录（~/.dsh 或 ~/.ohdsh）'
+        : 'No storages/workspace.json found — pick the DSH data root (~/.dsh or ~/.ohdsh)';
+      return;
+    }
+
+    const result = diagnose(inv, { workspace, projcache });
+    const s = result.summary;
+
+    const verdict = document.getElementById('verdict');
+    verdict.hidden = false;
+    verdict.textContent = zh
+      ? `磁盘上 ${s.sessionsOnDisk} 个会话，索引里 ${s.listed} 个 id；发现 ${s.issues} 处不一致${result.health === 'broken' ? '，其中有会话不会出现在列表里' : ''}。`
+      : `${s.sessionsOnDisk} sessions on disk vs ${s.listed} ids in the index; ${s.issues} mismatch(es)${result.health === 'broken' ? ' — some sessions will not appear' : ''}.`;
+
+    document.getElementById('kSessions').textContent = String(s.sessionsOnDisk);
+    document.getElementById('kPayloads').textContent = String(s.payloads);
+    document.getElementById('kBytes').textContent = fmt(s.bytes);
+    document.getElementById('kListed').textContent = String(s.listed);
+    document.getElementById('kRows').textContent = String(s.projcacheRows);
+    document.getElementById('kIssues').textContent = String(s.issues);
+
+    const health = document.getElementById('health');
+    health.textContent = (L.health && L.health[result.health]) || result.health;
+    health.className = result.health === 'broken' ? 'pill no' : result.health === 'degraded' ? 'pill beta' : 'pill ok';
+
+    issuesBox.innerHTML = result.issues.length
+      ? result.issues.map(renderIssue).join('')
+      : '<p class="note">' + (zh ? '没有发现问题。' : 'No problems found.') + '</p>';
+
+    empty.hidden = true;
+    out.hidden = false;
+  }
+
+  input.addEventListener('change', (e) => {
+    const files = e.target.files;
+    if (files && files.length) run(files);
+  });
+
+  const markSample = () => {
+    const v = document.getElementById('verdict');
+    if (!v.hidden) v.textContent = (zh ? '［示例数据］' : '[sample data] ') + v.textContent;
+  };
+
+  document.getElementById('demo').addEventListener('click', async () => {
+    await run(sampleInventoryFiles(), { workspace: sampleWorkspace(), projcache: sampleProjcache() });
+    markSample();
+  });
+
+  // ?demo=1 直接跑示例（可分享的演示链接，也方便自动化验证）
+  if (new URLSearchParams(location.search).get('demo') === '1') document.getElementById('demo').click();
+</script>
+
+<script type="application/json" id="doctor-copy" set:html={JSON.stringify({ health: t.health, issues: t.issues })}></script>

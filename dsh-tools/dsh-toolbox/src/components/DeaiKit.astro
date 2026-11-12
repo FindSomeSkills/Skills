@@ -1,0 +1,163 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].kit;
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<nav class="tabs" aria-label={t.tabsLabel}>
+  <button type="button" class="tab on" data-tab="text">{t.tabText}</button>
+  <button type="button" class="tab" data-tab="ui">{t.tabUi}</button>
+  <button type="button" class="tab" data-tab="cli">{t.tabCli}</button>
+</nav>
+
+<div id="err" class="err" hidden></div>
+
+<section data-panel="text">
+  <p class="explain">{t.textNote}</p>
+  <textarea id="textInput" rows="10" spellcheck="false" placeholder={t.textPlaceholder}></textarea>
+  <p class="row-actions">
+    <button id="textRun" type="button" class="primary">{t.run}</button>
+    <button id="textDemo" type="button">{t.sample}</button>
+    <label class="chk"><input id="textStrict" type="checkbox" /> {t.strict}</label>
+  </p>
+  <div id="textOut" hidden>
+    <p class="verdict" id="textVerdict"></p>
+    <div id="textList"></div>
+  </div>
+</section>
+
+<section data-panel="ui" hidden>
+  <p class="explain">{t.uiNote}</p>
+  <textarea id="uiInput" rows="10" spellcheck="false" placeholder={t.uiPlaceholder}></textarea>
+  <p class="row-actions">
+    <button id="uiRun" type="button" class="primary">{t.run}</button>
+    <button id="uiDemo" type="button">{t.sample}</button>
+  </p>
+  <div id="uiOut" hidden>
+    <p class="verdict" id="uiVerdict"></p>
+    <div id="uiList"></div>
+  </div>
+</section>
+
+<section data-panel="cli" hidden>
+  <h2>{t.cliH}</h2>
+  <p>{t.cliP}</p>
+  <pre><code>cd C:\Knowledge base\02-Project\deai-tool
+
+node src/cli.ts text ..\path\to\article.md --json
+node src/cli.ts ui ..\path\to\src --fix
+node src/cli.ts ui ..\path\to\src --strict
+npm run panel</code></pre>
+  <p>{t.cliWhy}</p>
+
+  <h2>{t.doctorH}</h2>
+  <p>{t.doctorP}</p>
+  <pre><code>node "C:\Knowledge base\02-Project\dsh-profile-doctor\src\cli.ts" --json</code></pre>
+  <table>
+    <thead><tr><th>{t.doctorCols[0]}</th><th>{t.doctorCols[1]}</th><th>{t.doctorCols[2]}</th></tr></thead>
+    <tbody>
+      {t.doctorRows.map((row) => (
+        <tr><td><code>{row[0]}</code></td><td>{row[1]}</td><td>{row[2]}</td></tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="explain">{t.doctorNote}</p>
+
+  <h2>{t.rulesH}</h2>
+  <table>
+    <thead><tr><th>{t.rulesCols[0]}</th><th>{t.rulesCols[1]}</th><th>{t.rulesCols[2]}</th></tr></thead>
+    <tbody id="ruleRows"></tbody>
+  </table>
+</section>
+
+<script type="application/json" id="kit-copy" set:html={JSON.stringify(t.runtime)}></script>
+
+<script>
+  import { checkText, checkUi, meta } from '../lib/deai/engine.mjs';
+  import { SAMPLE_TEXT, SAMPLE_UI } from '../lib/deai/kit-samples.mjs';
+
+  const L = JSON.parse(document.getElementById('kit-copy').textContent);
+  const zh = document.documentElement.lang.startsWith('zh');
+  const $ = (id) => document.getElementById(id);
+
+  // 英文页不显示中文消息：用规则标题代替，标题两种语言都有
+  const TITLES = new Map([...meta.text, ...meta.ui].map((r) => [r.id, zh ? r.title : (r.titleEn || r.id)]));
+  const titleOf = (id) => TITLES.get(id) || id;
+
+
+  function render(listEl, verdictEl, findings, label) {
+    if (!findings.length) {
+      verdictEl.textContent = L.clean;
+      listEl.innerHTML = '';
+      return;
+    }
+    const counts = { error: 0, warn: 0, info: 0 };
+    for (const f of findings) counts[f.severity] += 1;
+    verdictEl.textContent = `${label} · ${L.hit} ${findings.length} / ${L.error} ${counts.error} / ${L.warn} ${counts.warn} / ${L.info} ${counts.info}${L.notVerdict}`;
+    const sevName = { error: L.error, warn: L.warn, info: L.info };
+    listEl.innerHTML = ['error', 'warn', 'info']
+      .filter((s) => counts[s])
+      .map((s) => {
+        const rows = findings
+          .filter((f) => f.severity === s)
+          .map(
+            (f) => `<div class="finding">
+              <div class="finding-head"><code>${f.ruleId}</code><span class="pill ${s}">${sevName[s]}</span><span class="lineno">L${f.line}</span></div>
+              <p class="finding-msg">${zh ? f.message : titleOf(f.ruleId)}</p>
+              <p class="finding-evidence">${f.evidence.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))}</p>
+              <p class="finding-fix">${L.fix} · ${zh ? f.fix : (f.fixEn || f.fix)}</p>
+            </div>`,
+          )
+          .join('');
+        return `<h3 class="group">${sevName[s]}（${counts[s]}）</h3>${rows}`;
+      })
+      .join('');
+  }
+
+  // 文本
+  function runText() {
+    const raw = $('textInput').value;
+    if (!raw.trim()) { $('textOut').hidden = true; return; }
+    const findings = checkText(raw, { strict: $('textStrict').checked });
+    $('textVerdict').textContent = '';
+    $('textOut').hidden = false;
+    render($('textList'), $('textVerdict'), findings, L.textLabel);
+  }
+  $('textRun').addEventListener('click', runText);
+  $('textDemo').addEventListener('click', () => { $('textInput').value = SAMPLE_TEXT[zh ? 'zh' : 'en']; runText(); });
+  $('textStrict').addEventListener('change', runText);
+
+  // 界面
+  function runUi() {
+    const raw = $('uiInput').value;
+    if (!raw.trim()) { $('uiOut').hidden = true; return; }
+    const findings = checkUi(raw, { name: /<\/?[a-z]/i.test(raw) ? 'input.html' : 'input.css' });
+    $('uiOut').hidden = false;
+    render($('uiList'), $('uiVerdict'), findings, L.uiLabel);
+  }
+  $('uiRun').addEventListener('click', runUi);
+  $('uiDemo').addEventListener('click', () => { $('uiInput').value = SAMPLE_UI; runUi(); });
+
+  // 规则表
+  const rows = [...meta.text, ...meta.ui]
+    .map((r) => `<tr><td><code>${r.id}</code></td><td>${zh ? r.title : (r.titleEn || r.title)}</td><td><span class="pill ${r.severity}">${r.severity}</span> ${r.defaultOn ? '' : `<span class="pill">${L.offByDefault}</span>`}</td></tr>`)
+    .join('');
+  document.getElementById('ruleRows').innerHTML = rows;
+
+  // tabs
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('[data-panel]')];
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => {
+      for (const el of tabs) el.classList.toggle('on', el === tab);
+      for (const panel of panels) panel.hidden = panel.dataset.panel !== tab.dataset.tab;
+    });
+  }
+
+  const q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') {
+    $('textDemo').click();
+  }
+</script>

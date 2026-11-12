@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+import { SITE, COPY, alternateFor } from '../lib/content.mjs';
+
+const {
+  lang = 'en',
+  slug = '',
+  title,
+  description,
+  jsonLd = [],
+  robots = 'index,follow',
+} = Astro.props;
+
+const copy = COPY[lang];
+const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
+const canonical = `${base}/${slug ? `${slug}/` : ''}`;
+const altUrl = `${base}${alternateFor(slug)}`;
+const altLang = lang === 'en' ? 'zh-Hans' : 'en';
+const homeHref = lang === 'en' ? '/' : '/zh/';
+const langHref = lang === 'en' ? alternateFor(slug) : alternateFor(slug);
+const graph = [
+  {
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: `${base}/`,
+    inLanguage: ['en', 'zh-Hans'],
+  },
+  {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: `${base}/`,
+  },
+  ...jsonLd,
+];
+---
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-Hans' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang === 'zh' ? 'zh-Hans' : 'en'} href={canonical} />
+    <link rel="alternate" hreflang={altLang} href={altUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${base}${slug.startsWith('zh') ? alternateFor(slug) : `/${slug ? `${slug}/` : ''}`}`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_US'} />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href={homeHref}><span class="dot"></span>{SITE.name}</a>
+        <nav>
+          <a href={homeHref}>{copy.nav.home}</a>
+          <a href={`${homeHref}#tools`}>{copy.nav.tools}</a>
+          <a href={`${homeHref}tools/deai-kit/`}>{copy.nav.deai}</a>
+          <a href={`${homeHref}sync-hub/`}>Sync Hub</a>
+          <a href={langHref} hreflang={altLang} lang={lang === 'en' ? 'zh-Hans' : 'en'}>{copy.nav.lang}</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <p class="footer-line">{copy.footer.note}</p>
+      </div>
+    </footer>
+  </body>
+</html>

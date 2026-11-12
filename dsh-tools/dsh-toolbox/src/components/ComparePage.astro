@@ -1,0 +1,70 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].compare;
+const prefix = lang === 'zh' ? '/zh' : '';
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<h2>{t.verdictH}</h2>
+<p><strong>{t.verdict}</strong></p>
+
+<h2>{lang === 'zh' ? '逐项对比' : 'Side by side'}</h2>
+<table>
+  <thead>
+    <tr>{t.cols.map((c) => <th>{c}</th>)}</tr>
+  </thead>
+  <tbody>
+    {t.rows.map((row) => (
+      <tr>
+        <td><strong>{row[0]}</strong></td>
+        <td>{row[1]}</td>
+        <td>{row[2]}</td>
+        <td>{row[3]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.whenH}</h2>
+<div class="grid">
+  {t.when.map((item) => (
+    <div class="card">
+      <h3>{item.h}</h3>
+      <p>{item.p}</p>
+    </div>
+  ))}
+</div>
+
+<h2>{t.honestH}</h2>
+<ul>
+  {t.honest.map((line) => <li>{line}</li>)}
+</ul>
+
+<h2>{t.matrixH}</h2>
+<table>
+  <tbody>
+    {t.matrix.map(([q, a]) => (
+      <tr>
+        <td>{q}</td>
+        <td><code>{a}</code></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.sourcesH}</h2>
+<ul>
+  {t.sources.map(([label, href]) => (
+    <li>{href.startsWith('/') ? <a href={`${prefix}${href}`}>{label}</a> : <a href={href} rel="nofollow">{label}</a>}</li>
+  ))}
+</ul>
+
+<h2>{t.faqH}</h2>
+{t.faq.map((item) => (
+  <details>
+    <summary>{item.q}</summary>
+    <p>{item.a}</p>
+  </details>
+))}

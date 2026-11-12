@@ -1,0 +1,14 @@
+{
+  "name": "dsh-sync-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DSH Sync Hub — 跨运行面、跨操作系统的 DSH 工作区与会话同步中枢",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "hub": "node src/hub/server.mjs",
+    "agent": "node src/agent/cli.mjs",
+    "demo": "node tools/demo.mjs",
+    "test": "node --test test/"
+  }
+}

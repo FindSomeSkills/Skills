@@ -1,0 +1,85 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].reference;
+const prefix = lang === 'zh' ? '/zh' : '';
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+<p class="pill">{t.updated}</p>
+
+<h2>{t.formatH}</h2>
+<table>
+  <thead>
+    <tr>{t.formatCols.map((c) => <th>{c}</th>)}</tr>
+  </thead>
+  <tbody>
+    {t.formatRows.map((row) => (
+      <tr>
+        <td><strong>{row[0]}</strong></td>
+        <td><code>{row[1]}</code></td>
+        <td><code>{row[2]}</code></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+<p class="note">{t.formatNote}</p>
+
+<h2>{t.layoutH}</h2>
+<p>{t.layoutNote}</p>
+<pre><code>{t.layoutTree}</code></pre>
+
+<h2>{t.slugH}</h2>
+<p class="note">{t.slugNote}</p>
+
+<h2>{t.wsH}</h2>
+<p>{t.wsNote}</p>
+<table>
+  <thead>
+    <tr>{t.wsCols.map((c) => <th>{c}</th>)}</tr>
+  </thead>
+  <tbody>
+    {t.wsRows.map((row) => (
+      <tr>
+        <td><code>{row[0]}</code></td>
+        <td>{row[1]}</td>
+        <td>{row[2]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.pcH}</h2>
+<p>{t.pcNote}</p>
+<table>
+  <thead>
+    <tr>{t.pcCols.map((c) => <th>{c}</th>)}</tr>
+  </thead>
+  <tbody>
+    {t.pcRows.map((row) => (
+      <tr>
+        <td><code>{row[0]}</code></td>
+        <td>{row[1]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.symptomH}</h2>
+<table>
+  <thead>
+    <tr>{t.symptomCols.map((c) => <th>{c}</th>)}</tr>
+  </thead>
+  <tbody>
+    {t.symptomRows.map((row) => (
+      <tr>
+        <td>{row[0]}</td>
+        <td>{row[1]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<h2>{t.noteH}</h2>
+<p>{t.noteP}</p>
+<p><a class="pill ok" href={`${prefix}/tools/session-index-doctor/`}>{t.cta} →</a></p>

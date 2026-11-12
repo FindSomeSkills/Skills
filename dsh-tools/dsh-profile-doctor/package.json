@@ -1,0 +1,16 @@
+{
+  "name": "dsh-profile-doctor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "装完 skills 或改完 profile 之后，检查哪些东西会让 DSH 起不来",
+  "engines": { "node": ">=24" },
+  "bin": { "dsh-doctor": "./src/cli.ts" },
+  "scripts": {
+    "test": "node test/doctor.test.ts",
+    "check": "node src/cli.ts"
+  },
+  "dependencies": {
+    "yaml": "^2.6.0"
+  }
+}

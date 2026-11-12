@@ -1,0 +1,147 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].zstd;
+const demoLabel = lang === 'zh' ? '试用示例文件' : 'Try a sample file';
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<label id="drop" class="toolbar" for="file" style="display:block;cursor:pointer">
+  <strong>{t.drop}</strong>
+  <p>{t.pick}</p>
+  <p style="font-size:12px">{t.hint}</p>
+  <input id="file" type="file" accept=".zst,.zstd,application/zstd,application/octet-stream" class="sr-only" />
+</label>
+
+<p style="margin: 12px 0 0"><button id="demo" type="button">{demoLabel}</button></p>
+
+<div id="err" class="err" hidden></div>
+<p id="verdict" class="note" hidden></p>
+
+<section id="out">
+  <div class="kpis">
+    <div class="kpi"><div class="k">{t.summary.frames}</div><div class="v" id="kFrames">0</div></div>
+    <div class="kpi"><div class="k">{t.summary.bytes}</div><div class="v" id="kBytes">0</div></div>
+    <div class="kpi"><div class="k">{t.summary.largest}</div><div class="v" id="kLargest">0</div></div>
+    <div class="kpi"><div class="k">{t.summary.blocks}</div><div class="v" id="kBlocks">0</div></div>
+    <div class="kpi"><div class="k">{t.summary.skippable}</div><div class="v" id="kSkip">0</div></div>
+  </div>
+
+  <h2>{t.tableH}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="num">{t.cols[0]}</th>
+        <th>{t.cols[1]}</th>
+        <th class="num">{t.cols[2]}</th>
+        <th class="num">{t.cols[3]}</th>
+        <th class="num">{t.cols[4]}</th>
+      </tr>
+    </thead>
+    <tbody id="frames">
+      <tr><td colspan="5" style="color:var(--muted)">{t.empty}</td></tr>
+    </tbody>
+  </table>
+  <p class="note">{t.note}</p>
+</section>
+
+<script>
+  import { parseFrames, summarize } from '../lib/zstd.mjs';
+  import { sampleZstdBytes, SAMPLE_ZSTD_NAME } from '../lib/samples.mjs';
+
+  const drop = document.getElementById('drop');
+  const input = document.getElementById('file');
+  const errBox = document.getElementById('err');
+  const out = document.getElementById('out');
+  const tbody = document.getElementById('frames');
+  const MAX_ROWS = 200;
+  const zh = document.documentElement.lang.startsWith('zh');
+
+  const MSG = zh
+    ? { magic: '不是 zstd 流（magic 不符，偏移', trunc: '尾部有截断或未知字节，偏移' }
+    : { magic: 'Not a zstd stream (bad magic at offset', trunc: 'Truncated or unknown bytes at offset' };
+
+  const fmt = (n) => {
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1024 / 1024).toFixed(2) + ' MB';
+  };
+
+  function render(frames, problem, total) {
+    const s = summarize(frames);
+    document.getElementById('kFrames').textContent = String(s.frames);
+    document.getElementById('kBytes').textContent = fmt(s.bytes);
+    document.getElementById('kLargest').textContent = fmt(s.largest);
+    document.getElementById('kBlocks').textContent = String(s.blocks);
+    document.getElementById('kSkip').textContent = String(s.skippable);
+
+    tbody.innerHTML = '';
+    for (let i = 0; i < Math.min(frames.length, MAX_ROWS); i += 1) {
+      const f = frames[i];
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td class="num">' + (i + 1) + '</td>' +
+        '<td><code>' + f.type + '</code></td>' +
+        '<td class="num">' + f.offset.toLocaleString() + '</td>' +
+        '<td class="num">' + f.size.toLocaleString() + '</td>' +
+        '<td class="num">' + f.blocks + '</td>';
+      tbody.appendChild(tr);
+    }
+    if (frames.length > MAX_ROWS) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td colspan="5" style="color:var(--muted)">… +' + (frames.length - MAX_ROWS) + '</td>';
+      tbody.appendChild(tr);
+    }
+    if (problem) {
+      errBox.hidden = false;
+      errBox.textContent =
+        problem.type === 'magic'
+          ? MSG.magic + ' ' + problem.off + ') · ' + fmt(total)
+          : MSG.trunc + ' ' + problem.off + ')';
+    } else {
+      errBox.hidden = true;
+    }
+    out.hidden = false;
+
+    const verdict = document.getElementById('verdict');
+    const last = frames[frames.length - 1];
+    verdict.hidden = false;
+    verdict.textContent = zh
+      ? `${s.frames} 帧，压缩后 ${fmt(s.bytes)}，最大一帧 ${fmt(s.largest)}；最后一帧 ${last ? last.size : 0} 字节 —— 大致就是下次同步要传的量。`
+      : `${s.frames} frames, ${fmt(s.bytes)} compressed, largest ${fmt(s.largest)}; the last frame is ${last ? last.size : 0} bytes — roughly what the next sync would send.`;
+  }
+
+  async function handle(file) {
+    if (!file) return;
+    errBox.hidden = true;
+    const parsed = parseFrames(await file.arrayBuffer());
+    if (!parsed.frames.length && parsed.problem && parsed.problem.type === 'magic') {
+      out.hidden = true;
+      errBox.hidden = false;
+      errBox.textContent = MSG.magic + ' 0)';
+      return;
+    }
+    render(parsed.frames, parsed.problem, file.size);
+  }
+
+  input.addEventListener('change', (e) => handle(e.target.files && e.target.files[0]));
+  ['dragenter', 'dragover'].forEach((evt) =>
+    drop.addEventListener(evt, (e) => { e.preventDefault(); drop.classList.add('drag'); }),
+  );
+  ['dragleave', 'drop'].forEach((evt) =>
+    drop.addEventListener(evt, (e) => { e.preventDefault(); drop.classList.remove('drag'); }),
+  );
+  drop.addEventListener('drop', (e) => handle(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]));
+
+  document.getElementById('demo').addEventListener('click', () => {
+    const buf = sampleZstdBytes();
+    const parsed = parseFrames(buf);
+    render(parsed.frames, parsed.problem, buf.byteLength);
+    errBox.hidden = true;
+    const v = document.getElementById('verdict');
+    v.textContent = (zh ? '［示例数据］' : '[sample data] ') + v.textContent;
+  });
+
+  if (new URLSearchParams(location.search).get('demo') === '1') document.getElementById('demo').click();
+</script>

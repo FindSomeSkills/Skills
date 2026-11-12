@@ -1,0 +1,105 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].budget;
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<div class="grid" style="grid-template-columns:minmax(260px,1fr) minmax(260px,1fr);align-items:start">
+  <div class="card">
+    <div class="field">
+      <label for="window">{t.inputs.window}</label>
+      <input id="window" type="number" min="1000" step="1000" value="1000000" />
+    </div>
+    <div class="field">
+      <label for="used">{t.inputs.used}</label>
+      <input id="used" type="number" min="0" step="1000" value="399000" />
+    </div>
+    <div class="field">
+      <label for="inPerTurn">{t.inputs.inPerTurn}</label>
+      <input id="inPerTurn" type="number" min="0" step="100" value="6000" />
+    </div>
+    <div class="field">
+      <label for="outPerTurn">{t.inputs.outPerTurn}</label>
+      <input id="outPerTurn" type="number" min="0" step="100" value="1200" />
+    </div>
+    <div class="field">
+      <label for="reserve">{t.inputs.reserve}</label>
+      <input id="reserve" type="number" min="0" step="1000" value="16000" />
+    </div>
+    <div class="field">
+      <label for="threshold">{t.inputs.threshold}</label>
+      <input id="threshold" type="number" min="10" max="100" step="5" value="90" />
+    </div>
+  </div>
+
+  <div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr">
+      <div class="kpi"><div class="k">{t.results.left}</div><div class="v" id="left">—</div></div>
+      <div class="kpi"><div class="k">{t.results.compactAt}</div><div class="v" id="compactAt">—</div></div>
+      <div class="kpi"><div class="k">{t.results.overflow}</div><div class="v" id="overflow">—</div></div>
+      <div class="kpi"><div class="k">{t.results.headroom}</div><div class="v" id="headroom">—</div></div>
+    </div>
+
+    <div class="bar" id="bar"><span id="fill" style="width:0%"></span></div>
+    <p style="font-size:13px;color:var(--muted)" id="ratio">—</p>
+
+    <p style="margin-top:16px"><span class="pill" id="verdict">—</span></p>
+    <p class="note">{t.note}</p>
+  </div>
+</div>
+
+<script define:vars={{ verdictOk: t.verdicts.ok, verdictTight: t.verdicts.tight, verdictNow: t.verdicts.now }}>
+  const ids = ['window', 'used', 'inPerTurn', 'outPerTurn', 'reserve', 'threshold'];
+  const el = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
+  const out = {
+    left: document.getElementById('left'),
+    compactAt: document.getElementById('compactAt'),
+    overflow: document.getElementById('overflow'),
+    headroom: document.getElementById('headroom'),
+    ratio: document.getElementById('ratio'),
+    bar: document.getElementById('bar'),
+    fill: document.getElementById('fill'),
+    verdict: document.getElementById('verdict'),
+  };
+
+  const nf = (n) => Math.round(n).toLocaleString();
+
+  function compute() {
+    const win = Math.max(1, Number(el.window.value) || 0);
+    const used = Math.max(0, Number(el.used.value) || 0);
+    const tin = Math.max(0, Number(el.inPerTurn.value) || 0);
+    const tout = Math.max(0, Number(el.outPerTurn.value) || 0);
+    const reserve = Math.max(0, Number(el.reserve.value) || 0);
+    const pct = Math.min(100, Math.max(1, Number(el.threshold.value) || 90));
+
+    const usable = Math.max(0, win - reserve);
+    const perTurn = tin + tout;
+    const headroom = usable - used;
+    const compactPoint = usable * (pct / 100);
+
+    const turnsToOverflow = perTurn > 0 ? Math.floor(headroom / perTurn) : Infinity;
+    const turnsToCompact = perTurn > 0 ? Math.floor((compactPoint - used) / perTurn) : Infinity;
+    const ratio = (used / win) * 100;
+
+    out.left.textContent = Number.isFinite(turnsToCompact) ? (turnsToCompact < 0 ? '0' : String(turnsToCompact)) : '∞';
+    out.compactAt.textContent = Number.isFinite(turnsToCompact) ? String(Math.max(0, turnsToCompact) + 1) : '—';
+    out.overflow.textContent = Number.isFinite(turnsToOverflow) ? String(Math.max(0, turnsToOverflow) + 1) : '—';
+    out.headroom.textContent = nf(Math.max(0, headroom));
+    out.ratio.textContent = `${ratio.toFixed(1)}% ${win.toLocaleString()}`;
+
+    out.fill.style.width = `${Math.min(100, ratio)}%`;
+    out.bar.className = 'bar' + (ratio >= pct ? ' danger' : ratio >= pct * 0.8 ? ' warn' : '');
+
+    let text = verdictOk;
+    let cls = 'pill ok';
+    if (ratio >= pct) { text = verdictNow; cls = 'pill no'; }
+    else if (ratio >= pct * 0.8 || (Number.isFinite(turnsToCompact) && turnsToCompact <= 3)) { text = verdictTight; cls = 'pill beta'; }
+    out.verdict.textContent = text;
+    out.verdict.className = cls;
+  }
+
+  ids.forEach((id) => el[id].addEventListener('input', compute));
+  compute();
+</script>

@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import HomePage from '../components/HomePage.astro';
+import SyncHubPage from '../components/SyncHubPage.astro';
+import ZstdInspector from '../components/ZstdInspector.astro';
+import ContextBudget from '../components/ContextBudget.astro';
+import IndexDoctor from '../components/IndexDoctor.astro';
+import SkillAudit from '../components/SkillAudit.astro';
+import ReferencePage from '../components/ReferencePage.astro';
+import ComparePage from '../components/ComparePage.astro';
+import Related from '../components/Related.astro';
+import DeaiKit from '../components/DeaiKit.astro';
+import { COPY, SITE, pageList } from '../lib/content.mjs';
+
+export function getStaticPaths() {
+  return pageList().map((p) => ({
+    params: { slug: p.slug === '' ? undefined : p.slug },
+    props: { lang: p.lang, page: p.page, slug: p.slug },
+  }));
+}
+
+const { lang, page, slug } = Astro.props;
+const copy = COPY[lang];
+const t = copy[page];
+const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
+
+const faqLd = Array.isArray(t.faq)
+  ? {
+      '@type': 'FAQPage',
+      mainEntity: t.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    }
+  : null;
+
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: copy.nav.home, item: `${base}/${lang === 'zh' ? 'zh/' : ''}` },
+    ...(slug.includes('/') || page !== 'home'
+      ? [{ '@type': 'ListItem', position: 2, name: t.h1 ?? SITE.name, item: `${base}/${slug}/` }]
+      : []),
+  ],
+};
+
+const software = {
+  '@type': page === 'syncHub' ? 'SoftwareApplication' : 'WebApplication',
+  name: page === 'syncHub' ? 'DSH Sync Hub' : t.h1,
+  url: `${base}/${slug}/`,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Windows, macOS, Linux, Android',
+  description: t.desc,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  isAccessibleForFree: true,
+  inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+  ...(page === 'syncHub'
+    ? { softwareVersion: '0.1.0', license: 'https://opensource.org/licenses/MIT' }
+    : { browserRequirements: 'Requires JavaScript. Runs entirely client-side.' }),
+};
+
+const jsonLd = [software, faqLd, breadcrumb].filter(Boolean);
+
+// page → 内容 id，用于内链与 Related
+const CONTENT_ID = {
+  home: null,
+  syncHub: 'sync-hub',
+  zstd: 'zstd-frame-inspector',
+  budget: 'context-budget',
+  doctor: 'session-index-doctor',
+  skills: 'skill-load-audit',
+  reference: 'reference',
+  compare: 'compare',
+};
+const contentId = CONTENT_ID[page];
+---
+<Base title={t.title} description={t.desc} lang={lang} slug={slug} jsonLd={jsonLd}>
+  {page === 'home' && <HomePage lang={lang} />}
+  {page === 'syncHub' && <SyncHubPage lang={lang} />}
+  {page === 'zstd' && <ZstdInspector lang={lang} />}
+  {page === 'budget' && <ContextBudget lang={lang} />}
+  {page === 'doctor' && <IndexDoctor lang={lang} />}
+  {page === 'skills' && <SkillAudit lang={lang} />}
+  {page === 'reference' && <ReferencePage lang={lang} />}
+  {page === 'compare' && <ComparePage lang={lang} />}
+  {page === 'kit' && <DeaiKit lang={lang} />}
+  {contentId && page !== 'syncHub' && <Related lang={lang} current={contentId} />}
+</Base>

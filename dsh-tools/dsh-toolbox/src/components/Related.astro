@@ -1,0 +1,33 @@
+---
+import { COPY, TOOLS } from '../lib/content.mjs';
+const { lang, current } = Astro.props;
+const t = COPY[lang].related;
+const prefix = lang === 'zh' ? '/zh' : '';
+const ids = t.items[current] ?? [];
+
+const label = (id) => {
+  const tool = TOOLS.find((x) => x.slug === id);
+  if (tool) return tool.name;
+  if (id === 'reference') return lang === 'zh' ? '存储结构参考' : 'Storage reference';
+  if (id === 'compare') return lang === 'zh' ? '方案对比' : 'Comparison';
+  return id;
+};
+
+const href = (id) => {
+  if (id === 'reference') return `${prefix}/reference/`;
+  if (id === 'compare') return `${prefix}/compare/sync-hub-vs-plugins/`;
+  if (id === 'sync-hub') return `${prefix}/sync-hub/`;
+  return `${prefix}/tools/${id}/`;
+};
+---
+<section class="related">
+  <h2>{t.h}</h2>
+  <div class="grid">
+    {ids.map((id) => (
+      <a class="card" href={href(id)}>
+        <div class="head"><code>{id}</code></div>
+        <h3>{label(id)}</h3>
+      </a>
+    ))}
+  </div>
+</section>

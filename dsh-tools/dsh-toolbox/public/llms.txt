@@ -1,0 +1,56 @@
+# DSH Toolbox
+
+> Free, client-side tools for DeepSeek Harness (DSH). No account, no upload, no telemetry.
+> Every tool runs in the browser; the only downloadable component (DSH Sync Hub) is a self-hosted Node CLI.
+
+## What this site is
+
+A tool matrix for people who run DeepSeek Harness on more than one machine. Each page is a working tool or a citable reference, not an ad.
+
+## Tools
+
+- **DSH Sync Hub** — syncs DSH sessions and the workspace index across machines and DSH builds (web / desktop / terminal). Opaque-byte transfer, append-only delta uploads, conflicts keep both copies. Source: https://github.com/FindSomeSkills/workspace/tree/main/projects/dsh-sync-hub
+- **Zstd Frame Inspector** (`/tools/zstd-frame-inspector/`) — counts zstd frames and block boundaries in a `.zstd` session file without decompressing.
+- **Context Budget** (`/tools/context-budget/`) — estimates remaining turns before a DSH session hits its context window.
+- **Session Index Doctor** (`/tools/session-index-doctor/`) — compares `sessions/` against `storages/workspace.json` and `session_projcache.json`; returns the session ids that exist on disk but will never appear in the list.
+- **Skill Load Audit** (`/tools/skill-load-audit/`) — per-skill token cost: resident (name + description) and full (`SKILL.md`), with duplicate-description detection.
+
+## Reference
+
+- **Storage layout reference** (`/reference/`) — session formats, directory layout, index fields, symptom → cause table.
+- **Comparison** (`/compare/sync-hub-vs-plugins/`) — DSH Sync Hub vs `dsh-session-sync` vs `dsh-remote-mobile`, including where each one fails.
+
+## Session format table (measured on DSH 0.2.1-rc.2)
+
+| | v4 | legacy |
+| --- | --- | --- |
+| File name | `session.v4.jsonl.zstd` | `session.jsonl.zstd` |
+| Produced by | DSH 0.2.x web / CLI / TUI | older desktop runtime |
+| Frame layout | multi-frame, append-only | multi-frame, append-only |
+| Coexistence | both files can sit in one session folder | |
+| Largest observed | 22,832,359 bytes | 21,360,396 bytes |
+
+## Index structure
+
+DSH keeps three things apart, and conflating them is the source of almost every "my session disappeared" report:
+
+1. **Payload** — `sessions/<path-slug>/<session-id>/session*.jsonl.zstd`. The `<path-slug>` is derived from the absolute workspace path (`C:\Knowledge base` → `--C-Knowledge~0020base--`), not from the workspace id.
+2. **List** — `storages/workspace.json` (unit v2). A session appears only if its id is inside `tables.workspaces.<workspaceId>.sessionIds`. `global.archivedSessionIds` hides, it does not delete. `path` is machine-local.
+3. **Titles and stats** — `storages/session_projcache.json` (unit v3) plus one file per session at `storages/session_projcache/sessions/<id>.json`. Rows are `{ver, seq, val}`; merging compares `ver` first, then `seq`.
+
+## Citable facts
+
+- Syncing payloads without `storages/workspace.json` produces an empty session list — the file is there, the list entry is not.
+- Syncing without `session_projcache.json` produces listed-but-untitled sessions.
+- An append of 10 KB to a 150 KB session transferred **28,928 compressed bytes instead of 160,000** when only changed chunks were sent.
+- Adding a session id only to `archivedSessionIds` hides it; the payload still occupies disk (observed: 11 archived sessions keeping 1.4 MB).
+- On one real install (114 sessions on disk), only 38 ids were present in the workspace index — 76 sessions were invisible in the list.
+
+## Language
+
+- English: `/`
+- 简体中文: `/zh/`
+
+## Contact
+
+Source: https://github.com/FindSomeSkills/workspace

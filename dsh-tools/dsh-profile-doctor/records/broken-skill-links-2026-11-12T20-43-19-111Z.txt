@@ -1,0 +1,21 @@
+清理时间：2026-11-12T20:43:19.112Z
+目录：C:\Users\LIUY\.dsh\skills
+断链数量：14
+
+这些是链接本身，目标早就不在了。删除只移除链接，不触碰任何目录内容。
+要恢复：按下面的 target 重新建链接，或把目标目录找回来。
+
+brainstorming	-> C:\Knowledge base\06-Skills\superpowers\brainstorming
+executing-plans	-> C:\Knowledge base\06-Skills\superpowers\executing-plans
+frontend-design	-> C:\Knowledge base\06-Skills\frontend-design
+receiving-code-review	-> C:\Knowledge base\06-Skills\superpowers\receiving-code-review
+requesting-code-review	-> C:\Knowledge base\06-Skills\superpowers\requesting-code-review
+spec	-> C:\Knowledge base\06-Skills\spec
+subagent-driven-development	-> C:\Knowledge base\06-Skills\superpowers\subagent-driven-development
+systematic-debugging	-> C:\Knowledge base\06-Skills\superpowers\systematic-debugging
+tdd	-> C:\Knowledge base\06-Skills\mattpocock-skills\tdd
+using-git-worktrees	-> C:\Knowledge base\06-Skills\superpowers\using-git-worktrees
+verification-before-completion	-> C:\Knowledge base\06-Skills\superpowers\verification-before-completion
+writing-for-agents	-> C:\Knowledge base\06-Skills\mattpocock-skills\writing-for-agents
+writing-plans	-> C:\Knowledge base\06-Skills\superpowers\writing-plans
+writing-skills	-> C:\Knowledge base\06-Skills\superpowers\writing-skills

@@ -1,0 +1,160 @@
+---
+import { COPY } from '../lib/content.mjs';
+const { lang } = Astro.props;
+const t = COPY[lang].skills;
+const demoLabel = lang === 'zh' ? '试用示例数据' : 'Try sample data';
+---
+<h1>{t.h1}</h1>
+<p class="lede">{t.lede}</p>
+
+<label id="dirDrop" class="toolbar" for="dir" style="display:block;cursor:pointer">
+  <strong>{t.pick}</strong>
+  <p>{t.hint}</p>
+  <input id="dir" type="file" webkitdirectory multiple class="sr-only" />
+</label>
+
+<p style="margin: 12px 0 0"><button id="demo" type="button">{demoLabel}</button></p>
+
+<div id="err" class="err" hidden></div>
+<p id="verdict" class="note" hidden></p>
+
+<section id="out" hidden>
+  <div class="kpis">
+    <div class="kpi"><div class="k">{t.kpis.skills}</div><div class="v" id="kSkills">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.bytes}</div><div class="v" id="kBytes">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.resident}</div><div class="v" id="kResident">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.full}</div><div class="v" id="kFull">—</div></div>
+    <div class="kpi"><div class="k">{t.kpis.duplicates}</div><div class="v" id="kDup">—</div></div>
+  </div>
+
+  <h2>{t.tableH}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>{t.cols[0]}</th>
+        <th class="num">{t.cols[1]}</th>
+        <th class="num">{t.cols[2]}</th>
+        <th class="num">{t.cols[3]}</th>
+        <th class="num">{t.cols[4]}</th>
+      </tr>
+    </thead>
+    <tbody id="rows">
+      <tr><td colspan="5" style="color:var(--muted)">—</td></tr>
+    </tbody>
+  </table>
+
+  <h2>{t.findingsH}</h2>
+  <div id="findings"></div>
+  <p class="note">{t.note}</p>
+</section>
+
+<p id="empty" class="note">{t.empty}</p>
+
+<script>
+  import { auditSkills } from '../lib/skill-audit.mjs';
+  import { sampleSkillFiles } from '../lib/samples.mjs';
+
+  const input = document.getElementById('dir');
+  const errBox = document.getElementById('err');
+  const out = document.getElementById('out');
+  const empty = document.getElementById('empty');
+  const rowsBox = document.getElementById('rows');
+  const findingsBox = document.getElementById('findings');
+  const zh = document.documentElement.lang.startsWith('zh');
+  const COPY_NODE = document.getElementById('skills-copy');
+  const L = COPY_NODE ? JSON.parse(COPY_NODE.textContent) : { findings: {} };
+  const MAX_FILES = 400;
+
+  const fmt = (n) => {
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1024 / 1024).toFixed(2) + ' MB';
+  };
+  const nf = (n) => n.toLocaleString();
+
+  function findingRow(label, items) {
+    if (!items || !items.length) return '';
+    return `<p style="margin:12px 0 0"><strong>${label}</strong> <span class="pill beta">${items.length}</span><br>
+      <span style="font-size:13px;color:var(--muted)">${items.slice(0, 12).join(' · ')}${items.length > 12 ? ' …' : ''}</span></p>`;
+  }
+
+  async function run(fileList, preloaded) {
+    errBox.hidden = true;
+    const skills = preloaded ? preloaded.slice() : [];
+    if (!preloaded) {
+      for (const file of fileList) {
+        if (skills.length >= MAX_FILES) break;
+        const path = (file.webkitRelativePath || file.name || '').replace(/\\/g, '/');
+        if (!/\/SKILL\.md$/i.test(path) && !/^SKILL\.md$/i.test(path)) continue;
+        skills.push({ path, text: await file.text() });
+      }
+    }
+    if (!skills.length) {
+      errBox.hidden = false;
+      errBox.textContent = zh
+        ? '没找到 SKILL.md —— 请选择技能根目录（例如 ~/.dsh/skills）'
+        : 'No SKILL.md found — pick a skills root such as ~/.dsh/skills';
+      return;
+    }
+
+    const audit = auditSkills(skills);
+    const s = audit.summary;
+
+    const verdict = document.getElementById('verdict');
+    const top = audit.rows[0];
+    verdict.hidden = false;
+    verdict.textContent = zh
+      ? `${s.skills} 个技能：常驻 ${nf(s.tokensResident)} tokens，全量 ${nf(s.tokensFull)} tokens；最大的是 ${top ? top.dir : '-'}，占 ${top ? (top.share * 100).toFixed(0) : 0}%。`
+      : `${s.skills} skills: ${nf(s.tokensResident)} resident tokens, ${nf(s.tokensFull)} full; the largest is ${top ? top.dir : '-'} at ${top ? (top.share * 100).toFixed(0) : 0}%.`;
+
+    document.getElementById('kSkills').textContent = String(s.skills);
+    document.getElementById('kBytes').textContent = fmt(s.bytes);
+    document.getElementById('kResident').textContent = nf(s.tokensResident);
+    document.getElementById('kFull').textContent = nf(s.tokensFull);
+    document.getElementById('kDup').textContent = String(s.duplicatedDescriptions);
+
+    rowsBox.innerHTML = audit.rows
+      .map((row) => {
+        const share = (row.share * 100).toFixed(1);
+        return `<tr>
+          <td><code>${row.dir}</code></td>
+          <td class="num">${row.descriptionLength}</td>
+          <td class="num">${fmt(row.bytes)}</td>
+          <td class="num">${nf(row.tokensFull)}</td>
+          <td class="num">${share}%<div class="bar" style="margin-top:8px"><span style="width:${Math.min(100, row.share * 100)}%"></span></div></td>
+        </tr>`;
+      })
+      .join('');
+
+    const f = audit.findings;
+    const blocks = [
+      findingRow(L.findings.duplicated, f.duplicated.map((d) => d.names.join(' = '))),
+      findingRow(L.findings.noFrontmatter, f.noFrontmatter),
+      findingRow(L.findings.noDescription, f.noDescription),
+      findingRow(L.findings.longDescription, f.longDescription),
+    ].filter(Boolean);
+    findingsBox.innerHTML = blocks.length ? blocks.join('') : `<p class="note">${L.findings.none}</p>`;
+
+    empty.hidden = true;
+    out.hidden = false;
+  }
+
+  input.addEventListener('change', (e) => {
+    const files = e.target.files;
+    if (files && files.length) run(files);
+  });
+
+  const markSample = () => {
+    const v = document.getElementById('verdict');
+    if (!v.hidden) v.textContent = (zh ? '［示例数据］' : '[sample data] ') + v.textContent;
+  };
+
+  document.getElementById('demo').addEventListener('click', async () => {
+    await run(null, sampleSkillFiles());
+    markSample();
+  });
+
+  if (new URLSearchParams(location.search).get('demo') === '1') document.getElementById('demo').click();
+</script>
+
+<script type="application/json" id="skills-copy" set:html={JSON.stringify({ findings: t.findings })}></script>
