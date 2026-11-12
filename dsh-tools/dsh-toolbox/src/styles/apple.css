@@ -176,3 +176,15 @@ section + section { margin-top: 48px; }
   .panel.ok h3 { color: #4da3ff; }
   .card .demo, .card a { color: var(--accent); }
 }
+/* ---------- 深色模式收口：材质、状态胶囊、卡片标题 ---------- */
+@media (prefers-color-scheme: dark) {
+  .kit-strip { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.12); }
+  .pill.ok { background: rgba(52, 199, 89, 0.16); border-color: rgba(52, 199, 89, 0.4); color: #7ee787; }
+  .pill.beta { background: rgba(255, 159, 10, 0.16); border-color: rgba(255, 159, 10, 0.4); color: #ffb74d; }
+  th { color: rgba(245, 245, 247, 0.6); }
+  input[type='text'], textarea { background: #1c1c1e; }
+}
+
+/* 卡片标题保持前景色，蓝色只留给动作 */
+.card h3 a, .card h3, .grid > * h3 a { color: var(--fg); }
+.card h3 a:hover { color: var(--accent); }
