@@ -3,7 +3,7 @@ import { TOOLS, COPY } from '../lib/content.mjs';
 const { lang } = Astro.props;
 const t = COPY[lang].home;
 const extra = COPY[lang].homeExtra;
-const prefix = lang === 'zh' ? '/zh' : '/';
+const prefix = lang === 'zh' ? '/zh/' : '/';
 const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${prefix}tools/${slug}/`);
 ---
 <h1>{t.h1}</h1>
@@ -47,5 +47,5 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
 ))}
 
 <p style="margin-top:28px">
-  <a class="pill ok" href={`${prefix}sync-hub/`}>{t.cta} →</a>
+  <a class="cta" href={`${prefix}sync-hub/`}>{t.cta} →</a>
 </p>
