@@ -38,6 +38,28 @@
       "autofix": null
     },
     {
+      "id": "UI-003",
+      "title": "内容表面玻璃拟态",
+      "title_en": "Glassmorphism on content surfaces",
+      "object": "css",
+      "severity": "warn",
+      "defaultOn": true,
+      "source": "unslop signs §Surfaces and color（2026-11-13 修订：只禁内容表面）",
+      "predicate": {
+        "type": "backdrop_blur",
+        "allowSelectors": [
+          "(^|,|\\\\s)(header|nav|dialog|\\\\.modal|\\\\.overlay|\\\\.backdrop|\\\\.sheet|\\\\.drawer|\\\\.scrim)(\\\\s|\\$|,|\\\\.|#|:)"
+        ],
+        "allowPosition": [
+          "fixed",
+          "sticky"
+        ]
+      },
+      "fix": "模糊留给固定导航和全屏遮罩。卡片、面板、代码块这些内容表面用半透明底色就够，别再糊一层 blur——背后的内容本来就该看得清。",
+      "fix_en": "Keep blur for fixed navigation and full-screen overlays. Content surfaces use a translucent fill; the text behind them should stay readable.",
+      "autofix": null
+    },
+    {
       "id": "UI-004",
       "title": "发光阴影",
       "title_en": "Glowing shadow",

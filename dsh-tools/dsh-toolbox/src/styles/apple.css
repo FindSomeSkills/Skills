@@ -148,8 +148,6 @@ input[type='text']:focus, textarea:focus { outline: none; border-color: var(--ac
   border-left: 1px solid var(--hairline);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.72);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  backdrop-filter: blur(12px) saturate(160%);
   box-shadow: var(--shadow-rest);
 }
 .kit-strip a { font-size: 15px; color: var(--accent); text-decoration: none; }
@@ -217,8 +215,6 @@ body {
 
 .card, .grid > a, .grid > article, .grid > div {
   background: rgba(255, 255, 255, 0.66);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
 }
@@ -231,8 +227,6 @@ body {
 /* 表格与代码块也走同一套材质，避免一页三种表面 */
 pre, .finding {
   background: rgba(255, 255, 255, 0.7);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  backdrop-filter: blur(16px) saturate(160%);
   border-color: rgba(255, 255, 255, 0.7);
 }
 

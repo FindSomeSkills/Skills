@@ -129,8 +129,20 @@ export function runUiRules(file: string, src: string, opts: UiScanOptions = {}):
     }
 
     if (p.type === 'backdrop_blur') {
-      for (const m of src.matchAll(/backdrop-filter\s*:\s*[^;}]*blur\(/gi)) {
-        push(rule, lineOf(src, m.index ?? 0), '玻璃拟态（backdrop-filter: blur）', m[0]);
+      // 模糊是材质语言的一部分，只禁内容表面。固定导航与全屏遮罩放行。
+      // 判定依据：所在 CSS 块的选择器命中白名单，或该块自身是 position: fixed/sticky。
+      const allowSel = (p.allowSelectors as string[] | undefined) ?? [];
+      const allowPos = (p.allowPosition as string[] | undefined) ?? [];
+      for (const block of src.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+        const selector = (block[1] ?? '').trim();
+        const body = block[2] ?? '';
+        const decl = /backdrop-filter\s*:\s*[^;}]*blur\(/i.exec(body);
+        if (!decl) continue;
+        const bySelector = allowSel.some((pattern) => new RegExp(pattern, 'i').test(selector));
+        const byPosition = allowPos.some((position) => new RegExp(`position\\s*:\\s*${position}`, 'i').test(body));
+        if (bySelector || byPosition) continue;
+        const at = (block.index ?? 0) + (selector.length + 1) + (decl.index ?? 0);
+        push(rule, lineOf(src, at), `内容表面用玻璃拟态：${selector || '未命名选择器'}`, decl[0].trim());
       }
     }
 

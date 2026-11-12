@@ -1,6 +1,18 @@
 // UI 规则的正例与反例。bad 必须命中且只命中 expect；good 必须零命中。
 export const uiCases = [
   {
+    name: 'UI-003 卡片上糊玻璃',
+    file: 'c.css',
+    expect: ['UI-003'],
+    src: '.card { background: rgba(255,255,255,.6); backdrop-filter: blur(20px); }',
+  },
+  {
+    name: 'GOOD 固定导航用模糊',
+    file: 'c2.css',
+    expect: [],
+    src: 'header.site { position: sticky; top: 0; backdrop-filter: blur(20px) saturate(180%); }',
+  },
+  {
     name: 'UI-001 紫蓝渐变',
     file: 'a.css',
     expect: ['UI-001'],

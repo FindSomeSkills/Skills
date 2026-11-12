@@ -252,7 +252,18 @@ export function checkUi(src, { strict = false, name = 'input' } = {}) {
     } else if (p.type === 'gradient_text') {
       for (const m of src.matchAll(/(?:-webkit-)?background-clip\s*:\s*text/gi)) push(rule, lineOf(src, m.index ?? 0), '渐变文字（background-clip: text）', m[0]);
     } else if (p.type === 'backdrop_blur') {
-      for (const m of src.matchAll(/backdrop-filter\s*:\s*[^;}]*blur\(/gi)) push(rule, lineOf(src, m.index ?? 0), '玻璃拟态（backdrop-filter: blur）', m[0]);
+      const allowSel = p.allowSelectors ?? [];
+      const allowPos = p.allowPosition ?? [];
+      for (const block of src.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+        const selector = (block[1] ?? '').trim();
+        const body = block[2] ?? '';
+        const decl = /backdrop-filter\s*:\s*[^;}]*blur\(/i.exec(body);
+        if (!decl) continue;
+        const bySelector = allowSel.some((pattern) => new RegExp(pattern, 'i').test(selector));
+        const byPosition = allowPos.some((position) => new RegExp(`position\\s*:\\s*${position}`, 'i').test(body));
+        if (bySelector || byPosition) continue;
+        push(rule, lineOf(src, (block.index ?? 0) + selector.length + 1 + (decl.index ?? 0)), `内容表面用玻璃拟态：${selector || '未命名选择器'}`, decl[0].trim());
+      }
     } else if (p.type === 'shadow_glow') {
       for (const m of src.matchAll(/box-shadow\s*:\s*([^;}]+)/gi)) {
         const before = m[1].split(/rgba?\(|#[0-9a-f]/i)[0];

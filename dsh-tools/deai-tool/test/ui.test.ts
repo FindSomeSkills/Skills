@@ -15,7 +15,7 @@ for (const c of uiCases) {
 }
 
 test('UI 规则元数据完整', () => {
-  assert.equal(rules.length, 7);
+  assert.equal(rules.length, 8);
   for (const r of rules) {
     assert.match(r.id, /^UI-\d{3}$/);
     assert.ok(r.source.startsWith('unslop'), `${r.id} 来源应指向 unslop 清单`);
