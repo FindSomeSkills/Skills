@@ -62,9 +62,16 @@ export const PURGE = {
 
 export const ERRORS = {
   en: {
-    title: 'DeepSeek Harness errors and what to run — messages, transport, EBADENGINE',
+    title: 'DeepSeek Harness error overview — five failures and the page for each',
     desc: 'Five failures people hit: transport failed, corepack missing, plugin incompatible with this dsh, EBADENGINE, and a host flag that refuses 0.0.0.0. Each with the cause and one command.',
     h1: 'DeepSeek Harness errors',
+    links: [
+      { label: 'deepseek messages transport failed', href: '/guides/errors/messages-transport-failed/', note: 'the request never finished' },
+      { label: 'zsh: command not found: corepack', href: '/guides/errors/corepack-command-not-found/', note: 'plugin installs stop here' },
+      { label: 'Plugin X is incompatible with dsh Y', href: '/guides/errors/plugin-incompatible/', note: 'range mismatch at boot' },
+      { label: 'EBADENGINE', href: '/guides/errors/ebadengine/', note: 'Node older than 24.9.0' },
+      { label: '--host refuses 0.0.0.0', href: '/guides/errors/host-wildcard-rejected/', note: 'wildcard bind address' },
+    ],
     cite: 'Most DSH failures are one of five: the transport to the model provider, a missing corepack, a plugin built for another dsh, an old Node, or a wildcard host flag.',
     lead: [
       'Each section is the message you saw, why it happens, and one command to run. No theories.',
@@ -119,9 +126,16 @@ export const ERRORS = {
     related: ['guides/install', 'guides/cli', 'plugins'],
   },
   zh: {
-    title: 'DSH 报错怎么修 — transport failed、corepack、插件不兼容、EBADENGINE',
+    title: 'DSH 报错总览 — 五种常见故障，各有一页',
     desc: '五个最常见的失败：模型请求 transport failed、找不到 corepack、插件和当前 dsh 不兼容、Node 版本太低、--host 拒绝 0.0.0.0。每条给原因和一条命令。',
     h1: 'DeepSeek Harness 报错对照',
+    links: [
+      { label: 'deepseek messages transport failed', href: '/zh/guides/errors/messages-transport-failed/', note: '请求没走完' },
+      { label: 'zsh: command not found: corepack', href: '/zh/guides/errors/corepack-command-not-found/', note: '插件装不上' },
+      { label: 'Plugin X is incompatible with dsh Y', href: '/zh/guides/errors/plugin-incompatible/', note: '启动时区间不匹配' },
+      { label: 'EBADENGINE', href: '/zh/guides/errors/ebadengine/', note: 'Node 低于 24.9.0' },
+      { label: '--host 拒绝 0.0.0.0', href: '/zh/guides/errors/host-wildcard-rejected/', note: '通配绑定地址' },
+    ],
     cite: 'DSH 起不来，九成是这五种：连模型的那条传输断了、corepack 没了、插件是给别的 dsh 版本写的、Node 太老、host 参数写了通配地址。',
     lead: ['每一节就是你看到的报错、为什么会这样、以及该跑的那一条命令。不猜。'],
     sections: [

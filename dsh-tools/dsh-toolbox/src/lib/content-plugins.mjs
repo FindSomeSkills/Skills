@@ -6,6 +6,9 @@ export const PLUGIN_INDEX = {
     title: 'DeepSeek Harness plugins — what ships and how to install one',
     desc: 'The dsh plugin model in one page: bundles vs seams, the install command, how versions are checked, and the 14 packages that make up a profile.',
     h1: 'DeepSeek Harness plugins',
+    links: [
+      { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '25 pairs that cannot share a profile, by what they fight over' },
+    ],
     cite: 'A dsh plugin is an npm package added to a profile; `dsh plugin --profile <name> add <package>` installs it and pnpm owns the rest.',
     lead: [
       'A profile is a stack of patch layers. `dsh-base` is the first layer every profile gets; `dsh-web-app` and `dsh-headless` add a surface on top of it. Everything else is a seam: a swap-in point for one capability, like the filesystem, the shell, or the sandbox.',
@@ -24,9 +27,12 @@ export const PLUGIN_INDEX = {
     related: ['guides/cli', 'guides/what-is-deepseek-harness', 'reference'],
   },
   zh: {
-    title: 'DeepSeek Harness 插件怎么装（官方 16 个 + 社区 29 个）',
+    title: 'DeepSeek Harness 插件怎么装（官方 16 个 + 社区 60 个）',
     desc: '一页讲清 dsh 的插件模型：bundle 与 seam 的区别、安装命令、版本怎么检查，以及组成一个 profile 的 14 个包。',
     h1: 'DeepSeek Harness 插件',
+    links: [
+      { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '25 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },
+    ],
     cite: 'dsh 的插件就是一个装进 profile 的 npm 包；`dsh plugin --profile <名字> add <包名>` 负责装，其余交给 pnpm。',
     lead: [
       'profile 是一摞补丁层。`dsh-base` 是每个 profile 的第一层，`dsh-web-app` 和 `dsh-headless` 在它上面加一个界面。剩下的都是 seam：某一项能力的可替换点，比如文件系统、shell、沙箱。',

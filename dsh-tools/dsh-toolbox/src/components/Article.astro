@@ -1,19 +1,30 @@
 ---
-// Guide / 对比页 / 插件页的统一渲染：标题、可引用结论块、正文分段、代码块、对照表、社区插件分组、FAQ、相关链接。
+// Guide / 对比页 / 插件页的统一渲染。
 import Faq from './Faq.astro';
 import { linkFor } from '../lib/links.mjs';
 import { inline } from '../lib/inline.mjs';
 
-const { data, lang, plugins = [], groups = [] } = Astro.props;
+const { data, lang, plugins = [], groups = [], siblings = [] } = Astro.props;
 const t = data;
 const related = (t.related ?? []).map((id) => ({ id, ...linkFor(id, lang) }));
 const pluginBase = linkFor('plugins', lang).href;
+
+// 冲突页的分组：items 带 a/b/symptom/keep/why
+const isPairGroup = (g) => Array.isArray(g.items) && g.items.length > 0 && 'symptom' in g.items[0];
+const isPluginGroup = (g) => Array.isArray(g.items) && g.items.length > 0 && 'pkg' in g.items[0];
+const allGroups = [...(t.groups ?? []), ...groups];
 ---
 <h1>{t.h1}</h1>
 
 <p class="answer" set:html={inline(t.cite)} />
 
 {(t.lead ?? []).map((p) => <p class="lede" set:html={inline(p)} />)}
+
+{t.links && (
+  <ul class="link-list">
+    {t.links.map((l) => <li><a href={l.href}>{l.label}</a> — {l.note}</li>)}
+  </ul>
+)}
 
 {t.table && (
   <div class="table-scroll">
@@ -51,20 +62,54 @@ const pluginBase = linkFor('plugins', lang).href;
   </section>
 )}
 
-{groups.map((g) => (
+{allGroups.map((g) => (
   <section>
-    <h2>{lang === 'zh' ? g.zh : g.en}</h2>
-    <ul class="link-list">
-      {g.items.map((pl) => (
-        <li>
-          <a href={`${pluginBase}${pl.owner}/${pl.slug}/`}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh.solves : pl.en.solves} <span class="pkg-version">{pl.version}</span>
-        </li>
-      ))}
-    </ul>
+    <h2 set:html={inline(g.h ?? (lang === 'zh' ? g.zh : g.en))} />
+    {isPairGroup(g) ? (
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>{lang === 'zh' ? '两个插件' : 'The pair'}</th>
+              <th>{lang === 'zh' ? '一起装会看到什么' : 'What you see'}</th>
+              <th>{lang === 'zh' ? '留哪个' : 'Keep'}</th>
+              <th>{lang === 'zh' ? '为什么' : 'Why'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <td><code>{it.a}</code><br /><code>{it.b}</code></td>
+                <td set:html={inline(it.symptom)} />
+                <td><code>{it.keep}</code></td>
+                <td set:html={inline(it.why)} />
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ) : isPluginGroup(g) ? (
+      <ul class="link-list">
+        {g.items.map((pl) => (
+          <li>
+            <a href={`${pluginBase}${pl.owner}/${pl.slug}/`}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh.solves : pl.en.solves} <span class="pkg-version">{pl.version}</span>
+          </li>
+        ))}
+      </ul>
+    ) : null}
   </section>
 ))}
 
 <Faq items={t.faq ?? []} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
+
+{siblings.length > 0 && (
+  <section class="related">
+    <h2>{lang === 'zh' ? '这几个报错' : 'The other four'}</h2>
+    <ul class="link-list">
+      {siblings.map((x) => <li><a href={x.href}>{x.label}</a></li>)}
+    </ul>
+  </section>
+)}
 
 {related.length > 0 && (
   <section class="related">

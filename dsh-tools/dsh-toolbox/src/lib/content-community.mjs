@@ -1,6 +1,7 @@
-// 第三方插件目录。每条的作者、版本、仓库、兼容区间都来自 npm registry 元数据。
+// 第三方插件目录。每条的作者、版本、仓库、兼容区间、peers 数量都来自 npm registry 元数据。
 import { CONFLICTS } from './content-community-conflicts.mjs';
 import { CONFLICTS_B2 } from './content-community-conflicts-b2.mjs';
+import { faqFor } from './community-faq.mjs';
 
 const ALL_CONFLICTS = { ...CONFLICTS, ...CONFLICTS_B2 };
 
@@ -98,6 +99,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/dsh-market/dsh-market",
     "npm": "https://www.npmjs.com/package/dshmarket",
     "compat": "",
+    "peers": 3,
     "install": "dsh plugin --profile web add dshmarket",
     "en": {
       "title": "dshmarket for DeepSeek Harness — Find and install plugins",
@@ -119,7 +121,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 3 official packages."
           ]
         },
         {
@@ -137,8 +139,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Browse and install community plugins without leaving the DSH web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -166,7 +168,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 3 official packages。"
           ]
         },
         {
@@ -184,8 +186,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 DSH 网页界面里浏览、搜索并安装社区插件，不用去 npm 手抄包名。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -204,6 +206,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/dshplugin/dsh-plugin-hub",
     "npm": "https://www.npmjs.com/package/dsh-plugin",
     "compat": "",
+    "peers": 1,
     "install": "dsh plugin --profile web add dsh-plugin",
     "en": {
       "title": "dsh-plugin for DeepSeek Harness — Find and install plugins",
@@ -225,7 +228,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 1 official packages."
           ]
         },
         {
@@ -243,8 +246,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A community plugin marketplace packaged as a DSH plugin."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -272,7 +275,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 1 official packages。"
           ]
         },
         {
@@ -290,8 +293,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把社区插件市场做成了一个 DSH 插件，装上就能在界面里翻。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -310,6 +313,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
     "npm": "https://www.npmjs.com/package/dsh-plugin-catalog",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-plugin-catalog",
     "en": {
       "title": "dsh-plugin-catalog for DeepSeek Harness — Find and install plugins",
@@ -349,8 +353,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A searchable catalog of DSH plugins, published as a plugin."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -396,8 +400,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把 DSH 插件目录打包成插件，装完可以按关键词查。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -416,6 +420,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Han-1413141/dsh-cost-meter",
     "npm": "https://www.npmjs.com/package/dsh-cost-meter",
     "compat": ">=0.2.0-rc.1 <0.3.0-0",
+    "peers": 2,
     "install": "dsh plugin --profile web add dsh-cost-meter",
     "en": {
       "title": "dsh-cost-meter for DeepSeek Harness — Cost and usage",
@@ -437,7 +442,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: 2 official packages."
           ]
         },
         {
@@ -455,8 +460,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Session cost and daily spend, with provider price tables."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -484,7 +489,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: 2 official packages。"
           ]
         },
         {
@@ -502,8 +507,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "统计本次会话花费与当日费用，按厂商价格表折算。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -522,6 +527,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget",
     "npm": "https://www.npmjs.com/package/dsh-whale-widget",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-whale-widget",
     "en": {
       "title": "dsh-whale-widget for DeepSeek Harness — Cost and usage",
@@ -561,8 +567,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A small DeepSeek balance widget docked in the DSH web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -608,8 +614,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在网页界面右下角挂一个余额小组件，顺带显示今日用量与峰谷价。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -628,6 +634,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/MichengAI/dsh-archive-manager",
     "npm": "https://www.npmjs.com/package/@michengai/dsh-archive-manager",
     "compat": ">=0.2.0-rc.1 <0.3.0-0",
+    "peers": 16,
     "install": "dsh plugin --profile web add @michengai/dsh-archive-manager",
     "en": {
       "title": "@michengai/dsh-archive-manager for DeepSeek Harness — Sessions and archives",
@@ -649,7 +656,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: 16 official packages."
           ]
         },
         {
@@ -667,8 +674,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Archive, restore, favorite and permanently delete sessions, plus damaged-log diagnosis."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -696,7 +703,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: 16 official packages。"
           ]
         },
         {
@@ -714,8 +721,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "归档、恢复、收藏、永久删除会话，并能诊断损坏的会话日志。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -734,6 +741,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/MYCF711/dsh-session-superagent",
     "npm": "https://www.npmjs.com/package/dsh-session-superagent",
     "compat": ">=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0",
+    "peers": 1,
     "install": "dsh plugin --profile web add dsh-session-superagent",
     "en": {
       "title": "dsh-session-superagent for DeepSeek Harness — Sessions and archives",
@@ -755,7 +763,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0. peers: none declared."
+            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0. peers: 1 official packages."
           ]
         },
         {
@@ -773,8 +781,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A session-level supervisor that watches a GitHub issue and keeps working."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -802,7 +810,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0。peers: none declared。"
+            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0。peers: 1 official packages。"
           ]
         },
         {
@@ -820,8 +828,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "会话级的看护 agent：盯着一个 GitHub issue，按状态继续干活。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -840,6 +848,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/MichengAI/dsh-skills-manager",
     "npm": "https://www.npmjs.com/package/@michengai/dsh-skills-manager",
     "compat": ">=0.2.0-rc.1 <0.3.0-0",
+    "peers": 9,
     "install": "dsh plugin --profile web add @michengai/dsh-skills-manager",
     "en": {
       "title": "@michengai/dsh-skills-manager for DeepSeek Harness — Skills",
@@ -861,7 +870,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: 9 official packages."
           ]
         },
         {
@@ -879,8 +888,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Load and manage local agent skills from one screen inside DSH."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -908,7 +917,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: 9 official packages。"
           ]
         },
         {
@@ -926,8 +935,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 DSH 里统一加载、管理本机 agent 技能，避免手改目录。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -946,6 +955,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/DDDMUC/dsh-free-search",
     "npm": "https://www.npmjs.com/package/dsh-free-search",
     "compat": "",
+    "peers": 7,
     "install": "dsh plugin --profile web add dsh-free-search",
     "en": {
       "title": "dsh-free-search for DeepSeek Harness — Web search",
@@ -967,7 +977,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 7 official packages."
           ]
         },
         {
@@ -985,8 +995,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Web search across many engines with no API key."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1014,7 +1024,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 7 official packages。"
           ]
         },
         {
@@ -1032,8 +1042,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "不需要 API key 的联网搜索，聚合多个搜索引擎。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1052,6 +1062,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/liustack/modsearch",
     "npm": "https://www.npmjs.com/package/@liustack/modsearch",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add @liustack/modsearch",
     "en": {
       "title": "@liustack/modsearch for DeepSeek Harness — Web search",
@@ -1091,8 +1102,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A free web-search plugin aimed at coding agents."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1138,8 +1149,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "面向编码 agent 的免费联网搜索插件。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1158,6 +1169,7 @@ export const COMMUNITY = [
     "repo": "https://gitcode.com/LLLAAAAA/dsh-dream-skin",
     "npm": "https://www.npmjs.com/package/dsh-dream-skin",
     "compat": "",
+    "peers": 7,
     "install": "dsh plugin --profile web add dsh-dream-skin",
     "en": {
       "title": "dsh-dream-skin for DeepSeek Harness — Looks and themes",
@@ -1179,7 +1191,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 7 official packages."
           ]
         },
         {
@@ -1197,8 +1209,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Swappable themes for the DSH web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1226,7 +1238,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 7 official packages。"
           ]
         },
         {
@@ -1244,8 +1256,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "给网页界面换肤，内置多套主题。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1264,6 +1276,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Nwflower/dsh-claude-style",
     "npm": "https://www.npmjs.com/package/dsh-claude-style",
     "compat": "",
+    "peers": 2,
     "install": "dsh plugin --profile web add dsh-claude-style",
     "en": {
       "title": "dsh-claude-style for DeepSeek Harness — Looks and themes",
@@ -1285,7 +1298,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 2 official packages."
           ]
         },
         {
@@ -1303,8 +1316,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A Claude Code desktop look for the DSH web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1332,7 +1345,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 2 official packages。"
           ]
         },
         {
@@ -1350,8 +1363,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把 DSH 网页界面做成 Claude Code 桌面版的观感。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1370,6 +1383,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/elysia395/dsh-wallpaper-engine",
     "npm": "https://www.npmjs.com/package/dsh-plugin-wallpaper-engine",
     "compat": "^0.2.0-rc.1",
+    "peers": 4,
     "install": "dsh plugin --profile web add dsh-plugin-wallpaper-engine",
     "en": {
       "title": "dsh-plugin-wallpaper-engine for DeepSeek Harness — Looks and themes",
@@ -1391,7 +1405,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `^0.2.0-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: ^0.2.0-rc.1. peers: none declared."
+            "engines.dsh: ^0.2.0-rc.1. peers: 4 official packages."
           ]
         },
         {
@@ -1409,8 +1423,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Wallpaper Engine backgrounds behind the DSH web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1438,7 +1452,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `^0.2.0-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: ^0.2.0-rc.1。peers: none declared。"
+            "engines.dsh: ^0.2.0-rc.1。peers: 4 official packages。"
           ]
         },
         {
@@ -1456,8 +1470,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把 Wallpaper Engine 的动态壁纸铺在网页界面背后。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1476,6 +1490,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/PC2005-cloud/dsh-pet",
     "npm": "https://www.npmjs.com/package/dsh-pet",
     "compat": "",
+    "peers": 10,
     "install": "dsh plugin --profile web add dsh-pet",
     "en": {
       "title": "dsh-pet for DeepSeek Harness — Looks and themes",
@@ -1497,7 +1512,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 10 official packages."
           ]
         },
         {
@@ -1515,8 +1530,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A desktop-pet companion that lives in the DSH UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1544,7 +1559,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 10 official packages。"
           ]
         },
         {
@@ -1562,8 +1577,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "养在界面里的小宠物，会自己玩、自己吃零食。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1582,6 +1597,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/yyh-001/dsh-meme",
     "npm": "https://www.npmjs.com/package/dsh-meme",
     "compat": "",
+    "peers": 1,
     "install": "dsh plugin --profile web add dsh-meme",
     "en": {
       "title": "dsh-meme for DeepSeek Harness — Looks and themes",
@@ -1603,7 +1619,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 1 official packages."
           ]
         },
         {
@@ -1621,8 +1637,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Send memes from the message box with an image library."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1650,7 +1666,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 1 official packages。"
           ]
         },
         {
@@ -1668,8 +1684,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "输入框一键发表情包，带图库与情绪筛选。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1688,6 +1704,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/NanmiCoder/dsh-agent-teams",
     "npm": "https://www.npmjs.com/package/@nanmicoder/dsh-agent-teams",
     "compat": ">=0.1.2-alpha.2",
+    "peers": 23,
     "install": "dsh plugin --profile web add @nanmicoder/dsh-agent-teams",
     "en": {
       "title": "@nanmicoder/dsh-agent-teams for DeepSeek Harness — Multiple agents",
@@ -1709,7 +1726,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.1.2-alpha.2`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.1.2-alpha.2. peers: none declared."
+            "engines.dsh: >=0.1.2-alpha.2. peers: 23 official packages."
           ]
         },
         {
@@ -1727,8 +1744,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Multi-agent teams that split one task across roles."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1756,7 +1773,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.1.2-alpha.2`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.1.2-alpha.2。peers: none declared。"
+            "engines.dsh: >=0.1.2-alpha.2。peers: 23 official packages。"
           ]
         },
         {
@@ -1774,8 +1791,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把一件事拆给多个 agent 角色分头做，再汇总。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1794,6 +1811,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare",
     "npm": "https://www.npmjs.com/package/dsh-agent-compare",
     "compat": ">=0.2.1-rc.3 <0.3.0-0",
+    "peers": 11,
     "install": "dsh plugin --profile web add dsh-agent-compare",
     "en": {
       "title": "dsh-agent-compare for DeepSeek Harness — Multiple agents",
@@ -1815,7 +1833,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.3 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0. peers: none declared."
+            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0. peers: 11 official packages."
           ]
         },
         {
@@ -1833,8 +1851,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Run the same request through several attempts and compare answers, files and pages."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1862,7 +1880,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.3 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0。peers: none declared。"
+            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0。peers: 11 official packages。"
           ]
         },
         {
@@ -1880,8 +1898,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "同一个需求跑 2–4 版，比较回答、文件与网页，再决定采用哪版。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -1900,6 +1918,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/WNLUO/dsh-mobile-plugin",
     "npm": "https://www.npmjs.com/package/dsh-mobile-plugin",
     "compat": ">=0.2.0",
+    "peers": 6,
     "install": "dsh plugin --profile web add dsh-mobile-plugin",
     "en": {
       "title": "dsh-mobile-plugin for DeepSeek Harness — Phone and remote access",
@@ -1921,7 +1940,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0. peers: none declared."
+            "engines.dsh: >=0.2.0. peers: 6 official packages."
           ]
         },
         {
@@ -1939,8 +1958,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A mobile API and relay client so a phone can drive DSH."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -1968,7 +1987,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0。peers: none declared。"
+            "engines.dsh: >=0.2.0。peers: 6 official packages。"
           ]
         },
         {
@@ -1986,8 +2005,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "给手机用的接口与中继客户端，让手机端能连上本机 DSH。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2006,6 +2025,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/flymysql/dsh-remote",
     "npm": "https://www.npmjs.com/package/dsh-remote",
     "compat": "",
+    "peers": 8,
     "install": "dsh plugin --profile web add dsh-remote",
     "en": {
       "title": "dsh-remote for DeepSeek Harness — Phone and remote access",
@@ -2027,7 +2047,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 8 official packages."
           ]
         },
         {
@@ -2045,8 +2065,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Remote SSH development on top of DSH, with an optional IDE launcher."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2074,7 +2094,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 8 official packages。"
           ]
         },
         {
@@ -2092,8 +2112,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 DSH 上做远程 SSH 开发，可选拉起 IDE。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2112,6 +2132,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/liguobao/ds-harness-remote",
     "npm": "https://www.npmjs.com/package/ds-harness-remote",
     "compat": "",
+    "peers": 12,
     "install": "dsh plugin --profile web add ds-harness-remote",
     "en": {
       "title": "ds-harness-remote for DeepSeek Harness — Phone and remote access",
@@ -2133,7 +2154,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 12 official packages."
           ]
         },
         {
@@ -2151,8 +2172,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Peer-to-peer, end-to-end encrypted remote access to DSH."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2180,7 +2201,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 12 official packages。"
           ]
         },
         {
@@ -2198,8 +2219,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "点对点、端到端加密地远程访问 DSH。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2218,6 +2239,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/xmanrui/dsh-im",
     "npm": "https://www.npmjs.com/package/@xmanrui/dsh-im",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add @xmanrui/dsh-im",
     "en": {
       "title": "@xmanrui/dsh-im for DeepSeek Harness — Phone and remote access",
@@ -2257,8 +2279,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Talk to DSH from WeChat, Feishu, DingTalk, QQ, Telegram, Slack and others."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2304,8 +2326,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把微信、飞书、企微、钉钉、QQ、Telegram、Slack 等接进 DSH。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2324,6 +2346,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/tencent-connect/dsh-qqbot",
     "npm": "https://www.npmjs.com/package/@tencent-connect/dsh-qqbot",
     "compat": "",
+    "peers": 6,
     "install": "dsh plugin --profile web add @tencent-connect/dsh-qqbot",
     "en": {
       "title": "@tencent-connect/dsh-qqbot for DeepSeek Harness — Phone and remote access",
@@ -2345,7 +2368,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 6 official packages."
           ]
         },
         {
@@ -2363,8 +2386,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Chat with DSH inside QQ private and group chats."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2392,7 +2415,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 6 official packages。"
           ]
         },
         {
@@ -2410,8 +2433,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 QQ 私聊和群里直接跟 DSH 对话。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2430,6 +2453,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/lhuans/dsh-genui",
     "npm": "https://www.npmjs.com/package/dsh-genui",
     "compat": "",
+    "peers": 5,
     "install": "dsh plugin --profile web add dsh-genui",
     "en": {
       "title": "dsh-genui for DeepSeek Harness — Rich output",
@@ -2451,7 +2475,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 5 official packages."
           ]
         },
         {
@@ -2469,8 +2493,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Interactive charts, forms and calculators in the conversation."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2498,7 +2522,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 5 official packages。"
           ]
         },
         {
@@ -2516,8 +2540,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在对话里生成可交互的图表、表单和计算器。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2536,6 +2560,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Fei2411/deep-view",
     "npm": "https://www.npmjs.com/package/deep-view",
     "compat": "",
+    "peers": 4,
     "install": "dsh plugin --profile web add deep-view",
     "en": {
       "title": "deep-view for DeepSeek Harness — Rich output",
@@ -2557,7 +2582,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 4 official packages."
           ]
         },
         {
@@ -2575,8 +2600,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Rich views — charts, tables, inputs — inside an answer."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2604,7 +2629,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 4 official packages。"
           ]
         },
         {
@@ -2622,8 +2647,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把回答里的内容渲染成图表、表格、输入框这类可交互视图。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2642,6 +2667,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/dream-num/dsh-univer-office",
     "npm": "https://www.npmjs.com/package/dsh-univer-office",
     "compat": "",
+    "peers": 9,
     "install": "dsh plugin --profile web add dsh-univer-office",
     "en": {
       "title": "dsh-univer-office for DeepSeek Harness — Rich output",
@@ -2663,7 +2689,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 9 official packages."
           ]
         },
         {
@@ -2681,8 +2707,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Spreadsheet and document editing inside DSH, backed by Univer."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2710,7 +2736,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 9 official packages。"
           ]
         },
         {
@@ -2728,8 +2754,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 DSH 里直接编辑表格与文档，底层是 Univer。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2748,6 +2774,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/T-Auto/dsh-ops",
     "npm": "https://www.npmjs.com/package/dsh-ops",
     "compat": ">=0.2.2-rc.1 <0.2.3-0",
+    "peers": 2,
     "install": "dsh plugin --profile web add dsh-ops",
     "en": {
       "title": "dsh-ops for DeepSeek Harness — System and terminal",
@@ -2769,7 +2796,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0. peers: none declared."
+            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0. peers: 2 official packages."
           ]
         },
         {
@@ -2787,8 +2814,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Native file and process tools for Windows and Linux."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2816,7 +2843,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0。peers: none declared。"
+            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0。peers: 2 official packages。"
           ]
         },
         {
@@ -2834,8 +2861,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "给 Windows 与 Linux 补上原生文件与进程操作工具。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2854,6 +2881,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/regrevia/dsh-unlag",
     "npm": "https://www.npmjs.com/package/dsh-unlag",
     "compat": ">=0.2.0-rc.1",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-unlag",
     "en": {
       "title": "dsh-unlag for DeepSeek Harness — System and terminal",
@@ -2893,8 +2921,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A reload button for the DSH desktop app, so plugin changes apply without restarting."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -2940,8 +2968,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "给 DSH 桌面端加一个刷新按钮，改完插件不用重启。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -2960,6 +2988,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/helloHub1212/dsh-windows-mcp",
     "npm": "https://www.npmjs.com/package/dsh-windows-mcp",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-windows-mcp",
     "en": {
       "title": "dsh-windows-mcp for DeepSeek Harness — System and terminal",
@@ -2999,8 +3028,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Windows desktop automation exposed to DSH as tools."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3046,8 +3075,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把 Windows 桌面自动化做成 DSH 能调用的工具。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3066,6 +3095,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/ccch1mneyyy/dsh-TUI",
     "npm": "https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui",
     "compat": "",
+    "peers": 38,
     "install": "dsh plugin --profile web add @deepseek-harness-tui/dsh-tui",
     "en": {
       "title": "@deepseek-harness-tui/dsh-tui for DeepSeek Harness — System and terminal",
@@ -3087,7 +3117,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: none declared."
+            "engines.dsh: not declared. peers: 38 official packages."
           ]
         },
         {
@@ -3105,8 +3135,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "An interactive terminal interface for DSH agents."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3134,7 +3164,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: none declared。"
+            "engines.dsh: not declared。peers: 38 official packages。"
           ]
         },
         {
@@ -3152,8 +3182,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "给 DSH agent 用的交互式终端界面。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3172,6 +3202,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Ultmebius/universal-plugin-hub",
     "npm": "https://www.npmjs.com/package/universal-plugin-hub",
     "compat": ">=0.1.5-rc.1",
+    "peers": 1,
     "install": "dsh plugin --profile web add universal-plugin-hub",
     "en": {
       "title": "universal-plugin-hub for DeepSeek Harness — Find and install plugins",
@@ -3193,7 +3224,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.1.5-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.1.5-rc.1. peers: @deepseek-ai/cordis official packages."
+            "engines.dsh: >=0.1.5-rc.1. peers: 1 official packages."
           ]
         },
         {
@@ -3211,8 +3242,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "One hub that manages Claude Code, Codex and DSH plugins, skills and MCP connectors together."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3240,7 +3271,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.1.5-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.1.5-rc.1。peers: @deepseek-ai/cordis official packages。"
+            "engines.dsh: >=0.1.5-rc.1。peers: 1 official packages。"
           ]
         },
         {
@@ -3258,8 +3289,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "一个入口同时管 Claude Code、Codex 与 DSH 的插件、技能和 MCP 连接器。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3278,6 +3309,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market",
     "npm": "https://www.npmjs.com/package/dsh-skill-mcp-market",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-skill-mcp-market",
     "en": {
       "title": "dsh-skill-mcp-market for DeepSeek Harness — Skills",
@@ -3299,7 +3331,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -3317,8 +3349,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Browse skill and MCP feeds and install SKILL.md or a connector without restarting."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3346,7 +3378,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -3364,8 +3396,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "浏览技能与 MCP 源，一键装 SKILL.md 或连接器，不用重启。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3384,6 +3416,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/xiechenghua01/dsh-plugins",
     "npm": "https://www.npmjs.com/package/@chengze/dsh-skill-manager",
     "compat": ">=0.2.1-rc.5 <0.3.0",
+    "peers": 0,
     "install": "dsh plugin --profile web add @chengze/dsh-skill-manager",
     "en": {
       "title": "@chengze/dsh-skill-manager for DeepSeek Harness — Skills",
@@ -3405,7 +3438,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.5 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.5 <0.3.0. peers:  official packages."
+            "engines.dsh: >=0.2.1-rc.5 <0.3.0. peers: none declared."
           ]
         },
         {
@@ -3423,8 +3456,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A sidebar panel that lists installed skills and turns each one on or off."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3452,7 +3485,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.5 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.5 <0.3.0。peers:  official packages。"
+            "engines.dsh: >=0.2.1-rc.5 <0.3.0。peers: none declared。"
           ]
         },
         {
@@ -3470,8 +3503,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "侧边栏面板列出已装技能，逐个开关。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3490,6 +3523,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/loyalchiiina/dsh-skill-browser",
     "npm": "https://www.npmjs.com/package/dsh-skill-browser",
     "compat": ">=0.1.7-rc.1",
+    "peers": 3,
     "install": "dsh plugin --profile web add dsh-skill-browser",
     "en": {
       "title": "dsh-skill-browser for DeepSeek Harness — Skills",
@@ -3511,7 +3545,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.1.7-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.1.7-rc.1. peers: @deepseek-ai/dsh,@deepseek-ai/cordis,@deepseek-ai/dsh-llm official packages."
+            "engines.dsh: >=0.1.7-rc.1. peers: 3 official packages."
           ]
         },
         {
@@ -3529,8 +3563,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A floating panel that turns the local skill folder into something searchable, with call ledgers and MCP management."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3558,7 +3592,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.1.7-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.1.7-rc.1。peers: @deepseek-ai/dsh,@deepseek-ai/cordis,@deepseek-ai/dsh-llm official packages。"
+            "engines.dsh: >=0.1.7-rc.1。peers: 3 official packages。"
           ]
         },
         {
@@ -3576,8 +3610,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "悬浮球打开面板，把本机技能库变成可检索资产，带调用台账与 MCP 管理。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3596,6 +3630,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/lmzhen/dsh-evolution",
     "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-all",
     "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "peers": 0,
     "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-all",
     "en": {
       "title": "@lmzhen/dsh-evolution-all for DeepSeek Harness — Scheduled automation",
@@ -3617,7 +3652,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.0 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers:  official packages."
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers: none declared."
           ]
         },
         {
@@ -3635,8 +3670,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A self-evolution bundle: host automation plus model-facing tools in one install."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3664,7 +3699,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.0 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers:  official packages。"
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers: none declared。"
           ]
         },
         {
@@ -3682,8 +3717,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "自进化套件：宿主自动化加模型侧工具，一次装齐。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3702,6 +3737,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/lmzhen/dsh-evolution",
     "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-skill-health",
     "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "peers": 1,
     "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-skill-health",
     "en": {
       "title": "@lmzhen/dsh-evolution-skill-health for DeepSeek Harness — Skills",
@@ -3723,7 +3759,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.0 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers: @deepseek-ai/cordis official packages."
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers: 1 official packages."
           ]
         },
         {
@@ -3741,8 +3777,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "The sidebar panel that shows what the skill linter found."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3770,7 +3806,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.0 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers: @deepseek-ai/cordis official packages。"
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers: 1 official packages。"
           ]
         },
         {
@@ -3788,8 +3824,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "侧边栏面板，显示技能体检的结果。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3808,6 +3844,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Sparrived/dsh-custom-theme",
     "npm": "https://www.npmjs.com/package/dsh-custom-theme",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-custom-theme",
     "en": {
       "title": "dsh-custom-theme for DeepSeek Harness — Looks and themes",
@@ -3829,7 +3866,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -3847,8 +3884,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "User-editable CSS themes and background images for the web UI and the desktop app."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3876,7 +3913,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -3894,8 +3931,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "可自己改的 CSS 主题与背景图，网页版和桌面版都能用。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -3914,6 +3951,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/VMWHW/dsh-exv-theme",
     "npm": "https://www.npmjs.com/package/dsh-exv-flat-corners",
     "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-exv-flat-corners",
     "en": {
       "title": "dsh-exv-flat-corners for DeepSeek Harness — Looks and themes",
@@ -3935,7 +3973,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers:  official packages."
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: none declared."
           ]
         },
         {
@@ -3953,8 +3991,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Removes every corner radius from the interface."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -3982,7 +4020,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers:  official packages。"
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: none declared。"
           ]
         },
         {
@@ -4000,8 +4038,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把界面里所有圆角去掉。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4020,6 +4058,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/rivenshanghai/dsh-toomuch-plugins",
     "npm": "https://www.npmjs.com/package/dsh-toomuch-plugins",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-toomuch-plugins",
     "en": {
       "title": "dsh-toomuch-plugins for DeepSeek Harness — Looks and themes",
@@ -4041,7 +4080,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -4059,8 +4098,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Collapses the growing list of global panel entries in the left sidebar into one row."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4088,7 +4127,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -4106,8 +4145,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把左侧栏越堆越长的全局面板收成一行。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4126,6 +4165,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/yusheng-g/aishell-dsh-plugins",
     "npm": "https://www.npmjs.com/package/@huaweidevtools/aishell-dsh-brand",
     "compat": "",
+    "peers": 2,
     "install": "dsh plugin --profile web add @huaweidevtools/aishell-dsh-brand",
     "en": {
       "title": "@huaweidevtools/aishell-dsh-brand for DeepSeek Harness — Looks and themes",
@@ -4147,7 +4187,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-system-prompt official packages."
+            "engines.dsh: not declared. peers: 2 official packages."
           ]
         },
         {
@@ -4165,8 +4205,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Replaces the sidebar and hero brand marks with AI Shell artwork."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4194,7 +4234,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-system-prompt official packages。"
+            "engines.dsh: not declared。peers: 2 official packages。"
           ]
         },
         {
@@ -4212,8 +4252,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把侧栏和首屏的品牌标识换成 AI Shell 的。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4232,6 +4272,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/fan56/dsh-llm-proxy",
     "npm": "https://www.npmjs.com/package/@aiwayds/dsh-llm-proxy",
     "compat": "",
+    "peers": 4,
     "install": "dsh plugin --profile web add @aiwayds/dsh-llm-proxy",
     "en": {
       "title": "@aiwayds/dsh-llm-proxy for DeepSeek Harness — Network and proxy",
@@ -4253,7 +4294,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-skill,@deepseek-ai/schemastery,@deepseek-ai/dsh-settings official packages."
+            "engines.dsh: not declared. peers: 4 official packages."
           ]
         },
         {
@@ -4271,8 +4312,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A system proxy plus a traffic-splitting proxy for model calls, so one host can route several providers."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4300,7 +4341,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-skill,@deepseek-ai/schemastery,@deepseek-ai/dsh-settings official packages。"
+            "engines.dsh: not declared。peers: 4 official packages。"
           ]
         },
         {
@@ -4318,8 +4359,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "系统代理加模型流量分流代理，一台机器上给多个服务商分路。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4338,6 +4379,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/SouleyMoni1/dsh-tool-database",
     "npm": "https://www.npmjs.com/package/dsh-tool-database",
     "compat": "",
+    "peers": 2,
     "install": "dsh plugin --profile web add dsh-tool-database",
     "en": {
       "title": "dsh-tool-database for DeepSeek Harness — Databases and assets",
@@ -4359,7 +4401,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools official packages."
+            "engines.dsh: not declared. peers: 2 official packages."
           ]
         },
         {
@@ -4377,8 +4419,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Query SQL Server, PostgreSQL and MySQL from the agent through native drivers."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4406,7 +4448,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools official packages。"
+            "engines.dsh: not declared。peers: 2 official packages。"
           ]
         },
         {
@@ -4424,8 +4466,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "让 agent 通过原生驱动查 SQL Server、PostgreSQL、MySQL。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4444,6 +4486,7 @@ export const COMMUNITY = [
     "repo": "https://gitee.com/iJetLi/deepseek-harness-codearts",
     "npm": "https://www.npmjs.com/package/dsh-providers-hub",
     "compat": "",
+    "peers": 5,
     "install": "dsh plugin --profile web add dsh-providers-hub",
     "en": {
       "title": "dsh-providers-hub for DeepSeek Harness — Model providers",
@@ -4465,7 +4508,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/schemastery,@deepseek-ai/dsh-commands,@deepseek-ai/dsh-credentials official packages."
+            "engines.dsh: not declared. peers: 5 official packages."
           ]
         },
         {
@@ -4483,8 +4526,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "One hub for coding providers: account login, multiple accounts, and switching between them."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4512,7 +4555,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/schemastery,@deepseek-ai/dsh-commands,@deepseek-ai/dsh-credentials official packages。"
+            "engines.dsh: not declared。peers: 5 official packages。"
           ]
         },
         {
@@ -4530,8 +4573,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "一个入口管编码服务商：登录、多账号、来回切。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4550,6 +4593,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/weicy98/dsh-permission-remote",
     "npm": "https://www.npmjs.com/package/dsh-permission-remote",
     "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": 12,
     "install": "dsh plugin --profile web add dsh-permission-remote",
     "en": {
       "title": "dsh-permission-remote for DeepSeek Harness — Phone and remote access",
@@ -4571,7 +4615,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/cosmokit,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery,@deepseek-ai/dsh-fs-patch,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-credentials,@deepseek-ai/dsh-atomic-write,@deepseek-ai/dsh-typert-protocol official packages."
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: 12 official packages."
           ]
         },
         {
@@ -4589,8 +4633,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "SSH remote workspaces that reuse the session sandbox mode and the approval flow."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4618,7 +4662,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/cosmokit,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery,@deepseek-ai/dsh-fs-patch,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-credentials,@deepseek-ai/dsh-atomic-write,@deepseek-ai/dsh-typert-protocol official packages。"
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: 12 official packages。"
           ]
         },
         {
@@ -4636,8 +4680,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "SSH 远程工作区，沿用会话的沙箱模式与审批流程。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4656,6 +4700,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/voltage12/dsh-simple-worktree",
     "npm": "https://www.npmjs.com/package/@voltage12/dsh-simple-worktree",
     "compat": ">=0.2.1-rc.2 <0.3.0",
+    "peers": 0,
     "install": "dsh plugin --profile web add @voltage12/dsh-simple-worktree",
     "en": {
       "title": "@voltage12/dsh-simple-worktree for DeepSeek Harness — Git and IDE",
@@ -4677,7 +4722,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.2 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.2 <0.3.0. peers:  official packages."
+            "engines.dsh: >=0.2.1-rc.2 <0.3.0. peers: none declared."
           ]
         },
         {
@@ -4695,8 +4740,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Create and remove git worktrees from the conversation."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4724,7 +4769,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.2 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.2 <0.3.0。peers:  official packages。"
+            "engines.dsh: >=0.2.1-rc.2 <0.3.0。peers: none declared。"
           ]
         },
         {
@@ -4742,8 +4787,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在对话里创建和删除 git worktree。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4762,6 +4807,7 @@ export const COMMUNITY = [
     "repo": "https://gitee.com/fengzhaoy/dsh-web-ide",
     "npm": "https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide",
     "compat": ">=0.2.0-rc.2",
+    "peers": 0,
     "install": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide",
     "en": {
       "title": "@zhaoyang10/dsh-web-ide for DeepSeek Harness — Git and IDE",
@@ -4783,7 +4829,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.2`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.2. peers:  official packages."
+            "engines.dsh: >=0.2.0-rc.2. peers: none declared."
           ]
         },
         {
@@ -4801,8 +4847,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A VS Code-style read-only code tab in the web client."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4830,7 +4876,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.2`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.2。peers:  official packages。"
+            "engines.dsh: >=0.2.0-rc.2。peers: none declared。"
           ]
         },
         {
@@ -4848,8 +4894,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "网页端加一个 VS Code 风格的只读代码页。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4868,6 +4914,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/9Ashwin/dsh-computers",
     "npm": "https://www.npmjs.com/package/dsh-computers",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-computers",
     "en": {
       "title": "dsh-computers for DeepSeek Harness — Phone and remote access",
@@ -4889,7 +4936,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -4907,8 +4954,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Connect your own machines to a DSH deployment and run commands on them from the agent."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -4936,7 +4983,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -4954,8 +5001,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把自己其它机器接到 DSH 上，让 agent 在上面跑命令。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -4974,6 +5021,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/NoelJudeNoel/dshost-plugin",
     "npm": "https://www.npmjs.com/package/dshost-plugin",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dshost-plugin",
     "en": {
       "title": "dshost-plugin for DeepSeek Harness — Phone and remote access",
@@ -4995,7 +5043,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -5013,8 +5061,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A relay plugin that exposes the local web UI through a hosted endpoint."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5042,7 +5090,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -5060,8 +5108,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "中继插件，把本机网页界面通过托管端点暴露出去。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5080,6 +5128,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/alibaba-damo-academy/yugoo-design",
     "npm": "https://www.npmjs.com/package/@yugoo-design/dsh-design-panel",
     "compat": "",
+    "peers": 8,
     "install": "dsh plugin --profile web add @yugoo-design/dsh-design-panel",
     "en": {
       "title": "@yugoo-design/dsh-design-panel for DeepSeek Harness — Rich output",
@@ -5101,7 +5150,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-api-remotes,@deepseek-ai/dsh-client-ui-tool,@deepseek-ai/dsh-client-ui-slots,@deepseek-ai/dsh-typert-protocol,@deepseek-ai/dsh-client-ui-session,@deepseek-ai/dsh-api-session-controller,@deepseek-ai/dsh-client-ui-conversation official packages."
+            "engines.dsh: not declared. peers: 8 official packages."
           ]
         },
         {
@@ -5119,8 +5168,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Renders design files as editable panels inside the web UI."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5148,7 +5197,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-api-remotes,@deepseek-ai/dsh-client-ui-tool,@deepseek-ai/dsh-client-ui-slots,@deepseek-ai/dsh-typert-protocol,@deepseek-ai/dsh-client-ui-session,@deepseek-ai/dsh-api-session-controller,@deepseek-ai/dsh-client-ui-conversation official packages。"
+            "engines.dsh: not declared。peers: 8 official packages。"
           ]
         },
         {
@@ -5166,8 +5215,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把设计文件渲染成可编辑面板，直接在界面里改。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5186,6 +5235,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/xuanyuanchumo/dsh-codegraph-visualizer",
     "npm": "https://www.npmjs.com/package/dsh-codegraph-visualizer",
     "compat": ">=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0",
+    "peers": 4,
     "install": "dsh plugin --profile web add dsh-codegraph-visualizer",
     "en": {
       "title": "dsh-codegraph-visualizer for DeepSeek Harness — Rich output",
@@ -5207,7 +5257,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-tools,@deepseek-ai/schemastery official packages."
+            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0. peers: 4 official packages."
           ]
         },
         {
@@ -5225,8 +5275,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Turns code-graph data into an interactive map you can click through."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5254,7 +5304,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-tools,@deepseek-ai/schemastery official packages。"
+            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0。peers: 4 official packages。"
           ]
         },
         {
@@ -5272,8 +5322,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把代码图谱数据变成可点的交互图。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5292,6 +5342,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/mzzsfy/dsh-plugin",
     "npm": "https://www.npmjs.com/package/@mzzsfy/dsh-tool-gate",
     "compat": "",
+    "peers": 4,
     "install": "dsh plugin --profile web add @mzzsfy/dsh-tool-gate",
     "en": {
       "title": "@mzzsfy/dsh-tool-gate for DeepSeek Harness — System and terminal",
@@ -5313,7 +5364,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery official packages."
+            "engines.dsh: not declared. peers: 4 official packages."
           ]
         },
         {
@@ -5331,8 +5382,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Keeps tool definitions out of the request until they are whitelisted, cutting prompt weight."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5360,7 +5411,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery official packages。"
+            "engines.dsh: not declared。peers: 4 official packages。"
           ]
         },
         {
@@ -5378,8 +5429,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "工具定义先进白名单才注入请求，砍掉提示里的固定开销。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5398,6 +5449,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/dale0525/dsh-plugins",
     "npm": "https://www.npmjs.com/package/@logictan/dsh-tool-surface",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add @logictan/dsh-tool-surface",
     "en": {
       "title": "@logictan/dsh-tool-surface for DeepSeek Harness — System and terminal",
@@ -5419,7 +5471,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -5437,8 +5489,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Trims the tool list sent with every request to a tested whitelist and moves removed tools’ parameters into the system prompt."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5466,7 +5518,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -5484,8 +5536,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把每轮随请求发送的工具清单收成白名单，被撤下工具的参数写进系统提示词。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5504,6 +5556,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/xiaoso456/dsh-tool-plus",
     "npm": "https://www.npmjs.com/package/@xiaoso/dsh-tool-plus",
     "compat": ">=0.2.2-0 <0.3.0-0",
+    "peers": 16,
     "install": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
     "en": {
       "title": "@xiaoso/dsh-tool-plus for DeepSeek Harness — System and terminal",
@@ -5525,7 +5578,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-0 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-0 <0.3.0-0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-jobs,@deepseek-ai/dsh-agent,@deepseek-ai/dsh-shell,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/dsh-session,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-shell-env,@deepseek-ai/dsh-attachment,@deepseek-ai/dsh-agent-preset,@deepseek-ai/dsh-system-prompt,@deepseek-ai/dsh-client-connection,@deepseek-ai/dsh-agent-preset-registry official packages."
+            "engines.dsh: >=0.2.2-0 <0.3.0-0. peers: 16 official packages."
           ]
         },
         {
@@ -5543,8 +5596,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A persistent bash runtime ported from Oh My Pi, exposed as DSH tools."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5572,7 +5625,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-0 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-0 <0.3.0-0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-jobs,@deepseek-ai/dsh-agent,@deepseek-ai/dsh-shell,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/dsh-session,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-shell-env,@deepseek-ai/dsh-attachment,@deepseek-ai/dsh-agent-preset,@deepseek-ai/dsh-system-prompt,@deepseek-ai/dsh-client-connection,@deepseek-ai/dsh-agent-preset-registry official packages。"
+            "engines.dsh: >=0.2.2-0 <0.3.0-0。peers: 16 official packages。"
           ]
         },
         {
@@ -5590,8 +5643,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把 Oh My Pi 的常驻 bash 运行时移植过来，做成 DSH 工具。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5610,6 +5663,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/ArvinQi/dsh-octop-memory",
     "npm": "https://www.npmjs.com/package/dsh-octop-memory",
     "compat": "",
+    "peers": 1,
     "install": "dsh plugin --profile web add dsh-octop-memory",
     "en": {
       "title": "dsh-octop-memory for DeepSeek Harness — Memory",
@@ -5631,7 +5685,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers: @deepseek-ai/dsh official packages."
+            "engines.dsh: not declared. peers: 1 official packages."
           ]
         },
         {
@@ -5649,8 +5703,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Recalls shared memory before each turn and writes new facts back after."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5678,7 +5732,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers: @deepseek-ai/dsh official packages。"
+            "engines.dsh: not declared。peers: 1 official packages。"
           ]
         },
         {
@@ -5696,8 +5750,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "每轮开始前召回共享记忆，结束后把新事实写回去。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5716,6 +5770,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Dreamaniax/dsh-syn-config",
     "npm": "https://www.npmjs.com/package/dsh-syn-config",
     "compat": ">=0.2.2-rc.1 <0.3.0-0",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-syn-config",
     "en": {
       "title": "dsh-syn-config for DeepSeek Harness — System and terminal",
@@ -5737,7 +5792,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0. peers:  official packages."
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0. peers: none declared."
           ]
         },
         {
@@ -5755,8 +5810,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Syncs DSH config — skills, prompts and settings — between macOS and Windows."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5784,7 +5839,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0。peers:  official packages。"
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0。peers: none declared。"
           ]
         },
         {
@@ -5802,8 +5857,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "在 macOS 与 Windows 之间同步 DSH 配置：技能、提示词、设置。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5822,6 +5877,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Mooling0602/dsh-better-plugin-updater",
     "npm": "https://www.npmjs.com/package/dsh-better-plugin-updater",
     "compat": ">=0.2.1-rc.4 <0.3.0",
+    "peers": 1,
     "install": "dsh plugin --profile web add dsh-better-plugin-updater",
     "en": {
       "title": "dsh-better-plugin-updater for DeepSeek Harness — Find and install plugins",
@@ -5843,7 +5899,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.4 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.4 <0.3.0. peers: @deepseek-ai/cordis official packages."
+            "engines.dsh: >=0.2.1-rc.4 <0.3.0. peers: 1 official packages."
           ]
         },
         {
@@ -5861,8 +5917,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Manual multi-source update checks with a plan you approve before anything changes."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5890,7 +5946,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.4 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.4 <0.3.0。peers: @deepseek-ai/cordis official packages。"
+            "engines.dsh: >=0.2.1-rc.4 <0.3.0。peers: 1 official packages。"
           ]
         },
         {
@@ -5908,8 +5964,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "手动多源检查插件更新，先给方案，确认了才改。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -5928,6 +5984,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/JimLiu/baoyu-design",
     "npm": "https://www.npmjs.com/package/dsh-claude-whiteboard",
     "compat": ">=0.2.0-0",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-claude-whiteboard",
     "en": {
       "title": "dsh-claude-whiteboard for DeepSeek Harness — Rich output",
@@ -5949,7 +6006,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-0. peers:  official packages."
+            "engines.dsh: >=0.2.0-0. peers: none declared."
           ]
         },
         {
@@ -5967,8 +6024,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "The claude-whiteboard skill: the agent lays content out as a whiteboard instead of prose."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -5996,7 +6053,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-0。peers:  official packages。"
+            "engines.dsh: >=0.2.0-0。peers: none declared。"
           ]
         },
         {
@@ -6014,8 +6071,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "claude-whiteboard 技能：让 agent 把内容排成白板，而不是写成长段文字。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -6034,6 +6091,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/JimLiu/baoyu-design",
     "npm": "https://www.npmjs.com/package/dsh-claude-motion",
     "compat": ">=0.2.0-0",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-claude-motion",
     "en": {
       "title": "dsh-claude-motion for DeepSeek Harness — Looks and themes",
@@ -6055,7 +6113,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-0. peers:  official packages."
+            "engines.dsh: >=0.2.0-0. peers: none declared."
           ]
         },
         {
@@ -6073,8 +6131,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "The claude-motion skill: the agent writes short motion specs instead of static descriptions."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -6102,7 +6160,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-0。peers:  official packages。"
+            "engines.dsh: >=0.2.0-0。peers: none declared。"
           ]
         },
         {
@@ -6120,8 +6178,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "claude-motion 技能：让 agent 输出动效规格，而不是静态描述。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -6140,6 +6198,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/artaniszhou/dsh-atan-daily",
     "npm": "https://www.npmjs.com/package/dsh-atan-daily",
     "compat": ">=0.2.1-0 <0.3.0",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-atan-daily",
     "en": {
       "title": "dsh-atan-daily for DeepSeek Harness — Scheduled automation",
@@ -6161,7 +6220,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-0 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-0 <0.3.0. peers:  official packages."
+            "engines.dsh: >=0.2.1-0 <0.3.0. peers: none declared."
           ]
         },
         {
@@ -6179,8 +6238,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Scheduled collection tasks that each file a timestamped report."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -6208,7 +6267,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-0 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-0 <0.3.0。peers:  official packages。"
+            "engines.dsh: >=0.2.1-0 <0.3.0。peers: none declared。"
           ]
         },
         {
@@ -6226,8 +6285,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "定时采集任务，每跑一次落一份带时间戳的报告。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -6246,6 +6305,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/Sumcam-L/dsh-ue-asset",
     "npm": "https://www.npmjs.com/package/dsh-ue-asset",
     "compat": "",
+    "peers": 0,
     "install": "dsh plugin --profile web add dsh-ue-asset",
     "en": {
       "title": "dsh-ue-asset for DeepSeek Harness — Databases and assets",
@@ -6267,7 +6327,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. peers:  official packages."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
@@ -6285,8 +6345,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "Browse, preview and export Unreal Engine 4/5 assets from local pak files."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -6314,7 +6374,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。peers:  official packages。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
@@ -6332,8 +6392,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "浏览、预览、导出本地 pak 里的 Unreal Engine 4/5 资产。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -6352,6 +6412,7 @@ export const COMMUNITY = [
     "repo": "https://github.com/xirang-ai/dsh-teamflow",
     "npm": "https://www.npmjs.com/package/@xirang-ai/dsh-teamflow",
     "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": 7,
     "install": "dsh plugin --profile web add @xirang-ai/dsh-teamflow",
     "en": {
       "title": "@xirang-ai/dsh-teamflow for DeepSeek Harness — Multiple agents",
@@ -6373,7 +6434,7 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-session,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-user-approval,@deepseek-ai/dsh-sandbox-policy,@deepseek-ai/dsh-typert-protocol official packages."
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: 7 official packages."
           ]
         },
         {
@@ -6391,8 +6452,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "Who needs this?",
-          "a": "A workbench for the requirement → development → defect pipeline across a team."
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "How do I remove it again?",
@@ -6420,7 +6481,7 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-session,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-user-approval,@deepseek-ai/dsh-sandbox-policy,@deepseek-ai/dsh-typert-protocol official packages。"
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: 7 official packages。"
           ]
         },
         {
@@ -6438,8 +6499,8 @@ export const COMMUNITY = [
       ],
       "faq": [
         {
-          "q": "谁需要它？",
-          "a": "把需求、开发、缺陷这条流水线做成团队工作台。"
+          "q": "placeholder",
+          "a": "placeholder"
         },
         {
           "q": "装坏了怎么退？",
@@ -6451,18 +6512,21 @@ export const COMMUNITY = [
 ];
 
 const BY_SLUG = new Map(COMMUNITY.map((p) => [p.owner + '/' + p.slug, p]));
+const INDEX = new Map(COMMUNITY.map((p, i) => [p.owner + '/' + p.slug, i]));
 
 const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
 
 function withConflict(slug, page) {
   const note = ALL_CONFLICTS[slug];
-  if (!note) return page;
+  const idx = INDEX.get(slug) ?? 0;
+  const faq = faqFor(page, idx, note);
   const out = { en: { ...page.en }, zh: { ...page.zh } };
+
   for (const lang of ['en', 'zh']) {
     const sections = (out[lang].sections ?? []).map((s) =>
-      s.h === CONFLICT_HEAD[lang] ? { ...s, p: [note[lang]] } : s,
+      note && s.h === CONFLICT_HEAD[lang] ? { ...s, p: [note[lang]] } : s,
     );
-    out[lang] = { ...out[lang], sections };
+    out[lang] = { ...out[lang], sections, faq: [faq[lang], ...(out[lang].faq ?? []).slice(1)] };
   }
   return out;
 }

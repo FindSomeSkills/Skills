@@ -19,6 +19,9 @@ import { communityPage, communityByGroup } from '../lib/content-community.mjs';
 import DeaiKit from '../components/DeaiKit.astro';
 import SessionPurge from '../components/SessionPurge.astro';
 import { PURGE, ERRORS } from '../lib/content-purge-errors.mjs';
+import { ERROR_PAGES } from '../lib/content-error-pages.mjs';
+import { CONFLICTS_PAGE } from '../lib/content-conflicts-page.mjs';
+import { PURGE_SECTIONS } from '../lib/content-purge-sections.mjs';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
 
@@ -37,11 +40,34 @@ const article =
   GUIDES[baseSlug]?.[lang] ??
   VERSUS[baseSlug]?.[lang] ??
   (baseSlug === 'guides/errors' ? ERRORS[lang] : null) ??
+  (ERROR_PAGES[baseSlug]?.[lang] ?? null) ??
+  (baseSlug === 'plugins/conflicts' ? CONFLICTS_PAGE[lang] : null) ??
   (page === 'purge' ? PURGE[lang] : null) ??
   (baseSlug === 'plugins' ? PLUGIN_INDEX[lang] : null) ??
   (pluginPath.includes('/') ? communityPage(pluginPath)?.[lang] : null) ??
   (pluginPath ? pluginPage(pluginPath, lang) : null);
 const t = article ?? copy[page];
+const ERROR_SIBLINGS = lang === 'zh'
+  ? [
+      { label: 'deepseek messages transport failed', href: '/zh/guides/errors/messages-transport-failed/' },
+      { label: 'zsh: command not found: corepack', href: '/zh/guides/errors/corepack-command-not-found/' },
+      { label: 'Plugin X is incompatible with dsh Y', href: '/zh/guides/errors/plugin-incompatible/' },
+      { label: 'EBADENGINE', href: '/zh/guides/errors/ebadengine/' },
+      { label: '--host 拒绝 0.0.0.0', href: '/zh/guides/errors/host-wildcard-rejected/' },
+      { label: '回到报错总览', href: '/zh/guides/errors/' },
+    ]
+  : [
+      { label: 'deepseek messages transport failed', href: '/guides/errors/messages-transport-failed/' },
+      { label: 'zsh: command not found: corepack', href: '/guides/errors/corepack-command-not-found/' },
+      { label: 'Plugin X is incompatible with dsh Y', href: '/guides/errors/plugin-incompatible/' },
+      { label: 'EBADENGINE', href: '/guides/errors/ebadengine/' },
+      { label: '--host refuses 0.0.0.0', href: '/guides/errors/host-wildcard-rejected/' },
+      { label: 'Back to the error overview', href: '/guides/errors/' },
+    ];
+const errorSiblings = baseSlug.startsWith('guides/errors/')
+  ? ERROR_SIBLINGS.filter((x) => x.href !== `/${lang === 'zh' ? 'zh/' : ''}${baseSlug}/`)
+  : [];
+
 const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 
 const rawFaq = Array.isArray(t.faq) ? t.faq : (FAQ_EXTRA[lang]?.[page] ?? []);
@@ -144,8 +170,8 @@ const pageDesc = t.desc ?? `${t.lede}`.slice(0, 155);
   {page === 'reference' && <ReferencePage lang={lang} />}
   {page === 'compare' && <ComparePage lang={lang} />}
   {page === 'kit' && <DeaiKit lang={lang} />}
-  {page === 'purge' && <SessionPurge t={PURGE[lang]} />}
-  {article && page !== 'purge' && <Article data={article} lang={lang} plugins={baseSlug === 'plugins' ? PLUGINS : []} groups={baseSlug === 'plugins' ? communityByGroup() : []} />}
+  {page === 'purge' && <SessionPurge t={PURGE[lang]} sections={PURGE_SECTIONS[lang]} />}
+  {article && page !== 'purge' && <Article data={article} siblings={errorSiblings} lang={lang} plugins={baseSlug === 'plugins' ? PLUGINS : []} groups={baseSlug === 'plugins' ? communityByGroup() : []} />}
   {page !== 'home' && page !== 'compare' && page !== 'syncHub' && !article && faqItems.length > 0 && (
     <Faq items={faqItems} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
   )}

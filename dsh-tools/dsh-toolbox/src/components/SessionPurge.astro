@@ -1,6 +1,6 @@
 ---
 // 会话清理工具：本地读目录，按大小列出会话文件，算出可释放空间，给出备份与删除命令。全程不上传。
-const { t } = Astro.props;
+const { t, sections = [] } = Astro.props;
 import { inline } from '../lib/inline.mjs';
 const labels = t.js ?? {};
 ---
@@ -47,6 +47,14 @@ const labels = t.js ?? {};
     <pre><code id="purgeDeleteCmd"></code></pre>
     <p set:html={inline(t.afterP)} />
   </section>
+
+  {(sections ?? []).map((sec) => (
+    <section>
+      <h2 set:html={inline(sec.h)} />
+      {(sec.p ?? []).map((p) => <p set:html={inline(p)} />)}
+      {sec.code && <pre><code>{sec.code}</code></pre>}
+    </section>
+  ))}
 
   <noscript><p set:html={inline(t.nojs)} /></noscript>
 </section>
