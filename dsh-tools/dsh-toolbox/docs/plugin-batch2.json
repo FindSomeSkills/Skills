@@ -1,0 +1,676 @@
+[
+  {
+    "name": "universal-plugin-hub",
+    "version": "1.3.1",
+    "description": "在 DSH 中使用 Claude Code、Codex 等软件生态的插件，一站式管理插件、Skills 与 MCP。支持添加 Git 插件源和 marketplace、上传插件和 Skills、添加 MCP 服务器，自动扫描并开关本地 Skills，接入插件提供的子代理、MCP、Hooks 与 LSP。",
+    "updated": "2026-11-13",
+    "created": "2026-10-25",
+    "repo": "https://github.com/Ultmebius/universal-plugin-hub",
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    },
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "deps": [
+      "pngjs",
+      "js-yaml",
+      "@modelcontextprotocol/sdk"
+    ]
+  },
+  {
+    "name": "dsh-skill-mcp-market",
+    "version": "0.5.28",
+    "description": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market",
+    "engines": {},
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "@chengze/dsh-skill-manager",
+    "version": "0.2.5",
+    "description": "Skills manager for the DeepSeek Harness Web GUI: a sidebar panel that lists skills by install location, edits and disables them, diagnoses silently skipped skills, and installs skills from market indexes.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/xiechenghua01/dsh-plugins",
+    "engines": {
+      "dsh": ">=0.2.1-rc.5 <0.3.0"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "dsh-skill-browser",
+    "version": "2.2.6",
+    "description": "技能浏览器：悬浮球打开面板，把本机技能库变成可浏览、可检索、可治理的资产——五个 Tab（技能浏览/调用台账/MCP 管理/市场/快速上手）、树状/平铺双视图、手动+关键词+AI 三种分组（分组只改视图不动技能文件）、调用台账看板（调用次数/成功率/趋势图/技能调用排行）、130 款三球同步皮肤（6 列宽屏菜单）、9 步快速上手、MCP 管理（读取运行时 MCP 配置、真实连接状态、工具清单与自动功能概括、调用统计落盘、启停即时跟随/重连/卸载/导出标准 mcpServers JSON、重绘不跳顶且面板记",
+    "updated": "2026-11-13",
+    "created": "2026-09-05",
+    "repo": "https://github.com/loyalchiiina/dsh-skill-browser",
+    "engines": {
+      "dsh": ">=0.1.7-rc.1",
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [
+      "@deepseek-ai/dsh",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm"
+    ],
+    "deps": []
+  },
+  {
+    "name": "@lmzhen/dsh-evolution-all",
+    "version": "0.46.0",
+    "description": "Full-functionality evolution bundle — DEFAULT install: host automation + model tools, all profile-root (community build)",
+    "updated": "2026-11-13",
+    "created": "2026-09-04",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "engines": {
+      "dsh": ">=0.2.2-rc.0 <0.2.3-0"
+    },
+    "peers": [],
+    "deps": [
+      "@lmzhen/dsh-memory",
+      "@lmzhen/dsh-evolution-ui",
+      "@lmzhen/dsh-evolution-core",
+      "@lmzhen/dsh-evolution-host",
+      "@lmzhen/dsh-evolution-merge",
+      "@lmzhen/dsh-evolution-state",
+      "@lmzhen/dsh-evolution-review",
+      "@lmzhen/dsh-evolution-curator",
+      "@lmzhen/dsh-tool-skill-manage",
+      "@lmzhen/dsh-evolution-activity",
+      "@lmzhen/dsh-evolution-approval",
+      "@lmzhen/dsh-evolution-commands",
+      "@lmzhen/dsh-evolution-merge-ui",
+      "@lmzhen/dsh-evolution-maintenance",
+      "@lmzhen/dsh-evolution-agent-preset",
+      "@lmzhen/dsh-evolution-skill-health",
+      "@deepseek-ai/dsh-tool-session-query",
+      "@lmzhen/dsh-evolution-skill-discovery"
+    ]
+  },
+  {
+    "name": "@lmzhen/dsh-evolution-skill-health",
+    "version": "0.46.0",
+    "description": "Web surface for skill health: the sidebar panel that shows what the linter found (community build)",
+    "updated": "2026-11-13",
+    "created": "2026-10-12",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "engines": {
+      "dsh": ">=0.2.2-rc.0 <0.2.3-0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "deps": [
+      "@lmzhen/dsh-evolution-client-kit"
+    ]
+  },
+  {
+    "name": "dsh-custom-theme",
+    "version": "0.9.0",
+    "description": "User-editable CSS themes and background images for the DSH Web GUI and Desktop app, with pickers in Settings",
+    "updated": "2026-11-13",
+    "created": "2026-10-04",
+    "repo": "https://github.com/Sparrived/dsh-custom-theme",
+    "engines": {},
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "dsh-exv-flat-corners",
+    "version": "2.4.2",
+    "description": "Removes every corner radius from the DSH Web interface.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/VMWHW/dsh-exv-theme",
+    "engines": {
+      "dsh": ">=0.2.2-rc.1 <0.3.0"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "dsh-toomuch-plugins",
+    "version": "0.3.3",
+    "description": "Collapses the global panel entries above the workspace in the DSH Web left sidebar into one toggle, with a grid-display settings page",
+    "updated": "2026-11-13",
+    "created": "2026-10-22",
+    "repo": "https://github.com/rivenshanghai/dsh-toomuch-plugins",
+    "engines": {
+      "node": ">=20"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "@huaweidevtools/aishell-dsh-brand",
+    "version": "0.0.23",
+    "description": "AI Shell brand reskin for DSH web — replaces sidebar and hero brand marks with AI Shell SVG",
+    "updated": "2026-11-13",
+    "created": "2026-10-09",
+    "repo": "https://github.com/yusheng-g/aishell-dsh-plugins",
+    "engines": {},
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-system-prompt"
+    ],
+    "deps": []
+  },
+  {
+    "name": "@aiwayds/dsh-llm-proxy",
+    "version": "0.8.1",
+    "description": "dsh plugin: SYSTEM proxy (env) + LLM traffic-splitting proxy via a process-global undici routing dispatcher",
+    "updated": "2026-11-13",
+    "created": "2026-09-01",
+    "repo": "https://github.com/fan56/dsh-llm-proxy",
+    "engines": {
+      "node": ">=22.19.0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings"
+    ],
+    "deps": [
+      "undici"
+    ]
+  },
+  {
+    "name": "dsh-tool-database",
+    "version": "0.3.7",
+    "description": "DeepSeek Harness database tool plugin — SQL Server / PostgreSQL / MySQL over native drivers, multi-source, read-only by default, credentials stay host-side (no MCP server in between)",
+    "updated": "2026-11-13",
+    "created": "2026-11-13",
+    "repo": "https://github.com/SouleyMoni1/dsh-tool-database",
+    "engines": {
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools"
+    ],
+    "deps": [
+      "pg",
+      "mssql",
+      "mysql2"
+    ]
+  },
+  {
+    "name": "dsh-providers-hub",
+    "version": "2.24.261113",
+    "description": "DeepSeek Harness plugin: one hub for AI coding providers — account login, multi-account pools, silent credential refresh, credit claiming, and a local OpenAI-compatible gateway",
+    "updated": "2026-11-13",
+    "created": "2026-10-15",
+    "repo": "https://gitee.com/iJetLi/deepseek-harness-codearts",
+    "engines": {
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-credentials"
+    ],
+    "deps": [
+      "jose",
+      "undici",
+      "wreq-js",
+      "@deepseek-ai/cosmokit",
+      "@deepseek-ai/schemastery"
+    ]
+  },
+  {
+    "name": "dsh-permission-remote",
+    "version": "0.18.1",
+    "description": "SSH remote workspaces for the dsh web GUI, reusing the session sandbox mode and approval flow.",
+    "updated": "2026-11-13",
+    "created": "2026-10-27",
+    "repo": "https://github.com/weicy98/dsh-permission-remote",
+    "engines": {
+      "dsh": ">=0.2.2-rc.1 <0.3.0",
+      "node": ">=22.5"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/cosmokit",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-fs-patch",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-typert-protocol"
+    ],
+    "deps": [
+      "asn1",
+      "bcrypt-pbkdf",
+      "@vscode/ripgrep"
+    ]
+  },
+  {
+    "name": "@voltage12/dsh-simple-worktree",
+    "version": "0.1.3",
+    "description": "DSH Web plugin: create and remove git worktrees from the conversation UI",
+    "updated": "2026-11-13",
+    "created": "2026-10-21",
+    "repo": "https://github.com/voltage12/dsh-simple-worktree",
+    "engines": {
+      "dsh": ">=0.2.1-rc.2 <0.3.0",
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "@zhaoyang10/dsh-web-ide",
+    "version": "0.2.2",
+    "description": "IDE tab for the dsh web client: a VSCode-style read-only code viewer with the Dark Modern theme, registered into the conversation view ring.",
+    "updated": "2026-11-13",
+    "created": "2026-09-17",
+    "repo": "https://gitee.com/fengzhaoy/dsh-web-ide",
+    "engines": {
+      "dsh": ">=0.2.0-rc.2"
+    },
+    "peers": [],
+    "deps": [
+      "zod",
+      "mermaid"
+    ]
+  },
+  {
+    "name": "dsh-computers",
+    "version": "1.9.9",
+    "description": "Connect your own machines to a DSH Web deployment and run commands on them from the agent.",
+    "updated": "2026-11-13",
+    "created": "2026-11-11",
+    "repo": "https://github.com/9Ashwin/dsh-computers",
+    "engines": {
+      "node": ">=22"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "dshost-plugin",
+    "version": "0.1.25",
+    "description": "Official remote cloud relay plugin for DSHost (dshost.me): securely access your dsh Web UI from anywhere",
+    "updated": "2026-11-13",
+    "created": "2026-08-20",
+    "repo": "https://github.com/NoelJudeNoel/dshost-plugin",
+    "engines": {
+      "node": ">=22.5.0"
+    },
+    "peers": [],
+    "deps": [
+      "ws",
+      "werift"
+    ]
+  },
+  {
+    "name": "@yugoo-design/dsh-design-panel",
+    "version": "0.3.0",
+    "description": "Declarative design-panel interpreter for the dsh Web UI: renders Design Files as editable panels in a conversation.view workspace.",
+    "updated": "2026-11-13",
+    "created": "2026-10-14",
+    "repo": "https://github.com/alibaba-damo-academy/yugoo-design",
+    "engines": {},
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-api-remotes",
+      "@deepseek-ai/dsh-client-ui-tool",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-ui-conversation"
+    ],
+    "deps": [
+      "clsx",
+      "yaml",
+      "katex",
+      "three",
+      "parse5",
+      "bpmn-js",
+      "d3-drag",
+      "d3-zoom",
+      "d3-force",
+      "remark-gfm",
+      "d3-selection",
+      "lucide-react",
+      "@xyflow/react",
+      "3d-force-graph",
+      "react-markdown",
+      "tailwind-merge",
+      "@radix-ui/react-slot",
+      "@excalidraw/excalidraw",
+      "@radix-ui/react-select",
+      "class-variance-authority"
+    ]
+  },
+  {
+    "name": "dsh-codegraph-visualizer",
+    "version": "0.3.1",
+    "description": "DSH 代码图谱可视化插件 - 打通 dsh-codegraph/dsh-tool-lens 数据源 → 聚合转换 → 交互式代码图谱",
+    "updated": "2026-11-13",
+    "created": "2026-09-05",
+    "repo": "https://github.com/xuanyuanchumo/dsh-codegraph-visualizer",
+    "engines": {
+      "dsh": ">=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0",
+      "node": ">=22.19 || >=24",
+      "pnpm": ">=9"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "deps": [
+      "graphology",
+      "web-tree-sitter",
+      "tree-sitter-wasm",
+      "@deepseek-ai/schemastery",
+      "graphology-communities-louvain"
+    ]
+  },
+  {
+    "name": "@mzzsfy/dsh-tool-gate",
+    "version": "0.2.4",
+    "description": "工具白名单延迟加载(全局层与全部 per-agent scope 层):白名单内工具全量注入,白名单外统一打 deferLoading 交给宿主 deferred tool loading 链(API 服务端按需搜索激活);声明式收敛,行退场按 undo journal 还原原状",
+    "updated": "2026-11-13",
+    "created": "2026-10-20",
+    "repo": "https://github.com/mzzsfy/dsh-plugin",
+    "engines": {
+      "node": ">=22"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery"
+    ],
+    "deps": []
+  },
+  {
+    "name": "@logictan/dsh-tool-surface",
+    "version": "0.1.3",
+    "description": "DSH 工具公告面子插件：把每轮随请求发送的工具定义收到一份实测白名单，并把被撤下工具的参数写进系统提示词。",
+    "updated": "2026-11-13",
+    "created": "2026-11-11",
+    "repo": "https://github.com/dale0525/dsh-plugins",
+    "engines": {
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "@xiaoso/dsh-tool-plus",
+    "version": "0.1.21",
+    "description": "Oh My Pi bash runtime ported as a deepseek-harness tool plugin: persistent shell session, output minimizer, managed background jobs, command interception",
+    "updated": "2026-11-13",
+    "created": "2026-08-28",
+    "repo": "https://github.com/xiaoso456/dsh-tool-plus",
+    "engines": {
+      "dsh": ">=0.2.2-0 <0.3.0-0",
+      "node": ">=24.9.0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-jobs",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-shell",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-shell-env",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-agent-preset",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-agent-preset-registry"
+    ],
+    "deps": [
+      "yaml",
+      "json5",
+      "trash",
+      "puppeteer-core",
+      "@oh-my-pi/pi-ai",
+      "@oh-my-pi/pi-tui",
+      "@oh-my-pi/omptype",
+      "@oh-my-pi/pi-utils",
+      "@oh-my-pi/pi-catalog",
+      "@oh-my-pi/pi-natives",
+      "@deepseek-ai/dsh-brand",
+      "@oh-my-pi/pi-agent-core",
+      "@deepseek-ai/schemastery"
+    ]
+  },
+  {
+    "name": "dsh-octop-memory",
+    "version": "0.1.7",
+    "description": "DSH (DeepSeek Harness) plugin for octop-memory: recall shared memory before each turn and report each turn afterwards.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/ArvinQi/dsh-octop-memory",
+    "engines": {
+      "node": ">=20"
+    },
+    "peers": [
+      "@deepseek-ai/dsh"
+    ],
+    "deps": [
+      "@deepseek-ai/schemastery"
+    ]
+  },
+  {
+    "name": "dsh-syn-config",
+    "version": "0.8.11",
+    "description": "Cross-platform (macOS + Windows) DeepSeek Harness plugin that syncs DSH config — skills, profile settings, AGENTS.md — with a private dsh-config repository.",
+    "updated": "2026-11-13",
+    "created": "2026-11-11",
+    "repo": "https://github.com/Dreamaniax/dsh-syn-config",
+    "engines": {
+      "dsh": ">=0.2.2-rc.1 <0.3.0-0",
+      "node": ">=20"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "dsh-better-plugin-updater",
+    "version": "0.1.2",
+    "description": "Manual multi-source update checks and update plans for DeepSeek Harness plugin bundles.",
+    "updated": "2026-11-13",
+    "created": "2026-11-07",
+    "repo": "https://github.com/Mooling0602/dsh-better-plugin-updater",
+    "engines": {
+      "dsh": ">=0.2.1-rc.4 <0.3.0",
+      "node": ">=22"
+    },
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "deps": [
+      "zod",
+      "yaml",
+      "semver",
+      "@deepseek-ai/cosmokit",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-typert-protocol"
+    ]
+  },
+  {
+    "name": "dsh-claude-whiteboard",
+    "version": "2.16.0",
+    "description": "DeepSeek Harness plugin: the claude-whiteboard skill from baoyu-design. The agent lays out diagrams, flows, maps of ideas and plans on a whiteboard and opens it in a local board editor where you move, draw and comment.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "engines": {
+      "dsh": ">=0.2.0-0",
+      "node": ">=20"
+    },
+    "peers": [],
+    "deps": [
+      "dsh-claude-artifacts"
+    ]
+  },
+  {
+    "name": "dsh-claude-motion",
+    "version": "2.16.0",
+    "description": "DeepSeek Harness plugin: the claude-motion skill from baoyu-design. The agent writes short animated films as code, scene by scene, and plays them in a local Motion player that exports MP4 or GIF.",
+    "updated": "2026-11-13",
+    "created": "2026-10-31",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "engines": {
+      "dsh": ">=0.2.0-0",
+      "node": ">=20"
+    },
+    "peers": [],
+    "deps": [
+      "dsh-claude-artifacts"
+    ]
+  },
+  {
+    "name": "dsh-atan-daily",
+    "version": "1.2.2",
+    "description": "DeepSeek Harness plugin: scheduled collection tasks that each file a timestamped report.",
+    "updated": "2026-11-13",
+    "created": "2026-10-20",
+    "repo": "https://github.com/artaniszhou/dsh-atan-daily",
+    "engines": {
+      "dsh": ">=0.2.1-0 <0.3.0"
+    },
+    "peers": [],
+    "deps": [
+      "qrcode",
+      "echarts",
+      "puppeteer-core",
+      "@larksuiteoapi/node-sdk"
+    ]
+  },
+  {
+    "name": "dsh-ue-asset",
+    "version": "0.1.10",
+    "description": "DeepSeek Harness plugin: browse, preview and export Unreal Engine 4/5 assets from local PAK archives through CUE4Parse.",
+    "updated": "2026-11-13",
+    "created": "2026-10-27",
+    "repo": "https://github.com/Sumcam-L/dsh-ue-asset",
+    "engines": {
+      "node": ">=20"
+    },
+    "peers": [],
+    "deps": []
+  },
+  {
+    "name": "@xirang-ai/dsh-teamflow",
+    "version": "0.1.3",
+    "description": "DeepSeek Harness plugin: Xirang workbench for the requirement → development → defect pipeline.",
+    "updated": "2026-11-13",
+    "created": "2026-11-10",
+    "repo": "https://github.com/xirang-ai/dsh-teamflow",
+    "engines": {
+      "dsh": ">=0.2.2-rc.1 <0.3.0",
+      "node": ">=24.9.0"
+    },
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-sandbox-policy",
+      "@deepseek-ai/dsh-typert-protocol"
+    ],
+    "deps": [
+      "nanoid",
+      "@deepseek-ai/schemastery"
+    ]
+  },
+  {
+    "name": "anywork-library-plugin",
+    "version": "0.2.14",
+    "description": "资料库：文件 + 笔记（DSH Web 插件）",
+    "updated": "2026-11-13",
+    "created": "2026-11-09",
+    "repo": "https://github.com/TokenAI-Beta/library-plugin",
+    "engines": {
+      "dsh": ">=0.2.1-rc.3 <0.3.0",
+      "node": ">=20"
+    },
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "deps": []
+  },
+  {
+    "name": "dsh-tool-antigravity",
+    "version": "0.5.5",
+    "description": "High-performance Antigravity capability bundle for DeepSeek Harness with smart multi-account quota rotation, multi-model routing, and Nano Banana 2 image generation",
+    "updated": "2026-11-13",
+    "created": "2026-09-18",
+    "repo": "https://github.com/Jaylor-Wang/dsh-tool-antigravity",
+    "engines": {
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "peers": [],
+    "deps": [
+      "@cortexkit/antigravity-auth-core"
+    ]
+  },
+  {
+    "name": "@dickpy/dsh-imagegen",
+    "version": "1.17.1",
+    "description": "AI image generation plugin for the dsh web GUI: text-to-image and image-to-image through configurable provider channels (gpt-image-2 / grok-imagine-image / nanobanana series / seedream-5.0-pro / dall-e-3, with native xAI Grok Imagine, Google Nano Banana a",
+    "updated": "2026-11-13",
+    "created": "2026-08-15",
+    "repo": "https://github.com/dickpy/dsh-imagegen",
+    "engines": {},
+    "peers": [],
+    "deps": [
+      "lucide-react",
+      "@deepseek-ai/schemastery"
+    ]
+  },
+  {
+    "name": "dsh-token-usage",
+    "version": "2.2.0",
+    "description": "Token-usage statistics for the DeepSeek Harness settings UI: summary cards + 3-month heatmap of real token spend converted to official peak/off-peak prices (CNY/USD), incremental index",
+    "updated": "2026-08-21",
+    "created": "2026-08-14",
+    "repo": "https://github.com/Tastelessor/dsh-usage-stats",
+    "engines": {},
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-session-query",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-host-webserver"
+    ],
+    "deps": []
+  },
+  {
+    "name": "dsh-session-tags",
+    "version": "1.0.1",
+    "description": "Colored tags for DeepSeek Harness sessions, shown in the sidebar row and the conversation header, editable with preset colors, hover-remove, and drag-to-reorder.",
+    "updated": "2026-11-12",
+    "created": "2026-11-12",
+    "repo": "https://github.com/Cnily03/dsh-session-tags",
+    "engines": {},
+    "peers": [],
+    "deps": []
+  }
+]

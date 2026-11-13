@@ -1,0 +1,677 @@
+[
+  {
+    "slug": "universal-plugin-hub",
+    "pkg": "universal-plugin-hub",
+    "owner": "Ultmebius",
+    "group": "find-plugins",
+    "version": "1.3.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Ultmebius/universal-plugin-hub",
+    "npm": "https://www.npmjs.com/package/universal-plugin-hub",
+    "compat": ">=0.1.5-rc.1",
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "install": "dsh plugin --profile web add universal-plugin-hub",
+    "en": {
+      "solves": "One hub that manages Claude Code, Codex and DSH plugins, skills and MCP connectors together."
+    },
+    "zh": {
+      "solves": "一个入口同时管 Claude Code、Codex 与 DSH 的插件、技能和 MCP 连接器。"
+    }
+  },
+  {
+    "slug": "skill-mcp-market",
+    "pkg": "dsh-skill-mcp-market",
+    "owner": "kuailexiaozixin",
+    "group": "skills",
+    "version": "0.5.28",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market",
+    "npm": "https://www.npmjs.com/package/dsh-skill-mcp-market",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-skill-mcp-market",
+    "en": {
+      "solves": "Browse skill and MCP feeds and install SKILL.md or a connector without restarting."
+    },
+    "zh": {
+      "solves": "浏览技能与 MCP 源，一键装 SKILL.md 或连接器，不用重启。"
+    }
+  },
+  {
+    "slug": "skill-manager",
+    "pkg": "@chengze/dsh-skill-manager",
+    "owner": "xiechenghua01",
+    "group": "skills",
+    "version": "0.2.5",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xiechenghua01/dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@chengze/dsh-skill-manager",
+    "compat": ">=0.2.1-rc.5 <0.3.0",
+    "peers": [],
+    "install": "dsh plugin --profile web add @chengze/dsh-skill-manager",
+    "en": {
+      "solves": "A sidebar panel that lists installed skills and turns each one on or off."
+    },
+    "zh": {
+      "solves": "侧边栏面板列出已装技能，逐个开关。"
+    }
+  },
+  {
+    "slug": "skill-browser",
+    "pkg": "dsh-skill-browser",
+    "owner": "loyalchiiina",
+    "group": "skills",
+    "version": "2.2.6",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/loyalchiiina/dsh-skill-browser",
+    "npm": "https://www.npmjs.com/package/dsh-skill-browser",
+    "compat": ">=0.1.7-rc.1",
+    "peers": [
+      "@deepseek-ai/dsh",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm"
+    ],
+    "install": "dsh plugin --profile web add dsh-skill-browser",
+    "en": {
+      "solves": "A floating panel that turns the local skill folder into something searchable, with call ledgers and MCP management."
+    },
+    "zh": {
+      "solves": "悬浮球打开面板，把本机技能库变成可检索资产，带调用台账与 MCP 管理。"
+    }
+  },
+  {
+    "slug": "evolution-bundle",
+    "pkg": "@lmzhen/dsh-evolution-all",
+    "owner": "lmzhen",
+    "group": "automation",
+    "version": "0.46.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-all",
+    "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "peers": [],
+    "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-all",
+    "en": {
+      "solves": "A self-evolution bundle: host automation plus model-facing tools in one install."
+    },
+    "zh": {
+      "solves": "自进化套件：宿主自动化加模型侧工具，一次装齐。"
+    }
+  },
+  {
+    "slug": "skill-health-panel",
+    "pkg": "@lmzhen/dsh-evolution-skill-health",
+    "owner": "lmzhen",
+    "group": "skills",
+    "version": "0.46.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-skill-health",
+    "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-skill-health",
+    "en": {
+      "solves": "The sidebar panel that shows what the skill linter found."
+    },
+    "zh": {
+      "solves": "侧边栏面板，显示技能体检的结果。"
+    }
+  },
+  {
+    "slug": "custom-theme",
+    "pkg": "dsh-custom-theme",
+    "owner": "Sparrived",
+    "group": "appearance",
+    "version": "0.9.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Sparrived/dsh-custom-theme",
+    "npm": "https://www.npmjs.com/package/dsh-custom-theme",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-custom-theme",
+    "en": {
+      "solves": "User-editable CSS themes and background images for the web UI and the desktop app."
+    },
+    "zh": {
+      "solves": "可自己改的 CSS 主题与背景图，网页版和桌面版都能用。"
+    }
+  },
+  {
+    "slug": "flat-corners",
+    "pkg": "dsh-exv-flat-corners",
+    "owner": "VMWHW",
+    "group": "appearance",
+    "version": "2.4.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/VMWHW/dsh-exv-theme",
+    "npm": "https://www.npmjs.com/package/dsh-exv-flat-corners",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-exv-flat-corners",
+    "en": {
+      "solves": "Removes every corner radius from the interface."
+    },
+    "zh": {
+      "solves": "把界面里所有圆角去掉。"
+    }
+  },
+  {
+    "slug": "sidebar-fold",
+    "pkg": "dsh-toomuch-plugins",
+    "owner": "rivenshanghai",
+    "group": "appearance",
+    "version": "0.3.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/rivenshanghai/dsh-toomuch-plugins",
+    "npm": "https://www.npmjs.com/package/dsh-toomuch-plugins",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-toomuch-plugins",
+    "en": {
+      "solves": "Collapses the growing list of global panel entries in the left sidebar into one row."
+    },
+    "zh": {
+      "solves": "把左侧栏越堆越长的全局面板收成一行。"
+    }
+  },
+  {
+    "slug": "aishell-brand",
+    "pkg": "@huaweidevtools/aishell-dsh-brand",
+    "owner": "yusheng-g",
+    "group": "appearance",
+    "version": "0.0.23",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/yusheng-g/aishell-dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@huaweidevtools/aishell-dsh-brand",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-system-prompt"
+    ],
+    "install": "dsh plugin --profile web add @huaweidevtools/aishell-dsh-brand",
+    "en": {
+      "solves": "Replaces the sidebar and hero brand marks with AI Shell artwork."
+    },
+    "zh": {
+      "solves": "把侧栏和首屏的品牌标识换成 AI Shell 的。"
+    }
+  },
+  {
+    "slug": "llm-proxy",
+    "pkg": "@aiwayds/dsh-llm-proxy",
+    "owner": "fan56",
+    "group": "network",
+    "version": "0.8.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/fan56/dsh-llm-proxy",
+    "npm": "https://www.npmjs.com/package/@aiwayds/dsh-llm-proxy",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings"
+    ],
+    "install": "dsh plugin --profile web add @aiwayds/dsh-llm-proxy",
+    "en": {
+      "solves": "A system proxy plus a traffic-splitting proxy for model calls, so one host can route several providers."
+    },
+    "zh": {
+      "solves": "系统代理加模型流量分流代理，一台机器上给多个服务商分路。"
+    }
+  },
+  {
+    "slug": "database-tool",
+    "pkg": "dsh-tool-database",
+    "owner": "SouleyMoni1",
+    "group": "data",
+    "version": "0.3.7",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/SouleyMoni1/dsh-tool-database",
+    "npm": "https://www.npmjs.com/package/dsh-tool-database",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools"
+    ],
+    "install": "dsh plugin --profile web add dsh-tool-database",
+    "en": {
+      "solves": "Query SQL Server, PostgreSQL and MySQL from the agent through native drivers."
+    },
+    "zh": {
+      "solves": "让 agent 通过原生驱动查 SQL Server、PostgreSQL、MySQL。"
+    }
+  },
+  {
+    "slug": "providers-hub",
+    "pkg": "dsh-providers-hub",
+    "owner": "iJetLi",
+    "group": "providers",
+    "version": "2.24.261113",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/iJetLi/deepseek-harness-codearts",
+    "npm": "https://www.npmjs.com/package/dsh-providers-hub",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-credentials"
+    ],
+    "install": "dsh plugin --profile web add dsh-providers-hub",
+    "en": {
+      "solves": "One hub for coding providers: account login, multiple accounts, and switching between them."
+    },
+    "zh": {
+      "solves": "一个入口管编码服务商：登录、多账号、来回切。"
+    }
+  },
+  {
+    "slug": "permission-remote",
+    "pkg": "dsh-permission-remote",
+    "owner": "weicy98",
+    "group": "remote",
+    "version": "0.18.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/weicy98/dsh-permission-remote",
+    "npm": "https://www.npmjs.com/package/dsh-permission-remote",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/cosmokit",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-fs-patch",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-typert-protocol"
+    ],
+    "install": "dsh plugin --profile web add dsh-permission-remote",
+    "en": {
+      "solves": "SSH remote workspaces that reuse the session sandbox mode and the approval flow."
+    },
+    "zh": {
+      "solves": "SSH 远程工作区，沿用会话的沙箱模式与审批流程。"
+    }
+  },
+  {
+    "slug": "simple-worktree",
+    "pkg": "@voltage12/dsh-simple-worktree",
+    "owner": "voltage12",
+    "group": "devtools",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/voltage12/dsh-simple-worktree",
+    "npm": "https://www.npmjs.com/package/@voltage12/dsh-simple-worktree",
+    "compat": ">=0.2.1-rc.2 <0.3.0",
+    "peers": [],
+    "install": "dsh plugin --profile web add @voltage12/dsh-simple-worktree",
+    "en": {
+      "solves": "Create and remove git worktrees from the conversation."
+    },
+    "zh": {
+      "solves": "在对话里创建和删除 git worktree。"
+    }
+  },
+  {
+    "slug": "web-ide",
+    "pkg": "@zhaoyang10/dsh-web-ide",
+    "owner": "fengzhaoy",
+    "group": "devtools",
+    "version": "0.2.2",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/fengzhaoy/dsh-web-ide",
+    "npm": "https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide",
+    "compat": ">=0.2.0-rc.2",
+    "peers": [],
+    "install": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide",
+    "en": {
+      "solves": "A VS Code-style read-only code tab in the web client."
+    },
+    "zh": {
+      "solves": "网页端加一个 VS Code 风格的只读代码页。"
+    }
+  },
+  {
+    "slug": "computers",
+    "pkg": "dsh-computers",
+    "owner": "9Ashwin",
+    "group": "remote",
+    "version": "1.9.9",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/9Ashwin/dsh-computers",
+    "npm": "https://www.npmjs.com/package/dsh-computers",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-computers",
+    "en": {
+      "solves": "Connect your own machines to a DSH deployment and run commands on them from the agent."
+    },
+    "zh": {
+      "solves": "把自己其它机器接到 DSH 上，让 agent 在上面跑命令。"
+    }
+  },
+  {
+    "slug": "cloud-relay",
+    "pkg": "dshost-plugin",
+    "owner": "NoelJudeNoel",
+    "group": "remote",
+    "version": "0.1.25",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/NoelJudeNoel/dshost-plugin",
+    "npm": "https://www.npmjs.com/package/dshost-plugin",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dshost-plugin",
+    "en": {
+      "solves": "A relay plugin that exposes the local web UI through a hosted endpoint."
+    },
+    "zh": {
+      "solves": "中继插件，把本机网页界面通过托管端点暴露出去。"
+    }
+  },
+  {
+    "slug": "design-panel",
+    "pkg": "@yugoo-design/dsh-design-panel",
+    "owner": "alibaba-damo-academy",
+    "group": "output",
+    "version": "0.3.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/alibaba-damo-academy/yugoo-design",
+    "npm": "https://www.npmjs.com/package/@yugoo-design/dsh-design-panel",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-api-remotes",
+      "@deepseek-ai/dsh-client-ui-tool",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-ui-conversation"
+    ],
+    "install": "dsh plugin --profile web add @yugoo-design/dsh-design-panel",
+    "en": {
+      "solves": "Renders design files as editable panels inside the web UI."
+    },
+    "zh": {
+      "solves": "把设计文件渲染成可编辑面板，直接在界面里改。"
+    }
+  },
+  {
+    "slug": "codegraph",
+    "pkg": "dsh-codegraph-visualizer",
+    "owner": "xuanyuanchumo",
+    "group": "output",
+    "version": "0.3.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xuanyuanchumo/dsh-codegraph-visualizer",
+    "npm": "https://www.npmjs.com/package/dsh-codegraph-visualizer",
+    "compat": ">=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "install": "dsh plugin --profile web add dsh-codegraph-visualizer",
+    "en": {
+      "solves": "Turns code-graph data into an interactive map you can click through."
+    },
+    "zh": {
+      "solves": "把代码图谱数据变成可点的交互图。"
+    }
+  },
+  {
+    "slug": "tool-gate",
+    "pkg": "@mzzsfy/dsh-tool-gate",
+    "owner": "mzzsfy",
+    "group": "system",
+    "version": "0.2.4",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/mzzsfy/dsh-plugin",
+    "npm": "https://www.npmjs.com/package/@mzzsfy/dsh-tool-gate",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery"
+    ],
+    "install": "dsh plugin --profile web add @mzzsfy/dsh-tool-gate",
+    "en": {
+      "solves": "Keeps tool definitions out of the request until they are whitelisted, cutting prompt weight."
+    },
+    "zh": {
+      "solves": "工具定义先进白名单才注入请求，砍掉提示里的固定开销。"
+    }
+  },
+  {
+    "slug": "tool-surface",
+    "pkg": "@logictan/dsh-tool-surface",
+    "owner": "dale0525",
+    "group": "system",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/dale0525/dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@logictan/dsh-tool-surface",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add @logictan/dsh-tool-surface",
+    "en": {
+      "solves": "Trims the tool list sent with every request to a tested whitelist and moves removed tools’ parameters into the system prompt."
+    },
+    "zh": {
+      "solves": "把每轮随请求发送的工具清单收成白名单，被撤下工具的参数写进系统提示词。"
+    }
+  },
+  {
+    "slug": "tool-plus",
+    "pkg": "@xiaoso/dsh-tool-plus",
+    "owner": "xiaoso456",
+    "group": "system",
+    "version": "0.1.21",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xiaoso456/dsh-tool-plus",
+    "npm": "https://www.npmjs.com/package/@xiaoso/dsh-tool-plus",
+    "compat": ">=0.2.2-0 <0.3.0-0",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-jobs",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-shell",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-shell-env",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-agent-preset",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-agent-preset-registry"
+    ],
+    "install": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
+    "en": {
+      "solves": "A persistent bash runtime ported from Oh My Pi, exposed as DSH tools."
+    },
+    "zh": {
+      "solves": "把 Oh My Pi 的常驻 bash 运行时移植过来，做成 DSH 工具。"
+    }
+  },
+  {
+    "slug": "octop-memory",
+    "pkg": "dsh-octop-memory",
+    "owner": "ArvinQi",
+    "group": "memory",
+    "version": "0.1.7",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/ArvinQi/dsh-octop-memory",
+    "npm": "https://www.npmjs.com/package/dsh-octop-memory",
+    "compat": "",
+    "peers": [
+      "@deepseek-ai/dsh"
+    ],
+    "install": "dsh plugin --profile web add dsh-octop-memory",
+    "en": {
+      "solves": "Recalls shared memory before each turn and writes new facts back after."
+    },
+    "zh": {
+      "solves": "每轮开始前召回共享记忆，结束后把新事实写回去。"
+    }
+  },
+  {
+    "slug": "config-sync",
+    "pkg": "dsh-syn-config",
+    "owner": "Dreamaniax",
+    "group": "system",
+    "version": "0.8.11",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Dreamaniax/dsh-syn-config",
+    "npm": "https://www.npmjs.com/package/dsh-syn-config",
+    "compat": ">=0.2.2-rc.1 <0.3.0-0",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-syn-config",
+    "en": {
+      "solves": "Syncs DSH config — skills, prompts and settings — between macOS and Windows."
+    },
+    "zh": {
+      "solves": "在 macOS 与 Windows 之间同步 DSH 配置：技能、提示词、设置。"
+    }
+  },
+  {
+    "slug": "plugin-updater",
+    "pkg": "dsh-better-plugin-updater",
+    "owner": "Mooling0602",
+    "group": "find-plugins",
+    "version": "0.1.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Mooling0602/dsh-better-plugin-updater",
+    "npm": "https://www.npmjs.com/package/dsh-better-plugin-updater",
+    "compat": ">=0.2.1-rc.4 <0.3.0",
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "install": "dsh plugin --profile web add dsh-better-plugin-updater",
+    "en": {
+      "solves": "Manual multi-source update checks with a plan you approve before anything changes."
+    },
+    "zh": {
+      "solves": "手动多源检查插件更新，先给方案，确认了才改。"
+    }
+  },
+  {
+    "slug": "whiteboard-skill",
+    "pkg": "dsh-claude-whiteboard",
+    "owner": "JimLiu",
+    "group": "output",
+    "version": "2.16.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "npm": "https://www.npmjs.com/package/dsh-claude-whiteboard",
+    "compat": ">=0.2.0-0",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-claude-whiteboard",
+    "en": {
+      "solves": "The claude-whiteboard skill: the agent lays content out as a whiteboard instead of prose."
+    },
+    "zh": {
+      "solves": "claude-whiteboard 技能：让 agent 把内容排成白板，而不是写成长段文字。"
+    }
+  },
+  {
+    "slug": "motion-skill",
+    "pkg": "dsh-claude-motion",
+    "owner": "JimLiu",
+    "group": "appearance",
+    "version": "2.16.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "npm": "https://www.npmjs.com/package/dsh-claude-motion",
+    "compat": ">=0.2.0-0",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-claude-motion",
+    "en": {
+      "solves": "The claude-motion skill: the agent writes short motion specs instead of static descriptions."
+    },
+    "zh": {
+      "solves": "claude-motion 技能：让 agent 输出动效规格，而不是静态描述。"
+    }
+  },
+  {
+    "slug": "daily-reports",
+    "pkg": "dsh-atan-daily",
+    "owner": "artaniszhou",
+    "group": "automation",
+    "version": "1.2.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/artaniszhou/dsh-atan-daily",
+    "npm": "https://www.npmjs.com/package/dsh-atan-daily",
+    "compat": ">=0.2.1-0 <0.3.0",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-atan-daily",
+    "en": {
+      "solves": "Scheduled collection tasks that each file a timestamped report."
+    },
+    "zh": {
+      "solves": "定时采集任务，每跑一次落一份带时间戳的报告。"
+    }
+  },
+  {
+    "slug": "ue-asset",
+    "pkg": "dsh-ue-asset",
+    "owner": "Sumcam-L",
+    "group": "data",
+    "version": "0.1.10",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Sumcam-L/dsh-ue-asset",
+    "npm": "https://www.npmjs.com/package/dsh-ue-asset",
+    "compat": "",
+    "peers": [],
+    "install": "dsh plugin --profile web add dsh-ue-asset",
+    "en": {
+      "solves": "Browse, preview and export Unreal Engine 4/5 assets from local pak files."
+    },
+    "zh": {
+      "solves": "浏览、预览、导出本地 pak 里的 Unreal Engine 4/5 资产。"
+    }
+  },
+  {
+    "slug": "teamflow",
+    "pkg": "@xirang-ai/dsh-teamflow",
+    "owner": "xirang-ai",
+    "group": "agents",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xirang-ai/dsh-teamflow",
+    "npm": "https://www.npmjs.com/package/@xirang-ai/dsh-teamflow",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-sandbox-policy",
+      "@deepseek-ai/dsh-typert-protocol"
+    ],
+    "install": "dsh plugin --profile web add @xirang-ai/dsh-teamflow",
+    "en": {
+      "solves": "A workbench for the requirement → development → defect pipeline across a team."
+    },
+    "zh": {
+      "solves": "把需求、开发、缺陷这条流水线做成团队工作台。"
+    }
+  }
+]

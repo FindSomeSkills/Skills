@@ -1,0 +1,664 @@
+[
+  {
+    "pkg": "dshmarket",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings"
+    ],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-plugin",
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "range": "",
+    "node": ">=22.6",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "peers": [],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-plugin-updates",
+    "peers": [],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-free-search",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-client-ui-commands",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-client-ui-plugin-manager"
+    ],
+    "range": "",
+    "node": ">=20",
+    "partners": [
+      {
+        "pkg": "dsh-mobile-plugin",
+        "shared": 2,
+        "jac": 0.4
+      },
+      {
+        "pkg": "dsh-remote",
+        "shared": 2,
+        "jac": 0.2857142857142857
+      }
+    ]
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "peers": [],
+    "range": "",
+    "node": ">=22.13",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "peers": [
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials"
+    ],
+    "range": ">=0.2.0-rc.1 <0.3.0-0",
+    "node": ">=20",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "peers": [],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-pet",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-agent-default-model",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ],
+    "range": "",
+    "node": ">=22.12.0",
+    "partners": [
+      {
+        "pkg": "dsh-plugin-wallpaper-engine",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      },
+      {
+        "pkg": "dsh-genui",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-meme",
+    "peers": [
+      "@deepseek-ai/dsh-tools"
+    ],
+    "range": "",
+    "node": ">=22.13.0",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-dream-skin",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-ui-theme",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-settings-general"
+    ],
+    "range": "",
+    "node": ">=18",
+    "partners": [
+      {
+        "pkg": "ds-harness-remote",
+        "shared": 2,
+        "jac": 0.2222222222222222
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "peers": [
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots"
+    ],
+    "range": "^0.2.0-rc.1",
+    "node": ">=22.12.0",
+    "partners": [
+      {
+        "pkg": "dsh-pet",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      },
+      {
+        "pkg": "@michengai/dsh-skills-manager",
+        "shared": 2,
+        "jac": 0.2857142857142857
+      }
+    ]
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-web-app",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ],
+    "range": ">=0.2.0-rc.1 <0.3.0-0",
+    "node": "^22.19.0 || >=24.0.0",
+    "partners": [
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 4,
+        "jac": 0.4444444444444444
+      },
+      {
+        "pkg": "dsh-pet",
+        "shared": 3,
+        "jac": 0.3
+      }
+    ]
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-workspace",
+      "@deepseek-ai/dsh-spill-local",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-typert-registry",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-workspace",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-session-format-catalog",
+      "@deepseek-ai/dsh-session-projection-cache"
+    ],
+    "range": ">=0.2.0-rc.1 <0.3.0-0",
+    "node": "^22.19.0 || >=24.0.0",
+    "partners": [
+      {
+        "pkg": "@michengai/dsh-skills-manager",
+        "shared": 3,
+        "jac": 0.23076923076923078
+      },
+      {
+        "pkg": "@deepseek-harness-tui/dsh-tui",
+        "shared": 3,
+        "jac": 0.16666666666666666
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-mnemon",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-app-boot",
+      "@deepseek-ai/dsh-typert-protocol"
+    ],
+    "range": ">=0.2.0-rc.2 <0.2.1-0 || >=0.2.1-rc.1 <0.3.0-0",
+    "node": ">=20",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-compaction",
+    "peers": [],
+    "range": "",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "peers": [
+      "@deepseek-ai/cordis"
+    ],
+    "range": ">=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0",
+    "node": ">=22.19.0",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-subprocess",
+      "@deepseek-ai/dsh-win32-process",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-conversation"
+    ],
+    "range": ">=0.2.1-rc.3 <0.3.0-0",
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0",
+    "partners": [
+      {
+        "pkg": "@nanmicoder/dsh-agent-teams",
+        "shared": 6,
+        "jac": 0.375
+      },
+      {
+        "pkg": "dsh-pet",
+        "shared": 3,
+        "jac": 0.2727272727272727
+      }
+    ]
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-subagent",
+      "@deepseek-ai/dsh-util-values",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-layout",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-session-projection",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-client-ui-model-selection"
+    ],
+    "range": ">=0.1.2-alpha.2",
+    "node": "^22.19.0 || >=24",
+    "partners": [
+      {
+        "pkg": "dsh-agent-compare",
+        "shared": 6,
+        "jac": 0.375
+      },
+      {
+        "pkg": "dsh-pet",
+        "shared": 4,
+        "jac": 0.25
+      }
+    ]
+  },
+  {
+    "pkg": "ds-bot",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-web",
+      "@deepseek-ai/dsh-scope",
+      "@deepseek-ai/dsh-tools"
+    ],
+    "range": "",
+    "node": "",
+    "partners": [
+      {
+        "pkg": "deep-view",
+        "shared": 2,
+        "jac": 1
+      },
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-image-gen",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/schemastery"
+    ],
+    "range": "",
+    "node": "^22.19.0 || >=24.0.0",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-genui",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ],
+    "range": "",
+    "node": ">=20",
+    "partners": [
+      {
+        "pkg": "dsh-pet",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      },
+      {
+        "pkg": "@michengai/dsh-skills-manager",
+        "shared": 2,
+        "jac": 0.2857142857142857
+      }
+    ]
+  },
+  {
+    "pkg": "deep-view",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-web",
+      "@deepseek-ai/dsh-tools"
+    ],
+    "range": "",
+    "node": "",
+    "partners": [
+      {
+        "pkg": "ds-bot",
+        "shared": 2,
+        "jac": 1
+      },
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-host-webserver"
+    ],
+    "range": "",
+    "node": ">=22.19.0",
+    "partners": [
+      {
+        "pkg": "@michengai/dsh-skills-manager",
+        "shared": 4,
+        "jac": 0.4444444444444444
+      },
+      {
+        "pkg": "@deepseek-harness-tui/dsh-tui",
+        "shared": 5,
+        "jac": 0.38461538461538464
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-remote",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-renderer"
+    ],
+    "range": "",
+    "node": "",
+    "partners": [
+      {
+        "pkg": "dsh-free-search",
+        "shared": 2,
+        "jac": 0.2857142857142857
+      },
+      {
+        "pkg": "dsh-pet",
+        "shared": 2,
+        "jac": 0.25
+      }
+    ]
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-api-gateway",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-plugin-manager",
+      "@deepseek-ai/dsh-client-ui-settings-general",
+      "@deepseek-ai/dsh-client-ui-settings-plugins",
+      "@deepseek-ai/dsh-client-ui-settings-plugin-inventory"
+    ],
+    "range": "",
+    "node": "",
+    "partners": [
+      {
+        "pkg": "dsh-dream-skin",
+        "shared": 2,
+        "jac": 0.2222222222222222
+      },
+      {
+        "pkg": "dsh-free-search",
+        "shared": 2,
+        "jac": 0.18181818181818182
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime"
+    ],
+    "range": ">=0.2.0",
+    "node": "",
+    "partners": [
+      {
+        "pkg": "dsh-free-search",
+        "shared": 2,
+        "jac": 0.4
+      },
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 2,
+        "jac": 0.3333333333333333
+      }
+    ]
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-scope",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-cmdline",
+      "@deepseek-ai/dsh-persona",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-storage",
+      "@deepseek-ai/dsh-web-app",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-app-boot",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-terminal",
+      "@deepseek-ai/dsh-llm-pi-ai",
+      "@deepseek-ai/dsh-workspace",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-http-proxy",
+      "@deepseek-ai/dsh-tool-cordis",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-storage-json",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-terminal-bash",
+      "@deepseek-ai/dsh-tool-ask-user",
+      "@deepseek-ai/dsh-tool-subagent",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-plugin-manager",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-user-questions",
+      "@deepseek-ai/dsh-deepseek-account",
+      "@deepseek-ai/dsh-ptc-runtime-node",
+      "@deepseek-ai/dsh-agent-instructions",
+      "@deepseek-ai/dsh-cordis-host-runner",
+      "@deepseek-ai/dsh-launch-environment",
+      "@deepseek-ai/dsh-tool-bash-persistent",
+      "@deepseek-ai/dsh-agent-preset-registry"
+    ],
+    "range": "",
+    "node": "^22.19 || >=24",
+    "partners": [
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 5,
+        "jac": 0.38461538461538464
+      },
+      {
+        "pkg": "@michengai/dsh-skills-manager",
+        "shared": 4,
+        "jac": 0.26666666666666666
+      }
+    ]
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "peers": [],
+    "range": "",
+    "node": ">=22.19",
+    "partners": []
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "peers": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-user-approval"
+    ],
+    "range": "",
+    "node": ">=20.3.0",
+    "partners": [
+      {
+        "pkg": "dsh-univer-office",
+        "shared": 2,
+        "jac": 0.2857142857142857
+      },
+      {
+        "pkg": "@deepseek-harness-tui/dsh-tui",
+        "shared": 3,
+        "jac": 0.25
+      }
+    ]
+  },
+  {
+    "pkg": "dsh-unlag",
+    "peers": [],
+    "range": ">=0.2.0-rc.1",
+    "node": "",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "peers": [],
+    "range": "",
+    "node": ">=22",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-ops",
+    "peers": [
+      "@deepseek-ai/dsh",
+      "@deepseek-ai/cordis"
+    ],
+    "range": ">=0.2.2-rc.1 <0.2.3-0",
+    "node": "^22.19 || >=24",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-video-storyboard",
+    "peers": [
+      "@deepseek-ai/dsh-tools"
+    ],
+    "range": "",
+    "node": ">=20",
+    "partners": []
+  },
+  {
+    "pkg": "dsh-bili-scroll",
+    "peers": [
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "range": ">=0.1.7-rc.1",
+    "node": ">=22",
+    "partners": []
+  }
+]

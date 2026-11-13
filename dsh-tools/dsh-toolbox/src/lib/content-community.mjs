@@ -1,4 +1,9 @@
-// 第三方插件目录。每条的作者、版本、仓库、兼容区间都来自 npm registry 元数据（docs/plugin-metadata.json）。
+// 第三方插件目录。每条的作者、版本、仓库、兼容区间都来自 npm registry 元数据。
+import { CONFLICTS } from './content-community-conflicts.mjs';
+import { CONFLICTS_B2 } from './content-community-conflicts-b2.mjs';
+
+const ALL_CONFLICTS = { ...CONFLICTS, ...CONFLICTS_B2 };
+
 export const COMMUNITY_GROUPS = [
   {
     "id": "find-plugins",
@@ -49,6 +54,36 @@ export const COMMUNITY_GROUPS = [
     "id": "system",
     "en": "System and terminal",
     "zh": "系统与终端"
+  },
+  {
+    "id": "automation",
+    "en": "Scheduled automation",
+    "zh": "定时自动化"
+  },
+  {
+    "id": "network",
+    "en": "Network and proxy",
+    "zh": "网络与代理"
+  },
+  {
+    "id": "data",
+    "en": "Databases and assets",
+    "zh": "数据库与资产"
+  },
+  {
+    "id": "providers",
+    "en": "Model providers",
+    "zh": "模型服务商"
+  },
+  {
+    "id": "devtools",
+    "en": "Git and IDE",
+    "zh": "Git 与编辑器"
+  },
+  {
+    "id": "memory",
+    "en": "Memory",
+    "zh": "记忆"
   }
 ];
 
@@ -84,13 +119,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on undici, js-yaml. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -131,13 +166,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 undici, js-yaml。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -190,13 +225,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.6."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -237,13 +272,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.6。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -296,13 +331,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -343,13 +378,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -402,13 +437,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. node: >=20."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on zod, acorn. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -449,13 +484,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。node: >=20。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 zod, acorn。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -508,13 +543,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -555,13 +590,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -614,13 +649,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. node: ^22.19.0 || >=24.0.0."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -661,13 +696,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。node: ^22.19.0 || >=24.0.0。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -720,13 +755,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0. node: >=22.19.0."
+            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on @mycf711/dsh-gate, @deepseek-ai/schemastery. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -767,13 +802,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0。node: >=22.19.0。"
+            "engines.dsh: >=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 @mycf711/dsh-gate, @deepseek-ai/schemastery。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -826,13 +861,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. node: ^22.19.0 || >=24.0.0."
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on fflate. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -873,13 +908,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。node: ^22.19.0 || >=24.0.0。"
+            "engines.dsh: >=0.2.0-rc.1 <0.3.0-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 fflate。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -932,13 +967,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=20."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -979,13 +1014,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=20。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1038,13 +1073,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.13."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on undici, commander. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1085,13 +1120,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.13。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 undici, commander。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1144,13 +1179,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=18."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1191,13 +1226,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=18。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1250,13 +1285,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1297,13 +1332,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1356,13 +1391,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `^0.2.0-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: ^0.2.0-rc.1. node: >=22.12.0."
+            "engines.dsh: ^0.2.0-rc.1. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on x11, webwallgl, dsh-plugin-wallpaper-engine-fx, dsh-plugin-wallpaper-engine-fonts, dsh-plugin-wallpaper-engine-glass, dsh-plugin-wallpaper-engine-parallax. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1403,13 +1438,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `^0.2.0-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: ^0.2.0-rc.1。node: >=22.12.0。"
+            "engines.dsh: ^0.2.0-rc.1。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 x11, webwallgl, dsh-plugin-wallpaper-engine-fx, dsh-plugin-wallpaper-engine-fonts, dsh-plugin-wallpaper-engine-glass, dsh-plugin-wallpaper-engine-parallax。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1462,13 +1497,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.12.0."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on zod, openai, @electron/get, @anthropic-ai/sdk, @andresaya/edge-tts, @electron-internal/extract-zip. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1509,13 +1544,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.12.0。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 zod, openai, @electron/get, @anthropic-ai/sdk, @andresaya/edge-tts, @electron-internal/extract-zip。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1568,13 +1603,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.13.0."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1615,13 +1650,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.13.0。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1674,13 +1709,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.1.2-alpha.2`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.1.2-alpha.2. node: ^22.19.0 || >=24."
+            "engines.dsh: >=0.1.2-alpha.2. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1721,13 +1756,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.1.2-alpha.2`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.1.2-alpha.2。node: ^22.19.0 || >=24。"
+            "engines.dsh: >=0.1.2-alpha.2。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1780,13 +1815,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.1-rc.3 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0. node: ^22.22.2 || ^24.15.0 || >=26.0.0."
+            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1827,13 +1862,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.1-rc.3 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0。node: ^22.22.2 || ^24.15.0 || >=26.0.0。"
+            "engines.dsh: >=0.2.1-rc.3 <0.3.0-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1886,13 +1921,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0. node: not declared."
+            "engines.dsh: >=0.2.0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on ws, qrcode. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -1933,13 +1968,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0。node: not declared。"
+            "engines.dsh: >=0.2.0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 ws, qrcode。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -1992,13 +2027,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on asn1, ssh2, yaml, tweetnacl, iconv-lite, bcrypt-pbkdf. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2039,13 +2074,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 asn1, ssh2, yaml, tweetnacl, iconv-lite, bcrypt-pbkdf。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2098,13 +2133,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on ws, zod, qrcode, @xterm/headless, @xterm/addon-serialize, @deepseek-ai/schemastery. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2145,13 +2180,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 ws, zod, qrcode, @xterm/headless, @xterm/addon-serialize, @deepseek-ai/schemastery。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2204,13 +2239,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.19."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on qrcode, undici, imapflow, mailparser, nodemailer, @matrix-org/olm. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2251,13 +2286,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.19。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 qrcode, undici, imapflow, mailparser, nodemailer, @matrix-org/olm。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2310,13 +2345,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=20.3.0."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on yaml, qrcode, js-yaml, @tencent-connect/qqbot-nodejs, @tencent-connect/qqbot-connector. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2357,13 +2392,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=20.3.0。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 yaml, qrcode, js-yaml, @tencent-connect/qqbot-nodejs, @tencent-connect/qqbot-connector。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2416,13 +2451,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=20."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2463,13 +2498,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=20。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2522,13 +2557,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: not declared."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2569,13 +2604,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: not declared。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2628,13 +2663,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22.19.0."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on puppeteer-core, @puppeteer/browsers, @univerjs-pro/cli-assets, @univerjs-pro/exchange-node-binding, @univerjs-pro/engine-formula-rust-binding. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2675,13 +2710,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22.19.0。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 puppeteer-core, @puppeteer/browsers, @univerjs-pro/cli-assets, @univerjs-pro/exchange-node-binding, @univerjs-pro/engine-formula-rust-binding。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2734,13 +2769,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.2-rc.1 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0. node: ^22.19 || >=24."
+            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2781,13 +2816,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0。node: ^22.19 || >=24。"
+            "engines.dsh: >=0.2.2-rc.1 <0.2.3-0。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2840,13 +2875,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "`engines.dsh` declares `>=0.2.0-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
-            "engines.dsh: >=0.2.0-rc.1. node: not declared."
+            "engines.dsh: >=0.2.0-rc.1. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2887,13 +2922,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "`engines.dsh` 声明的是 `>=0.2.0-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
-            "engines.dsh: >=0.2.0-rc.1。node: not declared。"
+            "engines.dsh: >=0.2.0-rc.1。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -2946,13 +2981,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: >=22."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Declares no runtime dependencies, so clashes come from what it mounts rather than from packages. Install it alone first and read `dsh --profile web --dump-config` before adding another plugin that touches the same surface."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -2993,13 +3028,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: >=22。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "没有声明运行时依赖，冲突来自它挂载的东西而不是包本身。先单独装它，读一遍 `dsh --profile web --dump-config`，再加另一个动同一块界面的插件。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -3052,13 +3087,13 @@ export const COMMUNITY = [
           "h": "Compatibility",
           "p": [
             "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
-            "engines.dsh: not declared. node: ^22.19 || >=24."
+            "engines.dsh: not declared. peers: none declared."
           ]
         },
         {
           "h": "If two plugins fight",
           "p": [
-            "Depends on ws, zod, diff, yaml, chalk, react. Because plugin rows are patched by id, a second plugin that registers the same service id is the usual clash — install one, check `dsh --profile web --dump-config`, then add the next."
+            "See the note below; it names the official package or the community plugin it collides with."
           ]
         },
         {
@@ -3099,13 +3134,13 @@ export const COMMUNITY = [
           "h": "兼容区间",
           "p": [
             "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
-            "engines.dsh: not declared。node: ^22.19 || >=24。"
+            "engines.dsh: not declared。peers: none declared。"
           ]
         },
         {
           "h": "两个插件打架时",
           "p": [
-            "依赖 ws, zod, diff, yaml, chalk, react。插件行是按 id 打补丁的，第二个注册同一个服务 id 的插件就是典型冲突——先装一个，用 `dsh --profile web --dump-config` 看一眼，再加下一个。"
+            "看下面这条，它点名了会撞的官方包或社区插件。"
           ]
         },
         {
@@ -3126,13 +3161,3315 @@ export const COMMUNITY = [
         }
       ]
     }
+  },
+  {
+    "slug": "universal-plugin-hub",
+    "owner": "Ultmebius",
+    "pkg": "universal-plugin-hub",
+    "group": "find-plugins",
+    "version": "1.3.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Ultmebius/universal-plugin-hub",
+    "npm": "https://www.npmjs.com/package/universal-plugin-hub",
+    "compat": ">=0.1.5-rc.1",
+    "install": "dsh plugin --profile web add universal-plugin-hub",
+    "en": {
+      "title": "universal-plugin-hub for DeepSeek Harness — Find and install plugins",
+      "desc": "One hub that manages Claude Code, Codex and DSH plugins, skills and MCP connectors together. Published as universal-plugin-hub, version 1.3.1.",
+      "h1": "universal-plugin-hub",
+      "cite": "One hub that manages Claude Code, Codex and DSH plugins, skills and MCP connectors together.",
+      "lead": [
+        "Version 1.3.1, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add universal-plugin-hub"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.1.5-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.1.5-rc.1. peers: @deepseek-ai/cordis official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: Ultmebius. Repository: https://github.com/Ultmebius/universal-plugin-hub. Package page: https://www.npmjs.com/package/universal-plugin-hub."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "One hub that manages Claude Code, Codex and DSH plugins, skills and MCP connectors together."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove universal-plugin-hub`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "universal-plugin-hub — DeepSeek Harness 找插件、装插件",
+      "desc": "一个入口同时管 Claude Code、Codex 与 DSH 的插件、技能和 MCP 连接器。 包名 universal-plugin-hub，当前版本 1.3.1。",
+      "h1": "universal-plugin-hub",
+      "cite": "一个入口同时管 Claude Code、Codex 与 DSH 的插件、技能和 MCP 连接器。",
+      "lead": [
+        "当前版本 1.3.1，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add universal-plugin-hub"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.1.5-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.1.5-rc.1。peers: @deepseek-ai/cordis official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 Ultmebius，仓库 https://github.com/Ultmebius/universal-plugin-hub，包页 https://www.npmjs.com/package/universal-plugin-hub。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "一个入口同时管 Claude Code、Codex 与 DSH 的插件、技能和 MCP 连接器。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove universal-plugin-hub`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "skill-mcp-market",
+    "owner": "kuailexiaozixin",
+    "pkg": "dsh-skill-mcp-market",
+    "group": "skills",
+    "version": "0.5.28",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market",
+    "npm": "https://www.npmjs.com/package/dsh-skill-mcp-market",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-skill-mcp-market",
+    "en": {
+      "title": "dsh-skill-mcp-market for DeepSeek Harness — Skills",
+      "desc": "Browse skill and MCP feeds and install SKILL.md or a connector without restarting. Published as dsh-skill-mcp-market, version 0.5.28.",
+      "h1": "dsh-skill-mcp-market",
+      "cite": "Browse skill and MCP feeds and install SKILL.md or a connector without restarting.",
+      "lead": [
+        "Version 0.5.28, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-skill-mcp-market"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: kuailexiaozixin. Repository: https://github.com/kuailexiaozixin/dsh-skill-mcp-market. Package page: https://www.npmjs.com/package/dsh-skill-mcp-market."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Browse skill and MCP feeds and install SKILL.md or a connector without restarting."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-skill-mcp-market`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-skill-mcp-market — DeepSeek Harness 技能管理",
+      "desc": "浏览技能与 MCP 源，一键装 SKILL.md 或连接器，不用重启。 包名 dsh-skill-mcp-market，当前版本 0.5.28。",
+      "h1": "dsh-skill-mcp-market",
+      "cite": "浏览技能与 MCP 源，一键装 SKILL.md 或连接器，不用重启。",
+      "lead": [
+        "当前版本 0.5.28，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-skill-mcp-market"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 kuailexiaozixin，仓库 https://github.com/kuailexiaozixin/dsh-skill-mcp-market，包页 https://www.npmjs.com/package/dsh-skill-mcp-market。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "浏览技能与 MCP 源，一键装 SKILL.md 或连接器，不用重启。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-skill-mcp-market`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "skill-manager",
+    "owner": "xiechenghua01",
+    "pkg": "@chengze/dsh-skill-manager",
+    "group": "skills",
+    "version": "0.2.5",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xiechenghua01/dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@chengze/dsh-skill-manager",
+    "compat": ">=0.2.1-rc.5 <0.3.0",
+    "install": "dsh plugin --profile web add @chengze/dsh-skill-manager",
+    "en": {
+      "title": "@chengze/dsh-skill-manager for DeepSeek Harness — Skills",
+      "desc": "A sidebar panel that lists installed skills and turns each one on or off. Published as @chengze/dsh-skill-manager, version 0.2.5.",
+      "h1": "@chengze/dsh-skill-manager",
+      "cite": "A sidebar panel that lists installed skills and turns each one on or off.",
+      "lead": [
+        "Version 0.2.5, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @chengze/dsh-skill-manager"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.1-rc.5 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.1-rc.5 <0.3.0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: xiechenghua01. Repository: https://github.com/xiechenghua01/dsh-plugins. Package page: https://www.npmjs.com/package/@chengze/dsh-skill-manager."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A sidebar panel that lists installed skills and turns each one on or off."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @chengze/dsh-skill-manager`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@chengze/dsh-skill-manager — DeepSeek Harness 技能管理",
+      "desc": "侧边栏面板列出已装技能，逐个开关。 包名 @chengze/dsh-skill-manager，当前版本 0.2.5。",
+      "h1": "@chengze/dsh-skill-manager",
+      "cite": "侧边栏面板列出已装技能，逐个开关。",
+      "lead": [
+        "当前版本 0.2.5，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @chengze/dsh-skill-manager"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.1-rc.5 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.1-rc.5 <0.3.0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 xiechenghua01，仓库 https://github.com/xiechenghua01/dsh-plugins，包页 https://www.npmjs.com/package/@chengze/dsh-skill-manager。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "侧边栏面板列出已装技能，逐个开关。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @chengze/dsh-skill-manager`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "skill-browser",
+    "owner": "loyalchiiina",
+    "pkg": "dsh-skill-browser",
+    "group": "skills",
+    "version": "2.2.6",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/loyalchiiina/dsh-skill-browser",
+    "npm": "https://www.npmjs.com/package/dsh-skill-browser",
+    "compat": ">=0.1.7-rc.1",
+    "install": "dsh plugin --profile web add dsh-skill-browser",
+    "en": {
+      "title": "dsh-skill-browser for DeepSeek Harness — Skills",
+      "desc": "A floating panel that turns the local skill folder into something searchable, with call ledgers and MCP management. Published as dsh-skill-browser, version 2.2.6.",
+      "h1": "dsh-skill-browser",
+      "cite": "A floating panel that turns the local skill folder into something searchable, with call ledgers and MCP management.",
+      "lead": [
+        "Version 2.2.6, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-skill-browser"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.1.7-rc.1`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.1.7-rc.1. peers: @deepseek-ai/dsh,@deepseek-ai/cordis,@deepseek-ai/dsh-llm official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: loyalchiiina. Repository: https://github.com/loyalchiiina/dsh-skill-browser. Package page: https://www.npmjs.com/package/dsh-skill-browser."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A floating panel that turns the local skill folder into something searchable, with call ledgers and MCP management."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-skill-browser`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-skill-browser — DeepSeek Harness 技能管理",
+      "desc": "悬浮球打开面板，把本机技能库变成可检索资产，带调用台账与 MCP 管理。 包名 dsh-skill-browser，当前版本 2.2.6。",
+      "h1": "dsh-skill-browser",
+      "cite": "悬浮球打开面板，把本机技能库变成可检索资产，带调用台账与 MCP 管理。",
+      "lead": [
+        "当前版本 2.2.6，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-skill-browser"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.1.7-rc.1`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.1.7-rc.1。peers: @deepseek-ai/dsh,@deepseek-ai/cordis,@deepseek-ai/dsh-llm official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 loyalchiiina，仓库 https://github.com/loyalchiiina/dsh-skill-browser，包页 https://www.npmjs.com/package/dsh-skill-browser。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "悬浮球打开面板，把本机技能库变成可检索资产，带调用台账与 MCP 管理。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-skill-browser`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "evolution-bundle",
+    "owner": "lmzhen",
+    "pkg": "@lmzhen/dsh-evolution-all",
+    "group": "automation",
+    "version": "0.46.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-all",
+    "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-all",
+    "en": {
+      "title": "@lmzhen/dsh-evolution-all for DeepSeek Harness — Scheduled automation",
+      "desc": "A self-evolution bundle: host automation plus model-facing tools in one install. Published as @lmzhen/dsh-evolution-all, version 0.46.0.",
+      "h1": "@lmzhen/dsh-evolution-all",
+      "cite": "A self-evolution bundle: host automation plus model-facing tools in one install.",
+      "lead": [
+        "Version 0.46.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @lmzhen/dsh-evolution-all"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.0 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: lmzhen. Repository: https://github.com/lmzhen/dsh-evolution. Package page: https://www.npmjs.com/package/@lmzhen/dsh-evolution-all."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A self-evolution bundle: host automation plus model-facing tools in one install."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @lmzhen/dsh-evolution-all`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@lmzhen/dsh-evolution-all — DeepSeek Harness 定时自动化",
+      "desc": "自进化套件：宿主自动化加模型侧工具，一次装齐。 包名 @lmzhen/dsh-evolution-all，当前版本 0.46.0。",
+      "h1": "@lmzhen/dsh-evolution-all",
+      "cite": "自进化套件：宿主自动化加模型侧工具，一次装齐。",
+      "lead": [
+        "当前版本 0.46.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @lmzhen/dsh-evolution-all"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.0 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 lmzhen，仓库 https://github.com/lmzhen/dsh-evolution，包页 https://www.npmjs.com/package/@lmzhen/dsh-evolution-all。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "自进化套件：宿主自动化加模型侧工具，一次装齐。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @lmzhen/dsh-evolution-all`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "skill-health-panel",
+    "owner": "lmzhen",
+    "pkg": "@lmzhen/dsh-evolution-skill-health",
+    "group": "skills",
+    "version": "0.46.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "npm": "https://www.npmjs.com/package/@lmzhen/dsh-evolution-skill-health",
+    "compat": ">=0.2.2-rc.0 <0.2.3-0",
+    "install": "dsh plugin --profile web add @lmzhen/dsh-evolution-skill-health",
+    "en": {
+      "title": "@lmzhen/dsh-evolution-skill-health for DeepSeek Harness — Skills",
+      "desc": "The sidebar panel that shows what the skill linter found. Published as @lmzhen/dsh-evolution-skill-health, version 0.46.0.",
+      "h1": "@lmzhen/dsh-evolution-skill-health",
+      "cite": "The sidebar panel that shows what the skill linter found.",
+      "lead": [
+        "Version 0.46.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @lmzhen/dsh-evolution-skill-health"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.0 <0.2.3-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0. peers: @deepseek-ai/cordis official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: lmzhen. Repository: https://github.com/lmzhen/dsh-evolution. Package page: https://www.npmjs.com/package/@lmzhen/dsh-evolution-skill-health."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "The sidebar panel that shows what the skill linter found."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @lmzhen/dsh-evolution-skill-health`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@lmzhen/dsh-evolution-skill-health — DeepSeek Harness 技能管理",
+      "desc": "侧边栏面板，显示技能体检的结果。 包名 @lmzhen/dsh-evolution-skill-health，当前版本 0.46.0。",
+      "h1": "@lmzhen/dsh-evolution-skill-health",
+      "cite": "侧边栏面板，显示技能体检的结果。",
+      "lead": [
+        "当前版本 0.46.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @lmzhen/dsh-evolution-skill-health"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.0 <0.2.3-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.0 <0.2.3-0。peers: @deepseek-ai/cordis official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 lmzhen，仓库 https://github.com/lmzhen/dsh-evolution，包页 https://www.npmjs.com/package/@lmzhen/dsh-evolution-skill-health。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "侧边栏面板，显示技能体检的结果。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @lmzhen/dsh-evolution-skill-health`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "custom-theme",
+    "owner": "Sparrived",
+    "pkg": "dsh-custom-theme",
+    "group": "appearance",
+    "version": "0.9.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Sparrived/dsh-custom-theme",
+    "npm": "https://www.npmjs.com/package/dsh-custom-theme",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-custom-theme",
+    "en": {
+      "title": "dsh-custom-theme for DeepSeek Harness — Looks and themes",
+      "desc": "User-editable CSS themes and background images for the web UI and the desktop app. Published as dsh-custom-theme, version 0.9.0.",
+      "h1": "dsh-custom-theme",
+      "cite": "User-editable CSS themes and background images for the web UI and the desktop app.",
+      "lead": [
+        "Version 0.9.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-custom-theme"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: Sparrived. Repository: https://github.com/Sparrived/dsh-custom-theme. Package page: https://www.npmjs.com/package/dsh-custom-theme."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "User-editable CSS themes and background images for the web UI and the desktop app."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-custom-theme`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-custom-theme — DeepSeek Harness 界面与外观",
+      "desc": "可自己改的 CSS 主题与背景图，网页版和桌面版都能用。 包名 dsh-custom-theme，当前版本 0.9.0。",
+      "h1": "dsh-custom-theme",
+      "cite": "可自己改的 CSS 主题与背景图，网页版和桌面版都能用。",
+      "lead": [
+        "当前版本 0.9.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-custom-theme"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 Sparrived，仓库 https://github.com/Sparrived/dsh-custom-theme，包页 https://www.npmjs.com/package/dsh-custom-theme。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "可自己改的 CSS 主题与背景图，网页版和桌面版都能用。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-custom-theme`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "flat-corners",
+    "owner": "VMWHW",
+    "pkg": "dsh-exv-flat-corners",
+    "group": "appearance",
+    "version": "2.4.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/VMWHW/dsh-exv-theme",
+    "npm": "https://www.npmjs.com/package/dsh-exv-flat-corners",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "install": "dsh plugin --profile web add dsh-exv-flat-corners",
+    "en": {
+      "title": "dsh-exv-flat-corners for DeepSeek Harness — Looks and themes",
+      "desc": "Removes every corner radius from the interface. Published as dsh-exv-flat-corners, version 2.4.2.",
+      "h1": "dsh-exv-flat-corners",
+      "cite": "Removes every corner radius from the interface.",
+      "lead": [
+        "Version 2.4.2, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-exv-flat-corners"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: VMWHW. Repository: https://github.com/VMWHW/dsh-exv-theme. Package page: https://www.npmjs.com/package/dsh-exv-flat-corners."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Removes every corner radius from the interface."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-exv-flat-corners`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-exv-flat-corners — DeepSeek Harness 界面与外观",
+      "desc": "把界面里所有圆角去掉。 包名 dsh-exv-flat-corners，当前版本 2.4.2。",
+      "h1": "dsh-exv-flat-corners",
+      "cite": "把界面里所有圆角去掉。",
+      "lead": [
+        "当前版本 2.4.2，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-exv-flat-corners"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 VMWHW，仓库 https://github.com/VMWHW/dsh-exv-theme，包页 https://www.npmjs.com/package/dsh-exv-flat-corners。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把界面里所有圆角去掉。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-exv-flat-corners`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "sidebar-fold",
+    "owner": "rivenshanghai",
+    "pkg": "dsh-toomuch-plugins",
+    "group": "appearance",
+    "version": "0.3.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/rivenshanghai/dsh-toomuch-plugins",
+    "npm": "https://www.npmjs.com/package/dsh-toomuch-plugins",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-toomuch-plugins",
+    "en": {
+      "title": "dsh-toomuch-plugins for DeepSeek Harness — Looks and themes",
+      "desc": "Collapses the growing list of global panel entries in the left sidebar into one row. Published as dsh-toomuch-plugins, version 0.3.3.",
+      "h1": "dsh-toomuch-plugins",
+      "cite": "Collapses the growing list of global panel entries in the left sidebar into one row.",
+      "lead": [
+        "Version 0.3.3, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-toomuch-plugins"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: rivenshanghai. Repository: https://github.com/rivenshanghai/dsh-toomuch-plugins. Package page: https://www.npmjs.com/package/dsh-toomuch-plugins."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Collapses the growing list of global panel entries in the left sidebar into one row."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-toomuch-plugins`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-toomuch-plugins — DeepSeek Harness 界面与外观",
+      "desc": "把左侧栏越堆越长的全局面板收成一行。 包名 dsh-toomuch-plugins，当前版本 0.3.3。",
+      "h1": "dsh-toomuch-plugins",
+      "cite": "把左侧栏越堆越长的全局面板收成一行。",
+      "lead": [
+        "当前版本 0.3.3，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-toomuch-plugins"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 rivenshanghai，仓库 https://github.com/rivenshanghai/dsh-toomuch-plugins，包页 https://www.npmjs.com/package/dsh-toomuch-plugins。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把左侧栏越堆越长的全局面板收成一行。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-toomuch-plugins`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "aishell-brand",
+    "owner": "yusheng-g",
+    "pkg": "@huaweidevtools/aishell-dsh-brand",
+    "group": "appearance",
+    "version": "0.0.23",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/yusheng-g/aishell-dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@huaweidevtools/aishell-dsh-brand",
+    "compat": "",
+    "install": "dsh plugin --profile web add @huaweidevtools/aishell-dsh-brand",
+    "en": {
+      "title": "@huaweidevtools/aishell-dsh-brand for DeepSeek Harness — Looks and themes",
+      "desc": "Replaces the sidebar and hero brand marks with AI Shell artwork. Published as @huaweidevtools/aishell-dsh-brand, version 0.0.23.",
+      "h1": "@huaweidevtools/aishell-dsh-brand",
+      "cite": "Replaces the sidebar and hero brand marks with AI Shell artwork.",
+      "lead": [
+        "Version 0.0.23, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @huaweidevtools/aishell-dsh-brand"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-system-prompt official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: yusheng-g. Repository: https://github.com/yusheng-g/aishell-dsh-plugins. Package page: https://www.npmjs.com/package/@huaweidevtools/aishell-dsh-brand."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Replaces the sidebar and hero brand marks with AI Shell artwork."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @huaweidevtools/aishell-dsh-brand`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@huaweidevtools/aishell-dsh-brand — DeepSeek Harness 界面与外观",
+      "desc": "把侧栏和首屏的品牌标识换成 AI Shell 的。 包名 @huaweidevtools/aishell-dsh-brand，当前版本 0.0.23。",
+      "h1": "@huaweidevtools/aishell-dsh-brand",
+      "cite": "把侧栏和首屏的品牌标识换成 AI Shell 的。",
+      "lead": [
+        "当前版本 0.0.23，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @huaweidevtools/aishell-dsh-brand"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-system-prompt official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 yusheng-g，仓库 https://github.com/yusheng-g/aishell-dsh-plugins，包页 https://www.npmjs.com/package/@huaweidevtools/aishell-dsh-brand。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把侧栏和首屏的品牌标识换成 AI Shell 的。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @huaweidevtools/aishell-dsh-brand`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "llm-proxy",
+    "owner": "fan56",
+    "pkg": "@aiwayds/dsh-llm-proxy",
+    "group": "network",
+    "version": "0.8.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/fan56/dsh-llm-proxy",
+    "npm": "https://www.npmjs.com/package/@aiwayds/dsh-llm-proxy",
+    "compat": "",
+    "install": "dsh plugin --profile web add @aiwayds/dsh-llm-proxy",
+    "en": {
+      "title": "@aiwayds/dsh-llm-proxy for DeepSeek Harness — Network and proxy",
+      "desc": "A system proxy plus a traffic-splitting proxy for model calls, so one host can route several providers. Published as @aiwayds/dsh-llm-proxy, version 0.8.1.",
+      "h1": "@aiwayds/dsh-llm-proxy",
+      "cite": "A system proxy plus a traffic-splitting proxy for model calls, so one host can route several providers.",
+      "lead": [
+        "Version 0.8.1, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @aiwayds/dsh-llm-proxy"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-skill,@deepseek-ai/schemastery,@deepseek-ai/dsh-settings official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: fan56. Repository: https://github.com/fan56/dsh-llm-proxy. Package page: https://www.npmjs.com/package/@aiwayds/dsh-llm-proxy."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A system proxy plus a traffic-splitting proxy for model calls, so one host can route several providers."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @aiwayds/dsh-llm-proxy`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@aiwayds/dsh-llm-proxy — DeepSeek Harness 网络与代理",
+      "desc": "系统代理加模型流量分流代理，一台机器上给多个服务商分路。 包名 @aiwayds/dsh-llm-proxy，当前版本 0.8.1。",
+      "h1": "@aiwayds/dsh-llm-proxy",
+      "cite": "系统代理加模型流量分流代理，一台机器上给多个服务商分路。",
+      "lead": [
+        "当前版本 0.8.1，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @aiwayds/dsh-llm-proxy"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-skill,@deepseek-ai/schemastery,@deepseek-ai/dsh-settings official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 fan56，仓库 https://github.com/fan56/dsh-llm-proxy，包页 https://www.npmjs.com/package/@aiwayds/dsh-llm-proxy。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "系统代理加模型流量分流代理，一台机器上给多个服务商分路。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @aiwayds/dsh-llm-proxy`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "database-tool",
+    "owner": "SouleyMoni1",
+    "pkg": "dsh-tool-database",
+    "group": "data",
+    "version": "0.3.7",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/SouleyMoni1/dsh-tool-database",
+    "npm": "https://www.npmjs.com/package/dsh-tool-database",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-tool-database",
+    "en": {
+      "title": "dsh-tool-database for DeepSeek Harness — Databases and assets",
+      "desc": "Query SQL Server, PostgreSQL and MySQL from the agent through native drivers. Published as dsh-tool-database, version 0.3.7.",
+      "h1": "dsh-tool-database",
+      "cite": "Query SQL Server, PostgreSQL and MySQL from the agent through native drivers.",
+      "lead": [
+        "Version 0.3.7, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-tool-database"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: SouleyMoni1. Repository: https://github.com/SouleyMoni1/dsh-tool-database. Package page: https://www.npmjs.com/package/dsh-tool-database."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Query SQL Server, PostgreSQL and MySQL from the agent through native drivers."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-tool-database`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-tool-database — DeepSeek Harness 数据库与资产",
+      "desc": "让 agent 通过原生驱动查 SQL Server、PostgreSQL、MySQL。 包名 dsh-tool-database，当前版本 0.3.7。",
+      "h1": "dsh-tool-database",
+      "cite": "让 agent 通过原生驱动查 SQL Server、PostgreSQL、MySQL。",
+      "lead": [
+        "当前版本 0.3.7，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-tool-database"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 SouleyMoni1，仓库 https://github.com/SouleyMoni1/dsh-tool-database，包页 https://www.npmjs.com/package/dsh-tool-database。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "让 agent 通过原生驱动查 SQL Server、PostgreSQL、MySQL。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-tool-database`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "providers-hub",
+    "owner": "iJetLi",
+    "pkg": "dsh-providers-hub",
+    "group": "providers",
+    "version": "2.24.261113",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/iJetLi/deepseek-harness-codearts",
+    "npm": "https://www.npmjs.com/package/dsh-providers-hub",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-providers-hub",
+    "en": {
+      "title": "dsh-providers-hub for DeepSeek Harness — Model providers",
+      "desc": "One hub for coding providers: account login, multiple accounts, and switching between them. Published as dsh-providers-hub, version 2.24.261113.",
+      "h1": "dsh-providers-hub",
+      "cite": "One hub for coding providers: account login, multiple accounts, and switching between them.",
+      "lead": [
+        "Version 2.24.261113, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-providers-hub"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/schemastery,@deepseek-ai/dsh-commands,@deepseek-ai/dsh-credentials official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: iJetLi. Repository: https://gitee.com/iJetLi/deepseek-harness-codearts. Package page: https://www.npmjs.com/package/dsh-providers-hub."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "One hub for coding providers: account login, multiple accounts, and switching between them."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-providers-hub`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-providers-hub — DeepSeek Harness 模型服务商",
+      "desc": "一个入口管编码服务商：登录、多账号、来回切。 包名 dsh-providers-hub，当前版本 2.24.261113。",
+      "h1": "dsh-providers-hub",
+      "cite": "一个入口管编码服务商：登录、多账号、来回切。",
+      "lead": [
+        "当前版本 2.24.261113，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-providers-hub"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/schemastery,@deepseek-ai/dsh-commands,@deepseek-ai/dsh-credentials official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 iJetLi，仓库 https://gitee.com/iJetLi/deepseek-harness-codearts，包页 https://www.npmjs.com/package/dsh-providers-hub。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "一个入口管编码服务商：登录、多账号、来回切。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-providers-hub`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "permission-remote",
+    "owner": "weicy98",
+    "pkg": "dsh-permission-remote",
+    "group": "remote",
+    "version": "0.18.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/weicy98/dsh-permission-remote",
+    "npm": "https://www.npmjs.com/package/dsh-permission-remote",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "install": "dsh plugin --profile web add dsh-permission-remote",
+    "en": {
+      "title": "dsh-permission-remote for DeepSeek Harness — Phone and remote access",
+      "desc": "SSH remote workspaces that reuse the session sandbox mode and the approval flow. Published as dsh-permission-remote, version 0.18.1.",
+      "h1": "dsh-permission-remote",
+      "cite": "SSH remote workspaces that reuse the session sandbox mode and the approval flow.",
+      "lead": [
+        "Version 0.18.1, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-permission-remote"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/cosmokit,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery,@deepseek-ai/dsh-fs-patch,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-credentials,@deepseek-ai/dsh-atomic-write,@deepseek-ai/dsh-typert-protocol official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: weicy98. Repository: https://github.com/weicy98/dsh-permission-remote. Package page: https://www.npmjs.com/package/dsh-permission-remote."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "SSH remote workspaces that reuse the session sandbox mode and the approval flow."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-permission-remote`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-permission-remote — DeepSeek Harness 手机与远程访问",
+      "desc": "SSH 远程工作区，沿用会话的沙箱模式与审批流程。 包名 dsh-permission-remote，当前版本 0.18.1。",
+      "h1": "dsh-permission-remote",
+      "cite": "SSH 远程工作区，沿用会话的沙箱模式与审批流程。",
+      "lead": [
+        "当前版本 0.18.1，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-permission-remote"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/cosmokit,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery,@deepseek-ai/dsh-fs-patch,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-credentials,@deepseek-ai/dsh-atomic-write,@deepseek-ai/dsh-typert-protocol official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 weicy98，仓库 https://github.com/weicy98/dsh-permission-remote，包页 https://www.npmjs.com/package/dsh-permission-remote。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "SSH 远程工作区，沿用会话的沙箱模式与审批流程。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-permission-remote`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "simple-worktree",
+    "owner": "voltage12",
+    "pkg": "@voltage12/dsh-simple-worktree",
+    "group": "devtools",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/voltage12/dsh-simple-worktree",
+    "npm": "https://www.npmjs.com/package/@voltage12/dsh-simple-worktree",
+    "compat": ">=0.2.1-rc.2 <0.3.0",
+    "install": "dsh plugin --profile web add @voltage12/dsh-simple-worktree",
+    "en": {
+      "title": "@voltage12/dsh-simple-worktree for DeepSeek Harness — Git and IDE",
+      "desc": "Create and remove git worktrees from the conversation. Published as @voltage12/dsh-simple-worktree, version 0.1.3.",
+      "h1": "@voltage12/dsh-simple-worktree",
+      "cite": "Create and remove git worktrees from the conversation.",
+      "lead": [
+        "Version 0.1.3, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @voltage12/dsh-simple-worktree"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.1-rc.2 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.1-rc.2 <0.3.0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: voltage12. Repository: https://github.com/voltage12/dsh-simple-worktree. Package page: https://www.npmjs.com/package/@voltage12/dsh-simple-worktree."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Create and remove git worktrees from the conversation."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @voltage12/dsh-simple-worktree`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@voltage12/dsh-simple-worktree — DeepSeek Harness Git 与编辑器",
+      "desc": "在对话里创建和删除 git worktree。 包名 @voltage12/dsh-simple-worktree，当前版本 0.1.3。",
+      "h1": "@voltage12/dsh-simple-worktree",
+      "cite": "在对话里创建和删除 git worktree。",
+      "lead": [
+        "当前版本 0.1.3，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @voltage12/dsh-simple-worktree"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.1-rc.2 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.1-rc.2 <0.3.0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 voltage12，仓库 https://github.com/voltage12/dsh-simple-worktree，包页 https://www.npmjs.com/package/@voltage12/dsh-simple-worktree。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "在对话里创建和删除 git worktree。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @voltage12/dsh-simple-worktree`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "web-ide",
+    "owner": "fengzhaoy",
+    "pkg": "@zhaoyang10/dsh-web-ide",
+    "group": "devtools",
+    "version": "0.2.2",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/fengzhaoy/dsh-web-ide",
+    "npm": "https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide",
+    "compat": ">=0.2.0-rc.2",
+    "install": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide",
+    "en": {
+      "title": "@zhaoyang10/dsh-web-ide for DeepSeek Harness — Git and IDE",
+      "desc": "A VS Code-style read-only code tab in the web client. Published as @zhaoyang10/dsh-web-ide, version 0.2.2.",
+      "h1": "@zhaoyang10/dsh-web-ide",
+      "cite": "A VS Code-style read-only code tab in the web client.",
+      "lead": [
+        "Version 0.2.2, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-rc.2`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.0-rc.2. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: fengzhaoy. Repository: https://gitee.com/fengzhaoy/dsh-web-ide. Package page: https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A VS Code-style read-only code tab in the web client."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @zhaoyang10/dsh-web-ide`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@zhaoyang10/dsh-web-ide — DeepSeek Harness Git 与编辑器",
+      "desc": "网页端加一个 VS Code 风格的只读代码页。 包名 @zhaoyang10/dsh-web-ide，当前版本 0.2.2。",
+      "h1": "@zhaoyang10/dsh-web-ide",
+      "cite": "网页端加一个 VS Code 风格的只读代码页。",
+      "lead": [
+        "当前版本 0.2.2，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-rc.2`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.0-rc.2。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 fengzhaoy，仓库 https://gitee.com/fengzhaoy/dsh-web-ide，包页 https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "网页端加一个 VS Code 风格的只读代码页。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @zhaoyang10/dsh-web-ide`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "computers",
+    "owner": "9Ashwin",
+    "pkg": "dsh-computers",
+    "group": "remote",
+    "version": "1.9.9",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/9Ashwin/dsh-computers",
+    "npm": "https://www.npmjs.com/package/dsh-computers",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-computers",
+    "en": {
+      "title": "dsh-computers for DeepSeek Harness — Phone and remote access",
+      "desc": "Connect your own machines to a DSH deployment and run commands on them from the agent. Published as dsh-computers, version 1.9.9.",
+      "h1": "dsh-computers",
+      "cite": "Connect your own machines to a DSH deployment and run commands on them from the agent.",
+      "lead": [
+        "Version 1.9.9, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-computers"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: 9Ashwin. Repository: https://github.com/9Ashwin/dsh-computers. Package page: https://www.npmjs.com/package/dsh-computers."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Connect your own machines to a DSH deployment and run commands on them from the agent."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-computers`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-computers — DeepSeek Harness 手机与远程访问",
+      "desc": "把自己其它机器接到 DSH 上，让 agent 在上面跑命令。 包名 dsh-computers，当前版本 1.9.9。",
+      "h1": "dsh-computers",
+      "cite": "把自己其它机器接到 DSH 上，让 agent 在上面跑命令。",
+      "lead": [
+        "当前版本 1.9.9，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-computers"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 9Ashwin，仓库 https://github.com/9Ashwin/dsh-computers，包页 https://www.npmjs.com/package/dsh-computers。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把自己其它机器接到 DSH 上，让 agent 在上面跑命令。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-computers`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "cloud-relay",
+    "owner": "NoelJudeNoel",
+    "pkg": "dshost-plugin",
+    "group": "remote",
+    "version": "0.1.25",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/NoelJudeNoel/dshost-plugin",
+    "npm": "https://www.npmjs.com/package/dshost-plugin",
+    "compat": "",
+    "install": "dsh plugin --profile web add dshost-plugin",
+    "en": {
+      "title": "dshost-plugin for DeepSeek Harness — Phone and remote access",
+      "desc": "A relay plugin that exposes the local web UI through a hosted endpoint. Published as dshost-plugin, version 0.1.25.",
+      "h1": "dshost-plugin",
+      "cite": "A relay plugin that exposes the local web UI through a hosted endpoint.",
+      "lead": [
+        "Version 0.1.25, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dshost-plugin"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: NoelJudeNoel. Repository: https://github.com/NoelJudeNoel/dshost-plugin. Package page: https://www.npmjs.com/package/dshost-plugin."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A relay plugin that exposes the local web UI through a hosted endpoint."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dshost-plugin`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dshost-plugin — DeepSeek Harness 手机与远程访问",
+      "desc": "中继插件，把本机网页界面通过托管端点暴露出去。 包名 dshost-plugin，当前版本 0.1.25。",
+      "h1": "dshost-plugin",
+      "cite": "中继插件，把本机网页界面通过托管端点暴露出去。",
+      "lead": [
+        "当前版本 0.1.25，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dshost-plugin"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 NoelJudeNoel，仓库 https://github.com/NoelJudeNoel/dshost-plugin，包页 https://www.npmjs.com/package/dshost-plugin。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "中继插件，把本机网页界面通过托管端点暴露出去。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dshost-plugin`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "design-panel",
+    "owner": "alibaba-damo-academy",
+    "pkg": "@yugoo-design/dsh-design-panel",
+    "group": "output",
+    "version": "0.3.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/alibaba-damo-academy/yugoo-design",
+    "npm": "https://www.npmjs.com/package/@yugoo-design/dsh-design-panel",
+    "compat": "",
+    "install": "dsh plugin --profile web add @yugoo-design/dsh-design-panel",
+    "en": {
+      "title": "@yugoo-design/dsh-design-panel for DeepSeek Harness — Rich output",
+      "desc": "Renders design files as editable panels inside the web UI. Published as @yugoo-design/dsh-design-panel, version 0.3.0.",
+      "h1": "@yugoo-design/dsh-design-panel",
+      "cite": "Renders design files as editable panels inside the web UI.",
+      "lead": [
+        "Version 0.3.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @yugoo-design/dsh-design-panel"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-api-remotes,@deepseek-ai/dsh-client-ui-tool,@deepseek-ai/dsh-client-ui-slots,@deepseek-ai/dsh-typert-protocol,@deepseek-ai/dsh-client-ui-session,@deepseek-ai/dsh-api-session-controller,@deepseek-ai/dsh-client-ui-conversation official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: alibaba-damo-academy. Repository: https://github.com/alibaba-damo-academy/yugoo-design. Package page: https://www.npmjs.com/package/@yugoo-design/dsh-design-panel."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Renders design files as editable panels inside the web UI."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @yugoo-design/dsh-design-panel`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@yugoo-design/dsh-design-panel — DeepSeek Harness 富输出",
+      "desc": "把设计文件渲染成可编辑面板，直接在界面里改。 包名 @yugoo-design/dsh-design-panel，当前版本 0.3.0。",
+      "h1": "@yugoo-design/dsh-design-panel",
+      "cite": "把设计文件渲染成可编辑面板，直接在界面里改。",
+      "lead": [
+        "当前版本 0.3.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @yugoo-design/dsh-design-panel"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-api-remotes,@deepseek-ai/dsh-client-ui-tool,@deepseek-ai/dsh-client-ui-slots,@deepseek-ai/dsh-typert-protocol,@deepseek-ai/dsh-client-ui-session,@deepseek-ai/dsh-api-session-controller,@deepseek-ai/dsh-client-ui-conversation official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 alibaba-damo-academy，仓库 https://github.com/alibaba-damo-academy/yugoo-design，包页 https://www.npmjs.com/package/@yugoo-design/dsh-design-panel。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把设计文件渲染成可编辑面板，直接在界面里改。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @yugoo-design/dsh-design-panel`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "codegraph",
+    "owner": "xuanyuanchumo",
+    "pkg": "dsh-codegraph-visualizer",
+    "group": "output",
+    "version": "0.3.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xuanyuanchumo/dsh-codegraph-visualizer",
+    "npm": "https://www.npmjs.com/package/dsh-codegraph-visualizer",
+    "compat": ">=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0",
+    "install": "dsh plugin --profile web add dsh-codegraph-visualizer",
+    "en": {
+      "title": "dsh-codegraph-visualizer for DeepSeek Harness — Rich output",
+      "desc": "Turns code-graph data into an interactive map you can click through. Published as dsh-codegraph-visualizer, version 0.3.1.",
+      "h1": "dsh-codegraph-visualizer",
+      "cite": "Turns code-graph data into an interactive map you can click through.",
+      "lead": [
+        "Version 0.3.1, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-codegraph-visualizer"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-tools,@deepseek-ai/schemastery official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: xuanyuanchumo. Repository: https://github.com/xuanyuanchumo/dsh-codegraph-visualizer. Package page: https://www.npmjs.com/package/dsh-codegraph-visualizer."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Turns code-graph data into an interactive map you can click through."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-codegraph-visualizer`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-codegraph-visualizer — DeepSeek Harness 富输出",
+      "desc": "把代码图谱数据变成可点的交互图。 包名 dsh-codegraph-visualizer，当前版本 0.3.1。",
+      "h1": "dsh-codegraph-visualizer",
+      "cite": "把代码图谱数据变成可点的交互图。",
+      "lead": [
+        "当前版本 0.3.1，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-codegraph-visualizer"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.0-rc.2 <0.3.0 || >=0.3.0-0 <0.4.0-0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-tools,@deepseek-ai/schemastery official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 xuanyuanchumo，仓库 https://github.com/xuanyuanchumo/dsh-codegraph-visualizer，包页 https://www.npmjs.com/package/dsh-codegraph-visualizer。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把代码图谱数据变成可点的交互图。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-codegraph-visualizer`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "tool-gate",
+    "owner": "mzzsfy",
+    "pkg": "@mzzsfy/dsh-tool-gate",
+    "group": "system",
+    "version": "0.2.4",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/mzzsfy/dsh-plugin",
+    "npm": "https://www.npmjs.com/package/@mzzsfy/dsh-tool-gate",
+    "compat": "",
+    "install": "dsh plugin --profile web add @mzzsfy/dsh-tool-gate",
+    "en": {
+      "title": "@mzzsfy/dsh-tool-gate for DeepSeek Harness — System and terminal",
+      "desc": "Keeps tool definitions out of the request until they are whitelisted, cutting prompt weight. Published as @mzzsfy/dsh-tool-gate, version 0.2.4.",
+      "h1": "@mzzsfy/dsh-tool-gate",
+      "cite": "Keeps tool definitions out of the request until they are whitelisted, cutting prompt weight.",
+      "lead": [
+        "Version 0.2.4, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @mzzsfy/dsh-tool-gate"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: mzzsfy. Repository: https://github.com/mzzsfy/dsh-plugin. Package page: https://www.npmjs.com/package/@mzzsfy/dsh-tool-gate."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Keeps tool definitions out of the request until they are whitelisted, cutting prompt weight."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @mzzsfy/dsh-tool-gate`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@mzzsfy/dsh-tool-gate — DeepSeek Harness 系统与终端",
+      "desc": "工具定义先进白名单才注入请求，砍掉提示里的固定开销。 包名 @mzzsfy/dsh-tool-gate，当前版本 0.2.4。",
+      "h1": "@mzzsfy/dsh-tool-gate",
+      "cite": "工具定义先进白名单才注入请求，砍掉提示里的固定开销。",
+      "lead": [
+        "当前版本 0.2.4，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @mzzsfy/dsh-tool-gate"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/schemastery official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 mzzsfy，仓库 https://github.com/mzzsfy/dsh-plugin，包页 https://www.npmjs.com/package/@mzzsfy/dsh-tool-gate。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "工具定义先进白名单才注入请求，砍掉提示里的固定开销。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @mzzsfy/dsh-tool-gate`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "tool-surface",
+    "owner": "dale0525",
+    "pkg": "@logictan/dsh-tool-surface",
+    "group": "system",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/dale0525/dsh-plugins",
+    "npm": "https://www.npmjs.com/package/@logictan/dsh-tool-surface",
+    "compat": "",
+    "install": "dsh plugin --profile web add @logictan/dsh-tool-surface",
+    "en": {
+      "title": "@logictan/dsh-tool-surface for DeepSeek Harness — System and terminal",
+      "desc": "Trims the tool list sent with every request to a tested whitelist and moves removed tools’ parameters into the system prompt. Published as @logictan/dsh-tool-surface, version 0.1.3.",
+      "h1": "@logictan/dsh-tool-surface",
+      "cite": "Trims the tool list sent with every request to a tested whitelist and moves removed tools’ parameters into the system prompt.",
+      "lead": [
+        "Version 0.1.3, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @logictan/dsh-tool-surface"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: dale0525. Repository: https://github.com/dale0525/dsh-plugins. Package page: https://www.npmjs.com/package/@logictan/dsh-tool-surface."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Trims the tool list sent with every request to a tested whitelist and moves removed tools’ parameters into the system prompt."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @logictan/dsh-tool-surface`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@logictan/dsh-tool-surface — DeepSeek Harness 系统与终端",
+      "desc": "把每轮随请求发送的工具清单收成白名单，被撤下工具的参数写进系统提示词。 包名 @logictan/dsh-tool-surface，当前版本 0.1.3。",
+      "h1": "@logictan/dsh-tool-surface",
+      "cite": "把每轮随请求发送的工具清单收成白名单，被撤下工具的参数写进系统提示词。",
+      "lead": [
+        "当前版本 0.1.3，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @logictan/dsh-tool-surface"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 dale0525，仓库 https://github.com/dale0525/dsh-plugins，包页 https://www.npmjs.com/package/@logictan/dsh-tool-surface。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把每轮随请求发送的工具清单收成白名单，被撤下工具的参数写进系统提示词。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @logictan/dsh-tool-surface`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "tool-plus",
+    "owner": "xiaoso456",
+    "pkg": "@xiaoso/dsh-tool-plus",
+    "group": "system",
+    "version": "0.1.21",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xiaoso456/dsh-tool-plus",
+    "npm": "https://www.npmjs.com/package/@xiaoso/dsh-tool-plus",
+    "compat": ">=0.2.2-0 <0.3.0-0",
+    "install": "dsh plugin --profile web add @xiaoso/dsh-tool-plus",
+    "en": {
+      "title": "@xiaoso/dsh-tool-plus for DeepSeek Harness — System and terminal",
+      "desc": "A persistent bash runtime ported from Oh My Pi, exposed as DSH tools. Published as @xiaoso/dsh-tool-plus, version 0.1.21.",
+      "h1": "@xiaoso/dsh-tool-plus",
+      "cite": "A persistent bash runtime ported from Oh My Pi, exposed as DSH tools.",
+      "lead": [
+        "Version 0.1.21, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @xiaoso/dsh-tool-plus"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-0 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-0 <0.3.0-0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-jobs,@deepseek-ai/dsh-agent,@deepseek-ai/dsh-shell,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/dsh-session,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-shell-env,@deepseek-ai/dsh-attachment,@deepseek-ai/dsh-agent-preset,@deepseek-ai/dsh-system-prompt,@deepseek-ai/dsh-client-connection,@deepseek-ai/dsh-agent-preset-registry official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: xiaoso456. Repository: https://github.com/xiaoso456/dsh-tool-plus. Package page: https://www.npmjs.com/package/@xiaoso/dsh-tool-plus."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A persistent bash runtime ported from Oh My Pi, exposed as DSH tools."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @xiaoso/dsh-tool-plus`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@xiaoso/dsh-tool-plus — DeepSeek Harness 系统与终端",
+      "desc": "把 Oh My Pi 的常驻 bash 运行时移植过来，做成 DSH 工具。 包名 @xiaoso/dsh-tool-plus，当前版本 0.1.21。",
+      "h1": "@xiaoso/dsh-tool-plus",
+      "cite": "把 Oh My Pi 的常驻 bash 运行时移植过来，做成 DSH 工具。",
+      "lead": [
+        "当前版本 0.1.21，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @xiaoso/dsh-tool-plus"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-0 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-0 <0.3.0-0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-fs,@deepseek-ai/dsh-llm,@deepseek-ai/dsh-jobs,@deepseek-ai/dsh-agent,@deepseek-ai/dsh-shell,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-sandbox,@deepseek-ai/dsh-session,@deepseek-ai/dsh-settings,@deepseek-ai/dsh-shell-env,@deepseek-ai/dsh-attachment,@deepseek-ai/dsh-agent-preset,@deepseek-ai/dsh-system-prompt,@deepseek-ai/dsh-client-connection,@deepseek-ai/dsh-agent-preset-registry official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 xiaoso456，仓库 https://github.com/xiaoso456/dsh-tool-plus，包页 https://www.npmjs.com/package/@xiaoso/dsh-tool-plus。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把 Oh My Pi 的常驻 bash 运行时移植过来，做成 DSH 工具。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @xiaoso/dsh-tool-plus`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "octop-memory",
+    "owner": "ArvinQi",
+    "pkg": "dsh-octop-memory",
+    "group": "memory",
+    "version": "0.1.7",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/ArvinQi/dsh-octop-memory",
+    "npm": "https://www.npmjs.com/package/dsh-octop-memory",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-octop-memory",
+    "en": {
+      "title": "dsh-octop-memory for DeepSeek Harness — Memory",
+      "desc": "Recalls shared memory before each turn and writes new facts back after. Published as dsh-octop-memory, version 0.1.7.",
+      "h1": "dsh-octop-memory",
+      "cite": "Recalls shared memory before each turn and writes new facts back after.",
+      "lead": [
+        "Version 0.1.7, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-octop-memory"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: @deepseek-ai/dsh official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: ArvinQi. Repository: https://github.com/ArvinQi/dsh-octop-memory. Package page: https://www.npmjs.com/package/dsh-octop-memory."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Recalls shared memory before each turn and writes new facts back after."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-octop-memory`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-octop-memory — DeepSeek Harness 记忆",
+      "desc": "每轮开始前召回共享记忆，结束后把新事实写回去。 包名 dsh-octop-memory，当前版本 0.1.7。",
+      "h1": "dsh-octop-memory",
+      "cite": "每轮开始前召回共享记忆，结束后把新事实写回去。",
+      "lead": [
+        "当前版本 0.1.7，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-octop-memory"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: @deepseek-ai/dsh official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 ArvinQi，仓库 https://github.com/ArvinQi/dsh-octop-memory，包页 https://www.npmjs.com/package/dsh-octop-memory。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "每轮开始前召回共享记忆，结束后把新事实写回去。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-octop-memory`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "config-sync",
+    "owner": "Dreamaniax",
+    "pkg": "dsh-syn-config",
+    "group": "system",
+    "version": "0.8.11",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Dreamaniax/dsh-syn-config",
+    "npm": "https://www.npmjs.com/package/dsh-syn-config",
+    "compat": ">=0.2.2-rc.1 <0.3.0-0",
+    "install": "dsh plugin --profile web add dsh-syn-config",
+    "en": {
+      "title": "dsh-syn-config for DeepSeek Harness — System and terminal",
+      "desc": "Syncs DSH config — skills, prompts and settings — between macOS and Windows. Published as dsh-syn-config, version 0.8.11.",
+      "h1": "dsh-syn-config",
+      "cite": "Syncs DSH config — skills, prompts and settings — between macOS and Windows.",
+      "lead": [
+        "Version 0.8.11, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-syn-config"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: Dreamaniax. Repository: https://github.com/Dreamaniax/dsh-syn-config. Package page: https://www.npmjs.com/package/dsh-syn-config."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Syncs DSH config — skills, prompts and settings — between macOS and Windows."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-syn-config`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-syn-config — DeepSeek Harness 系统与终端",
+      "desc": "在 macOS 与 Windows 之间同步 DSH 配置：技能、提示词、设置。 包名 dsh-syn-config，当前版本 0.8.11。",
+      "h1": "dsh-syn-config",
+      "cite": "在 macOS 与 Windows 之间同步 DSH 配置：技能、提示词、设置。",
+      "lead": [
+        "当前版本 0.8.11，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-syn-config"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0-0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 Dreamaniax，仓库 https://github.com/Dreamaniax/dsh-syn-config，包页 https://www.npmjs.com/package/dsh-syn-config。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "在 macOS 与 Windows 之间同步 DSH 配置：技能、提示词、设置。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-syn-config`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "plugin-updater",
+    "owner": "Mooling0602",
+    "pkg": "dsh-better-plugin-updater",
+    "group": "find-plugins",
+    "version": "0.1.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Mooling0602/dsh-better-plugin-updater",
+    "npm": "https://www.npmjs.com/package/dsh-better-plugin-updater",
+    "compat": ">=0.2.1-rc.4 <0.3.0",
+    "install": "dsh plugin --profile web add dsh-better-plugin-updater",
+    "en": {
+      "title": "dsh-better-plugin-updater for DeepSeek Harness — Find and install plugins",
+      "desc": "Manual multi-source update checks with a plan you approve before anything changes. Published as dsh-better-plugin-updater, version 0.1.2.",
+      "h1": "dsh-better-plugin-updater",
+      "cite": "Manual multi-source update checks with a plan you approve before anything changes.",
+      "lead": [
+        "Version 0.1.2, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-better-plugin-updater"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.1-rc.4 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.1-rc.4 <0.3.0. peers: @deepseek-ai/cordis official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: Mooling0602. Repository: https://github.com/Mooling0602/dsh-better-plugin-updater. Package page: https://www.npmjs.com/package/dsh-better-plugin-updater."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Manual multi-source update checks with a plan you approve before anything changes."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-better-plugin-updater`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-better-plugin-updater — DeepSeek Harness 找插件、装插件",
+      "desc": "手动多源检查插件更新，先给方案，确认了才改。 包名 dsh-better-plugin-updater，当前版本 0.1.2。",
+      "h1": "dsh-better-plugin-updater",
+      "cite": "手动多源检查插件更新，先给方案，确认了才改。",
+      "lead": [
+        "当前版本 0.1.2，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-better-plugin-updater"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.1-rc.4 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.1-rc.4 <0.3.0。peers: @deepseek-ai/cordis official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 Mooling0602，仓库 https://github.com/Mooling0602/dsh-better-plugin-updater，包页 https://www.npmjs.com/package/dsh-better-plugin-updater。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "手动多源检查插件更新，先给方案，确认了才改。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-better-plugin-updater`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "whiteboard-skill",
+    "owner": "JimLiu",
+    "pkg": "dsh-claude-whiteboard",
+    "group": "output",
+    "version": "2.16.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "npm": "https://www.npmjs.com/package/dsh-claude-whiteboard",
+    "compat": ">=0.2.0-0",
+    "install": "dsh plugin --profile web add dsh-claude-whiteboard",
+    "en": {
+      "title": "dsh-claude-whiteboard for DeepSeek Harness — Rich output",
+      "desc": "The claude-whiteboard skill: the agent lays content out as a whiteboard instead of prose. Published as dsh-claude-whiteboard, version 2.16.0.",
+      "h1": "dsh-claude-whiteboard",
+      "cite": "The claude-whiteboard skill: the agent lays content out as a whiteboard instead of prose.",
+      "lead": [
+        "Version 2.16.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-claude-whiteboard"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.0-0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: JimLiu. Repository: https://github.com/JimLiu/baoyu-design. Package page: https://www.npmjs.com/package/dsh-claude-whiteboard."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "The claude-whiteboard skill: the agent lays content out as a whiteboard instead of prose."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-claude-whiteboard`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-claude-whiteboard — DeepSeek Harness 富输出",
+      "desc": "claude-whiteboard 技能：让 agent 把内容排成白板，而不是写成长段文字。 包名 dsh-claude-whiteboard，当前版本 2.16.0。",
+      "h1": "dsh-claude-whiteboard",
+      "cite": "claude-whiteboard 技能：让 agent 把内容排成白板，而不是写成长段文字。",
+      "lead": [
+        "当前版本 2.16.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-claude-whiteboard"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.0-0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 JimLiu，仓库 https://github.com/JimLiu/baoyu-design，包页 https://www.npmjs.com/package/dsh-claude-whiteboard。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "claude-whiteboard 技能：让 agent 把内容排成白板，而不是写成长段文字。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-claude-whiteboard`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "motion-skill",
+    "owner": "JimLiu",
+    "pkg": "dsh-claude-motion",
+    "group": "appearance",
+    "version": "2.16.0",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "npm": "https://www.npmjs.com/package/dsh-claude-motion",
+    "compat": ">=0.2.0-0",
+    "install": "dsh plugin --profile web add dsh-claude-motion",
+    "en": {
+      "title": "dsh-claude-motion for DeepSeek Harness — Looks and themes",
+      "desc": "The claude-motion skill: the agent writes short motion specs instead of static descriptions. Published as dsh-claude-motion, version 2.16.0.",
+      "h1": "dsh-claude-motion",
+      "cite": "The claude-motion skill: the agent writes short motion specs instead of static descriptions.",
+      "lead": [
+        "Version 2.16.0, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-claude-motion"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.0-0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: JimLiu. Repository: https://github.com/JimLiu/baoyu-design. Package page: https://www.npmjs.com/package/dsh-claude-motion."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "The claude-motion skill: the agent writes short motion specs instead of static descriptions."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-claude-motion`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-claude-motion — DeepSeek Harness 界面与外观",
+      "desc": "claude-motion 技能：让 agent 输出动效规格，而不是静态描述。 包名 dsh-claude-motion，当前版本 2.16.0。",
+      "h1": "dsh-claude-motion",
+      "cite": "claude-motion 技能：让 agent 输出动效规格，而不是静态描述。",
+      "lead": [
+        "当前版本 2.16.0，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-claude-motion"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.0-0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 JimLiu，仓库 https://github.com/JimLiu/baoyu-design，包页 https://www.npmjs.com/package/dsh-claude-motion。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "claude-motion 技能：让 agent 输出动效规格，而不是静态描述。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-claude-motion`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "daily-reports",
+    "owner": "artaniszhou",
+    "pkg": "dsh-atan-daily",
+    "group": "automation",
+    "version": "1.2.2",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/artaniszhou/dsh-atan-daily",
+    "npm": "https://www.npmjs.com/package/dsh-atan-daily",
+    "compat": ">=0.2.1-0 <0.3.0",
+    "install": "dsh plugin --profile web add dsh-atan-daily",
+    "en": {
+      "title": "dsh-atan-daily for DeepSeek Harness — Scheduled automation",
+      "desc": "Scheduled collection tasks that each file a timestamped report. Published as dsh-atan-daily, version 1.2.2.",
+      "h1": "dsh-atan-daily",
+      "cite": "Scheduled collection tasks that each file a timestamped report.",
+      "lead": [
+        "Version 1.2.2, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-atan-daily"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.1-0 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.1-0 <0.3.0. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: artaniszhou. Repository: https://github.com/artaniszhou/dsh-atan-daily. Package page: https://www.npmjs.com/package/dsh-atan-daily."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Scheduled collection tasks that each file a timestamped report."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-atan-daily`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-atan-daily — DeepSeek Harness 定时自动化",
+      "desc": "定时采集任务，每跑一次落一份带时间戳的报告。 包名 dsh-atan-daily，当前版本 1.2.2。",
+      "h1": "dsh-atan-daily",
+      "cite": "定时采集任务，每跑一次落一份带时间戳的报告。",
+      "lead": [
+        "当前版本 1.2.2，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-atan-daily"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.1-0 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.1-0 <0.3.0。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 artaniszhou，仓库 https://github.com/artaniszhou/dsh-atan-daily，包页 https://www.npmjs.com/package/dsh-atan-daily。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "定时采集任务，每跑一次落一份带时间戳的报告。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-atan-daily`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "ue-asset",
+    "owner": "Sumcam-L",
+    "pkg": "dsh-ue-asset",
+    "group": "data",
+    "version": "0.1.10",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/Sumcam-L/dsh-ue-asset",
+    "npm": "https://www.npmjs.com/package/dsh-ue-asset",
+    "compat": "",
+    "install": "dsh plugin --profile web add dsh-ue-asset",
+    "en": {
+      "title": "dsh-ue-asset for DeepSeek Harness — Databases and assets",
+      "desc": "Browse, preview and export Unreal Engine 4/5 assets from local pak files. Published as dsh-ue-asset, version 0.1.10.",
+      "h1": "dsh-ue-asset",
+      "cite": "Browse, preview and export Unreal Engine 4/5 assets from local pak files.",
+      "lead": [
+        "Version 0.1.10, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-ue-asset"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers:  official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: Sumcam-L. Repository: https://github.com/Sumcam-L/dsh-ue-asset. Package page: https://www.npmjs.com/package/dsh-ue-asset."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "Browse, preview and export Unreal Engine 4/5 assets from local pak files."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-ue-asset`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-ue-asset — DeepSeek Harness 数据库与资产",
+      "desc": "浏览、预览、导出本地 pak 里的 Unreal Engine 4/5 资产。 包名 dsh-ue-asset，当前版本 0.1.10。",
+      "h1": "dsh-ue-asset",
+      "cite": "浏览、预览、导出本地 pak 里的 Unreal Engine 4/5 资产。",
+      "lead": [
+        "当前版本 0.1.10，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-ue-asset"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers:  official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 Sumcam-L，仓库 https://github.com/Sumcam-L/dsh-ue-asset，包页 https://www.npmjs.com/package/dsh-ue-asset。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "浏览、预览、导出本地 pak 里的 Unreal Engine 4/5 资产。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-ue-asset`，和装的时候对称。"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "teamflow",
+    "owner": "xirang-ai",
+    "pkg": "@xirang-ai/dsh-teamflow",
+    "group": "agents",
+    "version": "0.1.3",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/xirang-ai/dsh-teamflow",
+    "npm": "https://www.npmjs.com/package/@xirang-ai/dsh-teamflow",
+    "compat": ">=0.2.2-rc.1 <0.3.0",
+    "install": "dsh plugin --profile web add @xirang-ai/dsh-teamflow",
+    "en": {
+      "title": "@xirang-ai/dsh-teamflow for DeepSeek Harness — Multiple agents",
+      "desc": "A workbench for the requirement → development → defect pipeline across a team. Published as @xirang-ai/dsh-teamflow, version 0.1.3.",
+      "h1": "@xirang-ai/dsh-teamflow",
+      "cite": "A workbench for the requirement → development → defect pipeline across a team.",
+      "lead": [
+        "Version 0.1.3, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @xirang-ai/dsh-teamflow"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.2-rc.1 <0.3.0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0. peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-session,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-user-approval,@deepseek-ai/dsh-sandbox-policy,@deepseek-ai/dsh-typert-protocol official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: xirang-ai. Repository: https://github.com/xirang-ai/dsh-teamflow. Package page: https://www.npmjs.com/package/@xirang-ai/dsh-teamflow."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who needs this?",
+          "a": "A workbench for the requirement → development → defect pipeline across a team."
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @xirang-ai/dsh-teamflow`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@xirang-ai/dsh-teamflow — DeepSeek Harness 多 agent 协作",
+      "desc": "把需求、开发、缺陷这条流水线做成团队工作台。 包名 @xirang-ai/dsh-teamflow，当前版本 0.1.3。",
+      "h1": "@xirang-ai/dsh-teamflow",
+      "cite": "把需求、开发、缺陷这条流水线做成团队工作台。",
+      "lead": [
+        "当前版本 0.1.3，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @xirang-ai/dsh-teamflow"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.2-rc.1 <0.3.0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.2-rc.1 <0.3.0。peers: @deepseek-ai/cordis,@deepseek-ai/dsh-tools,@deepseek-ai/dsh-session,@deepseek-ai/dsh-home-paths,@deepseek-ai/dsh-user-approval,@deepseek-ai/dsh-sandbox-policy,@deepseek-ai/dsh-typert-protocol official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 xirang-ai，仓库 https://github.com/xirang-ai/dsh-teamflow，包页 https://www.npmjs.com/package/@xirang-ai/dsh-teamflow。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "谁需要它？",
+          "a": "把需求、开发、缺陷这条流水线做成团队工作台。"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @xirang-ai/dsh-teamflow`，和装的时候对称。"
+        }
+      ]
+    }
   }
 ];
 
 const BY_SLUG = new Map(COMMUNITY.map((p) => [p.owner + '/' + p.slug, p]));
 
+const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
+
+function withConflict(slug, page) {
+  const note = ALL_CONFLICTS[slug];
+  if (!note) return page;
+  const out = { en: { ...page.en }, zh: { ...page.zh } };
+  for (const lang of ['en', 'zh']) {
+    const sections = (out[lang].sections ?? []).map((s) =>
+      s.h === CONFLICT_HEAD[lang] ? { ...s, p: [note[lang]] } : s,
+    );
+    out[lang] = { ...out[lang], sections };
+  }
+  return out;
+}
+
 export function communityPage(slug) {
-  return BY_SLUG.get(slug) ?? null;
+  const page = BY_SLUG.get(slug);
+  return page ? withConflict(slug, page) : null;
 }
 
 export function communityByGroup() {

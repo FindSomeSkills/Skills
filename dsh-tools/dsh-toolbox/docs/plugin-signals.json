@@ -1,0 +1,1008 @@
+[
+  {
+    "pkg": "dshmarket",
+    "version": "1.73.19",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-settings",
+          "@deepseek-ai/dsh-client-ui-theme"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "sidebar",
+      "route",
+      "settings page",
+      "panel"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 22619,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"assets/logo.svg\" width=\"96\" alt=\"dsh-market logo\">\n</p>\n\n# dsh-market\n\nEnglish | [中文](README.zh.md)\n\n[![npm](https://img.shields.io/npm/v/dshmarket)](https://www.npmjs.com/package/dshmarket)\n[![stars](https://img.shields.io/github/stars/dsh-market/dsh-market?style=flat)](https://github.com/dsh-market/dsh-market)\n\nThe plugin market inside DeepSeek Harness. On dsh 0.2."
+  },
+  {
+    "pkg": "dsh-plugin",
+    "version": "2.3.9",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-slots"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [
+      "@deepseek-ai/cordis"
+    ],
+    "readmeLength": 8411,
+    "readmeHead": "<div align=\"center\">\n\n<p>\n  <img src=\"docs/assets/logo.svg\" alt=\"DSH Plugin Hub\" width=\"96\" height=\"96\" />\n</p>\n\n# DSH Plugin 插件市场 - DeepSeek Harness Plugin (DSH) 下载与安装 · 插件大全\n\n**DeepSeek Harness Plugin（DSH）插件市场与插件大全：主站收录 23,000+ 个插件，其中 6,000+ 个已发布 NPM 包、可在插件市场一键安装（均已人工精选验证）。每日更新，免费浏览、搜索并按分类发现、下载与安装 DSH 插件，来源可溯。**\n\n[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](L"
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "version": "2026.1113.20393",
+    "dshField": null,
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [],
+    "readmeLength": 1093,
+    "readmeHead": "# dsh-plugin-catalog\n\nThe DeepSeek Harness plugin catalog as a single JSON file — the same\n`plugins.json` served at <https://awesome-dsh-plugin.com/plugins.json>,\npublished to npm so it can be fetched from a registry mirror.\n\nIt exists because the canonical copy is served from GitHub Pages, which is\nslow to reach from some networks, and the public GitHub proxies that would\notherwise help refuse no"
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "version": "1.9.64",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web"
+      },
+      "compatibility": {
+        "dsh": ">=0.2.0-rc.1 <0.3.0-0",
+        "dshReleases": {
+          "0.2.0-rc.1": "compatible",
+          "0.2.0-rc.2": "compatible",
+          "0.2.1-alpha.5": "compatible",
+          "0.2.1-rc.1": "compatible",
+          "0.2.1-rc.2": "compatible",
+          "0.2.2-alpha.3": "compatible"
+        }
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "sidebar",
+      "composer",
+      "header",
+      "tab",
+      "route"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-home-paths"
+    ],
+    "readmeLength": 7472,
+    "readmeHead": "<h1 align=\"center\">dsh-cost-meter</h1>\n\n<p align=\"center\">Cost tracking and subscription quotas for DeepSeek Harness</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/Han-1413141/dsh-cost-meter/releases/latest\"><img src=\"https://img.shields.io/badge/version-1.9.64-4176E6?style=flat-square\" alt=\"version\"></a>\n  <a href=\"https://www.npmjs.com/package/dsh-cost-meter\"><img src=\"https://img.shields"
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "version": "0.4.2",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "route",
+      "/api/v1/credits",
+      "/api/v3/models"
+    ],
+    "dshDeps": [],
+    "readmeLength": 31113,
+    "readmeHead": "# DSH 小鲸鱼记账挂件（DeepSeek Balance Whale Widget）\n\n![DSH 小鲸鱼记账挂件](assets/DSH2.png)\n\nDeepSeek Harness（DSH）Web 界面右下角的常驻挂件：小鲸鱼气泡图 + DeepSeek API 余额 + 今日已用 + 每轮对话消耗，并且**泡泡内容可以完全自定义**（点击序列、模块化排版、并列加权出泡、随机语句/随机图片）。标准 DSH bundle 插件，`dsh plugin` 一键安装，无需任何会话令牌。\n\n> ⚠️ **Codex 版小鲸鱼已迁至独立仓库** → <https://github.com/Yang-huai406/Codex-Whale-Public>（**已安装用户无需重装**；详见下方「两条分支怎么选」）\n<!-- 迁移横幅（v0.3.19 起）：迁移稳定后（约 2026-11，或发过"
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "version": "1.3.5",
+    "dshField": {
+      "manifestVersion": 1,
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-conversation",
+          "@deepseek-ai/dsh-client-ui-sidebar",
+          "@deepseek-ai/dsh-client-ui-workspace",
+          "@deepseek-ai/dsh-typert-registry",
+          "@deepseek-ai/dsh-client-connection"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "panel",
+      "sidebar"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-workspace",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-session-format-catalog",
+      "@deepseek-ai/dsh-session-projection-cache",
+      "@deepseek-ai/dsh-spill-local",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-typert-registry",
+      "@deepseek-ai/dsh-workspace"
+    ],
+    "readmeLength": 7143,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"assets/branding/dsh-banner.webp\" alt=\"DSH Archive Manager\" width=\"100%\">\n</p>\n\n<div align=\"center\">\n\n# DSH Archive Manager\n\n  **在 DeepSeek Harness 中安全管理已归档会话**\n\n  [简体中文](README.zh-CN.md) · [English](README.en.md) · [日本語](README.ja.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)\n\n"
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "version": "0.10.12",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web",
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-conversation"
+        ]
+      }
+    },
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [
+      "@deepseek-ai/schemastery",
+      "@mycf711/dsh-gate",
+      "@deepseek-ai/cordis"
+    ],
+    "readmeLength": 3991,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"assets/icon-app.png\" width=\"160\" alt=\"主理鱼\">\n</p>\n\n<h1 align=\"center\">dsh-session-superagent</h1>\n\n<p align=\"center\">\n  给 DSH 会话装一条主理鱼：仓库有动静时叫醒你，<br />\n  醒来后按仓库规则把事办了。\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/MYCF711/dsh-session-superagent/releases\"><img src=\"https://img.shields.io/badge/version-0.10.12-green.svg\" alt=\"version\"></a>\n  <a href=\"https://ww"
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "version": "1.4.6",
+    "dshField": {
+      "manifestVersion": 1,
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-slots",
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-primitives"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "sidebar"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-web-app"
+    ],
+    "readmeLength": 12882,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"assets/branding/dsh-banner-zh-CN.webp\" alt=\"DSH Skills Manager\" width=\"100%\">\n</p>\n\n<div align=\"center\">\n\n# DSH Skills Manager\n\n  **统一管理本机与项目技能，从 GitHub 安装、预览更新并备份回退**\n\n  [简体中文](README.zh-CN.md) · [English](README.en.md) · [日本語](README.ja.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README."
+  },
+  {
+    "pkg": "dsh-free-search",
+    "version": "0.9.48",
+    "dshField": {
+      "bundle": {
+        "patch": "cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-commands",
+          "@deepseek-ai/dsh-client-ui-plugin-manager",
+          "@deepseek-ai/dsh-client-ui-renderer"
+        ],
+        "platform": "web"
+      },
+      "engines": {
+        "dsh": ">=0.2.1-rc.2 <0.4.0-0"
+      },
+      "compatibility": {
+        "dshReleases": {
+          "0.2.1-rc.2": "compatible",
+          "0.2.1-rc.5": "compatible",
+          "0.2.2-rc.1": "compatible",
+          "0.2.2-rc.2": "compatible"
+        }
+      }
+    },
+    "services": [
+      "web",
+      "get"
+    ],
+    "uiHints": [
+      "panel",
+      "route",
+      "tab",
+      "/api/search",
+      "/api/dsh-free-search-settings",
+      "settings page",
+      "sidebar",
+      "header",
+      "slot"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-ui-commands",
+      "@deepseek-ai/dsh-client-ui-plugin-manager",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 128159,
+    "readmeHead": "# dsh-free-search\r\n\r\n[![ci](https://github.com/DDDMUC/dsh-free-search/actions/workflows/ci.yml/badge.svg)](https://github.com/DDDMUC/dsh-free-search/actions/workflows/ci.yml)\r\n\r\n**DeepSeek Harness 免费搜索插件：无需 API key，零成本，多引擎可切换。** 这是一个给 DeepSeek Harness (dsh) 添加多引擎搜索 provider 的插件，注册进 `ctx.web` seam。内置 `web_search` 工具自动选用，支持网页设置页切换引擎、配置 API key、一键测试所有引擎、弹出式命令切换引擎。\r\n\r\n[中文](#中文) · [English](#english)\r\n"
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "version": "5.10.12",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [],
+        "platform": "web",
+        "immediately": true
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "sidebar",
+      "panel"
+    ],
+    "dshDeps": [],
+    "readmeLength": 13485,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/liustack/modsearch/main/assets/banner.jpg\" width=\"100%\" alt=\"ModSearch\" />\n</p>\n\n<h1 align=\"center\">ModSearch</h1>\n\n<p align=\"center\"><b>In the chat app your model can search the web. On the API it cannot. ModSearch puts the web back: web search, X search, page fetch. Free, no signup, no API key.</b></p>\n\n<p align=\"center\">🥇 <b>The "
+  },
+  {
+    "pkg": "dsh-dream-skin",
+    "version": "11.7.0",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-runtime",
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-theme",
+          "@deepseek-ai/dsh-client-ui-settings",
+          "@deepseek-ai/dsh-client-ui-settings-general"
+        ],
+        "platform": "web",
+        "immediately": true
+      }
+    },
+    "services": [
+      "theme",
+      "slots"
+    ],
+    "uiHints": [
+      "tab",
+      "slot",
+      "sidebar",
+      "composer"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-settings-general",
+      "@deepseek-ai/dsh-client-ui-theme"
+    ],
+    "readmeLength": 31939,
+    "readmeHead": "<p align=\"center\">\n  <strong>中文</strong> · <a href=\"https://gitcode.com/LLLAAAAA/dsh-dream-skin/blob/main/docs/i18n/README.en.md\">English</a> · <a href=\"https://gitcode.com/LLLAAAAA/dsh-dream-skin/blob/main/docs/i18n/README.ja.md\">日本語</a> · <a href=\"https://gitcode.com/LLLAAAAA/dsh-dream-skin/blob/main/docs/i18n/README.ko.md\">한국어</a> · <a href=\"https://gitcode.com/LLLAAAAA/dsh-dream-skin/blob/main"
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "version": "0.21.0",
+    "dshField": {
+      "engines": {
+        "dsh": ">=0.2.2-rc.1"
+      },
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 4612,
+    "readmeHead": "<div align=\"center\">\n\n# DSH Claude Style\n\n**为 DeepSeek Harness 复刻 Claude Code Desktop 风格与交互体验的主题插件。**\n\n> **你的下一个 Claude Code Desktop ，何必是Claude Code。**\n\n[![简体中文](https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-red.svg)](README.md)\n[![English](https://img.shields.io/badge/lang-English-blue.svg)](README.en.md)\n[![version](https://img.shields.io/npm/v/dsh-claude-style?style=fla"
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "version": "1.4.2",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-runtime"
+        ],
+        "platform": "web",
+        "immediately": true
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "sidebar"
+    ],
+    "dshDeps": [
+      "dsh-plugin-wallpaper-engine-about-notice",
+      "dsh-plugin-wallpaper-engine-fonts",
+      "dsh-plugin-wallpaper-engine-fx",
+      "dsh-plugin-wallpaper-engine-glass",
+      "dsh-plugin-wallpaper-engine-mascot-avatar",
+      "dsh-plugin-wallpaper-engine-media-bridge",
+      "dsh-plugin-wallpaper-engine-parallax",
+      "dsh-plugin-wallpaper-engine-pet-link",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-host-webserver"
+    ],
+    "readmeLength": 10553,
+    "readmeHead": "<div align=\"center\">\n\n<p>\n  <a href=\"README.md\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/readme/key-lang-zh-dark.png\"><img src=\"assets/readme/key-lang-zh-light.png\" alt=\"中文\" height=\"60\"></picture></a>\n  <a href=\"README.en.md\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/readme/key-lang-en-dark.png\"><img src=\"assets/readme/key-lang-en-light.png\" a"
+  },
+  {
+    "pkg": "dsh-pet",
+    "version": "0.4.8",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "compatibility": {
+        "dshReleases": {
+          "0.2.1-rc.3": "compatible",
+          "0.2.2-alpha.2": "compatible",
+          "0.2.2-rc.1": "compatible"
+        }
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-connection"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-agent-default-model",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-llm"
+    ],
+    "readmeLength": 153,
+    "readmeHead": "# dsh-pet 🐾\n\n一只住在 DeepSeek Harness 里的桌面宠物，一百余个透明动画，可多开、能上桌面。\n\n安装与完整文档：**<https://github.com/PC2005-cloud/dsh-pet>**\n\n许可：代码 MIT；素材禁止商用；二创在公开渠道须署名（同上链接）。\n"
+  },
+  {
+    "pkg": "dsh-meme",
+    "version": "0.1.81",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-runtime",
+          "@deepseek-ai/dsh-client-connection",
+          "@deepseek-ai/dsh-client-ui-settings"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [
+      "get"
+    ],
+    "uiHints": [
+      "panel",
+      "tab"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/dsh-tools"
+    ],
+    "readmeLength": 8680,
+    "readmeHead": "<p align=\"center\">\r\n  <img src=\"./docs/hero-banner-v4.jpg\" alt=\"dsh-meme — 找得到、发得出、学得会\" width=\"880\" />\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://github.com/deepseek-ai/deepseek-harness\">DeepSeek Harness</a> 的表情包插件 ——<br />\r\n  输入框一键发图，AI 按聊天气氛接梗；图库能自己养，也能从市场装。\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://www.npmjs.com/package/dsh-meme\"><img src=\"https://img.shields.io/npm/v/dsh-meme?label="
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "version": "0.1.30",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-conversation",
+          "@deepseek-ai/dsh-client-ui-layout",
+          "@deepseek-ai/dsh-client-ui-sidebar-right",
+          "@deepseek-ai/dsh-client-ui-model-selection",
+          "@deepseek-ai/dsh-api-session-controller",
+          "@deepseek-ai/dsh-client-ui-session",
+          "@deepseek-ai/dsh-client-ui-chat"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "/api/badge/nanmicoder/dsh-agent-teams",
+      "panel",
+      "route",
+      "sidebar",
+      "tab",
+      "header",
+      "composer"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-client-ui-layout",
+      "@deepseek-ai/dsh-client-ui-model-selection",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-session-projection",
+      "@deepseek-ai/dsh-subagent",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-util-values",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 20843,
+    "readmeHead": "<p align=\"right\">\n  <strong>English</strong> · <a href=\"./README_ZH.md\">简体中文</a>\n</p>\n\n<p align=\"center\">\n  <img src=\"./assets/readme/hero.svg\" width=\"100%\" alt=\"dsh-agent-teams turns one DeepSeek Harness session into a coordinated multi-agent team\">\n</p>\n\n<div align=\"center\">\n\n[![AtomGit](https://atomgit.com/NanmiCoder/dsh-agent-teams/star/new_badge.svg)](https://atomgit.com/NanmiCoder/dsh-agent-"
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "version": "2.0.0",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-slots",
+          "@deepseek-ai/dsh-client-ui-conversation",
+          "@deepseek-ai/dsh-client-ui-chat"
+        ],
+        "platform": "web"
+      },
+      "manifestVersion": 1
+    },
+    "services": [
+      "agents"
+    ],
+    "uiHints": [],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-subprocess",
+      "@deepseek-ai/dsh-win32-process"
+    ],
+    "readmeLength": 22220,
+    "readmeHead": "<p align=\"center\">\n  <a href=\"#install\"><img src=\"https://raw.githubusercontent.com/lijiaqi-AI-Product-Manager/dsh-agent-compare/main/assets/readme/hero-bilingual.webp\" width=\"1200\" alt=\"AgentCompare 2.0：在主对话里比较 2–4 版回答、文件与网页。Desktop + Web，中英双语，选择后继续对话 / Compare 2–4 answers, files and live pages in the main conversation. Styles, blind or open comparison, reasons for the pick, reviewed adoption and"
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "version": "0.5.49",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web",
+        "immediately": true,
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-runtime"
+        ]
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "/api/public/apps/14/download-latest",
+      "/api/mobile/v1/",
+      "/api/relay/status",
+      "/api/relay/pairing",
+      "/api/relay/toggle",
+      "/api/relay/regenerate",
+      "/api/relay/config",
+      "/api/relay/reconnect",
+      "/api/mobile/v1/events/stream",
+      "panel"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 5963,
+    "readmeHead": "<h3 align=\"center\">AI-HUB 移动端插件</h3>\n\n![AI-HUB：手机和平板上的 DeepSeek Harness 会话界面](https://raw.githubusercontent.com/WNLUO/dsh-mobile-plugin/main/assets/banner.jpg)\n\n<p align=\"center\">\n  <a href=\"https://app.wnluo.com/api/public/apps/14/download-latest\"><img alt=\"安卓 分发下载\" src=\"https://img.shields.io/badge/%E5%AE%89%E5%8D%93-%E5%88%86%E5%8F%91%E4%B8%8B%E8%BD%BD-3DDC84?style=for-the-badge&logo=android&lo"
+  },
+  {
+    "pkg": "dsh-remote",
+    "version": "1.1.1",
+    "dshField": {
+      "engines": {
+        "dsh": ">=0.1.0-rc.6 <0.3.0 || >=0.1.5-0 <0.1.6 || >=0.1.7-0 <0.1.8 || >=0.2.0-0 <0.2.1 || >=0.2.1-0 <0.2.2 || >=0.2.2-0 <0.2.3"
+      },
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-renderer",
+          "@deepseek-ai/dsh-client-locale"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-tools"
+    ],
+    "readmeLength": 8180,
+    "readmeHead": "[English](https://github.com/flymysql/dsh-remote/blob/main/README.en.md) · **中文**\n\n# dsh-remote\n\n[![npm version](https://img.shields.io/npm/v/dsh-remote)](https://www.npmjs.com/package/dsh-remote)\n[![downloads](https://img.shields.io/npm/dw/dsh-remote)](https://www.npmjs.com/package/dsh-remote)\n[![downloads](https://img.shields.io/npm/dm/dsh-remote)](https://www.npmjs.com/package/dsh-remote)\n[![li"
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "version": "0.6.4",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-connection",
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-sidebar",
+          "@deepseek-ai/dsh-client-ui-slots",
+          "@deepseek-ai/dsh-client-ui-settings",
+          "@deepseek-ai/dsh-client-ui-settings-general",
+          "@deepseek-ai/dsh-client-ui-plugin-manager",
+          "@deepseek-ai/dsh-client-ui-settings-plugin-inventory",
+          "@deepseek-ai/dsh-client-ui-settings-plugins"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "panel",
+      "route"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-api-gateway",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-settings-plugins",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-client-ui-settings-general",
+      "@deepseek-ai/dsh-client-ui-plugin-manager",
+      "@deepseek-ai/dsh-client-ui-settings-plugin-inventory"
+    ],
+    "readmeLength": 9957,
+    "readmeHead": "# DeepSeek Harness Remote\n\nContinue DeepSeek Harness sessions and experimental Codex, Cursor, and Antigravity workspaces from another device over an end-to-end encrypted connection.\n\n[GitHub](https://github.com/liguobao/ds-harness-remote) · [Full guide](https://github.com/liguobao/ds-harness-remote/blob/main/README.md) · [中文说明](https://github.com/liguobao/ds-harness-remote/blob/main/README.zh.md) "
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "version": "5.10.0",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-connection",
+          "@deepseek-ai/dsh-client-runtime",
+          "@deepseek-ai/dsh-client-ui-settings",
+          "@deepseek-ai/dsh-client-ui-slots",
+          "@deepseek-ai/dsh-client-locale"
+        ],
+        "platform": "web"
+      },
+      "compatibility": {
+        "dsh": "0.2.1-rc.2",
+        "dshReleases": {
+          "0.2.0-rc.2": "compatible",
+          "0.2.1-rc.2": "compatible"
+        },
+        "profiles": [
+          "web"
+        ]
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "/api/badge/xmanrui/dsh-im",
+      "/api/badge/repositories/169119",
+      "/api/badge/trendshift/repositories/169119/daily",
+      "tab",
+      "route",
+      "/api/dsh-im/"
+    ],
+    "dshDeps": [],
+    "readmeLength": 57881,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"assets/logo-dsh-im-connecting-readme-3x2.png\" alt=\"DSH-IM — Connecting DeepSeek Harness\" width=\"420\" height=\"280\" align=\"middle\">&nbsp;&nbsp;\n  <img src=\"assets/logo-plugin-phone.png\" alt=\"DSH-IM phone logo\" width=\"280\" height=\"280\" align=\"middle\">\n</p>\n\n---\n\n<div align=\"center\">\n  <p><strong>让 DeepSeek Harness 触手可及</strong></p>\n  <p><strong>Connecting DeepSeek Harne"
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "version": "0.5.5",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web"
+      },
+      "compatibility": {
+        "dshReleases": {
+          "0.1.0-rc.8": "compatible",
+          "0.2.0-rc.2": "compatible"
+        },
+        "note": "0.1.0-rc.8 为 CLI（dsh web）已验证：扫码/手动/解绑全流程、终端二维码与端内绑定页；0.2.0-rc.2 为 Desktop 内嵌运行时已验证：端内绑定页（settings.section 与侧栏）、HMR 重载收敛。客户端依赖 settings.section / sidebarRightTabs / sidebar.right.pane.tab 席位契约与 dsh.client 模块系统，宿主大版本升级后请重新验收席位行为。"
+      }
+    },
+    "services": [
+      "agents"
+    ],
+    "uiHints": [
+      "tab",
+      "route"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 8470,
+    "readmeHead": "<div align=\"center\">\n\n<img width=\"120\" src=\"https://img.shields.io/badge/🤖-QQ_Bot-blue?style=for-the-badge\" alt=\"QQ Bot\" />\n\n**基于 [deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) 的 QQ Bot 插件，将 DeepSeek AI 助手接入 QQ 私聊与群聊。**\n\n[![npm version](https://img.shields.io/npm/v/@tencent-connect/dsh-qqbot)](https://www.npmjs.com/package/@tencent-connect/dsh-qqbot)\n[![License](https:/"
+  },
+  {
+    "pkg": "dsh-genui",
+    "version": "0.3.3",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-chat",
+          "@deepseek-ai/dsh-client-ui-conversation",
+          "@deepseek-ai/dsh-client-ui-slots",
+          "@deepseek-ai/dsh-client-ui-primitives"
+        ],
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "panel",
+      "composer"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 9869,
+    "readmeHead": "# dsh-genui\n\n**English** · [简体中文](https://github.com/lhuans/dsh-genui/blob/main/README.zh-CN.md)\n\n> Turn [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) replies from a wall of text into an interface you can actually click.\n\nYou ask the AI to run a calculation and get back a formula. You ask it to file a request and get eight Markdown bullets. You ask about last week's traffic a"
+  },
+  {
+    "pkg": "deep-view",
+    "version": "0.1.2",
+    "dshField": {
+      "client": {
+        "platform": "web"
+      },
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-web"
+    ],
+    "readmeLength": 2905,
+    "readmeHead": "# Deep View\n\nDeep View is a [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin that lets any agent draw interactive views in the chat: charts, key numbers, tables, small calculators the user can try values in, and choices, confirmations or short forms. Structured answers that are awkward as Markdown — a comparison chart, a what-if slider, a pick-one prompt — become a card i"
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "version": "0.4.0",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web",
+        "inject": [
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-chat",
+          "@deepseek-ai/dsh-client-ui-conversation",
+          "@deepseek-ai/dsh-client-ui-renderer",
+          "@deepseek-ai/dsh-client-ui-session",
+          "@deepseek-ai/dsh-client-ui-settings",
+          "@deepseek-ai/dsh-client-ui-settings-plugins"
+        ]
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "header",
+      "sidebar"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 19627,
+    "readmeHead": "![Univer × DeepSeek](docs/assets/readme/univer-deepseek-banner.png)\n\n# DSH × Univer Office\n\n> Give DeepSeek Harness a real office environment.\n>\n> Univer Office Plugin brings spreadsheets, docs, slides, canvases, relational tables, and more into one runtime — with connected data, validation, versioned changes, and isolated worktrees for multi-agent collaboration.\n\nEnglish · [简体中文](README.zh-CN.md)"
+  },
+  {
+    "pkg": "dsh-ops",
+    "version": "0.5.4",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "inject": [
+          "@deepseek-ai/dsh-api-gateway",
+          "@deepseek-ai/dsh-client-ui-renderer",
+          "@deepseek-ai/dsh-client-locale",
+          "@deepseek-ai/dsh-client-ui-plugin-manager",
+          "@deepseek-ai/dsh-client-ui-primitives"
+        ],
+        "platform": "web",
+        "immediately": true
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "header",
+      "/api/badge/trendshift/repositories/296103/daily",
+      "panel",
+      "tab"
+    ],
+    "dshDeps": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh"
+    ],
+    "readmeLength": 10375,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"docs/assets/readme/dsh-ops-header.svg\" alt=\"dsh-ops 表头\" width=\"640\">\n</p>\n\n<p align=\"center\">\n  <strong>中文</strong> | <a href=\"README.en.md\">English</a>\n</p>\n\n<div align=\"center\" style=\"text-align: center;\">\n  <a href=\"https://trendshift.io/repositories/296103\" title=\"Trendshift · JavaScript 日榜\">\n    <img src=\"https://trendshift.io/api/badge/trendshift/repositories/2"
+  },
+  {
+    "pkg": "dsh-unlag",
+    "version": "1.17.5",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web",
+        "immediately": true,
+        "inject": [
+          "@deepseek-ai/dsh-client-ui-conversation"
+        ]
+      }
+    },
+    "services": [],
+    "uiHints": [],
+    "dshDeps": [],
+    "readmeLength": 6049,
+    "readmeHead": "# dsh-unlag（解除卡顿）\n\n**DSH 桌面端、网页端自己的刷新按钮。**\n\n开发插件要重启，可手里还有任务在跑？刷新一下！\n开久了页面越来越卡？刷新一下！\n\n一个按钮解决这些烦恼，正在进行的会话不受影响。窗口右上角点一下：插件代码原地换掉，卡顿的界面重建一次，宿主自己的轮次、子代理、终端进程继续跑完。\n\n桌面 App 的窗口里有它，`dsh web` 打开的浏览器页面里也有。两边认得出来是哪个：桌面壳会把自己的桥交出来，网页没有这座桥。\n\n## 两个日常场景\n\n| 情况 | 按一下 |\n| --- | --- |\n| 改了界面类插件，手里还有任务在跑 | 插件当场换掉，宿主自己的任务继续跑完 |\n| 界面越用越卡 | 直接恢复流畅，会话、队列、草稿都还在 |\n\n以前两种都得关掉 App 再来。现在不用，也不用挑空闲时间——马上换，不等。\n\n边界说清楚：宿主自己的轮次、子代理、终"
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "version": "0.2.10",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      },
+      "client": {
+        "platform": "web"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "tab",
+      "composer",
+      "panel",
+      "settings page",
+      "sidebar",
+      "overlay",
+      "route"
+    ],
+    "dshDeps": [],
+    "readmeLength": 27151,
+    "readmeHead": "# dsh-windows-mcp\n\n**English** · [中文](https://github.com/helloHub1212/dsh-windows-mcp/blob/main/README.zh.md)\n\n[![npm version](https://img.shields.io/npm/v/dsh-windows-mcp.svg)](https://www.npmjs.com/package/dsh-windows-mcp)\n[![CI](https://github.com/helloHub1212/dsh-windows-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/helloHub1212/dsh-windows-mcp/actions/workflows/ci.yml)\n\n**Window"
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "version": "0.20.0",
+    "dshField": {
+      "bundle": {
+        "patch": "./cordis.patch.yml"
+      }
+    },
+    "services": [],
+    "uiHints": [
+      "header",
+      "panel",
+      "tab",
+      "route",
+      "overlay",
+      "sidebar",
+      "/api/card/ccch1mneyyy/dsh-tui",
+      "/api/badge/trendshift/repositories/146168/daily",
+      "settings page",
+      "composer"
+    ],
+    "dshDeps": [
+      "dsh-working-activity",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-agent-instructions",
+      "@deepseek-ai/dsh-agent-preset-registry",
+      "@deepseek-ai/dsh-app-boot",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-cmdline",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-cordis-host-runner",
+      "@deepseek-ai/dsh-deepseek-account",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-http-proxy",
+      "@deepseek-ai/dsh-launch-environment",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-llm-pi-ai",
+      "@deepseek-ai/dsh-persona",
+      "@deepseek-ai/dsh-plugin-manager",
+      "@deepseek-ai/dsh-ptc-runtime-node",
+      "@deepseek-ai/dsh-scope",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-storage",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-storage-json",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-terminal",
+      "@deepseek-ai/dsh-terminal-bash",
+      "@deepseek-ai/dsh-tool-ask-user",
+      "@deepseek-ai/dsh-tool-bash-persistent",
+      "@deepseek-ai/dsh-tool-cordis",
+      "@deepseek-ai/dsh-tool-subagent",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-user-questions",
+      "@deepseek-ai/dsh-web-app",
+      "@deepseek-ai/dsh-workspace",
+      "@deepseek-ai/schemastery"
+    ],
+    "readmeLength": 82538,
+    "readmeHead": "<p align=\"center\">\n  <img src=\"docs/assets/readme/logo-en.svg\" alt=\"dsh-TUI animated whale logo\" width=\"560\">\n</p>\n\n<p align=\"center\">\n  <strong>English</strong> | <a href=\"README_ZH.md\">简体中文</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui\"><img alt=\"npm\" src=\"https://img.shields.io/npm/v/@deepseek-harness-tui/dsh-tui?style=flat-square&color=4b6f"
+  }
+]

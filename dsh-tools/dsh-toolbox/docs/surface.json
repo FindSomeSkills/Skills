@@ -1,0 +1,149 @@
+[
+  {
+    "pkg": "dshmarket",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-plugin",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "surface": [],
+    "range": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "surface": [],
+    "range": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "surface": [],
+    "range": ">=0.2.1-rc.5 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0"
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "surface": [],
+    "range": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  {
+    "pkg": "dsh-free-search",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-dream-skin",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "surface": [],
+    "range": "^0.2.0-rc.1"
+  },
+  {
+    "pkg": "dsh-pet",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-meme",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "surface": [],
+    "range": ">=0.1.2-alpha.2"
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "surface": [],
+    "range": ">=0.2.1-rc.3 <0.3.0-0"
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "surface": [],
+    "range": ">=0.2.0"
+  },
+  {
+    "pkg": "dsh-remote",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-genui",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "deep-view",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "dsh-ops",
+    "surface": [],
+    "range": ">=0.2.2-rc.1 <0.2.3-0"
+  },
+  {
+    "pkg": "dsh-unlag",
+    "surface": [],
+    "range": ">=0.2.0-rc.1"
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "surface": [],
+    "range": ""
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "surface": [
+      "@dsh-tui-vendor/mathjax-tex-svg"
+    ],
+    "range": ""
+  }
+]
