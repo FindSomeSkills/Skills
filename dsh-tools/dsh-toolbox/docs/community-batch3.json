@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "mnemon",
+    "owner": "omdsh-dev",
+    "pkg": "dsh-mnemon",
+    "group": "memory",
+    "version": "0.5.45",
+    "updated": "2026-11-12",
+    "repo": "https://github.com/omdsh-dev/dsh-mnemon",
+    "npm": "https://www.npmjs.com/package/dsh-mnemon",
+    "compat": ">=0.2.0-rc.2 <0.2.1-0 || >=0.2.1-rc.1 <0.3.0-0",
+    "peers": 3,
+    "install": "dsh plugin --profile web add dsh-mnemon",
+    "en": {
+      "solves": "Composable, view-based context: what the model sees is assembled from views you can swap, instead of one growing transcript."
+    },
+    "zh": {
+      "solves": "可组合的视图式上下文：模型看到的由可替换的视图拼出来，而不是一份不断变长的对话记录。"
+    }
+  },
+  {
+    "slug": "imagegen",
+    "owner": "dickpy",
+    "pkg": "@dickpy/dsh-imagegen",
+    "group": "output",
+    "version": "1.17.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/dickpy/dsh-imagegen",
+    "npm": "https://www.npmjs.com/package/@dickpy/dsh-imagegen",
+    "compat": "",
+    "peers": 0,
+    "install": "dsh plugin --profile web add @dickpy/dsh-imagegen",
+    "en": {
+      "solves": "Text-to-image and image-to-image inside the web client, through a configured image provider."
+    },
+    "zh": {
+      "solves": "在网页客户端里做文生图与图生图，走你配好的图片服务商。"
+    }
+  }
+]

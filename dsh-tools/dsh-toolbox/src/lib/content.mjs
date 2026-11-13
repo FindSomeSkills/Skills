@@ -71,7 +71,7 @@ export const COPY = {
       lede: 'DSH Toolbox is a free set of browser tools for DeepSeek Harness: sync sessions across machines, inspect session files, repair the session index, audit what each skill costs, and check text or UI for template traces. Everything runs in the browser — no signup, no upload, no telemetry.',
       toolsH: 'The tools',
       toolsNote: 'Six tools are live; more land as usage shows',
-      whyH: 'Why these five',
+      whyH: 'Why these six',
       why: [
         {
           h: 'The list and the file are two different things',
@@ -208,13 +208,13 @@ export const COPY = {
       free: '',
     },
     home: {
-            title: 'DeepSeek Harness 工具合集 — 会话同步、zstd 查看、上下文预算',
+            title: 'DeepSeek Harness 有哪些工具？同步、查看、清理都能在线用',
       desc: '面向 DeepSeek Harness（DSH）的本地工具：跨设备同步会话、查看 .zstd 会话帧结构、估算上下文预算。全部在浏览器内完成，不上传文件。',
       h1: '给真正在用 DeepSeek Harness 的人做的工具',
       lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费浏览器工具：跨设备同步会话、查看会话文件、修会话索引、算技能开销、检查文字与界面里的模板痕迹。全部在浏览器里跑，不用注册、不上传、不打点。',
       toolsH: '工具',
       toolsNote: '六个工具已上线，之后按使用情况扩展',
-      whyH: '为什么是这五个',
+      whyH: '为什么是这六个',
       why: [
         {
           h: '列表和文件是两回事',
@@ -238,11 +238,11 @@ export const COPY = {
       cta: '从 Sync Hub 开始',
     },
     syncHub: {
-      title: 'DSH 会话跨设备同步怎么弄（Windows / macOS / Linux）',
+      title: 'dsh 会话怎么跨设备同步？Windows / macOS / Linux 都能用',
       desc: '在 Windows / macOS / Linux 与 DSH 网页版/桌面版/终端版之间同步会话与工作区索引。负载按不透明字节搬运，追加写只传变化分块，冲突保留双份。',
       h1: '跨设备同步 DeepSeek Harness 会话',
       lede: '跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
-      cite: 'DSH Sync Hub 是一个自托管的同步工具，让多台机器上的 DSH 会话和工作区索引保持一致。',
+      cite: '跨设备同步的做法是：在一台机器上跑一个自托管的 Hub，其它机器把会话当不透明字节推过去，索引跟着一起走。',
       status: '免费 · 跑在你自己的机器上 · 需要 Node.js 20 或更高版本 · 不依赖第三方包',
       stepsH: '三步',
       steps: [
@@ -413,8 +413,8 @@ export function pageList() {
       { slug: `zh/plugins/${p.owner}/${p.slug}`, lang: 'zh', page: 'community' },
     ]),
     ...PLUGINS.flatMap((p) => [
-      { slug: `plugins/${p.slug}`, lang: 'en', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },
-      { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },
+      { slug: `plugins/${p.slug}`, lang: 'en', page: 'article', noindex: false },
+      { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article', noindex: false },
     ]),
   ];
 }

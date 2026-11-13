@@ -124,4 +124,12 @@ export const CONFLICTS_B2 = {
     en: 'Seven peers and its own requirement-to-defect pipeline with roles. `@nanmicoder/dsh-agent-teams` and `dsh-agent-compare` orchestrate agents from the same chat surface, and the second orchestrator to patch that row replaces the first one\'s controls.',
     zh: '7 个 peer，自带需求到缺陷的角色流水线。`@nanmicoder/dsh-agent-teams` 与 `dsh-agent-compare` 从同一条对话界面编排 agent，后打补丁的那个会把前一个的控件整行换掉。',
   },
+  'omdsh-dev/mnemon': {
+    en: 'It builds context views for the slot that `dsh-octop-memory` also writes recalled facts into. Two context blocks can contradict each other, and the model has no way to rank them.',
+    zh: '它给同一处构建上下文视图，而 `dsh-octop-memory` 也往那里写召回的事实。两段上下文可能互相矛盾，模型没有排序依据。',
+  },
+  'dickpy/imagegen': {
+    en: 'It puts an image path in the composer area, next to `dsh-meme`, which sends from a library instead of generating. Two buttons is the symptom, not an error.',
+    zh: '它把图片路径放在输入框附近，旁边是 `dsh-meme`——后者从图库发而不是生成。症状是两个按钮，不是报错。',
+  },
 };

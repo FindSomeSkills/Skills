@@ -8,7 +8,7 @@ export const CONFLICTS_PAGE = {
     h1: 'Which DeepSeek Harness plugins conflict',
     cite: 'Most plugin conflicts come from two plugins patching the same row: a patch replaces the whole config, so the later layer wins and the earlier one silently disappears.',
     lead: [
-      'Every pair below is drawn from the `peerDependencies` and the conflict note on that plugin\'s own page. Nothing here is a guess about behaviour we did not read.',
+      'Every pair below is drawn from the `peerDependencies` and the conflict note on that plugin\'s own page — all 62 plugin pages are in the directory, so each name links somewhere. Nothing here is a guess about behaviour we did not read.',
       'The four groups are: competing for one UI slot, competing for one config row, calling the same external endpoint, and doing the same job.',
     ],
     groups: [

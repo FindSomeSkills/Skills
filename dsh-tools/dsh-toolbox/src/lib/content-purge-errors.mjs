@@ -30,7 +30,7 @@ export const PURGE = {
     },
   },
   zh: {
-    title: 'dsh 会话怎么删除 / 清理（含备份）',
+    title: 'dsh 会话文件太大怎么清理？先备份再看能省多少',
     desc: '选一下 sessions 目录，按大小列出会话文件，算出能释放多少空间，再给备份和删除命令。在浏览器里跑，不上传，不要账号。',
     h1: '删除 / 清理 DeepSeek Harness 会话',
     cite: 'DSH 的一个会话就是 `$DSH_HOME/sessions` 下的一个 `.zstd` 文件，删旧会话本质是删文件——但 `workspace.json` 里的列表不会自己消失。',
@@ -126,7 +126,7 @@ export const ERRORS = {
     related: ['guides/install', 'guides/cli', 'plugins'],
   },
   zh: {
-    title: 'DSH 报错总览 — 五种常见故障，各有一页',
+    title: 'DSH 报错怎么查？常见 5 种故障各有一页',
     desc: '五个最常见的失败：模型请求 transport failed、找不到 corepack、插件和当前 dsh 不兼容、Node 版本太低、--host 拒绝 0.0.0.0。每条给原因和一条命令。',
     h1: 'DeepSeek Harness 报错对照',
     links: [

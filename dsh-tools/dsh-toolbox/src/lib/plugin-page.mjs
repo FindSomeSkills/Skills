@@ -69,6 +69,6 @@ export function pluginPage(slug, lang) {
       },
     ],
     related: expanded ? ['plugins', 'guides/cli', 'reference'] : ['plugins', 'guides/what-is-deepseek-harness'],
-    noindex: !expanded,
+    noindex: false,
   };
 }

@@ -2,6 +2,8 @@ import { pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
 import { priorityFor } from '../lib/updated.mjs';
 
+const weeklyFor = (p) => p.page === 'home' || p.page === 'syncHub' || p.slug.replace(/^zh\/?/, '') === 'plugins';
+
 export function GET({ site }) {
   const base = site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
   const urls = pageList()
@@ -16,7 +18,7 @@ export function GET({ site }) {
     <lastmod>${updatedFor(p.slug)}</lastmod>
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'zh-Hans' : 'en'}" href="${loc}"/>
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'en' : 'zh-Hans'}" href="${alt}"/>
-    <changefreq>weekly</changefreq>
+    ${weeklyFor(p) ? '<changefreq>weekly</changefreq>' : ''}
     <priority>${priorityFor(p)}</priority>
   </url>`;
     })

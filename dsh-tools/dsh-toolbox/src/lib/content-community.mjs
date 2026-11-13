@@ -1,7 +1,8 @@
-// 第三方插件目录。每条的作者、版本、仓库、兼容区间、peers 数量都来自 npm registry 元数据。
+// 第三方插件目录。作者、版本、仓库、兼容区间、peers 数量来自 npm registry 元数据。
 import { CONFLICTS } from './content-community-conflicts.mjs';
 import { CONFLICTS_B2 } from './content-community-conflicts-b2.mjs';
-import { faqFor } from './community-faq.mjs';
+import { faqFor, sectionsFor } from './community-extras.mjs';
+import { ZH_OVERRIDES } from './community-zh-overrides.mjs';
 
 const ALL_CONFLICTS = { ...CONFLICTS, ...CONFLICTS_B2 };
 
@@ -6508,32 +6509,245 @@ export const COMMUNITY = [
         }
       ]
     }
+  },
+  {
+    "slug": "mnemon",
+    "owner": "omdsh-dev",
+    "pkg": "dsh-mnemon",
+    "group": "memory",
+    "version": "0.5.45",
+    "updated": "2026-11-12",
+    "repo": "https://github.com/omdsh-dev/dsh-mnemon",
+    "npm": "https://www.npmjs.com/package/dsh-mnemon",
+    "compat": ">=0.2.0-rc.2 <0.2.1-0 || >=0.2.1-rc.1 <0.3.0-0",
+    "peers": 3,
+    "install": "dsh plugin --profile web add dsh-mnemon",
+    "en": {
+      "title": "dsh-mnemon for DeepSeek Harness — Memory",
+      "desc": "Composable, view-based context: what the model sees is assembled from views you can swap, instead of one growing transcript. Published as dsh-mnemon, version 0.5.45.",
+      "h1": "dsh-mnemon",
+      "cite": "Composable, view-based context: what the model sees is assembled from views you can swap, instead of one growing transcript.",
+      "lead": [
+        "Version 0.5.45, last published 2026-11-12. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-mnemon"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-rc.2 <0.2.1-0 || >=0.2.1-rc.1 <0.3.0-0`. Outside that range the CLI skips the plugin and prints the requirement instead of booting."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: omdsh-dev. Repository: https://github.com/omdsh-dev/dsh-mnemon. Package page: https://www.npmjs.com/package/dsh-mnemon."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-mnemon — DeepSeek Harness 记忆",
+      "desc": "可组合的视图式上下文：模型看到的由可替换的视图拼出来，而不是一份不断变长的对话记录。 包名 dsh-mnemon，当前版本 0.5.45。",
+      "h1": "dsh-mnemon",
+      "cite": "可组合的视图式上下文：模型看到的由可替换的视图拼出来，而不是一份不断变长的对话记录。",
+      "lead": [
+        "当前版本 0.5.45，最后发布 2026-11-12。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-mnemon"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-rc.2 <0.2.1-0 || >=0.2.1-rc.1 <0.3.0-0`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 omdsh-dev，仓库 https://github.com/omdsh-dev/dsh-mnemon，包页 https://www.npmjs.com/package/dsh-mnemon。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "imagegen",
+    "owner": "dickpy",
+    "pkg": "@dickpy/dsh-imagegen",
+    "group": "output",
+    "version": "1.17.1",
+    "updated": "2026-11-13",
+    "repo": "https://github.com/dickpy/dsh-imagegen",
+    "npm": "https://www.npmjs.com/package/@dickpy/dsh-imagegen",
+    "compat": "",
+    "peers": 0,
+    "install": "dsh plugin --profile web add @dickpy/dsh-imagegen",
+    "en": {
+      "title": "@dickpy/dsh-imagegen for DeepSeek Harness — Rich output",
+      "desc": "Text-to-image and image-to-image inside the web client, through a configured image provider. Published as @dickpy/dsh-imagegen, version 1.17.1.",
+      "h1": "@dickpy/dsh-imagegen",
+      "cite": "Text-to-image and image-to-image inside the web client, through a configured image provider.",
+      "lead": [
+        "Version 1.17.1, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @dickpy/dsh-imagegen"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: dickpy. Repository: https://github.com/dickpy/dsh-imagegen. Package page: https://www.npmjs.com/package/@dickpy/dsh-imagegen."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        }
+      ]
+    },
+    "zh": {
+      "title": "@dickpy/dsh-imagegen — DeepSeek Harness 富输出",
+      "desc": "在网页客户端里做文生图与图生图，走你配好的图片服务商。 包名 @dickpy/dsh-imagegen，当前版本 1.17.1。",
+      "h1": "@dickpy/dsh-imagegen",
+      "cite": "在网页客户端里做文生图与图生图，走你配好的图片服务商。",
+      "lead": [
+        "当前版本 1.17.1，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @dickpy/dsh-imagegen"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 dickpy，仓库 https://github.com/dickpy/dsh-imagegen，包页 https://www.npmjs.com/package/@dickpy/dsh-imagegen。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        }
+      ]
+    }
   }
 ];
 
+
 const BY_SLUG = new Map(COMMUNITY.map((p) => [p.owner + '/' + p.slug, p]));
-const INDEX = new Map(COMMUNITY.map((p, i) => [p.owner + '/' + p.slug, i]));
 
 const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
 
-function withConflict(slug, page) {
-  const note = ALL_CONFLICTS[slug];
-  const idx = INDEX.get(slug) ?? 0;
-  const faq = faqFor(page, idx, note);
-  const out = { en: { ...page.en }, zh: { ...page.zh } };
+// 从冲突说明里找出它点名的对撞包
+const SHORT_NAMES = new Set(COMMUNITY.map((p) => p.pkg.split('/').pop()));
 
+function counterpartOf(note) {
+  if (!note) return '';
+  const tokens = [...note.en.matchAll(/\`([@a-z0-9][\w@/.-]*)\`/g)].map((m) => m[1]);
+  const isVersion = (t) => /^\d/.test(t) || /^[<>^~=]/.test(t);
+  const community = tokens.find((t) => SHORT_NAMES.has(t));
+  if (community) return community;
+  const official = tokens.find((t) => t.startsWith('@deepseek-ai/') && !isVersion(t));
+  return official ?? '';
+}
+
+function withConflicts(slug, page) {
+  const note = ALL_CONFLICTS[slug];
+  const counterpart = counterpartOf(note);
+  const extras = sectionsFor(page, [], page.group);
+  const [q1, q2] = faqFor(page, note, counterpart);
+
+  const out = { en: { ...page.en }, zh: { ...page.zh } };
   for (const lang of ['en', 'zh']) {
     const sections = (out[lang].sections ?? []).map((s) =>
       note && s.h === CONFLICT_HEAD[lang] ? { ...s, p: [note[lang]] } : s,
     );
-    out[lang] = { ...out[lang], sections, faq: [faq[lang], ...(out[lang].faq ?? []).slice(1)] };
+    const added = extras.map((x) => ({ h: lang === 'en' ? x.h : x.zhH, p: lang === 'en' ? x.p : x.zhP }));
+    out[lang] = { ...out[lang], sections: [...sections, ...added], faq: [q1[lang], q2[lang]] };
+  }
+  const zh = ZH_OVERRIDES[slug];
+  if (zh) {
+    out.zh = { ...out.zh, title: zh.title, cite: zh.cite };
   }
   return out;
 }
 
 export function communityPage(slug) {
   const page = BY_SLUG.get(slug);
-  return page ? withConflict(slug, page) : null;
+  return page ? withConflicts(slug, page) : null;
 }
 
 export function communityByGroup() {
