@@ -1,4 +1,5 @@
 ---
+import GuidesBlock from './GuidesBlock.astro';
 import { TOOLS, COPY } from '../lib/content.mjs';
 import { iconFor } from '../lib/icons.mjs';
 const { lang } = Astro.props;
@@ -30,6 +31,8 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
   })}
 </div>
 <p class="note">{t.toolsNote}</p>
+
+<GuidesBlock lang={lang} />
 
 <h2>{t.whyH}</h2>
 {t.why.map((item) => (

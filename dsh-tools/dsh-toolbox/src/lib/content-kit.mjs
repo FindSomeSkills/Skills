@@ -1,10 +1,11 @@
 // De-AI Kit 页面文案：浏览器端检查器 + CLI / dsh-doctor 使用说明。
 export const COPY_KIT = {
   en: {
-    title: "De-AI Kit — check text and CSS for template traces",
+    title: 'DeepSeek Harness Output Check — Template Traces',
     desc: "Paste text or CSS and get the mechanical template markers: buzzwords, absolute claims, gradient text, blur on cards, spacing off the grid. Runs in your browser.",
-    h1: "Three checks, one job each",
-    lede: "De-AI Kit is a browser checker that lists mechanical template markers in text or CSS, and shows the fix for each. DSH won't start after installing a skill? Run the doctor. Shipping a page? Check the UI. Sending out copy? Check the text. Everything runs in the browser, nothing is uploaded, and nothing is scored.",
+    h1: 'Check DeepSeek Harness output for template traces',
+    cite: 'De-AI Kit is a browser checker that lists mechanical template markers in text or CSS, and shows the fix for each.',
+    lede: "DSH won't start after installing a skill? Run the doctor. Shipping a page? Check the UI. Sending out copy? Check the text. Everything runs in the browser, nothing is uploaded, and nothing is scored.",
     tabsLabel: 'Kit sections',
     tabText: "Text check",
     tabUi: "UI check",
@@ -54,10 +55,12 @@ export const COPY_KIT = {
   },
 
   zh: {
-    title: "De-AI Kit — 检查文字与界面里的模板痕迹",
+    title: 'DeepSeek Harness 输出检查 — 文字与界面模板痕迹',
     desc: "贴文字或 CSS，列出机械模板痕迹：空话词密度、绝对化断言、渐变文字、卡片滥用模糊、间距不在栅格。中英规则分开维护，全程在浏览器里跑，不上传。",
-    h1: "三个检查，各管一件事",
-    lede: "De-AI Kit 是一个浏览器检查器，列出文字或 CSS 里的机械模板痕迹，并给出每一处的改法。 装完技能 DSH 起不来？先体检。网页要交付？查界面。文字要发出去？查文字。都在浏览器里跑，不上传，不评分。",
+    h1: '检查 DeepSeek Harness 输出的模板痕迹',
+    lede: '装完技能 DSH 起不来？先体检。网页要交付？查界面。文字要发出去？查文字。都在浏览器里跑，不上传，不评分。',
+
+    cite: 'De-AI Kit 是一个浏览器检查器，列出文字或 CSS 里的机械模板痕迹，并给出每一处的改法。',
     tabsLabel: '功能分区',
     tabText: "查文字",
     tabUi: "查界面",

@@ -1,5 +1,6 @@
 ---
 // 通用 FAQ 区块：内容来自各页 copy 的 faq 数组，同时用于可见内容与 FAQPage 结构化数据。
+import { inline } from '../lib/inline.mjs';
 const { items, heading = 'Common questions' } = Astro.props;
 ---
 {Array.isArray(items) && items.length > 0 && (
@@ -8,7 +9,7 @@ const { items, heading = 'Common questions' } = Astro.props;
     {items.map((item) => (
       <details>
         <summary>{item.q}</summary>
-        <p>{item.a}</p>
+        <p set:html={inline(item.a)} />
       </details>
     ))}
   </section>

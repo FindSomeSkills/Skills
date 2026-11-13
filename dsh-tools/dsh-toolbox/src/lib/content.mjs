@@ -58,7 +58,7 @@ export const TOOLS = [
 
 export const COPY = {
   en: {
-    nav: { home: 'Home', tools: 'Tools', github: 'GitHub', lang: '中文', deai: 'De-AI' },
+    nav: { home: 'Home', tools: 'Tools', guides: 'Guides', github: 'GitHub', lang: '中文', deai: 'De-AI' },
     kitStrip: 'Try the De-AI Kit in your browser: paste text or CSS, get the lines that read like a template',
     footer: {
       note: 'Every tool runs entirely in your browser, nothing is uploaded — free, no account, no email, no telemetry',
@@ -95,10 +95,11 @@ export const COPY = {
       cta: 'Start with Sync Hub',
     },
     syncHub: {
-      title: 'DSH Sync Hub — sync DSH sessions across machines',
+      title: 'DeepSeek Harness Session Sync — Windows, macOS, Linux',
       desc: 'Sync DSH sessions and the workspace index across machines. Opaque-byte transfer, append-only deltas, conflicts keep both copies.',
-      h1: 'DSH Sync Hub',
-      lede: 'DSH Sync Hub is a self-hosted tool that keeps DSH sessions and the workspace index identical across machines. Sync sessions and the workspace index across machines and DSH builds — web, desktop, terminal. Session files are moved as opaque bytes, never parsed.',
+      h1: 'Sync DeepSeek Harness sessions across machines',
+      cite: 'DSH Sync Hub is a self-hosted tool that keeps DSH sessions and the workspace index identical across machines.',
+      lede: 'Sync sessions and the workspace index across machines and DSH builds — web, desktop, terminal. Session files are moved as opaque bytes, never parsed.',
       status: 'Free · runs on your own machine · needs Node.js 20 or newer · no third-party packages',
       stepsH: 'Three steps',
       steps: [
@@ -133,10 +134,12 @@ export const COPY = {
       ],
     },
     zstd: {
-      title: 'Zstd Frame Inspector — count frames in a .zstd file',
+      title: 'DeepSeek Harness .zstd Viewer — Read Session Frames',
       desc: 'Drop a .zstd file to see frame boundaries, per-frame size and block counts. Runs locally; nothing is uploaded. Built for DSH sessions.',
-      h1: 'Zstd Frame Inspector',
-      lede: 'Zstd Frame Inspector is a browser page that reads the frame structure of a `.zstd` DSH session file without decompressing it. DSH sessions are append-only multi-frame zstd. When one grows to 20 MB, the useful question is not “how big” but “how many frames, and where do they end”.',
+      h1: 'DeepSeek Harness .zstd session files, frame by frame',
+      lede: 'DSH sessions are append-only multi-frame zstd. When one grows to 20 MB, the useful question is not “how big” but “how many frames, and where do they end”.',
+
+      cite: 'Zstd Frame Inspector is a browser page that reads the frame structure of a `.zstd` DSH session file without decompressing it.',
       drop: 'Drop a .zstd / .zst file here',
       pick: 'or choose a file',
       hint: 'Reads frame headers only — no decompression, nothing uploaded.',
@@ -161,10 +164,12 @@ export const COPY = {
       ],
     },
     budget: {
-      title: 'DSH Context Budget calculator — turns left before compaction',
+      title: 'DeepSeek Harness Context Budget Calculator — How Many Turns Left',
       desc: 'Estimate how many turns remain before a DeepSeek Harness session hits its context window, and when to fork. Pure client-side arithmetic.',
-      h1: 'Context Budget',
-      lede: 'Context Budget is a calculator that estimates how many turns a DSH session has left before its context window fills. Compaction is not free: it rewrites the conversation surface and costs latency. Know how many turns you have left before you need it.',
+      h1: 'DeepSeek Harness context budget calculator',
+      lede: 'Compaction is not free: it rewrites the conversation surface and costs latency. Know how many turns you have left before you need it.',
+
+      cite: 'Context Budget is a calculator that estimates how many turns a DSH session has left before its context window fills.',
       inputs: {
         window: 'Context window (tokens)',
         used: 'Tokens used now',
@@ -196,7 +201,7 @@ export const COPY = {
   },
 
   zh: {
-    nav: { home: '首页', tools: '工具', github: 'GitHub', lang: 'English', deai: 'De-AI' },
+    nav: { home: '首页', tools: '工具', guides: '指南', github: 'GitHub', lang: 'English', deai: 'De-AI' },
     kitStrip: '在浏览器里试 De-AI Kit：贴文字或 CSS，直接看出哪几行像模板',
     footer: {
       note: '所有工具都在浏览器里跑完，文件不会上传——免费，不需要账号、不需要邮箱、没有埋点',
@@ -233,10 +238,11 @@ export const COPY = {
       cta: '从 Sync Hub 开始',
     },
     syncHub: {
-      title: 'DSH Sync Hub — 跨设备同步 DSH 会话',
+      title: 'DeepSeek Harness 会话同步 — Windows / macOS / Linux',
       desc: '在 Windows / macOS / Linux 与 DSH 网页版/桌面版/终端版之间同步会话与工作区索引。负载按不透明字节搬运，追加写只传变化分块，冲突保留双份。',
-      h1: 'DSH Sync Hub',
-      lede: 'DSH Sync Hub 是一个自托管的同步工具，让多台机器上的 DSH 会话和工作区索引保持一致。 跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
+      h1: '跨设备同步 DeepSeek Harness 会话',
+      lede: '跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
+      cite: 'DSH Sync Hub 是一个自托管的同步工具，让多台机器上的 DSH 会话和工作区索引保持一致。',
       status: '免费 · 跑在你自己的机器上 · 需要 Node.js 20 或更高版本 · 不依赖第三方包',
       stepsH: '三步',
       steps: [
@@ -271,10 +277,12 @@ export const COPY = {
       ],
     },
     zstd: {
-      title: 'Zstd 帧检查器 — 看清 .zstd 文件的帧结构',
+      title: 'DeepSeek Harness 会话文件查看器 — 读 .zstd 帧',
       desc: '拖入 .zstd 会话文件，不用解压就能看到帧边界、每帧压缩后大小、块数量，以及整份文件累积了多少次追加写入。纯本地运行，文件不上传。',
-      h1: 'Zstd 帧检查器',
-      lede: 'Zstd Frame Inspector 是一个浏览器页面，不解压就能读出 DSH 会话文件（.zstd）的帧结构。 DSH 的会话是追加写的多帧 zstd。当一个文件长到 20 MB，真正有用的问题不是「多大」，而是「多少帧、每帧到哪结束」。',
+      h1: 'DeepSeek Harness 会话文件，逐帧看',
+      lede: 'DSH 的会话是追加写的多帧 zstd。当一个文件长到 20 MB，真正有用的问题不是「多大」，而是「多少帧、每帧到哪结束」。',
+
+      cite: 'Zstd Frame Inspector 是一个浏览器页面，不解压就能读出 DSH 会话文件（.zstd）的帧结构。',
       drop: '把 .zstd / .zst 文件拖到这里',
       pick: '或选择文件',
       hint: '只读帧头 —— 不解压，不上传。',
@@ -299,10 +307,12 @@ export const COPY = {
       ],
     },
     budget: {
-      title: 'DSH 上下文预算计算器 — 压缩前还剩几回合',
+      title: 'DeepSeek Harness 上下文预算计算器 — 还剩几轮',
       desc: '填入窗口容量、已用 token 和每轮输入输出，算出还剩多少回合、该在第几轮压缩，以及留给你做下一件事的余量。纯本地计算，不上传任何会话内容。',
-      h1: '上下文预算',
-      lede: 'Context Budget 是一个估算工具，算出一个 DSH 会话在上下文窗口填满之前还剩几轮。 压缩不是免费的：它重写整个对话表面，还带来延迟。先知道还剩几回合，再决定什么时候压。',
+      h1: 'DeepSeek Harness 上下文预算计算器',
+      lede: '压缩不是免费的：它重写整个对话表面，还带来延迟。先知道还剩几回合，再决定什么时候压。',
+
+      cite: 'Context Budget 是一个估算工具，算出一个 DSH 会话在上下文窗口填满之前还剩几轮。',
       inputs: {
         window: '上下文窗口（tokens）',
         used: '当前已用',
@@ -334,6 +344,8 @@ export const COPY = {
   },
 };
 
+import { PLUGINS } from './content-plugins.mjs';
+
 export function pageList() {
   return [
     { slug: '', lang: 'en', page: 'home' },
@@ -354,6 +366,28 @@ export function pageList() {
     { slug: 'zh/reference', lang: 'zh', page: 'reference' },
     { slug: 'compare/sync-hub-vs-plugins', lang: 'en', page: 'compare' },
     { slug: 'zh/compare/sync-hub-vs-plugins', lang: 'zh', page: 'compare' },
+
+    // —— 需求页（Guide）——
+    { slug: 'guides/what-is-deepseek-harness', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/what-is-deepseek-harness', lang: 'zh', page: 'article' },
+    { slug: 'guides/install', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/install', lang: 'zh', page: 'article' },
+    { slug: 'guides/cli', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/cli', lang: 'zh', page: 'article' },
+    // —— 插件目录 ——
+    { slug: 'plugins', lang: 'en', page: 'article' },
+    { slug: 'zh/plugins', lang: 'zh', page: 'article' },
+    // —— 对比页 ——
+    { slug: 'compare/vs-claude-code', lang: 'en', page: 'article' },
+    { slug: 'zh/compare/vs-claude-code', lang: 'zh', page: 'article' },
+    { slug: 'compare/vs-codex-harness', lang: 'en', page: 'article' },
+    { slug: 'zh/compare/vs-codex-harness', lang: 'zh', page: 'article' },
+    { slug: 'compare/vs-opencode', lang: 'en', page: 'article' },
+    { slug: 'zh/compare/vs-opencode', lang: 'zh', page: 'article' },
+    ...PLUGINS.flatMap((p) => [
+      { slug: `plugins/${p.slug}`, lang: 'en', page: 'article' },
+      { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article' },
+    ]),
   ];
 }
 

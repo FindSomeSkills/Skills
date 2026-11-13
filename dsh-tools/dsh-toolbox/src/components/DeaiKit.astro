@@ -4,6 +4,7 @@ const { lang } = Astro.props;
 const t = COPY[lang].kit;
 ---
 <h1>{t.h1}</h1>
+{t.cite && <p class="answer" set:html={t.cite} />}
 <p class="lede">{t.lede}</p>
 
 <nav class="tabs" aria-label={t.tabsLabel}>

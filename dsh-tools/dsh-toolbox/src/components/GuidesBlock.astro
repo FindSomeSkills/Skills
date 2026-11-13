@@ -1,0 +1,45 @@
+---
+// 首页的 Guide 区块：让首页一跳可达全部需求页与对比页（验收要求：任意页 ≤2 跳）
+import { linkFor } from '../lib/links.mjs';
+const { lang } = Astro.props;
+
+const ITEMS = {
+  en: [
+    { id: 'guides/what-is-deepseek-harness', note: 'The dsh CLI, profiles, and where sessions live' },
+    { id: 'guides/install', note: 'Windows, macOS, Linux, and the two failures people hit first' },
+    { id: 'guides/cli', note: 'Boot a profile, web flags, plugin commands, config dumps' },
+    { id: 'plugins', note: '16 packages that make up a profile, and how to add one' },
+    { id: 'reference', note: 'Session formats, index fields, symptom to cause' },
+  ],
+  zh: [
+    { id: 'guides/what-is-deepseek-harness', note: 'dsh 是什么、profile 怎么拼、文件放在哪' },
+    { id: 'guides/install', note: 'Windows、macOS、Linux，以及最先遇到的两种失败' },
+    { id: 'guides/cli', note: '启动 profile、web 参数、插件命令、打印配置树' },
+    { id: 'plugins', note: '组成一个 profile 的 16 个包，以及怎么加一个' },
+    { id: 'reference', note: '会话格式、索引字段、症状对应原因' },
+  ],
+};
+
+const COMPARES = {
+  en: ['compare/vs-claude-code', 'compare/vs-codex-harness', 'compare/vs-opencode', 'compare/sync-hub-vs-plugins'],
+  zh: ['compare/vs-claude-code', 'compare/vs-codex-harness', 'compare/vs-opencode', 'compare/sync-hub-vs-plugins'],
+};
+
+const list = ITEMS[lang];
+const compares = COMPARES[lang];
+---
+<h2>{lang === 'zh' ? '先读这几页' : 'Start here'}</h2>
+<ul class="link-list">
+  {list.map((item) => {
+    const l = linkFor(item.id, lang);
+    return <li><a href={l.href}>{l.label}</a> — {item.note}</li>;
+  })}
+</ul>
+
+<h2>{lang === 'zh' ? '和别的工具比' : 'Compared with'}</h2>
+<ul class="link-list">
+  {compares.map((id) => {
+    const l = linkFor(id, lang);
+    return <li><a href={l.href}>{l.label}</a></li>;
+  })}
+</ul>

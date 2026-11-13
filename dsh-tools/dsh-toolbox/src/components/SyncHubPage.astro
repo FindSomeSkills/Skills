@@ -5,6 +5,7 @@ const t = COPY[lang].syncHub;
 ---
 <h1>{t.h1}</h1>
 <p class="pill ok">{t.status}</p>
+{t.cite && <p class="answer" set:html={t.cite} />}
 <p class="lede" style="margin-top:16px">{t.lede}</p>
 
 <h2>{t.stepsH}</h2>

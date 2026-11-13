@@ -2,10 +2,12 @@
 export const EXTRA_COPY = {
   en: {
     doctor: {
-      title: 'Session Index Doctor — why a session is missing from the list',
+      title: 'DeepSeek Harness Session Missing From List — Find the Gap',
       desc: 'Compare sessions/ against workspace.json and session_projcache.json in a DSH folder. Read-only; shows what is out of sync and the fix.',
-      h1: 'Session Index Doctor',
-      lede: 'Session Index Doctor is a browser page that finds DSH sessions which exist on disk but never appear in the session list. In DSH a session file and a session list entry are two different things. When they disagree the symptom is always the same — “my session is gone”. This checks which side is missing what.',
+      h1: 'Why a DeepSeek Harness session is missing from the list',
+      lede: 'In DSH a session file and a session list entry are two different things. When they disagree the symptom is always the same — “my session is gone”. This checks which side is missing what.',
+
+      cite: 'Session Index Doctor is a browser page that finds DSH sessions which exist on disk but never appear in the session list.',
       pick: 'Choose your DSH data folder',
       hint: 'Reads the folder listing and storages/*.json only. Payload bytes are never opened.',
       empty: 'Pick a folder to run the check.',
@@ -74,10 +76,12 @@ export const EXTRA_COPY = {
       ],
     },
     skills: {
-      title: 'DSH Skill Load Audit — which skill is eating your context',
+      title: 'DeepSeek Harness Skill Load Audit — What Costs Context',
       desc: 'Pick your skills folder: tokens each skill injects, which descriptions are copy-pasted, which skills are dead weight. Runs locally.',
-      h1: 'Skill Load Audit',
-      lede: 'Skill Load Audit is a browser page that ranks installed DSH skills by the context they cost before you use them. Every installed skill costs context before you use it. This measures the bill: resident cost (name + description) and full cost (the whole SKILL.md).',
+      h1: 'Which DeepSeek Harness skill costs the most context',
+      lede: 'Every installed skill costs context before you use it. This measures the bill: resident cost (name + description) and full cost (the whole SKILL.md).',
+
+      cite: 'Skill Load Audit is a browser page that ranks installed DSH skills by the context they cost before you use them.',
       pick: 'Choose your skills folder',
       hint: 'Reads SKILL.md files only. Token counts are estimates: CJK ≈ 1 token per character, other text ≈ 4 characters per token.',
       empty: 'Pick a folder to run the audit.',
@@ -109,10 +113,12 @@ export const EXTRA_COPY = {
 
   zh: {
     doctor: {
-      title: 'DSH 会话索引体检 — 为什么会话从列表里消失了',
+      title: 'DeepSeek Harness 会话不在列表里 — 找索引缺口',
       desc: '把 DSH 数据目录交给它，对比 sessions/ 与 storages/workspace.json、session_projcache.json，找出哪一边缺了什么。只读，不上传。',
-      h1: '会话索引体检',
-      lede: 'Session Index Doctor 是一个浏览器页面，找出那些在磁盘上存在、却永远不出现在会话列表里的 DSH 会话。 在 DSH 里，「会话文件」和「会话列表条目」是两回事。两边不一致时症状永远是同一个——「我的会话不见了」。这里查的是哪一边缺了什么。',
+      h1: '为什么 DeepSeek Harness 会话不在列表里',
+      lede: '在 DSH 里，「会话文件」和「会话列表条目」是两回事。两边不一致时症状永远是同一个——「我的会话不见了」。这里查的是哪一边缺了什么。',
+
+      cite: 'Session Index Doctor 是一个浏览器页面，找出那些在磁盘上存在、却永远不出现在会话列表里的 DSH 会话。',
       pick: '选择你的 DSH 数据目录',
       hint: '只读目录清单和 storages/*.json，会话负载的字节完全不会打开。',
       empty: '选一个目录开始检查。',
@@ -181,10 +187,12 @@ export const EXTRA_COPY = {
       ],
     },
     skills: {
-      title: 'DSH 技能成本审计 — 哪个技能在吃你的上下文',
+      title: 'DeepSeek Harness 技能开销审计 — 谁最吃上下文',
       desc: '选技能目录，看每个技能注入多少 token：常驻成本（名字 + 描述）和全量成本（整个 SKILL.md），并标出哪些描述是复制粘贴。本地运行，不上传。',
-      h1: '技能成本审计',
-      lede: 'Skill Load Audit 是一个浏览器页面，按上下文开销给已安装的 DSH 技能排名。 每个装上的技能，在你用它之前就在花上下文。这里把账算出来：常驻成本（名字 + 描述）和全量成本（整个 SKILL.md）。',
+      h1: '哪个 DeepSeek Harness 技能最吃上下文',
+      lede: '每个装上的技能，在你用它之前就在花上下文。这里把账算出来：常驻成本（名字 + 描述）和全量成本（整个 SKILL.md）。',
+
+      cite: 'Skill Load Audit 是一个浏览器页面，按上下文开销给已安装的 DSH 技能排名。',
       pick: '选择你的技能目录',
       hint: '只读 SKILL.md。token 数是估算：中文约 1 字 1 token，其它文本约 4 字符 1 token。',
       empty: '选一个目录开始审计。',

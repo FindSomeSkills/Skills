@@ -1,0 +1,62 @@
+---
+// Guide / 对比页 / 插件页的统一渲染：标题、可引用结论块、正文分段、代码块、对照表、FAQ、相关链接。
+import Faq from './Faq.astro';
+import { linkFor } from '../lib/links.mjs';
+import { inline } from '../lib/inline.mjs';
+
+const { data, lang, plugins = [] } = Astro.props;
+const t = data;
+const related = (t.related ?? []).map((id) => ({ id, ...linkFor(id, lang) }));
+---
+<h1>{t.h1}</h1>
+
+<p class="answer" set:html={inline(t.cite)} />
+
+{(t.lead ?? []).map((p) => <p class="lede" set:html={inline(p)} />)}
+
+{t.table && (
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>{t.table.head.map((h) => <th>{h}</th>)}</tr>
+      </thead>
+      <tbody>
+        {t.table.rows.map((row) => (
+          <tr>{row.map((cell) => <td set:html={inline(cell)} />)}</tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
+{(t.sections ?? []).map((s) => (
+  <section>
+    <h2>{s.h}</h2>
+    {(s.p ?? []).map((p) => <p set:html={inline(p)} />)}
+    {s.code && <pre><code>{s.code}</code></pre>}
+  </section>
+))}
+
+{plugins.length > 0 && (
+  <section>
+    <h2>{lang === 'zh' ? '包的清单' : 'The packages'}</h2>
+    <ul class="link-list">
+      {plugins.map((pl) => (
+        <li>
+          <a href={linkFor('plugins', lang).href + pl.slug + '/'}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh : pl.en} <span class="pkg-version">{pl.version}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<Faq items={t.faq ?? []} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
+
+{related.length > 0 && (
+  <section class="related">
+    <h2>{lang === 'zh' ? '相关' : 'Related'}</h2>
+    <ul class="link-list">
+      {related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}
+    </ul>
+  </section>
+)}

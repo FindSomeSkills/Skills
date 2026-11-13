@@ -18,6 +18,22 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 - **Skill Load Audit** (https://www.dshtoolbox.com/tools/skill-load-audit/) — per-skill token cost: resident (name + description) and full (`SKILL.md`), with duplicate-description detection.
 - **De-AI Kit** (https://www.dshtoolbox.com/tools/deai-kit/) — pastes text or CSS and lists mechanical template markers (buzzword density, absolute claims, gradient text, backdrop blur on cards, spacing off the 4px grid). It reports markers; it does not score writing.
 
+## Guides
+
+- **What is DeepSeek Harness** (https://www.dshtoolbox.com/guides/what-is-deepseek-harness/) — the `dsh` CLI, profiles as patch layers, `$DSH_HOME`, and why a session is three files.
+- **Install** (https://www.dshtoolbox.com/guides/install/) — `npm install -g @deepseek-ai/dsh` on Node.js 24.9.0+, Windows/macOS/Linux, and the two first-boot failures.
+- **CLI cheat sheet** (https://www.dshtoolbox.com/guides/cli/) — boot a profile, web flags, `dsh plugin`, `--dump-config`, and how app arguments are forwarded.
+
+## Plugins
+
+- **Plugin directory** (https://www.dshtoolbox.com/plugins/) — the 16 `@deepseek-ai/dsh-*` packages that make up a profile (bundles, seams, backends) with install commands.
+
+## Comparisons
+
+- **vs Claude Code** (https://www.dshtoolbox.com/compare/vs-claude-code/)
+- **vs Codex CLI** (https://www.dshtoolbox.com/compare/vs-codex-harness/)
+- **vs OpenCode** (https://www.dshtoolbox.com/compare/vs-opencode/)
+
 ## Reference
 
 - **Storage layout reference** (https://www.dshtoolbox.com/reference/) — session formats, directory layout, index fields, symptom → cause table.

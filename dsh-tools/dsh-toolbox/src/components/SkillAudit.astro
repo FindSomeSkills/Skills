@@ -5,6 +5,7 @@ const t = COPY[lang].skills;
 const demoLabel = lang === 'zh' ? '试用示例数据' : 'Try sample data';
 ---
 <h1>{t.h1}</h1>
+{t.cite && <p class="answer" set:html={t.cite} />}
 <p class="lede">{t.lede}</p>
 
 <label id="dirDrop" class="toolbar" for="dir" style="display:block;cursor:pointer">

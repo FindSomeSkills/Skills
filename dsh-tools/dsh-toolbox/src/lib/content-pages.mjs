@@ -49,7 +49,7 @@ export const COPY_PAGES = {
     },
 
     reference: {
-      title: 'DSH storage reference — session formats and indexes',
+      title: 'DeepSeek Harness Storage Reference — Session Formats',
       desc: 'DeepSeek Harness on-disk storage: v4 and legacy session formats, directory layout, index fields, and the failures that follow. Measured on DSH 0.2.1-rc.2.',
       h1: 'DSH storage layout reference',
       lede: 'What DSH writes to disk, measured on a real install (0.2.1-rc.2). The payload, the list entry and the title are three separate things on disk. Treat them as one and you get an empty-looking session list while every file is still there.',
@@ -121,7 +121,7 @@ export const COPY_PAGES = {
     },
 
     compare: {
-      title: 'Sync Hub vs dsh-session-sync vs dsh-remote-mobile',
+      title: 'DeepSeek Harness Session Sync — Sync Hub vs Plugins',
       desc: 'Three ways to continue DSH work across devices: git-mirrored sync, single-instance remote access, self-hosted hub. Includes where each fails.',
       h1: 'Three ways to continue DSH work on another device',
       lede: 'They are not competitors so much as different answers to different questions. This page says which question each one answers, and where each one breaks — including ours.',
