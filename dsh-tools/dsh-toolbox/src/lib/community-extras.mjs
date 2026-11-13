@@ -55,8 +55,8 @@ export function faqFor(page, pair, pkg) {
     : { en: 'What happens when dsh upgrades?', zh: 'dsh 升级之后会怎样？' };
   const a2 = range
     ? {
-        en: `On \`${range}\` the CLI loads \`${pkg}\`; outside it, boot stops with the requirement instead of running the plugin. \`dsh plugin allow-version <package>\` is the override if you accept the risk.`,
-        zh: `在 \`${range}\` 里，命令行会加载 \`${pkg}\`；超出这个范围时启动会停下并打印要求，不会带着它跑。愿意担风险就用 \`dsh plugin allow-version <包名>\` 放行。`,
+        en: `On \`${range}\` the CLI loads \`${pkg}\`; outside it, boot stops with the requirement instead of running the plugin. \`dsh plugin allow-version ${pkg}\` is the per-package override if you accept the risk.`,
+        zh: `在 \`${range}\` 里，命令行会加载 \`${pkg}\`；超出这个范围时启动会停下并打印要求，不会带着它跑。愿意担风险就用 \`dsh plugin allow-version ${pkg}\` 单包放行。`,
       }
     : {
         en: `Nothing declares a version window for \`${pkg}\`: \`dsh --version\` tells you what you are running, and no check will tell you whether \`${pkg}\` matches it.`,
