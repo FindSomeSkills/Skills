@@ -7,28 +7,28 @@ export const COPY_PAGES = {
       demoCta: 'See a sample result →',
       outcomes: {
         'sync-hub': {
-          outcome: 'Both machines show the same session list, with titles — and a conflict copy when they disagree',
+          outcome: 'Same session list on both machines, conflicts kept as copies',
           demo: '/sync-hub/',
           demoLabel: 'How it works →',
         },
         'zstd-frame-inspector': {
-          outcome: 'How many writes a session file holds, and how much the next sync will send',
+          outcome: 'Writes inside this file, and what the next sync sends',
           demo: '/tools/zstd-frame-inspector/?demo=1',
         },
         'context-budget': {
-          outcome: 'The turn where you should compact, and whether you have room for one more task',
+          outcome: 'Which turn to compact, and room for one more task',
           demo: '/tools/context-budget/?demo=1',
         },
         'session-index-doctor': {
-          outcome: 'The session ids sitting on disk that will never show up in the list',
+          outcome: 'Session ids on disk that never reach the list',
           demo: '/tools/session-index-doctor/?demo=1',
         },
         'skill-load-audit': {
-          outcome: 'Skills ranked by token cost, so you archive before one eats a whole window',
+          outcome: 'Skills ranked by context cost, archive the heavy ones first',
           demo: '/tools/skill-load-audit/?demo=1',
         },
         'deai-kit': {
-          outcome: 'The exact lines that read like a template, each with one sentence on fixing it',
+          outcome: 'Lines that read like a template, each with a fix',
           demo: '/tools/deai-kit/',
           demoLabel: 'Open the checker →',
         },
@@ -177,28 +177,28 @@ export const COPY_PAGES = {
       demoCta: '看示例结果 →',
       outcomes: {
         'sync-hub': {
-          outcome: '两台机器显示同一份会话列表，带标题；不一致时留一份冲突副本，不丢会话',
+          outcome: '两台机器同一份会话列表，冲突时留副本',
           demo: '/zh/sync-hub/',
           demoLabel: '看怎么用 →',
         },
         'zstd-frame-inspector': {
-          outcome: '这个文件累积了多少次写入，以及下次同步大概要传多少',
+          outcome: '这个文件累积多少次写入，下次同步多大',
           demo: '/zh/tools/zstd-frame-inspector/?demo=1',
         },
         'context-budget': {
-          outcome: '该在第几回合压缩，以及还够不够再做一件事',
+          outcome: '第几回合该压缩，还够不够做一件事',
           demo: '/zh/tools/context-budget/?demo=1',
         },
         'session-index-doctor': {
-          outcome: '哪些会话 id 躺在磁盘上，却永远不会出现在列表里',
+          outcome: '哪些会话在磁盘上却不在列表里',
           demo: '/zh/tools/session-index-doctor/?demo=1',
         },
         'skill-load-audit': {
-          outcome: '技能按 token 成本排名，赶在某个技能吃掉整个窗口之前归档',
+          outcome: '按上下文占用给技能排名，先归档重的',
           demo: '/zh/tools/skill-load-audit/?demo=1',
         },
         'deai-kit': {
-          outcome: '哪几行读起来像模板，每一处配一句改法',
+          outcome: '哪几行像模板，每处配一句改法',
           demo: '/zh/tools/deai-kit/',
           demoLabel: '去检查一下 →',
         },

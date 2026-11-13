@@ -17,7 +17,10 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
     const detail = extra.outcomes[tool.slug];
     return (
       <a class="card" href={toolHref(tool.slug)}>
-        <span class="card-icon" set:html={iconFor(tool.slug)} />
+        <span class="card-top">
+          <span class="card-icon" set:html={iconFor(tool.slug)} />
+          <span class="status-badge">{tool.status === 'beta' ? (lang === 'zh' ? '内测' : 'beta') : (lang === 'zh' ? '稳定' : 'stable')}</span>
+        </span>
         <h3>{tool.name}</h3>
         <p class="card-meta">{tool.meta[lang]}</p>
         <p class="card-outcome">{detail?.outcome}</p>
