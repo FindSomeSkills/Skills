@@ -98,7 +98,7 @@ export const COPY = {
       title: 'DSH Sync Hub — sync DSH sessions across machines',
       desc: 'Sync DeepSeek Harness sessions and the workspace index between machines and DSH builds. Opaque-byte transfer, append-only delta uploads, conflicts keep both copies.',
       h1: 'DSH Sync Hub',
-      lede: 'Sync sessions and the workspace index across machines and DSH builds — web, desktop, terminal. Session files are moved as opaque bytes, never parsed.',
+      lede: 'DSH Sync Hub is a self-hosted tool that keeps DSH sessions and the workspace index identical across machines. Sync sessions and the workspace index across machines and DSH builds — web, desktop, terminal. Session files are moved as opaque bytes, never parsed.',
       status: 'Free · runs on your own machine · needs Node.js 20 or newer · no third-party packages',
       stepsH: 'Three steps',
       steps: [
@@ -136,7 +136,7 @@ export const COPY = {
       title: 'Zstd Frame Inspector — count frames in a .zstd file',
       desc: 'Drop a .zstd / .zst file to see its frame boundaries, per-frame compressed size and block counts. Runs locally; nothing is uploaded. Built for DSH session files.',
       h1: 'Zstd Frame Inspector',
-      lede: 'DSH sessions are append-only multi-frame zstd. When one grows to 20 MB, the useful question is not “how big” but “how many frames, and where do they end”.',
+      lede: 'Zstd Frame Inspector is a browser page that reads the frame structure of a `.zstd` DSH session file without decompressing it. DSH sessions are append-only multi-frame zstd. When one grows to 20 MB, the useful question is not “how big” but “how many frames, and where do they end”.',
       drop: 'Drop a .zstd / .zst file here',
       pick: 'or choose a file',
       hint: 'Reads frame headers only — no decompression, nothing uploaded.',
@@ -164,7 +164,7 @@ export const COPY = {
       title: 'DSH Context Budget calculator — turns left before compaction',
       desc: 'Estimate how many turns remain before a DeepSeek Harness session hits its context window, and when to fork. Pure client-side arithmetic.',
       h1: 'Context Budget',
-      lede: 'Compaction is not free: it rewrites the conversation surface and costs latency. Know how many turns you have left before you need it.',
+      lede: 'Context Budget is a calculator that estimates how many turns a DSH session has left before its context window fills. Compaction is not free: it rewrites the conversation surface and costs latency. Know how many turns you have left before you need it.',
       inputs: {
         window: 'Context window (tokens)',
         used: 'Tokens used now',
@@ -190,7 +190,8 @@ export const COPY = {
       faq: [
         { q: 'Where do I get “tokens used now”?', a: 'DSH shows context pressure and token usage in the session panel. Copy the numbers in; nothing is read from disk.' },
         { q: 'Why does compaction cost so much?', a: 'It is not just summarising — the whole surface gets rewritten, which is why headroom matters more than raw window size.' },
-      ],
+      
+        { q: 'Does it send my session anywhere?', a: 'No. Paste the numbers you see and the page does the arithmetic locally.' },],
     },
   },
 
@@ -235,7 +236,7 @@ export const COPY = {
       title: 'DSH Sync Hub — 跨设备同步 DSH 会话',
       desc: '在 Windows / macOS / Linux 与 DSH 网页版/桌面版/终端版之间同步会话与工作区索引。负载按不透明字节搬运，追加写只传变化分块，冲突保留双份。',
       h1: 'DSH Sync Hub',
-      lede: '跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
+      lede: 'DSH Sync Hub 是一个自托管的同步工具，让多台机器上的 DSH 会话和工作区索引保持一致。 跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
       status: '免费 · 跑在你自己的机器上 · 需要 Node.js 20 或更高版本 · 不依赖第三方包',
       stepsH: '三步',
       steps: [
@@ -273,7 +274,7 @@ export const COPY = {
       title: 'Zstd 帧检查器 — 看清 .zstd 文件的帧结构',
       desc: '拖入 .zstd / .zst 文件，查看帧边界、每帧压缩大小与块数量。纯本地运行、不上传。专为 DSH 会话文件设计。',
       h1: 'Zstd 帧检查器',
-      lede: 'DSH 的会话是追加写的多帧 zstd。当一个文件长到 20 MB，真正有用的问题不是「多大」，而是「多少帧、每帧到哪结束」。',
+      lede: 'Zstd Frame Inspector 是一个浏览器页面，不解压就能读出 DSH 会话文件（.zstd）的帧结构。 DSH 的会话是追加写的多帧 zstd。当一个文件长到 20 MB，真正有用的问题不是「多大」，而是「多少帧、每帧到哪结束」。',
       drop: '把 .zstd / .zst 文件拖到这里',
       pick: '或选择文件',
       hint: '只读帧头 —— 不解压，不上传。',
@@ -301,7 +302,7 @@ export const COPY = {
       title: 'DSH 上下文预算计算器 — 压缩前还剩几回合',
       desc: '估算 DeepSeek Harness 会话在撞上下文窗口前还剩多少回合、何时该分叉。纯本地计算。',
       h1: '上下文预算',
-      lede: '压缩不是免费的：它重写整个对话表面，还带来延迟。先知道还剩几回合，再决定什么时候压。',
+      lede: 'Context Budget 是一个估算工具，算出一个 DSH 会话在上下文窗口填满之前还剩几轮。 压缩不是免费的：它重写整个对话表面，还带来延迟。先知道还剩几回合，再决定什么时候压。',
       inputs: {
         window: '上下文窗口（tokens）',
         used: '当前已用',
@@ -327,7 +328,8 @@ export const COPY = {
       faq: [
         { q: '「当前已用」从哪来？', a: 'DSH 会话面板里有上下文压力和 token 用量，抄进来即可，工具不读磁盘。' },
         { q: '为什么压缩那么贵？', a: '它不只是做摘要——整个表面会被重写。所以余量比窗口大小更值得盯。' },
-      ],
+      
+        { q: '会把我的会话发到别处吗？', a: '不会。你只把看到的数字填进来，计算在本地完成。' },],
     },
   },
 };

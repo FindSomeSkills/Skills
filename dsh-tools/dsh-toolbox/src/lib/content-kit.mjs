@@ -2,7 +2,7 @@
 export const COPY_KIT = {
   en: {
     h1: "Three checks, one job each",
-    lede: "DSH won't start after installing a skill? Run the doctor. Shipping a page? Check the UI. Sending out copy? Check the text. Everything runs in the browser, nothing is uploaded, and nothing is scored.",
+    lede: "De-AI Kit is a browser checker that lists mechanical template markers in text or CSS, and shows the fix for each. DSH won't start after installing a skill? Run the doctor. Shipping a page? Check the UI. Sending out copy? Check the text. Everything runs in the browser, nothing is uploaded, and nothing is scored.",
     tabsLabel: 'Kit sections',
     tabText: "Text check",
     tabUi: "UI check",
@@ -53,7 +53,7 @@ export const COPY_KIT = {
 
   zh: {
     h1: "三个检查，各管一件事",
-    lede: "装完技能 DSH 起不来？先体检。网页要交付？查界面。文字要发出去？查文字。都在浏览器里跑，不上传，不评分。",
+    lede: "De-AI Kit 是一个浏览器检查器，列出文字或 CSS 里的机械模板痕迹，并给出每一处的改法。 装完技能 DSH 起不来？先体检。网页要交付？查界面。文字要发出去？查文字。都在浏览器里跑，不上传，不评分。",
     tabsLabel: '功能分区',
     tabText: "查文字",
     tabUi: "查界面",

@@ -26,9 +26,11 @@ const ariaTpl = lang === 'en'
 const themeLabels = lang === 'en'
   ? { light: 'Light', dark: 'Dark', auto: 'System' }
   : { light: '浅色', dark: '深色', auto: '跟随系统' };
+const buildDate = new Date().toISOString().slice(0, 10);
 const graph = [
   {
     '@type': 'WebSite',
+    dateModified: buildDate,
     name: SITE.name,
     url: `${base}/`,
     inLanguage: ['en', 'zh-Hans'],
@@ -49,14 +51,6 @@ const graph = [
             position: i + 1,
             name: t.name,
             url: `${base}${lang === 'zh' ? '/zh' : ''}/tools/${t.slug}/`,
-          })),
-        },
-        {
-          '@type': 'FAQPage',
-          mainEntity: copy.home.faq.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
           })),
         },
       ]

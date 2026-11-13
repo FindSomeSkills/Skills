@@ -2,8 +2,8 @@
 
 Site: https://dshtoolbox.com
 
-> Free, client-side tools for DeepSeek Harness (DSH). No account, no upload, no telemetry.
-> Every tool runs in the browser; the only downloadable component (DSH Sync Hub) is a self-hosted Node CLI.
+> DSH Toolbox is a set of free, client-side tools for people who run DeepSeek Harness (DSH) on more than one machine: session sync, session-file inspection, context budgeting, index repair, skill cost audit, and a text/UI template checker. No account, no upload, no telemetry.
+> Every checker runs in the browser tab; the one downloadable component (DSH Sync Hub) is a self-hosted Node command-line tool.
 
 ## What this site is
 
@@ -11,16 +11,23 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 
 ## Tools
 
-- **DSH Sync Hub** — syncs DSH sessions and the workspace index across machines and DSH builds (web / desktop / terminal). Opaque-byte transfer, append-only delta uploads, conflicts keep both copies. Source: https://github.com/FindSomeSkills/Skills/tree/main/dsh-tools/dsh-sync-hub
-- **Zstd Frame Inspector** (`/tools/zstd-frame-inspector/`) — counts zstd frames and block boundaries in a `.zstd` session file without decompressing.
-- **Context Budget** (`/tools/context-budget/`) — estimates remaining turns before a DSH session hits its context window.
-- **Session Index Doctor** (`/tools/session-index-doctor/`) — compares `sessions/` against `storages/workspace.json` and `session_projcache.json`; returns the session ids that exist on disk but will never appear in the list.
-- **Skill Load Audit** (`/tools/skill-load-audit/`) — per-skill token cost: resident (name + description) and full (`SKILL.md`), with duplicate-description detection.
+- **DSH Sync Hub** (https://www.dshtoolbox.com/sync-hub/) — syncs DSH sessions and the workspace index across machines and DSH builds (web / desktop / terminal). Files move as opaque bytes, uploads are append-only deltas, and a conflict keeps both copies. Source: https://github.com/FindSomeSkills/Skills/tree/main/dsh-tools/dsh-sync-hub
+- **Zstd Frame Inspector** (https://www.dshtoolbox.com/tools/zstd-frame-inspector/) — counts zstd frames and block boundaries inside a `.zstd` session file without decompressing it; shows how many append writes a file holds.
+- **Context Budget** (https://www.dshtoolbox.com/tools/context-budget/) — estimates how many turns remain before a DSH session hits its context window, and which turn to compact at.
+- **Session Index Doctor** (https://www.dshtoolbox.com/tools/session-index-doctor/) — compares `sessions/` against `storages/workspace.json` and `session_projcache.json`; returns the session ids that exist on disk but will never appear in the list.
+- **Skill Load Audit** (https://www.dshtoolbox.com/tools/skill-load-audit/) — per-skill token cost: resident (name + description) and full (`SKILL.md`), with duplicate-description detection.
+- **De-AI Kit** (https://www.dshtoolbox.com/tools/deai-kit/) — pastes text or CSS and lists mechanical template markers (buzzword density, absolute claims, gradient text, backdrop blur on cards, spacing off the 4px grid). It reports markers; it does not score writing.
 
 ## Reference
 
-- **Storage layout reference** (`/reference/`) — session formats, directory layout, index fields, symptom → cause table.
-- **Comparison** (`/compare/sync-hub-vs-plugins/`) — DSH Sync Hub vs `dsh-session-sync` vs `dsh-remote-mobile`, including where each one fails.
+- **Storage layout reference** (https://www.dshtoolbox.com/reference/) — session formats, directory layout, index fields, symptom → cause table.
+- **Comparison** (https://www.dshtoolbox.com/compare/sync-hub-vs-plugins/) — DSH Sync Hub vs `dsh-session-sync` vs `dsh-remote-mobile`, including where each one fails.
+
+## Definitions
+
+- **DSH (DeepSeek Harness)** — a local agent runtime with web, desktop and terminal builds. It stores each session on disk as `session*.jsonl.zstd`, plus index files.
+- **Session** — one conversation record: a zstd-compressed JSONL payload on disk, a workspace index entry, and a title/stat cache row. All three are separate files.
+- **Context window** — the token budget a model can hold in one request. DSH sessions grow until they must be compacted.
 
 ## Session format table (measured on DSH 0.2.1-rc.2)
 
@@ -36,7 +43,7 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 
 DSH keeps three things apart, and conflating them is the source of almost every "my session disappeared" report:
 
-1. **Payload** — `sessions/<path-slug>/<session-id>/session*.jsonl.zstd`. The `<path-slug>` is derived from the absolute workspace path (`C:\Knowledge base` → `--C-Knowledge~0020base--`), not from the workspace id.
+1. **Payload** — `sessions/<path-slug>/<session-id>/session*.jsonl.zstd`. The `<path-slug>` is derived from the absolute workspace path (`C:\Users\you\my project` → `--C-Users-you-my~0020project--`), not from the workspace id.
 2. **List** — `storages/workspace.json` (unit v2). A session appears only if its id is inside `tables.workspaces.<workspaceId>.sessionIds`. `global.archivedSessionIds` hides, it does not delete. `path` is machine-local.
 3. **Titles and stats** — `storages/session_projcache.json` (unit v3) plus one file per session at `storages/session_projcache/sessions/<id>.json`. Rows are `{ver, seq, val}`; merging compares `ver` first, then `seq`.
 
@@ -50,8 +57,8 @@ DSH keeps three things apart, and conflating them is the source of almost every 
 
 ## Language
 
-- English: `/`
-- 简体中文: `/zh/`
+- English: https://www.dshtoolbox.com/
+- 简体中文: https://www.dshtoolbox.com/zh/
 
 ## Contact
 

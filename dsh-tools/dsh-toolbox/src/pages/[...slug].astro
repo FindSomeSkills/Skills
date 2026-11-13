@@ -9,6 +9,8 @@ import SkillAudit from '../components/SkillAudit.astro';
 import ReferencePage from '../components/ReferencePage.astro';
 import ComparePage from '../components/ComparePage.astro';
 import Related from '../components/Related.astro';
+import Faq from '../components/Faq.astro';
+import { FAQ_EXTRA } from '../lib/faq.mjs';
 import DeaiKit from '../components/DeaiKit.astro';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
 
@@ -24,10 +26,12 @@ const copy = COPY[lang];
 const t = copy[page];
 const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 
-const faqLd = Array.isArray(t.faq)
+const faqItems = Array.isArray(t.faq) ? t.faq : (FAQ_EXTRA[lang]?.[page] ?? []);
+
+const faqLd = Array.isArray(faqItems)
   ? {
       '@type': 'FAQPage',
-      mainEntity: t.faq.map((item) => ({
+      mainEntity: faqItems.map((item) => ({
         '@type': 'Question',
         name: item.q,
         acceptedAnswer: { '@type': 'Answer', text: item.a },
@@ -50,6 +54,7 @@ const software = {
   name: page === 'syncHub' ? 'DSH Sync Hub' : t.h1,
   url: `${base}/${slug}/`,
   applicationCategory: 'DeveloperApplication',
+  dateModified: new Date().toISOString().slice(0, 10),
   operatingSystem: 'Windows, macOS, Linux, Android',
   description: t.desc,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -85,5 +90,8 @@ const contentId = CONTENT_ID[page];
   {page === 'reference' && <ReferencePage lang={lang} />}
   {page === 'compare' && <ComparePage lang={lang} />}
   {page === 'kit' && <DeaiKit lang={lang} />}
+  {page !== 'home' && faqItems.length > 0 && (
+    <Faq items={faqItems} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
+  )}
   {contentId && page !== 'syncHub' && <Related lang={lang} current={contentId} />}
 </Base>
