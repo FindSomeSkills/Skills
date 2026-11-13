@@ -56,6 +56,13 @@ const labels = t.js ?? {};
     </section>
   ))}
 
+  <section class="related-list">
+    <h2>{t.relatedH}</h2>
+    <ul class="link-list">
+      {t.related.map((r) => <li><a href={r.href}>{r.label}</a> — {r.note}</li>)}
+    </ul>
+  </section>
+
   <noscript><p set:html={inline(t.nojs)} /></noscript>
 </section>
 

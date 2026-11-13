@@ -46,6 +46,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
     <h2 set:html={inline(s.h)} />
     {(s.p ?? []).map((p) => <p set:html={inline(p)} />)}
     {s.code && <pre><code>{s.code}</code></pre>}
+    {s.links && (<ul class="link-list">{s.links.map((l) => <li><a href={lang === 'zh' ? (l.zhHref ?? l.href) : l.href}>{l.pkg}</a></li>)}</ul>)}
   </section>
 ))}
 

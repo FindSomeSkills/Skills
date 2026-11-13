@@ -50,7 +50,7 @@ const graph = [
         {
           '@type': 'ItemList',
           name: lang === 'zh' ? '工具清单' : 'Tool list',
-          itemListElement: TOOLS.filter((t) => t.slug !== 'deai-kit').map((t, i) => ({
+          itemListElement: TOOLS.map((t, i) => ({
             '@type': 'ListItem',
             position: i + 1,
             name: t.name,

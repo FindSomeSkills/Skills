@@ -47,7 +47,7 @@ export function faqFor(page, pair, pkg) {
   const a1 = pair
     ? { en: `Keep ${pair.keep}. ${pair.why}`, zh: `留 ${pair.keep}。${pair.whyZh}` }
     : {
-        en: `It patches ${GROUP_SURFACE[page.group]?.en ?? 'a row in the profile'} through \`dsh plugin add\`. Before adding a second plugin that touches the same surface, run \`dsh --profile web --dump-config\` and look for the row it would take over.`,
+        en: `It patches ${GROUP_SURFACE[page.group]?.en ?? 'a row in the profile'} through \`dsh plugin add\`. Before adding a second plugin next to this one on the same surface, run \`dsh --profile web --dump-config\` and look for the row it would take over.`,
         zh: `它通过 \`dsh plugin add\` 接管${GROUP_SURFACE[page.group]?.zh ?? 'profile 里的一行'}。再装第二个动同一处的插件之前，先跑 \`dsh --profile web --dump-config\`，看它要接管的那行是否已经存在。`,
       };
 
@@ -77,28 +77,28 @@ export function sectionsFor(page, peerNames, group, pkg) {
   const storagePeer = peerNames.find((p) => /dsh-settings|dsh-storage-domain|dsh-home-paths|dsh-credentials/.test(p)) ?? '';
 
   const afterEn = firstPeer
-    ? `It patches \`${firstPeer}\`; ${where.en} gains ${surface.en}. Nothing is added to the CLI output — \`dsh --profile web --dump-config\` shows the row, and the client shows the surface after a reload.`
-    : `It adds a row named \`${pkg}\`; ${where.en} gains ${surface.en}. \`dsh --profile web --dump-config\` shows the row, and the client shows the surface after a reload.`;
+    ? `It patches \`${firstPeer}\`; ${where.en} gains ${surface.en}. Nothing is added to the CLI output — \`dsh --profile web --dump-config\` shows the \`${pkg}\` row, and the client shows the surface after a reload.`
+    : `It adds a row named \`${pkg}\`; ${where.en} gains ${surface.en}. \`dsh --profile web --dump-config\` shows the \`${pkg}\` row, and the client shows the surface after a reload.`;
   const afterZh = firstPeer
-    ? `它改的是 \`${firstPeer}\`；${where.zh}多出${surface.zh}。命令行输出不变——\`dsh --profile web --dump-config\` 能看到这一行，客户端刷新后出现这块界面。`
-    : `它新增一行 \`${pkg}\`；${where.zh}多出${surface.zh}。\`dsh --profile web --dump-config\` 能看到这一行，客户端刷新后出现这块界面。`;
+    ? `它改的是 \`${firstPeer}\`；${where.zh}多出${surface.zh}。命令行输出不变——\`dsh --profile web --dump-config\` 能看到 \`${pkg}\` 这一行，客户端刷新后出现这块界面。`
+    : `它新增一行 \`${pkg}\`；${where.zh}多出${surface.zh}。\`dsh --profile web --dump-config\` 能看到 \`${pkg}\` 这一行，客户端刷新后出现这块界面。`;
 
   const rangeEn = page.compat
-    ? `Before installing, run \`dsh --version\` and compare it with the declared window. Outside that window the CLI skips the package at boot and prints the requirement instead of starting a combination it cannot vouch for.`
-    : `No window is declared to compare against: \`dsh --version\` tells you what you are running, and nothing checks whether this package matches it.`;
+    ? `Before installing \`${pkg}\`, run \`dsh --version\` and compare it with the window this package declares. Outside that window the CLI skips it at boot and prints the requirement instead of starting a combination it cannot vouch for.`
+    : `Nothing declares a version window for \`${pkg}\`: \`dsh --version\` tells you what you are running, and no check will tell you whether \`${pkg}\` matches it.`;
   const rangeZh = page.compat
-    ? `装之前先跑 \`dsh --version\`，和声明的区间对一下。不在区间内时，启动会跳过这个包并打印它要求的版本，而不是带着一个它担保不了的组合跑起来。`
-    : `没有声明区间可比：\`dsh --version\` 只能告诉你自己在跑哪个版本，没有任何检查会告诉你这个包配不配它。`;
+    ? `装 \`${pkg}\` 之前先跑 \`dsh --version\`，和它声明的区间对一下。不在区间内时，启动会跳过它并打印要求的版本，而不是带着一个它担保不了的组合跑起来。`
+    : `\`${pkg}\` 没有声明版本区间：\`dsh --version\` 只能告诉你自己在跑哪个版本，没有任何检查会告诉你 \`${pkg}\` 配不配它。`;
 
   const filesEn = storagePeer
-    ? `It peers \`${storagePeer}\`, so whatever it persists goes through that service and lands under \`$DSH_HOME\`. The dependency itself is one line in \`$DSH_HOME/profiles/<name>/package.json\`, written by \`dsh plugin add ${pkg}\`.`
-    : `The manifest declares no storage peer, so the only file it is guaranteed to touch is the \`${pkg}\` dependency line in \`$DSH_HOME/profiles/<name>/package.json\`. Any other state belongs to the surface it patches; the package description names no path.`;
+    ? `It peers \`${storagePeer}\`, so whatever this package persists goes through that service and lands under \`$DSH_HOME\`. The dependency itself is one line in \`$DSH_HOME/profiles/<name>/package.json\`, written by \`dsh plugin add ${pkg}\`.`
+    : `The manifest declares no storage peer, so the only file it is guaranteed to touch is the \`${pkg}\` dependency line in \`$DSH_HOME/profiles/<name>/package.json\`. Beyond that, \`${pkg}\` names no path in its description.`;
   const filesZh = storagePeer
     ? `它 peer 了 \`${storagePeer}\`，所以存下来的东西走那个服务、落在 \`$DSH_HOME\` 下。依赖本身只有一行，写在 \`$DSH_HOME/profiles/<名字>/package.json\`，由 \`dsh plugin add ${pkg}\` 写入。`
-    : `清单里没有声明存储相关的 peer，所以唯一确定会碰到的文件是 \`$DSH_HOME/profiles/<名字>/package.json\` 里 \`${pkg}\` 那一行依赖。其余状态属于它改的那块界面；包说明里没有写路径。`;
+    : `清单里没有声明存储相关的 peer，所以唯一确定会碰到的文件是 \`$DSH_HOME/profiles/<名字>/package.json\` 里 \`${pkg}\` 那一行依赖。除此之外，\`${pkg}\` 的包说明里没有写别的路径。`;
 
-  const removeEn = `Removing it is the mirror command: \`dsh plugin --profile web remove ${pkg}\`. That drops the dependency line and the surface it added; anything the plugin stored under \`$DSH_HOME\` stays where it is and has to be deleted by hand.`;
-  const removeZh = `卸载是对称的那条命令：\`dsh plugin --profile web remove ${pkg}\`。它会去掉依赖行和它加的那块界面；插件存在 \`$DSH_HOME\` 下的东西不会跟着消失，得自己删。`;
+  const removeEn = `Removing it is the mirror command: \`dsh plugin --profile web remove ${pkg}\`. That drops the dependency line and the surface it added; whatever \`${pkg}\` stored under \`$DSH_HOME\` stays and has to be deleted by hand.`;
+  const removeZh = `卸载是对称的那条命令：\`dsh plugin --profile web remove ${pkg}\`。它会去掉依赖行和它加的那块界面；\`${pkg}\` 存在 \`$DSH_HOME\` 下的东西不会跟着消失，得自己删。`;
 
   return [
     { h: 'After install', zhH: '装完会看到什么', p: [afterEn], zhP: [afterZh] },

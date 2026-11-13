@@ -74,18 +74,31 @@ export function renderCommunityPage(page, note, pair, slug) {
     },
   };
 
+  const leadPkg = {
+    en: { lead: `Version ${page.version} of \`${page.pkg}\`, last published ${page.updated}; the install command and the range come from its own manifest.` },
+    zh: { lead: `\`${page.pkg}\` 当前版本 ${page.version}，最后发布 ${page.updated}；安装命令与区间取自它自己的清单。` },
+  };
+  const compatPkg = page.compat
+    ? {
+        en: `\`engines.dsh\` in ${page.pkg} declares \`${page.compat}\`; outside that range the CLI skips it at boot and prints the requirement instead of booting.`,
+        zh: `\`${page.pkg}\` 的 \`engines.dsh\` 声明的是 \`${page.compat}\`；超出这个区间，启动时会跳过它并打印要求，不会带着跑。`,
+      }
+    : null;
+
   for (const lang of ['en', 'zh']) {
     const sections = (out[lang].sections ?? []).map((s) => {
       if (note && s.h === CONFLICT_HEAD[lang]) return { ...s, p: [note[lang]] };
       const isInstall = s.h === 'Install' || s.h === '安装';
       const isCompat = s.h === 'Compatibility' || s.h === '兼容区间';
       if (isInstall) return { ...s, p: [pkgUnique[lang].install] };
+      if (isCompat && compatPkg) return { ...s, p: [compatPkg[lang]] };
       if (isCompat && !page.compat) return { ...s, p: [pkgUnique[lang].noRange] };
       return s;
     });
     const added = extras.map((x) => ({ h: lang === 'en' ? x.h : x.zhH, p: lang === 'en' ? x.p : x.zhP }));
     out[lang] = {
       ...out[lang],
+      lead: [leadPkg[lang].lead],
       sections: [...sections, ...added],
       faq: faq.map((x) => x[lang]),
       footer: footerFor(page, pair),

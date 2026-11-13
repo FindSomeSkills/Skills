@@ -23,6 +23,12 @@ export const PURGE = {
     planP: 'Copy the whole sessions folder first. It is the only copy of the conversation payloads.',
     deleteP: 'Only after the copy finishes. These commands delete the files you selected, nothing else.',
     afterP: 'Deleting files leaves their entries in `workspace.json`. Run Session Index Doctor afterwards to see the gap, or rebuild the index from the profile.',
+        relatedH: 'Where to go next',
+    related: [
+      { label: 'Session Index Doctor', href: '/tools/session-index-doctor/', note: 'see which session ids the list still claims' },
+      { label: 'DSH Sync Hub', href: '/sync-hub/', note: 'move sessions to another machine instead of deleting them' },
+      { label: '@michengai/dsh-archive-manager', href: '/plugins/MichengAI/archive-manager/', note: 'archive a session out of the active list without touching the payload' },
+    ],
     nojs: 'This tool needs JavaScript to read the folder you pick. Without it, use `ls -S ~/.dsh/sessions/*/*.zstd` to sort by size.',
     js: {
       noFiles: 'No `.zstd` or session `.jsonl` files in that folder. Pick the folder that contains them.',
@@ -52,6 +58,12 @@ export const PURGE = {
     planP: '先把整个 sessions 目录复制一份。对话内容只有这一份。',
     deleteP: '复制完成后再执行。这些命令只删你选中的文件，别的都不动。',
     afterP: '删了文件，`workspace.json` 里的条目还在。删完跑一次会话索引体检，看差在哪；或者从 profile 重建索引。',
+        relatedH: '接着看',
+    related: [
+      { label: '会话索引体检', href: '/zh/tools/session-index-doctor/', note: '看列表还认哪些会话 id' },
+      { label: 'DSH Sync Hub', href: '/zh/sync-hub/', note: '不想删就搬到另一台机器' },
+      { label: '@michengai/dsh-archive-manager', href: '/zh/plugins/MichengAI/archive-manager/', note: '归档出活跃列表，负载不动' },
+    ],
     nojs: '这个工具要用 JavaScript 读你选的目录。没有的话，用 `ls -S ~/.dsh/sessions/*/*.zstd` 按大小排。',
     js: {
       noFiles: '这个目录里没有 `.zstd` 或会话 `.jsonl` 文件。',

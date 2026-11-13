@@ -36,7 +36,7 @@ if (!chrome) {
 
 const PAGES = [
   { path: '/', must: ['The tools', 'Why these six', 'FAQ'], lang: 'en' },
-  { path: '/zh/', must: ['六个工具已上线', '为什么是这六个', '常见问题'], lang: 'zh' },
+  { path: '/zh/', must: ['七个工具已上线', '为什么是这六个', '常见问题'], lang: 'zh' },
 ];
 
 const MODES = [
