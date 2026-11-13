@@ -53,6 +53,11 @@ export const COPY_PAGES = {
       desc: 'DeepSeek Harness on-disk storage: v4 and legacy session formats, directory layout, index fields, and the failures that follow. Measured on DSH 0.2.1-rc.2.',
       h1: 'DSH storage layout reference',
       lede: 'What DSH writes to disk, measured on a real install (0.2.1-rc.2). The payload, the list entry and the title are three separate things on disk. Treat them as one and you get an empty-looking session list while every file is still there.',
+      faq: [
+        { q: "What is the difference between a session file and a session list entry?", a: "The file is the payload on disk. The list entry is an id inside storages/workspace.json. DSH keeps them apart, so a file can exist with no entry and never appear in the UI." },
+        { q: "Why is a session on disk but missing from the list?", a: "The index never recorded its id: an interrupted process, a failed index write, or a changed path slug. The payload is intact; only the pointer is missing." },
+        { q: "Does archiving delete anything?", a: "No. `global.archivedSessionIds` only hides the session from the active list; the payload still occupies disk." },
+      ],
       updated: 'Measured 2026-11-13 on DSH 0.2.1-rc.2, Windows.',
       formatH: 'Session formats',
       formatNote: 'Both formats are streams of independently decompressible zstd frames, appended as the session grows. Tools should treat them as opaque bytes.',
@@ -116,7 +121,7 @@ export const COPY_PAGES = {
     },
 
     compare: {
-      title: 'DSH session sync: Sync Hub vs dsh-session-sync vs dsh-remote-mobile',
+      title: 'Sync Hub vs dsh-session-sync vs dsh-remote-mobile',
       desc: 'Three ways to continue DSH work across devices: git-mirrored sync, single-instance remote access, self-hosted hub. Includes where each fails.',
       h1: 'Three ways to continue DSH work on another device',
       lede: 'They are not competitors so much as different answers to different questions. This page says which question each one answers, and where each one breaks — including ours.',
@@ -223,6 +228,11 @@ export const COPY_PAGES = {
       desc: 'DeepSeek Harness 磁盘存储的结构化参考：v4 与旧格式会话、目录布局、workspace.json 与 session_projcache 字段、以及对应的故障现象。基于 DSH 0.2.1-rc.2 实测。',
       h1: 'DSH 存储结构参考',
       lede: 'DSH 往磁盘上写了什么。基于真机实测（0.2.1-rc.2）。负载、列表条目、标题在磁盘上是三样东西；把它们当成一件，就会看到「文件都在、列表是空的」。',
+      faq: [
+        { q: "会话文件和会话列表条目有什么区别？", a: "文件是磁盘上的负载，列表条目是 storages/workspace.json 里的一个 id。DSH 把两者分开存，所以文件在、列表里却没有，是常见状态。" },
+        { q: "为什么磁盘上有文件却不在列表里？", a: "索引没记下它的 id：进程中断、索引写入失败、路径 slug 变化都会这样。负载是完整的，丢的是指针。" },
+        { q: "归档会删东西吗？", a: "不会。global.archivedSessionIds 只是把会话从活跃列表里藏起来，负载仍然占磁盘。" },
+      ],
       updated: '实测时间 2026-11-13，DSH 0.2.1-rc.2，Windows。',
       formatH: '会话格式对照',
       formatNote: '两种格式都是「可独立解压的 zstd 帧」顺序追加而成。任何工具都应该把它们当不透明字节处理。',

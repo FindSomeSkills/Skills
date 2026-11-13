@@ -124,7 +124,7 @@ const pageDesc = t.desc ?? `${t.lede}`.slice(0, 155);
   {page === 'reference' && <ReferencePage lang={lang} />}
   {page === 'compare' && <ComparePage lang={lang} />}
   {page === 'kit' && <DeaiKit lang={lang} />}
-  {page !== 'home' && faqItems.length > 0 && (
+  {page !== 'home' && page !== 'compare' && faqItems.length > 0 && (
     <Faq items={faqItems} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
   )}
   {contentId && page !== 'syncHub' && <Related lang={lang} current={contentId} />}

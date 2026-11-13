@@ -2,7 +2,7 @@
 export const EXTRA_COPY = {
   en: {
     doctor: {
-      title: 'DSH Session Index Doctor — why a session is missing from the list',
+      title: 'Session Index Doctor — why a session is missing from the list',
       desc: 'Compare sessions/ against workspace.json and session_projcache.json in a DSH folder. Read-only; shows what is out of sync and the fix.',
       h1: 'Session Index Doctor',
       lede: 'Session Index Doctor is a browser page that finds DSH sessions which exist on disk but never appear in the session list. In DSH a session file and a session list entry are two different things. When they disagree the symptom is always the same — “my session is gone”. This checks which side is missing what.',
