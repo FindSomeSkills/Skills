@@ -48,6 +48,18 @@ const labels = t.js ?? {};
     <p set:html={inline(t.afterP)} />
   </section>
 
+  <section>
+    <h2>{t.archiveH}</h2>
+    <p set:html={inline(t.archiveP)} />
+    <p><a href={t.archiveHref}>{t.archiveLabel}</a></p>
+  </section>
+
+  <section>
+    <h2>{t.portH}</h2>
+    <p set:html={inline(t.portP)} />
+    <pre><code>{t.portCmd}</code></pre>
+  </section>
+
   {(sections ?? []).map((sec) => (
     <section>
       <h2 set:html={inline(sec.h)} />
@@ -55,6 +67,18 @@ const labels = t.js ?? {};
       {sec.code && <pre><code>{sec.code}</code></pre>}
     </section>
   ))}
+
+  {(t.faq ?? []).length > 0 && (
+    <section>
+      <h2>{t.faqH}</h2>
+      {t.faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p set:html={inline(f.a)} />
+        </details>
+      ))}
+    </section>
+  )}
 
   <section class="related-list">
     <h2>{t.relatedH}</h2>

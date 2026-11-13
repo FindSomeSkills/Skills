@@ -1,6 +1,6 @@
 # DSH Toolbox
 
-Site: https://dshtoolbox.com
+Site: https://www.dshtoolbox.com
 
 > DSH Toolbox is a free, client-side toolkit for people who run DeepSeek Harness (DSH): session sync between machines, session-file inspection, context budgeting, index repair, skill cost audit, session cleanup, a text/UI template checker, and a plugin directory with per-plugin conflict notes. No account, no upload, no telemetry.
 > Every checker runs in the browser tab; the one downloadable component (DSH Sync Hub) is a self-hosted Node command-line tool.

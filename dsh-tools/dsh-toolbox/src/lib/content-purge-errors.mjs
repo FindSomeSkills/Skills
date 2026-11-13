@@ -1,10 +1,10 @@
 // 会话清理工具与报错对照表的文案。命令与路径来自站点 reference 页已核实的 $DSH_HOME 结构。
 export const PURGE = {
   en: {
-    title: 'dsh-purge: delete DeepSeek Harness sessions and see the space first',
+    title: 'Delete DeepSeek Harness session files safely — see what takes the space first',
     desc: 'Point the tool at your sessions folder, see which files are large, and get the backup and delete commands. Runs in the browser; no upload, no account.',
     h1: 'Delete DeepSeek Harness sessions',
-    cite: 'A DSH session is one `.zstd` file under `$DSH_HOME/sessions`, so deleting old ones is a file operation — but the list in `workspace.json` stays until it is rebuilt.',
+    cite: 'A DSH session sits three folders deep: `$DSH_HOME/sessions/--<project>--/<session-id>/session.v4.jsonl.zstd`. The project folder is a readable key built from the working directory — spaces become `~0020`, so `C:\\Knowledge base` turns into `--C-Knowledge~0020base--` — and a session with no working directory lands under `_no-cwd/`. Deleting an old one is still a file operation, but its entry in `workspace.json` stays until the index is rebuilt.',
     lead: [
       'Pick the `sessions` folder inside your `$DSH_HOME` (by default `~/.dsh`). The tool reads file names, sizes and dates locally, then gives you a backup command and a delete command.',
       'Nothing is uploaded. The browser cannot delete anything by itself — the commands are what you run.',
@@ -23,6 +23,20 @@ export const PURGE = {
     planP: 'Copy the whole sessions folder first. It is the only copy of the conversation payloads.',
     deleteP: 'Only after the copy finishes. These commands delete the files you selected, nothing else.',
     afterP: 'Deleting files leaves their entries in `workspace.json`. Run Session Index Doctor afterwards to see the gap, or rebuild the index from the profile.',
+    archiveH: 'Archive or delete',
+    archiveP: 'Archiving is not deleting. It hides a session from the views; the log and the disk usage stay exactly as they were, and the current interface has no unarchive control. Only deleting files gives the space back.',
+    archiveLabel: 'Archive a session instead of deleting it',
+    archiveHref: '/plugins/MichengAI/archive-manager/',
+    portH: 'Confirm the port is free',
+    portP: 'Before you start, stop the process that has the port open and confirm nothing answers. Both commands below should print nothing at all.',
+    portCmd: '# macOS / Linux\nlsof -i:3080\n\n# Windows\nnetstat -ano | findstr 3080',
+    faqH: 'Common questions',
+    faq: [
+      {
+        q: 'Is this the dsh-purge plugin?',
+        a: 'No. dsh-purge is a plugin for red-teaming your own setup: it changes prompts and approval policy. This page is a session-file cleanup tool that reads `$DSH_HOME/sessions` in your browser and uploads nothing.',
+      },
+    ],
         relatedH: 'Where to go next',
     related: [
       { label: 'Session Index Doctor', href: '/tools/session-index-doctor/', note: 'see which session ids the list still claims' },
@@ -39,7 +53,7 @@ export const PURGE = {
     title: 'dsh 会话文件太大怎么清理？先备份再看能省多少',
     desc: '选一下 sessions 目录，按大小列出会话文件，算出能释放多少空间，再给备份和删除命令。在浏览器里跑，不上传，不要账号。',
     h1: '删除 / 清理 DeepSeek Harness 会话',
-    cite: 'DSH 的一个会话就是 `$DSH_HOME/sessions` 下的一个 `.zstd` 文件，删旧会话本质是删文件——但 `workspace.json` 里的列表不会自己消失。',
+    cite: 'DSH 的一个会话落在三层目录里：`$DSH_HOME/sessions/--<项目>--/<session-id>/session.v4.jsonl.zstd`。项目目录名是从工作目录转写来的可读名——空格变成 `~0020`，所以 `C:\\Knowledge base` 会写成 `--C-Knowledge~0020base--`——没有工作目录的会话落在 `_no-cwd/` 下。删旧会话本质还是删文件，但 `workspace.json` 里的条目不会自己消失。',
     lead: [
       '选 `$DSH_HOME` 里的 `sessions` 目录（默认 `~/.dsh`）。工具在本地读文件名、大小和日期，然后给出备份命令和删除命令。',
       '整个过程不上传。浏览器自己删不掉东西——真正执行的是你粘贴的那两条命令。',
@@ -58,6 +72,20 @@ export const PURGE = {
     planP: '先把整个 sessions 目录复制一份。对话内容只有这一份。',
     deleteP: '复制完成后再执行。这些命令只删你选中的文件，别的都不动。',
     afterP: '删了文件，`workspace.json` 里的条目还在。删完跑一次会话索引体检，看差在哪；或者从 profile 重建索引。',
+    archiveH: '归档还是删除',
+    archiveP: '归档不等于删除。它只是把会话从各个视图里藏起来，日志和占用一点没变，而且当前界面没有取消归档的入口。要把磁盘空间真正拿回来，只能删文件。',
+    archiveLabel: '想留着就先归档',
+    archiveHref: '/zh/plugins/MichengAI/archive-manager/',
+    portH: '确认端口没被占用',
+    portP: '开工前先把占着端口的进程停掉，再确认没有回应。下面两条命令都应该什么都不打印。',
+    portCmd: '# macOS / Linux\nlsof -i:3080\n\n# Windows\nnetstat -ano | findstr 3080',
+    faqH: '常见问题',
+    faq: [
+      {
+        q: '这就是那个 dsh-purge 插件吗？',
+        a: '不是。dsh-purge 是做自身环境红队测试的插件，改的是提示词和审批策略；这页是会话文件清理工具，在浏览器里读 `$DSH_HOME/sessions`，不上传任何文件。',
+      },
+    ],
         relatedH: '接着看',
     related: [
       { label: '会话索引体检', href: '/zh/tools/session-index-doctor/', note: '看列表还认哪些会话 id' },
