@@ -37,7 +37,8 @@ const article =
 const t = article ?? copy[page];
 const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 
-const faqItems = Array.isArray(t.faq) ? t.faq : (FAQ_EXTRA[lang]?.[page] ?? []);
+const rawFaq = Array.isArray(t.faq) ? t.faq : (FAQ_EXTRA[lang]?.[page] ?? []);
+const faqItems = rawFaq.map((item) => (Array.isArray(item) ? { q: item[0], a: item[1] } : item));
 
 const faqLd = Array.isArray(faqItems) && faqItems.length > 0
   ? {

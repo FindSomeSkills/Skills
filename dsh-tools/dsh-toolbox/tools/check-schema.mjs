@@ -37,6 +37,8 @@ for (const file of files) {
       objects += 1;
       const type = node['@type'];
       if (!type) { errors += 1; console.log(`${file}: 节点缺 @type`); continue; }
+      if (type === 'Question' && !node.name) { errors += 1; console.log(`${file}: Question 缺 name`); }
+      if (type === 'Answer' && !node.text) { errors += 1; console.log(`${file}: Answer 缺 text`); }
       const req = REQUIRED[type];
       if (!req) continue;
       for (const key of req) {
