@@ -43,8 +43,16 @@ export function faqFor(page, pair, pkg) {
     ? { en: `Does it collide with ${pair.other}?`, zh: `它和 ${pair.other} 会打架吗？` }
     : { en: 'What does it hook into, and how do I check that slot is free?', zh: '它挂在哪一行，怎么确认那一行没被占？' };
 
+  const keepsSelf = pair && pair.keep === pkg;
   const a1 = pair
-    ? { en: `Keep ${pair.keep}. ${pair.why}`, zh: `留 ${pair.keep}。${pair.whyZh}` }
+    ? {
+        en: keepsSelf
+          ? `\`${pkg}\` is the one to keep here: ${pair.why.replace(/\.\s+/g, ' — ')}`
+          : `For \`${pkg}\` the recommendation is \`${pair.keep}\`: ${pair.why.replace(/\.\s+/g, ' — ')}`,
+        zh: keepsSelf
+          ? `这一对里该留 \`${pkg}\`：${pair.whyZh.replace(/。/g, '；')}`
+          : `就 \`${pkg}\` 而言，建议留 \`${pair.keep}\`：${pair.whyZh.replace(/。/g, '；')}`,
+      }
     : {
         en: `Its manifest names no community counterpart, so the check is manual: after \`dsh plugin add ${pkg}\`, run \`dsh --profile web --dump-config\` and look for two rows claiming the same slot.`,
         zh: `它的清单里没有点名对撞的社区插件，只能手工核：装好 \`${pkg}\` 之后跑 \`dsh --profile web --dump-config\`，看有没有两行抢同一个位置。`,
@@ -85,10 +93,10 @@ export function sectionsFor(page, peerNames, group, pkg) {
     : `它没有声明 dsh peer，在${where.zh}渲染${surface.zh}；装完 \`dsh plugin add ${pkg}\`，\`dsh --profile web --dump-config\` 能列出挂载它的 \`${pkg}\` 那一行。`;
 
   const filesEn = storagePeer
-    ? `It declares \`${storagePeer}\` as a peer, so what it persists is routed through that service under \`$DSH_HOME\`. The dependency itself is one line in \`$DSH_HOME/profiles/<name>/package.json\`, written by \`dsh plugin add ${pkg}\`.`
+    ? `\`${pkg}\` routes whatever it persists through \`${storagePeer}\` under \`$DSH_HOME\`, and its own dependency line sits in \`$DSH_HOME/profiles/<name>/package.json\`.`
     : `No storage peer appears in the manifest of \`${pkg}\`, so the dependency line in \`$DSH_HOME/profiles/<name>/package.json\` is the only file you can point at; the package description names nothing else.`;
   const filesZh = storagePeer
-    ? `它把 \`${storagePeer}\` 声明成 peer，落盘的东西走那个服务、存在 \`$DSH_HOME\` 下。依赖本身只有一行，在 \`$DSH_HOME/profiles/<名字>/package.json\`，由 \`dsh plugin add ${pkg}\` 写入。`
+    ? `\`${pkg}\` 落盘的东西走 \`${storagePeer}\`、存在 \`$DSH_HOME\` 下，它自己的依赖行在 \`$DSH_HOME/profiles/<名字>/package.json\` 里。`
     : `\`${pkg}\` 的清单里没有存储相关的 peer，所以能指认的文件只有 \`$DSH_HOME/profiles/<名字>/package.json\` 里那一行依赖；包说明里没写别的。`;
 
   const removeEn = `Removing \`${pkg}\` is the mirror command, \`dsh plugin --profile web remove ${pkg}\`; the surface goes with it, and anything it stored under \`$DSH_HOME\` stays until you delete it.`;
