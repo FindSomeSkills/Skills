@@ -17,7 +17,7 @@ export const PLUGIN_INDEX = {
     ],
     sections: [
       { h: 'Install or remove one', p: ['Plugin management forwards to pnpm inside the profile directory, so argument order and package specs behave the way pnpm behaves.'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },
-      { h: 'Two kinds of package', p: ['Bundles (`dsh-base`, `dsh-web-app`, `dsh-headless`) are patch layers named in `dsh.profile.bundles`. Seams (`dsh-fs`, `dsh-shell`, `dsh-sandbox`, `dsh-compaction`, `dsh-session`, …) provide one capability and are selected by the bundle that needs them.'] },
+      { h: 'Three kinds of package', p: ['Bundles (`dsh-base`, `dsh-web-app`, `dsh-headless`) are patch layers named in `dsh.profile.bundles`. Seams (`dsh-fs`, `dsh-shell`, `dsh-sandbox`, `dsh-compaction`, `dsh-session`) provide one capability and are selected by the bundle that needs them. Shared libraries (`dsh-home-paths`, `dsh-credentials`, `dsh-client-ui-primitives`, `@deepseek-ai/schemastery`, `@deepseek-ai/cordis`) are not rows at all: they are the dependencies the other two are built on, so you never install or remove one on its own.'] },
       { h: 'Versions and compatibility', p: ['A plugin declares a compatible dsh range through `engines.dsh`, or through its DSH peer dependencies. When the range does not include your runtime, the CLI skips the plugin and prints the requirement instead of booting something that may crash.'] },
     ],
     faq: [
@@ -42,7 +42,7 @@ export const PLUGIN_INDEX = {
     ],
     sections: [
       { h: '装一个，或卸一个', p: ['插件管理会把参数转发给 profile 目录里的 pnpm，所以参数顺序和包名写法跟 pnpm 一样。'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },
-      { h: '两类包', p: ['bundle（`dsh-base`、`dsh-web-app`、`dsh-headless`）是补丁层，写在 `dsh.profile.bundles` 里。seam（`dsh-fs`、`dsh-shell`、`dsh-sandbox`、`dsh-compaction`、`dsh-session` 等）只提供一项能力，由需要它的 bundle 选走。'] },
+      { h: '三类包', p: ['bundle（`dsh-base`、`dsh-web-app`、`dsh-headless`）是补丁层，写在 `dsh.profile.bundles` 里。seam（`dsh-fs`、`dsh-shell`、`dsh-sandbox`、`dsh-compaction`、`dsh-session` 等）只提供一项能力，由需要它的 bundle 选走。'] },
       { h: '版本与兼容', p: ['插件通过 `engines.dsh` 或 DSH 的 peer 依赖声明自己兼容的 dsh 区间。运行版本不在区间内时，命令行会跳过这个插件并打印要求，而不是启动一个可能崩的组合。'] },
     ],
     faq: [

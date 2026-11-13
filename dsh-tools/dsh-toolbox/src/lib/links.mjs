@@ -1,5 +1,5 @@
 // 内链目标：id → 路径与显示名。工具页、Guide、对比页、插件目录共用一份，避免各写一套。
-export const TOOL_IDS = ['sync-hub', 'zstd-frame-inspector', 'context-budget', 'session-index-doctor', 'skill-load-audit', 'deai-kit'];
+export const TOOL_IDS = ['sync-hub', 'zstd-frame-inspector', 'context-budget', 'session-index-doctor', 'skill-load-audit', 'deai-kit', 'session-purge'];
 
 const TOOL_LABEL = {
   'sync-hub': { en: 'DSH Sync Hub', zh: 'DSH Sync Hub' },
@@ -7,7 +7,9 @@ const TOOL_LABEL = {
   'context-budget': { en: 'Context Budget', zh: '上下文预算' },
   'session-index-doctor': { en: 'Session Index Doctor', zh: '会话索引体检' },
   'skill-load-audit': { en: 'Skill Load Audit', zh: '技能开销审计' },
-  'session-purge': { en: 'Session Purge', zh: '会话清理' },
+  'session-purge': { en: 'Clean up session files', zh: '清理会话文件' },
+  'tools/session-purge': { en: 'Clean up session files', zh: '清理会话文件' },
+  'plugins/conflicts': { en: 'The plugin conflict list', zh: '插件冲突清单' },
   'guides/errors': { en: 'Error reference', zh: '报错对照' },
   'deai-kit': { en: 'De-AI Kit', zh: 'De-AI Kit' },
   reference: { en: 'Storage reference', zh: '存储结构参考' },

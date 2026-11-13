@@ -22,6 +22,7 @@ import { PURGE, ERRORS } from '../lib/content-purge-errors.mjs';
 import { ERROR_PAGES } from '../lib/content-error-pages.mjs';
 import { CONFLICTS_PAGE } from '../lib/content-conflicts-page.mjs';
 import { COMMUNITY } from '../lib/content-community.mjs';
+import { CLASH } from '../lib/conflict-clash.mjs';
 import { PURGE_SECTIONS } from '../lib/content-purge-sections.mjs';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
@@ -79,6 +80,8 @@ const withHrefs = (groups) => (groups ?? []).map((g) => ({
     ...it,
     aHref: PKG_TO_HREF.get(it.a) ?? OFFICIAL_HREF(it.a),
     bHref: PKG_TO_HREF.get(it.b) ?? OFFICIAL_HREF(it.b),
+    clash: (CLASH[[it.a, it.b].join('|')] ?? CLASH[[it.b, it.a].join('|')])?.en ?? '',
+    clashZh: (CLASH[[it.a, it.b].join('|')] ?? CLASH[[it.b, it.a].join('|')])?.zh ?? '',
   })),
 }));
 const conflictGroups = baseSlug === 'plugins/conflicts' && CONFLICTS_PAGE[lang]

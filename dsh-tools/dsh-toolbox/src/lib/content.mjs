@@ -74,12 +74,12 @@ export const COPY = {
     },
     home: {
       title: 'DeepSeek Harness Tools — Sync, Inspect, Budget and Clean Up Session Files',
-      desc: 'Client-side tools for DeepSeek Harness: sync sessions across machines, inspect .zstd frames, plan your context budget. Nothing is uploaded.',
+      desc: 'Browser tools for DeepSeek Harness: session sync, .zstd frames, context budget, index repair, skill cost, session purge, De-AI checks.',
       h1: 'DeepSeek Harness tools that run in your browser',
       lede: 'DSH Toolbox is a free set of browser tools for DeepSeek Harness: sync sessions across machines, inspect session files, repair the session index, audit what each skill costs, clean up session files that grew too large, and check text or UI for template traces. Everything runs in the browser — no signup, no upload, no telemetry.',
       toolsH: 'The tools',
       toolsNote: 'Seven tools are live; more land as usage shows',
-      whyH: 'Why these six',
+      whyH: 'Why these tools',
       why: [
         {
           h: 'The list and the file are two different things',
@@ -217,12 +217,12 @@ export const COPY = {
     },
     home: {
             title: 'DeepSeek Harness 工具 — 同步、查看、预算与清理会话文件',
-      desc: '面向 DeepSeek Harness（DSH）的本地工具：跨设备同步会话、查看 .zstd 会话帧结构、估算上下文预算。全部在浏览器内完成，不上传文件。',
+      desc: '面向 DeepSeek Harness 的浏览器工具：会话同步、.zstd 帧、上下文预算、索引修复、技能开销、会话清理、De-AI 检查。',
       h1: '给真正在用 DeepSeek Harness 的人做的工具',
-      lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费浏览器工具：跨设备同步会话、查看会话文件、修会话索引、算技能开销、检查文字与界面里的模板痕迹。全部在浏览器里跑，不用注册、不上传、不打点。',
+      lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费浏览器工具：跨设备同步会话、查看会话文件、修会话索引、算技能开销、清理长大了的会话文件、检查文字与界面里的模板痕迹。全部在浏览器里跑，不用注册、不上传、不打点。',
       toolsH: '工具',
       toolsNote: '七个工具已上线，之后按使用情况扩展',
-      whyH: '为什么是这六个',
+      whyH: '为什么做这些工具',
       why: [
         {
           h: '列表和文件是两回事',

@@ -138,7 +138,7 @@ export const GUIDES = {
         { q: 'Can I install it without admin rights?', a: 'Yes, if npm\'s global prefix is writable by you. Set one with `npm config set prefix` and add it to PATH.' },
         { q: 'How do I check it worked?', a: '`dsh --version` prints the version, and `dsh --help` prints the launcher grammar including `dsh web` and `dsh headless`.' },
       ],
-      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'tools/session-index-doctor'],
+      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'session-index-doctor'],
     },
     zh: {
       title: 'DeepSeek Harness 安装 — 需要 Node.js 24.9.0 以上（v22 会失败）',
@@ -190,7 +190,7 @@ export const GUIDES = {
         { q: '没有管理员权限能装吗？', a: '能，只要 npm 全局前缀目录你有写权限。用 `npm config set prefix` 换一个目录，再加进 PATH。' },
         { q: '怎么确认装好了？', a: '`dsh --version` 打印版本；`dsh --help` 打印启动器语法，包括 `dsh web` 和 `dsh headless`。' },
       ],
-      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'tools/session-index-doctor'],
+      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'session-index-doctor'],
     },
   },
 

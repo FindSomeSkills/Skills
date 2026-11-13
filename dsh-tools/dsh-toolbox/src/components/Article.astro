@@ -75,6 +75,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
               <th>{lang === 'zh' ? '一起装会看到什么' : 'What you see'}</th>
               <th>{lang === 'zh' ? '留哪个' : 'Keep'}</th>
               <th>{lang === 'zh' ? '为什么' : 'Why'}</th>
+              <th>{lang === 'zh' ? '为什么不能共存' : 'Why they cannot coexist'}</th>
             </tr>
           </thead>
           <tbody>
@@ -84,6 +85,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
                 <td set:html={inline(it.symptom)} />
                 <td><code>{it.keep}</code></td>
                 <td set:html={inline(it.why)} />
+                <td set:html={inline(lang === 'zh' ? (it.clashZh || '') : (it.clash || ''))} />
               </tr>
             ))}
           </tbody>

@@ -80,8 +80,8 @@ export function renderCommunityPage(page, note, pair, slug) {
   };
   const compatPkg = page.compat
     ? {
-        en: `\`engines.dsh\` in ${page.pkg} declares \`${page.compat}\`; outside that range the CLI skips it at boot and prints the requirement instead of booting.`,
-        zh: `\`${page.pkg}\` 的 \`engines.dsh\` 声明的是 \`${page.compat}\`；超出这个区间，启动时会跳过它并打印要求，不会带着跑。`,
+        en: `\`engines.dsh\` in ${page.pkg} declares \`${page.compat}\`; run \`dsh --version\` and compare it, because outside that range the CLI skips the plugin at boot and prints the requirement instead of booting.`,
+        zh: `\`${page.pkg}\` 的 \`engines.dsh\` 声明的是 \`${page.compat}\`；先跑 \`dsh --version\` 对一下——超出这个区间，启动时会跳过它并打印要求，不会带着跑。`,
       }
     : null;
 

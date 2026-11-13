@@ -19,6 +19,10 @@ export const COPY_PAGES = {
           outcome: 'Which turn to compact, and room for one more task',
           demo: '/tools/context-budget/?demo=1',
         },
+        'session-purge': {
+          outcome: 'Which files actually take the space, plus the backup-then-delete commands',
+          demo: '/tools/session-purge/',
+        },
         'session-index-doctor': {
           outcome: 'Session ids on disk that never reach the list',
           demo: '/tools/session-index-doctor/?demo=1',
@@ -193,6 +197,10 @@ export const COPY_PAGES = {
         'context-budget': {
           outcome: '第几回合该压缩，还够不够做一件事',
           demo: '/zh/tools/context-budget/?demo=1',
+        },
+        'session-purge': {
+          outcome: '哪些文件真正占空间，以及先备份再删除的命令',
+          demo: '/zh/tools/session-purge/',
         },
         'session-index-doctor': {
           outcome: '哪些会话在磁盘上却不在列表里',
