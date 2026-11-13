@@ -36,6 +36,9 @@ const TAIL_VERB = new Set([
 
 // 机器截不干净的页面：人工短描述（完整名词短语或祈使句，≤45 字符）
 const MANUAL_TAIL = {
+  'dsh-cost-meter': 'session cost and daily spend, with price tables',
+  'dsh-computers': 'connect your own machines to a DSH deployment',
+  'dsh-meme': 'send memes from the message box',
   'dsh-archive-manager': 'archive or delete sessions',
   'dsh-plugin-catalog': 'a searchable plugin catalog',
   dshmarket: 'install plugins from the web UI',

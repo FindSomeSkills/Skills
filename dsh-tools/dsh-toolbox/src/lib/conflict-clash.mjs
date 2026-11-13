@@ -6,8 +6,8 @@ export const CLASH = {
     zh: '两个都写主题那一行，而那一行只存一个值——没有可合并的分插件主题层。',
   },
   'dsh-pet|dsh-plugin-wallpaper-engine': {
-    en: 'Both mount into the same overlay slot of dsh-client-ui-slots, and that slot renders one component per slot id. Neither plugin declares its own id, so the second mount replaces the first.',
-    zh: '两个都挂进 dsh-client-ui-slots 的同一个 overlay slot，而一个 slot id 只渲染一个组件。两者都没声明自己的 id，所以第二次挂载替换第一次。',
+    en: 'Both mount into the same overlay slot of @deepseek-ai/dsh-client-ui-slots, and that slot renders one component per slot id. Neither plugin declares its own id, so the second mount replaces the first.',
+    zh: '两个都挂进 @deepseek-ai/dsh-client-ui-slots 的同一个 overlay slot，而一个 slot id 只渲染一个组件。两者都没声明自己的 id，所以第二次挂载替换第一次。',
   },
   '@chengze/dsh-skill-manager|dsh-skill-browser': {
     en: 'Both claim the skills panel entry in the sidebar and both read the skill directory, so the list you toggle is not necessarily the list the agent loads.',
@@ -94,8 +94,8 @@ export const CLASH = {
     zh: '两个都在每轮前把上下文块注入同一个位置，谁都没标自己比对方更权威。',
   },
   'dsh-cost-meter|dsh-whale-widget': {
-    en: 'Both target the conversation header slot in dsh-client-ui-slots, which mounts one component per slot id. Neither declares a distinct id, so the two readouts cannot both stay mounted.',
-    zh: '两个都指向 dsh-client-ui-slots 的会话头部 slot，而一个 slot id 只挂一个组件。两者都没声明独立 id，所以两组读数不可能同时挂着。',
+    en: 'Both target the conversation header slot in @deepseek-ai/dsh-client-ui-slots, which mounts one component per slot id. Neither declares a distinct id, so the two readouts cannot both stay mounted.',
+    zh: '两个都指向 @deepseek-ai/dsh-client-ui-slots 的会话头部 slot，而一个 slot id 只挂一个组件。两者都没声明独立 id，所以两组读数不可能同时挂着。',
   },
   'dsh-custom-theme|dsh-exv-flat-corners': {
     en: 'Both declare the same --radius-* custom properties in the web client scope. A custom property holds one value per element, and neither plugin namespaces its selectors, so the later declaration wins outright.',

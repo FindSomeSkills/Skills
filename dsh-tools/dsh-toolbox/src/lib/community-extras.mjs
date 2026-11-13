@@ -87,6 +87,29 @@ export function sectionsFor(page, peerNames, group, pkg) {
   const storagePeer = peerNames.find((p) => /dsh-settings|dsh-storage-domain|dsh-home-paths|dsh-credentials/.test(p)) ?? '';
 
   // 不声称 patch 谁：只说从哪个 peer 拿到东西，装完在哪儿多出什么
+  if (pkg === 'dsh-meme') {
+    return [
+      {
+        h: 'After install',
+        zhH: '装完会看到什么',
+        p: ['It declares `@deepseek-ai/dsh-tools` as a peer and puts a meme picker in the message box, plus one tool the agent calls to send an image; after `dsh plugin add dsh-meme`, `dsh --profile web --dump-config` lists the row that mounts it.'],
+        zhP: ['它把 `@deepseek-ai/dsh-tools` 声明成 peer，在输入框旁放一个表情包选择器，另给 agent 一个发图工具；装完 `dsh plugin add dsh-meme`，`dsh --profile web --dump-config` 能列出挂载它的那一行。'],
+      },
+      {
+        h: 'Files it touches',
+        zhH: '它读写的文件',
+        p: ['The manifest of `dsh-meme` declares no storage peer; the dependency line in `$DSH_HOME/profiles/<name>/package.json` is the file `dsh plugin add` writes. The image library is a folder the plugin creates under the profile.'],
+        zhP: ['`dsh-meme` 的清单里没有存储 peer；`dsh plugin add` 写的文件是 `$DSH_HOME/profiles/<名字>/package.json` 里那行依赖。表情库是插件在 profile 下自建的目录。'],
+      },
+      {
+        h: 'Removing it',
+        zhH: '怎么卸掉',
+        p: ['Removing `dsh-meme` is the mirror command, `dsh plugin --profile web remove dsh-meme`; the picker goes with it, and the image folder stays until you delete it.'],
+        zhP: ['卸掉 `dsh-meme` 用对称的命令 `dsh plugin --profile web remove dsh-meme`；选择器跟着消失，表情库目录留在原处，要自己删。'],
+      },
+    ];
+  }
+
   if (DATA_ONLY.has(pkg)) {
     return [
       {
