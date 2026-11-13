@@ -11,4 +11,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://www.dshtoolbox.com/sitemap.xml

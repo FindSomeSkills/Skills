@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import '../styles/apple.css';
 import '../styles/theme.css';
-import { SITE, COPY, alternateFor } from '../lib/content.mjs';
+import { SITE, COPY, TOOLS, alternateFor } from '../lib/content.mjs';
 
 const {
   lang = 'en',
@@ -39,6 +39,28 @@ const graph = [
     url: `${base}/`,
   },
   ...jsonLd,
+  ...(slug === '' || slug === 'zh'
+    ? [
+        {
+          '@type': 'ItemList',
+          name: lang === 'zh' ? '工具清单' : 'Tool list',
+          itemListElement: TOOLS.map((t, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: t.name,
+            url: `${base}${lang === 'zh' ? '/zh' : ''}/tools/${t.slug}/`,
+          })),
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: copy.home.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ]
+    : []),
 ];
 ---
 <!doctype html>
@@ -74,9 +96,14 @@ const graph = [
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_US'} />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${base}/og.png`} />
 
     <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
   </head>

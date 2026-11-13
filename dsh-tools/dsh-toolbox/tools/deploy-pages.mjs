@@ -4,6 +4,8 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { writeFileSync } from 'node:fs';
 
 const ROOT = 'C:/Knowledge base/02-Project/dsh-toolbox';
 const PROJECT = 'dsh-toolbox';
@@ -35,4 +37,26 @@ const env = {
 const args = [WRANGLER, 'pages', 'deploy', 'dist', '--project-name', PROJECT, '--commit-dirty=true'];
 console.log(`部署 ${PROJECT} → Cloudflare Pages（经代理 ${PROXY}）`);
 const run = spawnSync('node', args, { cwd: ROOT, env, stdio: 'inherit' });
+if (run.status === 0) {
+  // 部署成功后通知 Bing/Yandex 有更新（IndexNow），下次抓取会快很多
+  try {
+    const key = 'c5ae0e29be73606abf38fc69fb4c1013';
+    const urls = ['https://www.dshtoolbox.com/', 'https://www.dshtoolbox.com/zh/'];
+    const bodyFile = join(tmpdir(), 'indexnow.json');
+    writeFileSync(bodyFile, JSON.stringify({
+      host: 'www.dshtoolbox.com',
+      key,
+      keyLocation: 'https://www.dshtoolbox.com/' + key + '.txt',
+      urlList: urls,
+    }));
+    const res = spawnSync('curl', ['-s', '-o', 'NUL', '-w', '%{http_code}', '--max-time', '20',
+      '-X', 'POST', 'https://api.indexnow.org/indexnow',
+      '-H', 'Content-Type: application/json; charset=utf-8',
+      '--data-binary', '@' + bodyFile,
+    ], { encoding: 'utf8' });
+    console.log(`IndexNow: ${(res.stdout || '').trim() || 'no response'}`);
+  } catch (e) {
+    console.log('IndexNow 跳过：' + e.message);
+  }
+}
 process.exit(run.status ?? 1);
