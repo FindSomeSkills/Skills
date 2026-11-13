@@ -59,9 +59,9 @@ export const PURGE = {
     ],
     nojs: 'This tool needs JavaScript to read the folder you pick. Without it, use `ls -S ~/.dsh/sessions/*/*/*.zstd` to sort by size.',
     js: {
-      noFiles: 'No .zstd or session .jsonl files in that folder. Pick the level that actually holds them, not the profile directory.',
+      noFiles: 'No .zstd or session .jsonl files in that folder. Pick the folder that contains them, not the profile directory.',
       picking: 'Reading folder…',
-      delComment: ':: Windows PowerShell (delete one by one; paths are relative to sessions/)',
+      delComment: '# Windows PowerShell (delete one by one; paths are relative to sessions/)',
     },
   },
   zh: {
@@ -123,9 +123,9 @@ export const PURGE = {
     ],
     nojs: '这个工具要用 JavaScript 读你选的目录。没有的话，用 `ls -S ~/.dsh/sessions/*/*/*.zstd` 按大小排。',
     js: {
-      noFiles: '这个目录里没有 .zstd 或 session.jsonl 文件。要选真正装着这些文件的那一层，不是 profile 目录。',
+      noFiles: '这个目录里没有 .zstd 或 session.jsonl 文件。要选装这些文件的那一层，不是 profile 目录。',
       picking: '正在读取目录…',
-      delComment: ':: Windows PowerShell（逐条删，路径相对 sessions/）',
+      delComment: '# Windows PowerShell（逐条删，路径相对 sessions/）',
     },
   },
 };
