@@ -34,8 +34,8 @@ export const CLASH = {
     zh: '两个都改会话生命周期：一个把会话移出活跃列表，另一个还握着它开着。',
   },
   '@michengai/dsh-skills-manager|dsh-univer-office': {
-    en: 'Both patch the `dsh-skill` row, and a patch replaces that row whole, so the second one leaves only its own skill list.',
-    zh: '两个都改 `dsh-skill` 那一行，补丁整行替换，第二个装上去就只剩它自己那份技能清单。',
+    en: 'Both patch the `@deepseek-ai/dsh-skill` row, and a patch replaces that row whole, so the second one leaves only its own skill list.',
+    zh: '两个都改 `@deepseek-ai/dsh-skill` 那一行，补丁整行替换，第二个装上去就只剩它自己那份技能清单。',
   },
   'dshmarket|universal-plugin-hub': {
     en: 'Both write the profile package.json, which has one dependency set — an install from one can drop an entry the other just wrote.',

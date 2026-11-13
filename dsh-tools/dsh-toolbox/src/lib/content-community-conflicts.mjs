@@ -6,8 +6,8 @@ export const CONFLICTS = {
     zh: '它改的是 `@deepseek-ai/dsh-settings` 的行，并自己加一个市场界面。装两个市场插件等于只留一个：补丁替换的是整行 config，后加载的层把同一行盖掉，先装的那个会静默不渲染。',
   },
   'dshplugin/community-marketplace': {
-    en: 'Shares no official package with the other markets beyond cordis, so nothing crashes when you install both — you just get two marketplace tabs with different inventories, and the one you did not configure looks empty.',
-    zh: '除了 cordis，它和别的市场插件没有共用的官方包，所以两个一起装不会崩——只是多出两个插件市场标签页，目录不一样，没配的那个看起来是空的。',
+    en: 'Shares no official package with the other markets beyond @deepseek-ai/cordis, so nothing crashes when you install both — you just get two marketplace tabs with different inventories, and the one you did not configure looks empty.',
+    zh: '除了 @deepseek-ai/cordis，它和别的市场插件没有共用的官方包，所以两个一起装不会崩——只是多出两个插件市场标签页，目录不一样，没配的那个看起来是空的。',
   },
   'awesome-dsh-plugin/plugin-catalog': {
     en: 'A data package: no peers, no patch, no runtime row. It cannot conflict with anything you install, and it also cannot enforce that the versions it lists exist in your profile.',

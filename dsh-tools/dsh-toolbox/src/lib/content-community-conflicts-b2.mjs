@@ -89,16 +89,16 @@ export const CONFLICTS_B2 = {
     zh: '重写每轮随请求发送的工具清单。`@mzzsfy/dsh-tool-gate` 干同一件事；两份白名单各管各的，实际生效的是交集，通常比两位作者设想的都小。',
   },
   'xiaoso456/tool-plus': {
-    en: 'Sixteen peers and its own persistent bash runtime, which replaces the shell path the sandbox wraps. Installing it beside any `dsh-shell`-based tool means two executors with different confinement.',
-    zh: '16 个 peer，自带常驻 bash 运行时，换掉了沙箱包着的那条 shell 路径。和任何基于 `dsh-shell` 的工具一起装，就是两个约束策略不同的执行器。',
+    en: 'Sixteen peers and its own persistent bash runtime, which replaces the shell path the sandbox wraps. Installing it beside any `@deepseek-ai/dsh-shell`-based tool means two executors with different confinement.',
+    zh: '16 个 peer，自带常驻 bash 运行时，换掉了沙箱包着的那条 shell 路径。和任何基于 `@deepseek-ai/dsh-shell` 的工具一起装，就是两个约束策略不同的执行器。',
   },
   'ArvinQi/octop-memory': {
     en: 'Injects recalled memory before each turn. `dsh-mnemon` builds context views for the same slot, so both writing means the model gets two context blocks that can contradict each other.',
     zh: '每轮开始前注入召回的记忆。`dsh-mnemon` 也在同一处构建上下文视图，两个都装时模型会收到两段可能互相矛盾的上下文。',
   },
   'Dreamaniax/config-sync': {
-    en: 'Syncs config files between machines with no dsh peers to guide it. If you also edit the home `cordis.patch.yml` by hand, the next sync is a last-writer-wins race you did not schedule.',
-    zh: '在机器之间同步配置文件，且没有 dsh peer 可依。你同时手改了 home 的 `cordis.patch.yml`，下一次同步就成了一场你没安排过的「后写者赢」。',
+    en: 'Syncs config files between machines with no dsh peers to guide it. If you also edit the home `@deepseek-ai/cordis.patch.yml` by hand, the next sync is a last-writer-wins race you did not schedule.',
+    zh: '在机器之间同步配置文件，且没有 dsh peer 可依。你同时手改了 home 的 `@deepseek-ai/cordis.patch.yml`，下一次同步就成了一场你没安排过的「后写者赢」。',
   },
   'Mooling0602/plugin-updater': {
     en: 'Writes package versions into the profile. `dshmarket` and `universal-plugin-hub` write the same package.json, so an update can be planned from one UI and clobbered by an install from another.',

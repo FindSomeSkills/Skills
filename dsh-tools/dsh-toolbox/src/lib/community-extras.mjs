@@ -84,7 +84,7 @@ export function sectionsFor(page, peerNames, group, pkg) {
   const where = GROUP_LOCATION[group] ?? { en: 'the web client', zh: '网页客户端' };
   const peer = peerNames[0] ?? '';
   const internal = peerNames.find((p) => !/client-ui-(theme|primitives|slots|locale)/.test(p)) ?? peer;
-  const storagePeer = peerNames.find((p) => /dsh-settings|dsh-storage-domain|dsh-home-paths|dsh-credentials/.test(p)) ?? '';
+  const storagePeer = peerNames.find((p) => /(dsh-settings|dsh-storage-domain|dsh-home-paths|dsh-credentials)/.test(p)) ?? '';
 
   // 不声称 patch 谁：只说从哪个 peer 拿到东西，装完在哪儿多出什么
   if (pkg === 'dsh-meme') {
