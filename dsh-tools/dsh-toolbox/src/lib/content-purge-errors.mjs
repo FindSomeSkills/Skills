@@ -32,6 +32,12 @@ export const PURGE = {
     portH: 'Confirm the port is free',
     portP: 'Before you start, stop the process that has the port open and confirm nothing answers. Both commands below should print nothing at all.',
     portCmd: '# macOS / Linux\nlsof -i:3080\n\n# Windows\nnetstat -ano | findstr 3080',
+    oneClickH: 'Want it to clean a whole folder in one click?',
+    oneClickP: 'Right now you pick files one at a time. If a one-click version would save you time, leave an email — we build it when there is enough demand. We only store the address; the page still never reads your files.',
+    oneClickBtn: 'Tell me when it is ready',
+    oneClickAction: 'https://buttondown.email/api/emails/embed-subscribe/dshtoolbox',
+    oneClickEmailLabel: 'Email address',
+    oneClickFallback: 'If the form does not open, mail hello@dshtoolbox.com.',
     faqH: 'Common questions',
     faq: [
       {
@@ -96,6 +102,12 @@ export const PURGE = {
     portH: '确认端口没被占用',
     portP: '开工前先把占着端口的进程停掉，再确认没有回应。下面两条命令都应该什么都不打印。',
     portCmd: '# macOS / Linux\nlsof -i:3080\n\n# Windows\nnetstat -ano | findstr 3080',
+    oneClickH: '想要一键清整个文件夹？',
+    oneClickP: '现在只能一个个点。如果有一键版能省你时间，留个邮箱，够人数我们就做。只存邮箱，页面依然不读取你的文件。',
+    oneClickBtn: '做好时告诉我',
+    oneClickAction: 'https://buttondown.email/api/emails/embed-subscribe/dshtoolbox',
+    oneClickEmailLabel: '邮箱地址',
+    oneClickFallback: '表单没打开的话，发邮件到 hello@dshtoolbox.com。',
     faqH: '常见问题',
     faq: [
       {

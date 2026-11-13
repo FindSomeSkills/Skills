@@ -54,6 +54,17 @@ const labels = t.js ?? {};
     <p set:html={inline(t.afterP)} />
   </section>
 
+  <section id="one-click" class="one-click">
+    <h2>{t.oneClickH}</h2>
+    <p set:html={inline(t.oneClickP)} />
+    <form action={t.oneClickAction} method="post" target="_blank" rel="noopener nofollow" class="one-click-form">
+      <label for="oneClickEmail" class="visually-hidden">{t.oneClickEmailLabel}</label>
+      <input id="oneClickEmail" type="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+      <button type="submit">{t.oneClickBtn}</button>
+    </form>
+    <p class="one-click-fallback">{t.oneClickFallback}</p>
+  </section>
+
   <section>
     <h2>{t.archiveH}</h2>
     <p set:html={inline(t.archiveP)} />

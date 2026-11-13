@@ -1,0 +1,1125 @@
+[
+  {
+    "pkg": "dshmarket",
+    "slug": "dsh-plugin-market",
+    "owner": "dsh-market",
+    "url": "/plugins/dsh-market/dsh-plugin-market/",
+    "repo": "https://github.com/dsh-market/dsh-market",
+    "stars": 12308,
+    "lastCommit": "2026-11-13",
+    "issues": 108,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "slug": "cost-meter",
+    "owner": "Han-1413141",
+    "url": "/plugins/Han-1413141/cost-meter/",
+    "repo": "https://github.com/Han-1413141/dsh-cost-meter",
+    "stars": 686,
+    "lastCommit": "2026-11-10",
+    "issues": 6,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "slug": "archive-manager",
+    "owner": "MichengAI",
+    "url": "/plugins/MichengAI/archive-manager/",
+    "repo": "https://github.com/MichengAI/dsh-archive-manager",
+    "stars": 352,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "slug": "balance-widget",
+    "owner": "MeteorNOX",
+    "url": "/plugins/MeteorNOX/balance-widget/",
+    "repo": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget",
+    "stars": 7197,
+    "lastCommit": "2026-10-11",
+    "issues": 167,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-plugin",
+    "slug": "community-marketplace",
+    "owner": "dshplugin",
+    "url": "/plugins/dshplugin/community-marketplace/",
+    "repo": "https://github.com/dshplugin/dsh-plugin-hub",
+    "stars": 521,
+    "lastCommit": "2026-11-13",
+    "issues": 7,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "slug": "dream-skin",
+    "owner": "LLLAAAAA",
+    "pkg": "dsh-dream-skin",
+    "group": "appearance",
+    "version": "11.7.0",
+    "updated": "2026-11-06",
+    "repo": "https://gitcode.com/LLLAAAAA/dsh-dream-skin",
+    "npm": "https://www.npmjs.com/package/dsh-dream-skin",
+    "compat": "",
+    "peers": 7,
+    "install": "dsh plugin --profile web add dsh-dream-skin",
+    "en": {
+      "title": "dsh-dream-skin for DeepSeek Harness — Looks and themes",
+      "desc": "Swappable themes for the DSH web UI. Published as dsh-dream-skin, version 11.7.0.",
+      "h1": "dsh-dream-skin",
+      "cite": "Swappable themes for the DSH web UI.",
+      "lead": [
+        "Version 11.7.0, last published 2026-11-06. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-dream-skin"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: 7 official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: LLLAAAAA. Repository: https://gitcode.com/LLLAAAAA/dsh-dream-skin. Package page: https://www.npmjs.com/package/dsh-dream-skin."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-dream-skin`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-dream-skin — DeepSeek Harness 界面与外观",
+      "desc": "给网页界面换肤，内置多套主题。 包名 dsh-dream-skin，当前版本 11.7.0。",
+      "h1": "dsh-dream-skin",
+      "cite": "给网页界面换肤，内置多套主题。",
+      "lead": [
+        "当前版本 11.7.0，最后发布 2026-11-06。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-dream-skin"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: 7 official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 LLLAAAAA，仓库 https://gitcode.com/LLLAAAAA/dsh-dream-skin，包页 https://www.npmjs.com/package/dsh-dream-skin。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-dream-skin`，和装的时候对称。"
+        }
+      ]
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-ui-theme",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-settings-general"
+    ],
+    "stars": null,
+    "lastCommit": null,
+    "issues": null,
+    "hasImage": null,
+    "listed": null,
+    "url": "/plugins/LLLAAAAA/dream-skin/"
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "slug": "plugin-catalog",
+    "owner": "awesome-dsh-plugin",
+    "url": "/plugins/awesome-dsh-plugin/plugin-catalog/",
+    "repo": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
+    "stars": 24576,
+    "lastCommit": "2026-11-13",
+    "issues": 311,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "slug": "session-superagent",
+    "owner": "MYCF711",
+    "url": "/plugins/MYCF711/session-superagent/",
+    "repo": "https://github.com/MYCF711/dsh-session-superagent",
+    "stars": 46,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "slug": "skills-manager",
+    "owner": "MichengAI",
+    "url": "/plugins/MichengAI/skills-manager/",
+    "repo": "https://github.com/MichengAI/dsh-skills-manager",
+    "stars": 559,
+    "lastCommit": "2026-11-13",
+    "issues": 3,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-free-search",
+    "slug": "free-search",
+    "owner": "DDDMUC",
+    "url": "/plugins/DDDMUC/free-search/",
+    "repo": "https://github.com/DDDMUC/dsh-free-search",
+    "stars": 1124,
+    "lastCommit": "2026-11-13",
+    "issues": 8,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "slug": "claude-style",
+    "owner": "Nwflower",
+    "url": "/plugins/Nwflower/claude-style/",
+    "repo": "https://github.com/Nwflower/dsh-claude-style",
+    "stars": 596,
+    "lastCommit": "2026-11-13",
+    "issues": 5,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "slug": "wallpaper-engine",
+    "owner": "elysia395",
+    "url": "/plugins/elysia395/wallpaper-engine/",
+    "repo": "https://github.com/elysia395/dsh-wallpaper-engine",
+    "stars": 6784,
+    "lastCommit": "2026-11-13",
+    "issues": 23,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-pet",
+    "slug": "pet",
+    "owner": "PC2005-cloud",
+    "url": "/plugins/PC2005-cloud/pet/",
+    "repo": "https://github.com/PC2005-cloud/dsh-pet",
+    "stars": 6231,
+    "lastCommit": "2026-11-13",
+    "issues": 16,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "slug": "agent-teams",
+    "owner": "NanmiCoder",
+    "url": "/plugins/NanmiCoder/agent-teams/",
+    "repo": "https://github.com/NanmiCoder/dsh-agent-teams",
+    "stars": 2925,
+    "lastCommit": "2026-11-13",
+    "issues": 85,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-meme",
+    "slug": "meme",
+    "owner": "yyh-001",
+    "url": "/plugins/yyh-001/meme/",
+    "repo": "https://github.com/yyh-001/dsh-meme",
+    "stars": 564,
+    "lastCommit": "2026-11-12",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "slug": "agent-compare",
+    "owner": "lijiaqi-AI-Product-Manager",
+    "url": "/plugins/lijiaqi-AI-Product-Manager/agent-compare/",
+    "repo": "https://github.com/lijiaqi-AI-Product-Manager/dsh-agent-compare",
+    "stars": 374,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "slug": "mobile-plugin",
+    "owner": "WNLUO",
+    "url": "/plugins/WNLUO/mobile-plugin/",
+    "repo": "https://github.com/WNLUO/dsh-mobile-plugin",
+    "stars": 46,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "slug": "harness-remote",
+    "owner": "liguobao",
+    "url": "/plugins/liguobao/harness-remote/",
+    "repo": "https://github.com/liguobao/ds-harness-remote",
+    "stars": 2812,
+    "lastCommit": "2026-11-13",
+    "issues": 38,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-remote",
+    "slug": "remote",
+    "owner": "flymysql",
+    "url": "/plugins/flymysql/remote/",
+    "repo": "https://github.com/flymysql/dsh-remote",
+    "stars": 282,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "slug": "im-bridge",
+    "owner": "xmanrui",
+    "url": "/plugins/xmanrui/im-bridge/",
+    "repo": "https://github.com/xmanrui/dsh-im",
+    "stars": 3571,
+    "lastCommit": "2026-11-07",
+    "issues": 143,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-genui",
+    "slug": "genui",
+    "owner": "lhuans",
+    "url": "/plugins/lhuans/genui/",
+    "repo": "https://github.com/lhuans/dsh-genui",
+    "stars": 59,
+    "lastCommit": "2026-11-11",
+    "issues": 14,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "slug": "qq-bot",
+    "owner": "tencent-connect",
+    "url": "/plugins/tencent-connect/qq-bot/",
+    "repo": "https://github.com/tencent-connect/dsh-qqbot",
+    "stars": 587,
+    "lastCommit": "2026-11-08",
+    "issues": 50,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "slug": "univer-office",
+    "owner": "dream-num",
+    "url": "/plugins/dream-num/univer-office/",
+    "repo": "https://github.com/dream-num/dsh-univer-office",
+    "stars": 717,
+    "lastCommit": "2026-11-03",
+    "issues": 18,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "deep-view",
+    "slug": "deep-view",
+    "owner": "Fei2411",
+    "url": "/plugins/Fei2411/deep-view/",
+    "repo": "https://github.com/Fei2411/deep-view",
+    "stars": 3,
+    "lastCommit": "2026-11-05",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-ops",
+    "slug": "ops",
+    "owner": "T-Auto",
+    "url": "/plugins/T-Auto/ops/",
+    "repo": "https://github.com/T-Auto/dsh-ops",
+    "stars": 5792,
+    "lastCommit": "2026-11-13",
+    "issues": 84,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-unlag",
+    "slug": "unlag",
+    "owner": "regrevia",
+    "url": "/plugins/regrevia/unlag/",
+    "repo": "https://github.com/regrevia/dsh-unlag",
+    "stars": 54,
+    "lastCommit": "2026-11-07",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "slug": "windows-mcp",
+    "owner": "helloHub1212",
+    "url": "/plugins/helloHub1212/windows-mcp/",
+    "repo": "https://github.com/helloHub1212/dsh-windows-mcp",
+    "stars": 1044,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "slug": "tui",
+    "owner": "ccch1mneyyy",
+    "url": "/plugins/ccch1mneyyy/tui/",
+    "repo": "https://github.com/ccch1mneyyy/dsh-TUI",
+    "stars": 7668,
+    "lastCommit": "2026-11-13",
+    "issues": 158,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "universal-plugin-hub",
+    "slug": "universal-plugin-hub",
+    "owner": "Ultmebius",
+    "url": "/plugins/Ultmebius/universal-plugin-hub/",
+    "repo": "https://github.com/Ultmebius/universal-plugin-hub",
+    "stars": 11,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-skill-mcp-market",
+    "slug": "skill-mcp-market",
+    "owner": "kuailexiaozixin",
+    "url": "/plugins/kuailexiaozixin/skill-mcp-market/",
+    "repo": "https://github.com/kuailexiaozixin/dsh-skill-mcp-market",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@chengze/dsh-skill-manager",
+    "slug": "skill-manager",
+    "owner": "xiechenghua01",
+    "url": "/plugins/xiechenghua01/skill-manager/",
+    "repo": "https://github.com/xiechenghua01/dsh-plugins",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-skill-browser",
+    "slug": "skill-browser",
+    "owner": "loyalchiiina",
+    "url": "/plugins/loyalchiiina/skill-browser/",
+    "repo": "https://github.com/loyalchiiina/dsh-skill-browser",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-all",
+    "slug": "evolution-bundle",
+    "owner": "lmzhen",
+    "url": "/plugins/lmzhen/evolution-bundle/",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "stars": 11,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-skill-health",
+    "slug": "skill-health-panel",
+    "owner": "lmzhen",
+    "url": "/plugins/lmzhen/skill-health-panel/",
+    "repo": "https://github.com/lmzhen/dsh-evolution",
+    "stars": 11,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-custom-theme",
+    "slug": "custom-theme",
+    "owner": "Sparrived",
+    "url": "/plugins/Sparrived/custom-theme/",
+    "repo": "https://github.com/Sparrived/dsh-custom-theme",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-toomuch-plugins",
+    "slug": "sidebar-fold",
+    "owner": "rivenshanghai",
+    "url": "/plugins/rivenshanghai/sidebar-fold/",
+    "repo": "https://github.com/rivenshanghai/dsh-toomuch-plugins",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "slug": "providers-hub",
+    "owner": "iJetLi",
+    "pkg": "dsh-providers-hub",
+    "group": "providers",
+    "version": "2.24.261113",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/iJetLi/deepseek-harness-codearts",
+    "npm": "https://www.npmjs.com/package/dsh-providers-hub",
+    "compat": "",
+    "peers": 5,
+    "install": "dsh plugin --profile web add dsh-providers-hub",
+    "en": {
+      "title": "dsh-providers-hub for DeepSeek Harness — Model providers",
+      "desc": "One hub for coding providers: account login, multiple accounts, and switching between them. Published as dsh-providers-hub, version 2.24.261113.",
+      "h1": "dsh-providers-hub",
+      "cite": "One hub for coding providers: account login, multiple accounts, and switching between them.",
+      "lead": [
+        "Version 2.24.261113, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add dsh-providers-hub"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "No `engines.dsh` range is declared, so the CLI cannot pre-check compatibility. Read the npm page before you install it.",
+            "engines.dsh: not declared. peers: 5 official packages."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: iJetLi. Repository: https://gitee.com/iJetLi/deepseek-harness-codearts. Package page: https://www.npmjs.com/package/dsh-providers-hub."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove dsh-providers-hub`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "dsh-providers-hub — DeepSeek Harness 模型服务商",
+      "desc": "一个入口管编码服务商：登录、多账号、来回切。 包名 dsh-providers-hub，当前版本 2.24.261113。",
+      "h1": "dsh-providers-hub",
+      "cite": "一个入口管编码服务商：登录、多账号、来回切。",
+      "lead": [
+        "当前版本 2.24.261113，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add dsh-providers-hub"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "没有声明 `engines.dsh` 区间，命令行无法预检兼容性，装之前先看 npm 页。",
+            "engines.dsh: not declared。peers: 5 official packages。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 iJetLi，仓库 https://gitee.com/iJetLi/deepseek-harness-codearts，包页 https://www.npmjs.com/package/dsh-providers-hub。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove dsh-providers-hub`，和装的时候对称。"
+        }
+      ]
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-credentials"
+    ],
+    "stars": null,
+    "lastCommit": null,
+    "issues": null,
+    "hasImage": null,
+    "listed": null,
+    "url": "/plugins/iJetLi/providers-hub/"
+  },
+  {
+    "pkg": "dsh-exv-flat-corners",
+    "slug": "flat-corners",
+    "owner": "VMWHW",
+    "url": "/plugins/VMWHW/flat-corners/",
+    "repo": "https://github.com/VMWHW/dsh-exv-theme",
+    "stars": 2,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@aiwayds/dsh-llm-proxy",
+    "slug": "llm-proxy",
+    "owner": "fan56",
+    "url": "/plugins/fan56/llm-proxy/",
+    "repo": "https://github.com/fan56/dsh-llm-proxy",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "slug": "web-ide",
+    "owner": "fengzhaoy",
+    "pkg": "@zhaoyang10/dsh-web-ide",
+    "group": "devtools",
+    "version": "0.2.2",
+    "updated": "2026-11-13",
+    "repo": "https://gitee.com/fengzhaoy/dsh-web-ide",
+    "npm": "https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide",
+    "compat": ">=0.2.0-rc.2",
+    "peers": 0,
+    "install": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide",
+    "en": {
+      "title": "@zhaoyang10/dsh-web-ide for DeepSeek Harness — Git and IDE",
+      "desc": "A VS Code-style read-only code tab in the web client. Published as @zhaoyang10/dsh-web-ide, version 0.2.2.",
+      "h1": "@zhaoyang10/dsh-web-ide",
+      "cite": "A VS Code-style read-only code tab in the web client.",
+      "lead": [
+        "Version 0.2.2, last published 2026-11-13. Install command and compatibility come from the package manifest."
+      ],
+      "sections": [
+        {
+          "h": "Install",
+          "p": [
+            "Plugin management forwards to pnpm inside the profile directory."
+          ],
+          "code": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide"
+        },
+        {
+          "h": "Compatibility",
+          "p": [
+            "`engines.dsh` declares `>=0.2.0-rc.2`. Outside that range the CLI skips the plugin and prints the requirement instead of booting.",
+            "engines.dsh: >=0.2.0-rc.2. peers: none declared."
+          ]
+        },
+        {
+          "h": "If two plugins fight",
+          "p": [
+            "See the note below; it names the official package or the community plugin it collides with."
+          ]
+        },
+        {
+          "h": "Who made it",
+          "p": [
+            "Author: fengzhaoy. Repository: https://gitee.com/fengzhaoy/dsh-web-ide. Package page: https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "How do I remove it again?",
+          "a": "Use `dsh plugin --profile web remove @zhaoyang10/dsh-web-ide`, the mirror of the install command."
+        }
+      ]
+    },
+    "zh": {
+      "title": "@zhaoyang10/dsh-web-ide — DeepSeek Harness Git 与编辑器",
+      "desc": "网页端加一个 VS Code 风格的只读代码页。 包名 @zhaoyang10/dsh-web-ide，当前版本 0.2.2。",
+      "h1": "@zhaoyang10/dsh-web-ide",
+      "cite": "网页端加一个 VS Code 风格的只读代码页。",
+      "lead": [
+        "当前版本 0.2.2，最后发布 2026-11-13。安装命令与兼容区间取自包声明本身。"
+      ],
+      "sections": [
+        {
+          "h": "安装",
+          "p": [
+            "插件管理会把参数转发给 profile 目录里的 pnpm。"
+          ],
+          "code": "dsh plugin --profile web add @zhaoyang10/dsh-web-ide"
+        },
+        {
+          "h": "兼容区间",
+          "p": [
+            "`engines.dsh` 声明的是 `>=0.2.0-rc.2`。超出这个区间，命令行会跳过它并打印要求，不会带着跑。",
+            "engines.dsh: >=0.2.0-rc.2。peers: none declared。"
+          ]
+        },
+        {
+          "h": "两个插件打架时",
+          "p": [
+            "看下面这条，它点名了会撞的官方包或社区插件。"
+          ]
+        },
+        {
+          "h": "作者与仓库",
+          "p": [
+            "作者 fengzhaoy，仓库 https://gitee.com/fengzhaoy/dsh-web-ide，包页 https://www.npmjs.com/package/@zhaoyang10/dsh-web-ide。"
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "placeholder",
+          "a": "placeholder"
+        },
+        {
+          "q": "装坏了怎么退？",
+          "a": "用 `dsh plugin --profile web remove @zhaoyang10/dsh-web-ide`，和装的时候对称。"
+        }
+      ]
+    },
+    "peerNames": [],
+    "stars": null,
+    "lastCommit": null,
+    "issues": null,
+    "hasImage": null,
+    "listed": null,
+    "url": "/plugins/fengzhaoy/web-ide/"
+  },
+  {
+    "pkg": "@huaweidevtools/aishell-dsh-brand",
+    "slug": "aishell-brand",
+    "owner": "yusheng-g",
+    "url": "/plugins/yusheng-g/aishell-brand/",
+    "repo": "https://github.com/yusheng-g/aishell-dsh-plugins",
+    "stars": null,
+    "lastCommit": null,
+    "issues": null,
+    "hasImage": null,
+    "listed": false,
+    "apiStatus": "404"
+  },
+  {
+    "pkg": "dsh-tool-database",
+    "slug": "database-tool",
+    "owner": "SouleyMoni1",
+    "url": "/plugins/SouleyMoni1/database-tool/",
+    "repo": "https://github.com/SouleyMoni1/dsh-tool-database",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-permission-remote",
+    "slug": "permission-remote",
+    "owner": "weicy98",
+    "url": "/plugins/weicy98/permission-remote/",
+    "repo": "https://github.com/weicy98/dsh-permission-remote",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@voltage12/dsh-simple-worktree",
+    "slug": "simple-worktree",
+    "owner": "voltage12",
+    "url": "/plugins/voltage12/simple-worktree/",
+    "repo": "https://github.com/voltage12/dsh-simple-worktree",
+    "stars": 0,
+    "lastCommit": "2026-10-22",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dshost-plugin",
+    "slug": "cloud-relay",
+    "owner": "NoelJudeNoel",
+    "url": "/plugins/NoelJudeNoel/cloud-relay/",
+    "repo": "https://github.com/NoelJudeNoel/dshost-plugin",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-computers",
+    "slug": "computers",
+    "owner": "9Ashwin",
+    "url": "/plugins/9Ashwin/computers/",
+    "repo": "https://github.com/9Ashwin/dsh-computers",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@yugoo-design/dsh-design-panel",
+    "slug": "design-panel",
+    "owner": "alibaba-damo-academy",
+    "url": "/plugins/alibaba-damo-academy/design-panel/",
+    "repo": "https://github.com/alibaba-damo-academy/yugoo-design",
+    "stars": 8,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-codegraph-visualizer",
+    "slug": "codegraph",
+    "owner": "xuanyuanchumo",
+    "url": "/plugins/xuanyuanchumo/codegraph/",
+    "repo": "https://github.com/xuanyuanchumo/dsh-codegraph-visualizer",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@mzzsfy/dsh-tool-gate",
+    "slug": "tool-gate",
+    "owner": "mzzsfy",
+    "url": "/plugins/mzzsfy/tool-gate/",
+    "repo": "https://github.com/mzzsfy/dsh-plugin",
+    "stars": 4,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@xiaoso/dsh-tool-plus",
+    "slug": "tool-plus",
+    "owner": "xiaoso456",
+    "url": "/plugins/xiaoso456/tool-plus/",
+    "repo": "https://github.com/xiaoso456/dsh-tool-plus",
+    "stars": 16,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@logictan/dsh-tool-surface",
+    "slug": "tool-surface",
+    "owner": "dale0525",
+    "url": "/plugins/dale0525/tool-surface/",
+    "repo": "https://github.com/dale0525/dsh-plugins",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-octop-memory",
+    "slug": "octop-memory",
+    "owner": "ArvinQi",
+    "url": "/plugins/ArvinQi/octop-memory/",
+    "repo": "https://github.com/ArvinQi/dsh-octop-memory",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-syn-config",
+    "slug": "config-sync",
+    "owner": "Dreamaniax",
+    "url": "/plugins/Dreamaniax/config-sync/",
+    "repo": "https://github.com/Dreamaniax/dsh-syn-config",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-better-plugin-updater",
+    "slug": "plugin-updater",
+    "owner": "Mooling0602",
+    "url": "/plugins/Mooling0602/plugin-updater/",
+    "repo": "https://github.com/Mooling0602/dsh-better-plugin-updater",
+    "stars": 2,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-claude-motion",
+    "slug": "motion-skill",
+    "owner": "JimLiu",
+    "url": "/plugins/JimLiu/motion-skill/",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "stars": 6420,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-claude-whiteboard",
+    "slug": "whiteboard-skill",
+    "owner": "JimLiu",
+    "url": "/plugins/JimLiu/whiteboard-skill/",
+    "repo": "https://github.com/JimLiu/baoyu-design",
+    "stars": 6420,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-atan-daily",
+    "slug": "daily-reports",
+    "owner": "artaniszhou",
+    "url": "/plugins/artaniszhou/daily-reports/",
+    "repo": "https://github.com/artaniszhou/dsh-atan-daily",
+    "stars": 1,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@xirang-ai/dsh-teamflow",
+    "slug": "teamflow",
+    "owner": "xirang-ai",
+    "url": "/plugins/xirang-ai/teamflow/",
+    "repo": "https://github.com/xirang-ai/dsh-teamflow",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": false,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-ue-asset",
+    "slug": "ue-asset",
+    "owner": "Sumcam-L",
+    "url": "/plugins/Sumcam-L/ue-asset/",
+    "repo": "https://github.com/Sumcam-L/dsh-ue-asset",
+    "stars": 0,
+    "lastCommit": "2026-11-13",
+    "issues": 0,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "dsh-mnemon",
+    "slug": "mnemon",
+    "owner": "omdsh-dev",
+    "url": "/plugins/omdsh-dev/mnemon/",
+    "repo": "https://github.com/omdsh-dev/dsh-mnemon",
+    "stars": 995,
+    "lastCommit": "2026-11-13",
+    "issues": 36,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@dickpy/dsh-imagegen",
+    "slug": "imagegen",
+    "owner": "dickpy",
+    "url": "/plugins/dickpy/imagegen/",
+    "repo": "https://github.com/dickpy/dsh-imagegen",
+    "stars": 188,
+    "lastCommit": "2026-11-13",
+    "issues": 1,
+    "hasImage": true,
+    "listed": false,
+    "apiStatus": "ok"
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "slug": "modsearch",
+    "owner": "liustack",
+    "url": "/plugins/liustack/modsearch/",
+    "repo": "https://github.com/liustack/modsearch",
+    "stars": null,
+    "lastCommit": "2026-11-07",
+    "issues": null,
+    "hasImage": true,
+    "listed": true,
+    "apiStatus": "rate-limited"
+  }
+]

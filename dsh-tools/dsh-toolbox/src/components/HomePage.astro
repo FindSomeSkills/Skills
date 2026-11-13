@@ -16,7 +16,7 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
 <div class="grid">
   {TOOLS.map((tool) => {
     const detail = extra.outcomes[tool.slug];
-    return (
+    const card = (
       <a class="card" href={toolHref(tool.slug)}>
         <span class="card-top">
           <span class="card-icon" set:html={iconFor(tool.slug)} />
@@ -27,6 +27,15 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
         <p class="card-outcome">{detail?.outcome}</p>
         <span class="card-more">{detail?.demoLabel ?? extra.demoCta}</span>
       </a>
+    );
+    if (tool.slug !== 'session-purge') return card;
+    return (
+      <div class="card-cell">
+        {card}
+        <a class="card-extra" href={`${prefix}tools/session-purge/#one-click`}>
+          {lang === 'zh' ? '想要一键版？' : 'Want a one-click version?'}
+        </a>
+      </div>
     );
   })}
 </div>
