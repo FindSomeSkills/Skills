@@ -1,0 +1,662 @@
+[
+  {
+    "url": "/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/sync-hub/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/sync-hub/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/zstd-frame-inspector/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/zstd-frame-inspector/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/context-budget/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/context-budget/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/session-index-doctor/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/session-index-doctor/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/skill-load-audit/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/skill-load-audit/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/session-purge/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/session-purge/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/tools/deai-kit/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/tools/deai-kit/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/reference/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/reference/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/compare/sync-hub-vs-plugins/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/compare/sync-hub-vs-plugins/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/guides/what-is-deepseek-harness/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/guides/what-is-deepseek-harness/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/guides/install/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/guides/install/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/guides/cli/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/guides/cli/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/guides/desktop/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/guides/desktop/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/guides/android/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/guides/android/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/guides/errors/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/guides/errors/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/guides/docker/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/guides/docker/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/compare/vs-claude-code/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/compare/vs-claude-code/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/compare/vs-codex-harness/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/compare/vs-codex-harness/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/compare/vs-opencode/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/compare/vs-opencode/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/dsh-market/dsh-plugin-market/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/dsh-market/dsh-plugin-market/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/dshplugin/community-marketplace/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/dshplugin/community-marketplace/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/awesome-dsh-plugin/plugin-catalog/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/awesome-dsh-plugin/plugin-catalog/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/Han-1413141/cost-meter/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/Han-1413141/cost-meter/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/MeteorNOX/balance-widget/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/MeteorNOX/balance-widget/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/MichengAI/archive-manager/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/MichengAI/archive-manager/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/MYCF711/session-superagent/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/MYCF711/session-superagent/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/MichengAI/skills-manager/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/MichengAI/skills-manager/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/DDDMUC/free-search/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/DDDMUC/free-search/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/liustack/modsearch/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/liustack/modsearch/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/LLLAAAAA/dream-skin/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/LLLAAAAA/dream-skin/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/Nwflower/claude-style/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/Nwflower/claude-style/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/elysia395/wallpaper-engine/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/elysia395/wallpaper-engine/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/PC2005-cloud/pet/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/PC2005-cloud/pet/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/yyh-001/meme/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/yyh-001/meme/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/NanmiCoder/agent-teams/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/NanmiCoder/agent-teams/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/lijiaqi-AI-Product-Manager/agent-compare/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/lijiaqi-AI-Product-Manager/agent-compare/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/WNLUO/mobile-plugin/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/WNLUO/mobile-plugin/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/flymysql/remote/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/flymysql/remote/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/liguobao/harness-remote/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/liguobao/harness-remote/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/xmanrui/im-bridge/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/xmanrui/im-bridge/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/tencent-connect/qq-bot/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/tencent-connect/qq-bot/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/lhuans/genui/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/lhuans/genui/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/Fei2411/deep-view/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/Fei2411/deep-view/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/dream-num/univer-office/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/dream-num/univer-office/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/T-Auto/ops/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/T-Auto/ops/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/regrevia/unlag/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/regrevia/unlag/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/helloHub1212/windows-mcp/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/helloHub1212/windows-mcp/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/ccch1mneyyy/tui/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/zh/plugins/ccch1mneyyy/tui/",
+    "status": 200,
+    "obf": false,
+    "hasAt": false
+  },
+  {
+    "url": "/plugins/dsh-base/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/dsh-base/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/dsh-session/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/dsh-session/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/dsh-compaction/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/dsh-compaction/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/dsh-shell/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/dsh-shell/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/plugins/dsh-sandbox/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  },
+  {
+    "url": "/zh/plugins/dsh-sandbox/",
+    "status": 200,
+    "obf": false,
+    "hasAt": true
+  }
+]

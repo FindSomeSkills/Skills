@@ -1,0 +1,150 @@
+---
+// 会话清理工具：本地读目录，按大小列出会话文件，算出可释放空间，给出备份与删除命令。全程不上传。
+const { t } = Astro.props;
+import { inline } from '../lib/inline.mjs';
+const labels = t.js ?? {};
+---
+<section class="tool">
+  <h1>{t.h1}</h1>
+  <p class="answer" set:html={inline(t.cite)} />
+  {(t.lead ?? []).map((p) => <p class="lede" set:html={inline(p)} />)}
+
+  <label id="purgeDrop" class="toolbar" for="purgeDir" style="display:block;cursor:pointer">
+    <strong>{t.pick}</strong>
+    <span class="pick-hint">{t.pickHint}</span>
+  </label>
+  <input id="purgeDir" type="file" webkitdirectory directory multiple hidden />
+
+  <div id="purgeSummary" class="plan-summary" hidden>
+    <div class="stat"><span class="stat-label">{t.totalLabel}</span><span id="purgeTotal" class="stat-value">—</span></div>
+    <div class="stat"><span class="stat-label">{t.selectedLabel}</span><span id="purgeSelected" class="stat-value">—</span></div>
+    <div class="stat"><span class="stat-label">{t.sessionsLabel}</span><span id="purgeCount" class="stat-value">—</span></div>
+  </div>
+
+  <div id="purgeTableWrap" hidden>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col"><input id="purgeAll" type="checkbox" aria-label={t.selectAll} /></th>
+            <th scope="col">{t.colPath}</th>
+            <th scope="col">{t.colSize}</th>
+            <th scope="col">{t.colDate}</th>
+          </tr>
+        </thead>
+        <tbody id="purgeRows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <p id="purgeEmpty" class="muted" hidden set:html={inline(t.empty)} />
+
+  <section id="purgePlan" hidden>
+    <h2>{t.planH}</h2>
+    <p set:html={inline(t.planP)} />
+    <pre><code id="purgeBackupCmd"></code></pre>
+    <p set:html={inline(t.deleteP)} />
+    <pre><code id="purgeDeleteCmd"></code></pre>
+    <p set:html={inline(t.afterP)} />
+  </section>
+
+  <noscript><p set:html={inline(t.nojs)} /></noscript>
+</section>
+
+<script is:inline define:vars={{ noFiles: labels.noFiles ?? 'No session files found in that folder.', picking: labels.picking ?? 'Reading folder…' }}>
+  (() => {
+    const input = document.getElementById('purgeDir');
+    const wrap = document.getElementById('purgeTableWrap');
+    const rows = document.getElementById('purgeRows');
+    const summary = document.getElementById('purgeSummary');
+    const empty = document.getElementById('purgeEmpty');
+    const plan = document.getElementById('purgePlan');
+    if (!input) return;
+
+    let files = [];
+
+    const fmt = (n) => {
+      if (n < 1024) return n + ' B';
+      if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+      if (n < 1024 * 1024 * 1024) return (n / 1024 / 1024).toFixed(1) + ' MB';
+      return (n / 1024 / 1024 / 1024).toFixed(2) + ' GB';
+    };
+
+    // webkitRelativePath 以选择的那层目录名开头，命令里只保留它后面的部分
+    const relOf = (p) => p.split('/').slice(1).join('/') || p;
+
+    const render = () => {
+      const selected = files.filter((f) => f.checked);
+      const total = files.reduce((s, f) => s + f.size, 0);
+      const sel = selected.reduce((s, f) => s + f.size, 0);
+      document.getElementById('purgeTotal').textContent = fmt(total);
+      document.getElementById('purgeSelected').textContent = fmt(sel);
+      document.getElementById('purgeCount').textContent = selected.length + ' / ' + files.length;
+      summary.hidden = files.length === 0;
+      plan.hidden = selected.length === 0;
+      if (!selected.length) return;
+
+      const rels = selected.map((f) => relOf(f.path));
+      const backup = [
+        ':: Windows PowerShell',
+        'Copy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
+        '',
+        '# macOS / Linux',
+        'cp -a ~/.dsh/sessions ~/dsh-backup/',
+      ].join('\n');
+      const del = [
+        ':: Windows PowerShell（逐条删，路径相对 sessions/）',
+        ...rels.map((r) => 'Remove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\' + r.replace(/\//g, '\\') + '"'),
+        '',
+        '# macOS / Linux',
+        ...rels.map((r) => 'rm -rf ~/.dsh/sessions/' + r),
+      ].join('\n');
+      document.getElementById('purgeBackupCmd').textContent = backup;
+      document.getElementById('purgeDeleteCmd').textContent = del;
+    };
+
+    input.addEventListener('change', () => {
+      files = [...input.files]
+        .filter((f) => /\.zstd$/i.test(f.name) || /session.*\.jsonl$/i.test(f.name))
+        .map((f) => ({ path: f.webkitRelativePath || f.name, size: f.size, mtime: f.lastModified, checked: false }));
+      rows.innerHTML = '';
+      if (!files.length) {
+        wrap.hidden = true;
+        empty.hidden = false;
+        empty.textContent = noFiles;
+        summary.hidden = true;
+        plan.hidden = true;
+        return;
+      }
+      empty.hidden = true;
+      wrap.hidden = false;
+      files.sort((a, b) => b.size - a.size);
+      for (const f of files) {
+        const tr = document.createElement('tr');
+        const td0 = document.createElement('td');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.addEventListener('change', () => { f.checked = cb.checked; render(); });
+        td0.appendChild(cb);
+        const td1 = document.createElement('td');
+        td1.textContent = f.path;
+        const td2 = document.createElement('td');
+        td2.textContent = fmt(f.size);
+        const td3 = document.createElement('td');
+        td3.textContent = new Date(f.mtime).toISOString().slice(0, 10);
+        tr.append(td0, td1, td2, td3);
+        rows.appendChild(tr);
+      }
+      render();
+    });
+
+    const all = document.getElementById('purgeAll');
+    if (all) {
+      all.addEventListener('change', () => {
+        files.forEach((f) => { f.checked = all.checked; });
+        [...rows.querySelectorAll('input[type=checkbox]')].forEach((cb) => { cb.checked = all.checked; });
+        render();
+      });
+    }
+  })();
+</script>

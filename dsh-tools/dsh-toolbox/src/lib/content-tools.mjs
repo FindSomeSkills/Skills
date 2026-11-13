@@ -113,7 +113,7 @@ export const EXTRA_COPY = {
 
   zh: {
     doctor: {
-      title: 'DeepSeek Harness 会话不在列表里 — 找索引缺口',
+      title: 'dsh 技能占多少上下文（技能开销审计）',
       desc: '把 DSH 数据目录交给它，对比 sessions/ 与 storages/workspace.json、session_projcache.json，找出哪一边缺了什么。只读，不上传。',
       h1: '为什么 DeepSeek Harness 会话不在列表里',
       lede: '在 DSH 里，「会话文件」和「会话列表条目」是两回事。两边不一致时症状永远是同一个——「我的会话不见了」。这里查的是哪一边缺了什么。',

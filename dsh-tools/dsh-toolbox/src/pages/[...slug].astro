@@ -15,7 +15,10 @@ import { FAQ_EXTRA } from '../lib/faq.mjs';
 import { GUIDES } from '../lib/content-guides.mjs';
 import { VERSUS } from '../lib/content-versus.mjs';
 import { PLUGIN_INDEX, PLUGINS, pluginPage } from '../lib/content-plugins.mjs';
+import { communityPage, communityByGroup } from '../lib/content-community.mjs';
 import DeaiKit from '../components/DeaiKit.astro';
+import SessionPurge from '../components/SessionPurge.astro';
+import { PURGE, ERRORS } from '../lib/content-purge-errors.mjs';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
 
@@ -29,11 +32,15 @@ export function getStaticPaths() {
 const { lang, page, slug, noindex = false } = Astro.props;
 const copy = COPY[lang];
 const baseSlug = lang === 'zh' ? slug.replace(/^zh\/?/, '') : slug;
+const pluginPath = baseSlug.startsWith('plugins/') ? baseSlug.slice('plugins/'.length) : '';
 const article =
   GUIDES[baseSlug]?.[lang] ??
   VERSUS[baseSlug]?.[lang] ??
+  (baseSlug === 'guides/errors' ? ERRORS[lang] : null) ??
+  (page === 'purge' ? PURGE[lang] : null) ??
   (baseSlug === 'plugins' ? PLUGIN_INDEX[lang] : null) ??
-  (baseSlug.startsWith('plugins/') ? pluginPage(baseSlug.slice('plugins/'.length), lang) : null);
+  (pluginPath.includes('/') ? communityPage(pluginPath)?.[lang] : null) ??
+  (pluginPath ? pluginPage(pluginPath, lang) : null);
 const t = article ?? copy[page];
 const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 
@@ -67,6 +74,7 @@ const software = {
   url: `${base}/${slug ? `${slug}/` : ''}`,
   applicationCategory: 'DeveloperApplication',
   dateModified: updatedFor(baseSlug),
+  datePublished: updatedFor(baseSlug),
   operatingSystem: 'Windows, macOS, Linux, Android',
   description: t.desc,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -136,8 +144,9 @@ const pageDesc = t.desc ?? `${t.lede}`.slice(0, 155);
   {page === 'reference' && <ReferencePage lang={lang} />}
   {page === 'compare' && <ComparePage lang={lang} />}
   {page === 'kit' && <DeaiKit lang={lang} />}
-  {article && <Article data={article} lang={lang} plugins={baseSlug === 'plugins' ? PLUGINS : []} />}
-  {page !== 'home' && page !== 'compare' && !article && faqItems.length > 0 && (
+  {page === 'purge' && <SessionPurge t={PURGE[lang]} />}
+  {article && page !== 'purge' && <Article data={article} lang={lang} plugins={baseSlug === 'plugins' ? PLUGINS : []} groups={baseSlug === 'plugins' ? communityByGroup() : []} />}
+  {page !== 'home' && page !== 'compare' && page !== 'syncHub' && !article && faqItems.length > 0 && (
     <Faq items={faqItems} heading={lang === 'zh' ? '常见问题' : 'Common questions'} />
   )}
   {contentId && page !== 'syncHub' && <Related lang={lang} current={contentId} />}

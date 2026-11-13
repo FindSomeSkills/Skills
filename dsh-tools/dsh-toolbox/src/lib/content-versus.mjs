@@ -41,7 +41,7 @@ export const VERSUS = {
       related: ['guides/what-is-deepseek-harness', 'compare/vs-codex-harness', 'plugins'],
     },
     zh: {
-      title: 'DeepSeek Harness 对比 Claude Code — 终端 agent 怎么选',
+      title: 'DeepSeek Harness 和 Codex CLI 哪个好',
       desc: '从安装、扩展方式、会话存储、界面四个维度对比 DeepSeek Harness 和 Claude Code，并写清各自在什么情况下不该选。',
       h1: 'DeepSeek Harness 对比 Claude Code',
       cite: 'Claude Code 是 Anthropic 的闭源终端 agent；DeepSeek Harness 是开放的、由插件拼成的命令行工具，会话留在 `~/.dsh`。',
@@ -108,7 +108,7 @@ export const VERSUS = {
       related: ['compare/vs-claude-code', 'compare/vs-opencode', 'guides/cli'],
     },
     zh: {
-      title: 'DeepSeek Harness 对比 Codex CLI — 两个开放的终端 agent',
+      title: 'DeepSeek Harness 和 OpenCode 哪个好',
       desc: 'DeepSeek Harness 和 OpenAI Codex CLI 都在终端里跑，也都开放。差别在运行时怎么拼、有几个界面、你能替换掉多少内部实现。',
       h1: 'DeepSeek Harness 对比 Codex CLI',
       cite: 'Codex CLI 是 OpenAI 的开放终端 agent；DeepSeek Harness 的整个运行时是一摞可替换的插件补丁。',

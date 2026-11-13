@@ -208,7 +208,7 @@ export const COPY = {
       free: '',
     },
     home: {
-      title: 'DSH 工具箱 — DeepSeek Harness 免费工具集',
+            title: 'DeepSeek Harness 工具合集 — 会话同步、zstd 查看、上下文预算',
       desc: '面向 DeepSeek Harness（DSH）的本地工具：跨设备同步会话、查看 .zstd 会话帧结构、估算上下文预算。全部在浏览器内完成，不上传文件。',
       h1: '给真正在用 DeepSeek Harness 的人做的工具',
       lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费浏览器工具：跨设备同步会话、查看会话文件、修会话索引、算技能开销、检查文字与界面里的模板痕迹。全部在浏览器里跑，不用注册、不上传、不打点。',
@@ -238,7 +238,7 @@ export const COPY = {
       cta: '从 Sync Hub 开始',
     },
     syncHub: {
-      title: 'DeepSeek Harness 会话同步 — Windows / macOS / Linux',
+      title: 'DSH 会话跨设备同步怎么弄（Windows / macOS / Linux）',
       desc: '在 Windows / macOS / Linux 与 DSH 网页版/桌面版/终端版之间同步会话与工作区索引。负载按不透明字节搬运，追加写只传变化分块，冲突保留双份。',
       h1: '跨设备同步 DeepSeek Harness 会话',
       lede: '跨设备、跨 DSH 形态同步会话与工作区索引。会话文件按不透明字节搬运，从不解析内容。',
@@ -277,7 +277,7 @@ export const COPY = {
       ],
     },
     zstd: {
-      title: 'DeepSeek Harness 会话文件查看器 — 读 .zstd 帧',
+      title: 'DeepSeek Harness 会话文件怎么看（.zstd 帧查看器）',
       desc: '拖入 .zstd 会话文件，不用解压就能看到帧边界、每帧压缩后大小、块数量，以及整份文件累积了多少次追加写入。纯本地运行，文件不上传。',
       h1: 'DeepSeek Harness 会话文件，逐帧看',
       lede: 'DSH 的会话是追加写的多帧 zstd。当一个文件长到 20 MB，真正有用的问题不是「多大」，而是「多少帧、每帧到哪结束」。',
@@ -307,7 +307,7 @@ export const COPY = {
       ],
     },
     budget: {
-      title: 'DeepSeek Harness 上下文预算计算器 — 还剩几轮',
+      title: 'DeepSeek Harness 上下文还剩几轮（预算计算器）',
       desc: '填入窗口容量、已用 token 和每轮输入输出，算出还剩多少回合、该在第几轮压缩，以及留给你做下一件事的余量。纯本地计算，不上传任何会话内容。',
       h1: 'DeepSeek Harness 上下文预算计算器',
       lede: '压缩不是免费的：它重写整个对话表面，还带来延迟。先知道还剩几回合，再决定什么时候压。',
@@ -346,6 +346,7 @@ export const COPY = {
 
 import { PLUGINS } from './content-plugins.mjs';
 import { EXPANDED as EXPANDED_PLUGINS } from './plugin-page.mjs';
+import { COMMUNITY } from './content-community.mjs';
 
 export function pageList() {
   return [
@@ -361,6 +362,8 @@ export function pageList() {
     { slug: 'zh/tools/session-index-doctor', lang: 'zh', page: 'doctor' },
     { slug: 'tools/skill-load-audit', lang: 'en', page: 'skills' },
     { slug: 'zh/tools/skill-load-audit', lang: 'zh', page: 'skills' },
+    { slug: 'tools/session-purge', lang: 'en', page: 'purge' },
+    { slug: 'zh/tools/session-purge', lang: 'zh', page: 'purge' },
     { slug: 'tools/deai-kit', lang: 'en', page: 'kit' },
     { slug: 'zh/tools/deai-kit', lang: 'zh', page: 'kit' },
     { slug: 'reference', lang: 'en', page: 'reference' },
@@ -379,6 +382,8 @@ export function pageList() {
     { slug: 'zh/guides/desktop', lang: 'zh', page: 'article' },
     { slug: 'guides/android', lang: 'en', page: 'article' },
     { slug: 'zh/guides/android', lang: 'zh', page: 'article' },
+    { slug: 'guides/errors', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/errors', lang: 'zh', page: 'article' },
     { slug: 'guides/docker', lang: 'en', page: 'article' },
     { slug: 'zh/guides/docker', lang: 'zh', page: 'article' },
     // —— 插件目录 ——
@@ -391,6 +396,10 @@ export function pageList() {
     { slug: 'zh/compare/vs-codex-harness', lang: 'zh', page: 'article' },
     { slug: 'compare/vs-opencode', lang: 'en', page: 'article' },
     { slug: 'zh/compare/vs-opencode', lang: 'zh', page: 'article' },
+    ...COMMUNITY.flatMap((p) => [
+      { slug: `plugins/${p.owner}/${p.slug}`, lang: 'en', page: 'community' },
+      { slug: `zh/plugins/${p.owner}/${p.slug}`, lang: 'zh', page: 'community' },
+    ]),
     ...PLUGINS.flatMap((p) => [
       { slug: `plugins/${p.slug}`, lang: 'en', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },
       { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },

@@ -79,6 +79,21 @@ node src/hub/server.mjs`}</code></pre>
 <h2>{lang === 'zh' ? '源码' : 'Source'}</h2>
 <p><a class="btn-link" href={SITE.syncHubRepo}>{lang === 'zh' ? '在 GitHub 上查看源码' : 'View the source on GitHub'}</a></p>
 
+
+<section>
+  <h2>{lang === 'zh' ? '同步之后常要跟着做的四件事' : 'Four things people do right after a sync'}</h2>
+  <p>
+    {lang === 'zh'
+      ? '同步完了，接下来通常是这几件：确认文件没坏、确认列表没丢条目、把旧会话清掉、遇到报错查一条命令。'
+      : 'Once the bytes land, the next questions are always the same four: is the file intact, did the list keep every entry, can the old sessions go, and what does that error mean.'}
+  </p>
+  <ul class="link-list">
+    <li><a href={lang === 'zh' ? '/zh/tools/zstd-frame-inspector/' : '/tools/zstd-frame-inspector/'}>{lang === 'zh' ? '会话文件帧结构查看' : 'Zstd frame inspector'}</a></li>
+    <li><a href={lang === 'zh' ? '/zh/tools/session-index-doctor/' : '/tools/session-index-doctor/'}>{lang === 'zh' ? '会话列表缺条目体检' : 'Session index doctor'}</a></li>
+    <li><a href={lang === 'zh' ? '/zh/tools/session-purge/' : '/tools/session-purge/'}>{lang === 'zh' ? '会话清理与备份' : 'Session purge and backup'}</a></li>
+    <li><a href={lang === 'zh' ? '/zh/guides/errors/' : '/guides/errors/'}>{lang === 'zh' ? '报错对照表' : 'Error reference'}</a></li>
+  </ul>
+</section>
 <h2>{t.faqH}</h2>
 {t.faq.map((item) => (
   <details>

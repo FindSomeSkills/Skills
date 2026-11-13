@@ -7,6 +7,8 @@ const TOOL_LABEL = {
   'context-budget': { en: 'Context Budget', zh: '上下文预算' },
   'session-index-doctor': { en: 'Session Index Doctor', zh: '会话索引体检' },
   'skill-load-audit': { en: 'Skill Load Audit', zh: '技能开销审计' },
+  'session-purge': { en: 'Session Purge', zh: '会话清理' },
+  'guides/errors': { en: 'Error reference', zh: '报错对照' },
   'deai-kit': { en: 'De-AI Kit', zh: 'De-AI Kit' },
   reference: { en: 'Storage reference', zh: '存储结构参考' },
   plugins: { en: 'Plugin directory', zh: '插件目录' },

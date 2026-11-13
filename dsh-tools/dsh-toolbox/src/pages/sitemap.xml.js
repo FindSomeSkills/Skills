@@ -1,5 +1,6 @@
 import { pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
+import { priorityFor } from '../lib/updated.mjs';
 
 export function GET({ site }) {
   const base = site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
@@ -16,7 +17,7 @@ export function GET({ site }) {
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'zh-Hans' : 'en'}" href="${loc}"/>
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'en' : 'zh-Hans'}" href="${alt}"/>
     <changefreq>weekly</changefreq>
-    <priority>${p.page === 'syncHub' ? '0.9' : p.page === 'home' ? '1.0' : '0.7'}</priority>
+    <priority>${priorityFor(p)}</priority>
   </url>`;
     })
     .join('\n');

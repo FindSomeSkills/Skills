@@ -27,13 +27,6 @@ export const MORE_GUIDES = {
           code: 'dsh web --host 192.168.1.20 --port 8080 --no-open\ndsh web --host 192.168.1.20 --port 8080 --trusted-host 192.168.1.20:8080',
         },
         {
-          h: '先查这台机器的局域网地址',
-          p: [
-            'Windows 上用 `ipconfig` 看活动网卡的 IPv4 地址；Linux 上用 `ip -4 addr show`。要挑和手机同一网段的那个——VPN 或第二块网卡给出的地址，手机路由不到。',
-          ],
-          code: 'ipconfig\nip -4 addr show',
-        },
-        {
           h: 'Finding the address to pass',
           p: [
             'On Windows, `ipconfig` lists the IPv4 address of the active adapter. On Linux, `ip -4 addr show` does the same. Use the one on the same network as the phone — a VPN or a second adapter will give you an address the phone cannot route to.',
@@ -56,7 +49,7 @@ export const MORE_GUIDES = {
       related: ['guides/desktop', 'guides/install', 'guides/cli'],
     },
     zh: {
-      title: 'DeepSeek Harness 安卓 — 没有 App，用 dsh web 在手机浏览器里开',
+      title: 'DeepSeek Harness 手机能用吗（安卓怎么连）',
       desc: 'DSH 没有安卓 App。在电脑上跑 web profile，绑到局域网地址，手机浏览器打开同一个地址。两条命令，外加让手机能连上的那个参数。',
       h1: 'DeepSeek Harness 在安卓上用',
       cite: 'DeepSeek Harness 没有安卓 App：在电脑上跑 `dsh web`，绑到局域网地址，手机浏览器打开那个地址。',
@@ -145,7 +138,7 @@ export const MORE_GUIDES = {
       related: ['guides/install', 'guides/cli', 'guides/android'],
     },
     zh: {
-      title: '用 Docker 跑 DeepSeek Harness — 一份能起来的 Dockerfile',
+      title: 'DeepSeek Harness 怎么用 Docker 跑',
       desc: '给 dsh 命令行用的最小 Dockerfile（Node 24）、端口映射命令，以及因为 --host 拒绝 0.0.0.0 而必须处理的那个参数。',
       h1: '用 Docker 跑 DeepSeek Harness',
       cite: 'DSH 没有官方镜像：用 `node:24-slim` 自己构建，装 `@deepseek-ai/dsh`，从 `dsh web` 映射 8080 端口。',

@@ -46,7 +46,7 @@ export const GUIDES = {
       related: ['guides/install', 'guides/cli', 'reference'],
     },
     zh: {
-      title: 'DeepSeek Harness 是什么 — dsh 命令行工具说明',
+      title: 'dsh 命令怎么用（常用命令速查）',
       desc: 'DeepSeek Harness（DSH）是一个 Node 命令行工具：启动由插件层组成的 profile，在本机跑 agent 会话。装了什么、文件放在哪、dsh web 是做什么的。',
       h1: 'DeepSeek Harness 是什么',
       cite: 'DeepSeek Harness 就是 `dsh` 这个 Node 命令行工具：它启动一组分层的插件（profile），在本机跑 agent 会话。',
@@ -349,7 +349,7 @@ export const GUIDES = {
       related: ['guides/what-is-deepseek-harness', 'guides/cli', 'guides/install'],
     },
     zh: {
-      title: 'DeepSeek Harness 桌面版 — dsh desktop 为什么启动失败',
+      title: 'DeepSeek Harness 桌面版怎么用 / dsh desktop 为什么失败',
       desc: 'desktop 这个名字被 Electron 应用占用，命令行会拒绝 dsh desktop。桌面版和 dsh web 差在哪，想用界面该跑哪两条命令。',
       h1: 'DeepSeek Harness 桌面版',
       cite: '\`desktop\` 是保留的 profile 名：Electron 应用占用它，所以命令行会拒绝 \`dsh desktop\`。随 CLI 出货的是 web、headless、sdk、sdk-minimal、acp。',

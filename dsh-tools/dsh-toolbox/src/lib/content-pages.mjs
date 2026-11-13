@@ -224,7 +224,7 @@ export const COPY_PAGES = {
     },
 
     reference: {
-      title: 'DSH 存储结构参考 — 会话格式、索引结构、以及它们怎么坏',
+      title: 'DSH 会话文件存在哪、长什么样（参考表）',
       desc: 'DeepSeek Harness 磁盘存储的结构化参考：v4 与旧格式会话、目录布局、workspace.json 与 session_projcache 字段、以及对应的故障现象。基于 DSH 0.2.1-rc.2 实测。',
       h1: 'DSH 存储结构参考',
       lede: 'DSH 往磁盘上写了什么。基于真机实测（0.2.1-rc.2）。负载、列表条目、标题在磁盘上是三样东西；把它们当成一件，就会看到「文件都在、列表是空的」。',

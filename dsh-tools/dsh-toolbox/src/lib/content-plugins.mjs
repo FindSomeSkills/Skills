@@ -24,7 +24,7 @@ export const PLUGIN_INDEX = {
     related: ['guides/cli', 'guides/what-is-deepseek-harness', 'reference'],
   },
   zh: {
-    title: 'DeepSeek Harness 插件 — 有哪些、怎么装',
+    title: 'DeepSeek Harness 插件怎么装（官方 16 个 + 社区 29 个）',
     desc: '一页讲清 dsh 的插件模型：bundle 与 seam 的区别、安装命令、版本怎么检查，以及组成一个 profile 的 14 个包。',
     h1: 'DeepSeek Harness 插件',
     cite: 'dsh 的插件就是一个装进 profile 的 npm 包；`dsh plugin --profile <名字> add <包名>` 负责装，其余交给 pnpm。',
