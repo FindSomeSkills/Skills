@@ -29,9 +29,9 @@ export const PURGE_SECTIONS = {
       h: 'The list entry stays after the file is gone',
       p: [
         'Deleting a session file does not remove its row from `storages/workspace.json`, and the per-session cache under `storages/session_projcache/` keeps its own row too. That is why a session can show up in the list and fail to open.',
-        'Session Index Doctor reads both sides and prints the gap. There is no documented rebuild command in the shipped packages, so the honest route after a bad delete is restoring the file from the backup you just verified — which is why the order above matters.',
+        'Run Session Index Doctor and point it at your `$DSH_HOME` — it reads both sides and prints the difference. There is no documented rebuild command in the shipped packages, so the honest route after a bad delete is restoring the file from the backup you just verified — which is why the order above matters.',
       ],
-      code: '# after deleting, see what the list still claims\n# open /tools/session-index-doctor/ and pick your $DSH_HOME',
+      link: { label: 'Run Session Index Doctor', href: '/tools/session-index-doctor/' },
     },
     {
       h: 'What happens to a session that is running right now',
@@ -70,7 +70,7 @@ export const PURGE_SECTIONS = {
         '删掉会话文件不会删掉 `storages/workspace.json` 里那一行，`storages/session_projcache/` 下的单会话缓存也有自己的一行。所以会出现「列表里有、打不开」。',
         '会话索引体检会两边都读一遍，把差值打出来。随包发布的包里没有文档化的重建索引命令，所以误删之后最靠谱的路是拿刚验过的备份还原——这也是上面顺序的原因。',
       ],
-      code: '# 删完想知道列表还认哪些\n# 打开 /zh/tools/session-index-doctor/ 选你的 $DSH_HOME',
+      link: { label: '跑一次会话索引体检', href: '/zh/tools/session-index-doctor/' },
     },
     {
       h: '正在跑的会话会怎样',

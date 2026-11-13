@@ -21,26 +21,64 @@ function peerHref(pkg) {
   return OFFICIAL_SLUGS.has(short) ? '/plugins/' + short + '/' : '';
 }
 
-// Title 后缀：用这个包自己的用途短语，不再共用分类名
+// Title 后缀：按词边界截，尾巴不许停在标点、介词、连词、冠词或裸动词上。
 const TAIL_STOP = new Set([
   'the', 'a', 'an', 'to', 'of', 'and', 'with', 'for', 'that', 'it', 'in', 'on', 'is', 'are', 'by',
   'from', 'as', 'they', 'them', 'their', 'this', 'these', 'those', 'be', 'can', 'will', 'which',
   'when', 'while', 'at', 'into', 'over', 'under', 'than', 'then', 'so', 'but', 'or', 'not',
+  'without', 'plus', 'your', 'its',
+]);
+// 裸及物动词：后面没宾语就断了，不能当尾巴
+const TAIL_VERB = new Set([
+  'archive', 'restore', 'install', 'browse', 'manage', 'track', 'search', 'create', 'remove',
+  'edit', 'delete', 'open', 'run', 'see', 'show', 'reuse', 'replaces', 'renders', 'turns',
 ]);
 
+// 机器截不干净的页面：人工短描述（完整名词短语或祈使句，≤45 字符）
+const MANUAL_TAIL = {
+  'dsh-archive-manager': 'archive or delete sessions',
+  'dsh-plugin-catalog': 'a searchable plugin catalog',
+  dshmarket: 'install plugins from the web UI',
+  'dsh-permission-remote': 'SSH remote workspaces',
+  'dsh-design-panel': 'renders design files in the chat',
+  'dsh-llm-proxy': 'a system-wide proxy for model calls',
+  'dsh-remote': 'SSH development on top of DSH',
+  'dsh-skill-health-panel': 'a sidebar panel for skill health',
+  'skill-health-panel': 'a sidebar panel for skill health',
+  'dsh-unlag': 'a reload button for the desktop app',
+  'universal-plugin-hub': 'one hub for Claude Code and more',
+  'dsh-simple-worktree': 'create and remove git worktrees',
+  'dsh-im-bridge': 'talk to DSH from chat apps',
+  'dsh-im': 'talk to DSH from chat apps',
+  'dsh-codegraph-visualizer': 'turns code-graph data into views',
+  'aishell-dsh-brand': 'replaces the sidebar branding',
+  'dsh-evolution-skill-health': 'a sidebar panel for skill health',
+  'dsh-codegraph': 'turns code-graph data into views',
+  'dsh-aishell-brand': 'replaces the sidebar branding',
+};
+
 function titleTail(page, budget = 58) {
+  const key = page.pkg.replace(/^@[^/]+\//, '');
+  const manual = MANUAL_TAIL[key] ?? MANUAL_TAIL['dsh-' + key] ?? MANUAL_TAIL[key.replace(/^dsh-/, '')];
+  if (manual) return manual;
   const src = page.solvesEn ?? page.en?.cite ?? '';
-  let cut = src.split(/[.;:]/)[0].trim();
+  let cut = src.split(/[.;:]/)[0].trim().replace(/,$/, '');
   if (cut.length > budget) {
     cut = cut.slice(0, budget);
-    cut = cut.slice(0, cut.lastIndexOf(' ')); // 只在词边界截，绝不切半个单词
+    cut = cut.slice(0, cut.lastIndexOf(' '));
   }
-  const words = cut.split(/\s+/);
-  while (words.length > 3 && TAIL_STOP.has(words[words.length - 1].toLowerCase().replace(/[^a-z]/g, ''))) {
-    words.pop();
-  }
-  cut = words.join(' ');
-  return cut.charAt(0).toLowerCase() + cut.slice(1);
+  const words = cut.split(/\s+/).filter(Boolean);
+  const bare = (w) => {
+    const clean = w.toLowerCase().replace(/[^a-z]/g, '');
+    return TAIL_STOP.has(clean) || TAIL_VERB.has(clean) || /,$/.test(w);
+  };
+  while (words.length > 2 && bare(words[words.length - 1])) words.pop();
+  cut = words.join(' ').replace(/[,;:]$/, '');
+  // 首词是全大写缩写（SSH / DSH / API…）时不动大小写
+  const first = words[0] ?? '';
+  const isAcronym = first.length > 1 && first === first.toUpperCase() && /[A-Z]/.test(first);
+  if (!isAcronym) cut = cut.charAt(0).toLowerCase() + cut.slice(1);
+  return cut;
 }
 
 // 分组 → 工具页（不逐包判断，按目录页已有的分组映射）
@@ -76,10 +114,10 @@ const TOOL_BY_GROUP = {
     zhLabel: 'De-AI Kit — 查界面文案与样式里的模板痕迹',
   },
   'find-plugins': {
-    href: '/tools/session-index-doctor/',
-    zhHref: '/zh/tools/session-index-doctor/',
-    label: 'Session Index Doctor — why an installed item never reaches the list',
-    zhLabel: '会话索引体检 — 装了却不进列表时先查它',
+    href: '/plugins/conflicts/',
+    zhHref: '/zh/plugins/conflicts/',
+    label: 'Which plugins cannot share a profile — check before adding a second one',
+    zhLabel: '哪些插件不能一起装 — 装第二个之前先对一下',
   },
 };
 

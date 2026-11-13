@@ -64,6 +64,7 @@ const labels = t.js ?? {};
     <section>
       <h2 set:html={inline(sec.h)} />
       {(sec.p ?? []).map((p) => <p set:html={inline(p)} />)}
+      {sec.link && <p><a href={sec.link.href}>{sec.link.label}</a></p>}
       {sec.code && <pre><code>{sec.code}</code></pre>}
     </section>
   ))}

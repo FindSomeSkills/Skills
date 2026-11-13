@@ -2,7 +2,7 @@
 const GROUP_SURFACE = {
   'find-plugins': { en: 'a plugin browser', zh: '插件浏览入口' },
   cost: { en: 'a spend readout', zh: '花费读数' },
-  sessions: { en: 'archive, restore and delete actions', zh: '归档、恢复、删除三个操作' },
+  sessions: { en: 'archive, restore, favorite and delete actions', zh: '归档、恢复、收藏、删除四个操作' },
   skills: { en: 'a skill list with toggles', zh: '带开关的技能列表' },
   search: { en: 'a search tool', zh: '一个搜索工具' },
   appearance: { en: 'a theme and background picker', zh: '主题与背景选择' },
@@ -77,6 +77,8 @@ export function faqFor(page, pair, pkg) {
   ];
 }
 
+const DATA_ONLY = new Set(['dsh-plugin-catalog']);
+
 export function sectionsFor(page, peerNames, group, pkg) {
   const surface = GROUP_SURFACE[group] ?? { en: 'a new panel', zh: '一个新面板' };
   const where = GROUP_LOCATION[group] ?? { en: 'the web client', zh: '网页客户端' };
@@ -85,6 +87,29 @@ export function sectionsFor(page, peerNames, group, pkg) {
   const storagePeer = peerNames.find((p) => /dsh-settings|dsh-storage-domain|dsh-home-paths|dsh-credentials/.test(p)) ?? '';
 
   // 不声称 patch 谁：只说从哪个 peer 拿到东西，装完在哪儿多出什么
+  if (DATA_ONLY.has(pkg)) {
+    return [
+      {
+        h: 'After install',
+        zhH: '装完会看到什么',
+        p: ['It adds no interface. The package is a single JSON catalog; `dsh plugin add ' + pkg + '` only writes the dependency row, and `dsh --profile web --dump-config` lists that row with nothing mounted behind it.'],
+        zhP: ['它不加任何界面。这个包就是一份 JSON 目录；`dsh plugin add ' + pkg + '` 只写一行依赖，`dsh --profile web --dump-config` 能看到这行，后面没有挂载任何东西。'],
+      },
+      {
+        h: 'Files it touches',
+        zhH: '它读写的文件',
+        p: ['The catalog ships inside the package as `plugins.json`; the only file outside it is the `' + pkg + '` dependency line in `$DSH_HOME/profiles/<name>/package.json`.'],
+        zhP: ['目录以 `plugins.json` 的形式装在包里；包外唯一会动的文件是 `$DSH_HOME/profiles/<名字>/package.json` 里 `' + pkg + '` 那一行依赖。'],
+      },
+      {
+        h: 'Removing it',
+        zhH: '怎么卸掉',
+        p: ['Removing `' + pkg + '` is the mirror command, `dsh plugin --profile web remove ' + pkg + '`; nothing else references it, so nothing else breaks.'],
+        zhP: ['卸掉 `' + pkg + '` 用对称的命令 `dsh plugin --profile web remove ' + pkg + '`；没有别的东西引用它，也不会连带坏掉。'],
+      },
+    ];
+  }
+
   const afterEn = internal
     ? `It declares \`${internal}\` as a peer and renders ${surface.en} in ${where.en}; after \`dsh plugin add ${pkg}\`, \`dsh --profile web --dump-config\` lists the row that mounts it.`
     : `It declares no dsh peer and renders ${surface.en} in ${where.en}; after \`dsh plugin add ${pkg}\`, \`dsh --profile web --dump-config\` lists the \`${pkg}\` row that mounts it.`;

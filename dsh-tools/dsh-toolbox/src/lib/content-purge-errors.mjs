@@ -24,7 +24,7 @@ export const PURGE = {
     backupCmd: '# macOS / Linux\ncp -a ~/.dsh/sessions ~/dsh-backup/\n\n# Windows PowerShell\nCopy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
     deleteShape: '# macOS / Linux — replace <project> and <session-id> with the values from the table\nrm -rf ~/.dsh/sessions/--<project>--/<session-id>/\n\n# Windows PowerShell\nRemove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\--<project>--\\<session-id>"',
     deleteP: 'Only after the copy finishes. These commands delete the files you selected, nothing else.',
-    afterP: 'Deleting files leaves their entries in `workspace.json`. Run Session Index Doctor afterwards to see the gap, or rebuild the index from the profile.',
+    afterP: 'Deleting files leaves their entries in `workspace.json`. Run Session Index Doctor afterwards to see the gap; restoring the file from your backup is the only documented way to close it.',
     archiveH: 'Archive or delete',
     archiveP: 'Archiving is not deleting. It hides a session from the views; the log and the disk usage stay exactly as they were, and the current interface has no unarchive control. Only deleting files gives the space back.',
     archiveLabel: 'Archive a session instead of deleting it',
@@ -40,7 +40,7 @@ export const PURGE = {
       },
       {
         q: 'After I delete a session file, is it still in the list?',
-        a: 'Yes. Deleting the file does not remove its entry from `workspace.json`, so the list keeps claiming a session whose payload is gone until the index is rebuilt.',
+        a: 'Yes. Deleting the file does not remove its entry from `workspace.json`, so the list keeps claiming a session whose payload is gone until the index is rebuilt or the file is restored from backup.',
       },
       {
         q: 'Can I delete a session that is running right now?',
@@ -88,7 +88,7 @@ export const PURGE = {
     backupCmd: '# macOS / Linux\ncp -a ~/.dsh/sessions ~/dsh-backup/\n\n# Windows PowerShell\nCopy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
     deleteShape: '# macOS / Linux——把 <项目> 与 <会话 id> 换成表里的值\nrm -rf ~/.dsh/sessions/--<项目>--/<会话 id>/\n\n# Windows PowerShell\nRemove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\--<项目>--\\<会话 id>"',
     deleteP: '复制完成后再执行。这些命令只删你选中的文件，别的都不动。',
-    afterP: '删了文件，`workspace.json` 里的条目还在。删完跑一次会话索引体检，看差在哪；或者从 profile 重建索引。',
+    afterP: '删了文件，`workspace.json` 里的条目还在。删完跑一次会话索引体检，看差在哪；要消掉这个差，只有从备份把文件还原回来。',
     archiveH: '归档还是删除',
     archiveP: '归档不等于删除。它只是把会话从各个视图里藏起来，日志和占用一点没变，而且当前界面没有取消归档的入口。要把磁盘空间真正拿回来，只能删文件。',
     archiveLabel: '想留着就先归档',
@@ -104,7 +104,7 @@ export const PURGE = {
       },
       {
         q: '删了会话文件，列表里还会有吗？',
-        a: '会。文件删了，`workspace.json` 里那一行还在；在索引重建之前，列表仍然认这个负载已经没了的会话。',
+        a: '会。文件删了，`workspace.json` 里那一行还在；在索引重建或从备份还原之前，列表仍然认这个负载已经没了的会话。',
       },
       {
         q: '正在运行的会话能删吗？',
