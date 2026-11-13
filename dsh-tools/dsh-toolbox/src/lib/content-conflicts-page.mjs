@@ -145,7 +145,7 @@ export const CONFLICTS_PAGE = {
     related: ['plugins', 'guides/errors', 'guides/cli'],
   },
   zh: {
-    title: 'DFS 插件冲突：哪些不能一起装（26 对）',
+    title: 'DSH 插件冲突：哪些不能一起装（26 对）',
     desc: '26 对会打架的社区插件，按四类分组：抢同一个界面位、抢同一个配置项、打同一个外部接口、干同一件事。每对写清症状和该留哪个。',
     h1: '哪些 DeepSeek Harness 插件不能一起装',
     cite: '插件冲突多数来自两个插件改同一行：补丁替换整行 config，后加载的赢，前一个静默消失。',

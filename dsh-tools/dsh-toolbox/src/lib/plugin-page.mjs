@@ -67,7 +67,9 @@ function libraryPage(p, lib, lang, zh) {
       ? p.pkg + ' 是 DeepSeek Harness 的公共库：' + lib.tailZh + '。当前版本 ' + p.version + '，随 profile 或插件进来，不需要单独安装。'
       : p.pkg + ' is a DeepSeek Harness shared library: ' + lib.tailEn + '. Currently ' + p.version + '; it arrives with a profile or a plugin, not as a separate install.',
     h1: p.pkg,
-    cite: zh ? p.pkg + ' 是 dsh 的一个' + KIND_LABEL.library.zh + '：' + p.zh : p.pkg + ' is a DeepSeek Harness ' + KIND_LABEL.library.en + ': ' + p.en,
+    cite: zh
+      ? p.pkg + ' 是 DeepSeek Harness 里的一个共享库：' + lib.tailZh + '。'
+      : p.pkg + ' is a shared library inside a DeepSeek Harness profile: ' + lib.tailEn + '.',
     lead: [
       zh
         ? '当前版本 ' + p.version + '。它不是插件行，没有可安装的面板，也不该被单独卸掉——卸掉它等于拆掉别的包的地基。'

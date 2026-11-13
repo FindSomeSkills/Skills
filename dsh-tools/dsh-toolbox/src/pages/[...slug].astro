@@ -23,6 +23,8 @@ import { ERROR_PAGES } from '../lib/content-error-pages.mjs';
 import { CONFLICTS_PAGE } from '../lib/content-conflicts-page.mjs';
 import { COMMUNITY } from '../lib/content-community.mjs';
 import { CLASH } from '../lib/conflict-clash.mjs';
+import { LIBRARY } from '../lib/library-pages.mjs';
+import { SYMPTOM_OVERRIDE } from '../lib/conflict-symptom.mjs';
 import { PURGE_SECTIONS } from '../lib/content-purge-sections.mjs';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
 import { updatedFor } from '../lib/updated.mjs';
@@ -71,9 +73,10 @@ const errorSiblings = baseSlug.startsWith('guides/errors/')
   : [];
 
 
-// 冲突页：包名 → 详情页链接（社区包按 owner/slug，官方包按短名）
-const PKG_TO_HREF = new Map(COMMUNITY.map((x) => [x.pkg, `/plugins/${x.owner}/${x.slug}/`]));
-const OFFICIAL_HREF = (pkg) => '/plugins/' + pkg.replace('@deepseek-ai/', '') + '/';
+// 冲突页：包名 → 详情页链接（社区包按 owner/slug，官方包按短名）；中文页加 /zh 前缀
+const langPrefix = lang === 'zh' ? '/zh' : '';
+const PKG_TO_HREF = new Map(COMMUNITY.map((x) => [x.pkg, `${langPrefix}/plugins/${x.owner}/${x.slug}/`]));
+const OFFICIAL_HREF = (pkg) => `${langPrefix}/plugins/` + pkg.replace('@deepseek-ai/', '') + '/';
 const withHrefs = (groups) => (groups ?? []).map((g) => ({
   ...g,
   items: (g.items ?? []).map((it) => ({
@@ -82,6 +85,8 @@ const withHrefs = (groups) => (groups ?? []).map((g) => ({
     bHref: PKG_TO_HREF.get(it.b) ?? OFFICIAL_HREF(it.b),
     clash: (CLASH[[it.a, it.b].join('|')] ?? CLASH[[it.b, it.a].join('|')])?.en ?? '',
     clashZh: (CLASH[[it.a, it.b].join('|')] ?? CLASH[[it.b, it.a].join('|')])?.zh ?? '',
+    symptom: (SYMPTOM_OVERRIDE[[it.a, it.b].join('|')] ?? SYMPTOM_OVERRIDE[[it.b, it.a].join('|')])?.en ?? it.symptom,
+    symptomZh: (SYMPTOM_OVERRIDE[[it.a, it.b].join('|')] ?? SYMPTOM_OVERRIDE[[it.b, it.a].join('|')])?.zh ?? it.symptom,
   })),
 }));
 const conflictGroups = baseSlug === 'plugins/conflicts' && CONFLICTS_PAGE[lang]
@@ -119,6 +124,7 @@ const breadcrumb = {
 const isToolPage = baseSlug === 'sync-hub' || baseSlug.startsWith('tools/');
 const isPluginDetail = baseSlug.startsWith('plugins/') && baseSlug !== 'plugins' && baseSlug !== 'plugins/conflicts';
 const isPluginsIndex = baseSlug === 'plugins';
+const isLibrary = baseSlug.startsWith('plugins/') && Boolean(LIBRARY[baseSlug.slice('plugins/'.length)]);
 const isArticlePage = baseSlug.startsWith('guides/') || baseSlug.startsWith('compare/') || baseSlug === 'plugins/conflicts' || baseSlug === 'reference';
 const pageUrl = `${base}/${slug ? `${slug}/` : ''}`;
 
@@ -139,7 +145,17 @@ const software = isToolPage
         ? { softwareVersion: '0.1.0', license: 'https://opensource.org/licenses/MIT' }
         : { browserRequirements: 'Requires JavaScript. Runs entirely client-side.' }),
     }
-  : isPluginDetail
+  : isLibrary
+    ? {
+        '@type': 'SoftwareSourceCode',
+        name: t.h1,
+        url: pageUrl,
+        description: t.desc,
+        inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+        dateModified: updatedFor(baseSlug),
+        datePublished: updatedFor(baseSlug),
+      }
+    : isPluginDetail
     ? {
         '@type': 'SoftwareApplication',
         name: t.h1,

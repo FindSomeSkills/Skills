@@ -13,7 +13,7 @@ export const PLUGIN_INDEX = {
     lead: [
       'This page covers both halves: 21 official packages (16 that make up a profile, plus 5 shared libraries the plugins build on), and 62 community plugins grouped by the problem they solve.',
       'A profile is a stack of patch layers. `dsh-base` is the first layer every profile gets; `dsh-web-app` and `dsh-headless` add a surface on top of it. Everything else is a seam: a swap-in point for one capability, like the filesystem, the shell, or the sandbox.',
-      'The community half is grouped by the job it does — finding plugins, cost, sessions, skills, search, appearance, agents, remote access, output, system, providers, data, network, memory, automation, git and editor. Each card links to a page with its own install command and conflict note.',
+      'The community half is grouped by the job it does — finding plugins, cost, sessions, skills, search, appearance, agents, remote access, output, system, automation, network, data, providers, git and editor, memory. Each card links to a page with its own install command and conflict note.',
     ],
     sections: [
       { h: 'Install or remove one', p: ['Plugin management forwards to pnpm inside the profile directory, so argument order and package specs behave the way pnpm behaves.'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },
@@ -38,7 +38,7 @@ export const PLUGIN_INDEX = {
     lead: [
       '这一页讲两半：21 个官方包（16 个组成 profile，5 个是被这些包反复引用的公共库），以及按用途分组的 62 个社区插件。',
       'profile 是一摞补丁层。`dsh-base` 是每个 profile 的第一层，`dsh-web-app` 和 `dsh-headless` 在它上面加一个界面。剩下的都是 seam：某一项能力的可替换点，比如文件系统、shell、沙箱。',
-      '社区那一半按它解决的问题分组：找插件、花费、会话、技能、搜索、外观、多 agent、远程访问、富输出、系统、服务商、数据、网络、记忆、定时任务、git 与编辑器。每张卡片点进去都有独立的安装命令和冲突说明。',
+      '社区那一半按它解决的问题分组：找插件、花费、会话、技能、搜索、外观、多 agent、远程访问、富输出、系统、定时任务、网络、数据、服务商、git 与编辑器、记忆。每张卡片点进去都有独立的安装命令和冲突说明。',
     ],
     sections: [
       { h: '装一个，或卸一个', p: ['插件管理会把参数转发给 profile 目录里的 pnpm，所以参数顺序和包名写法跟 pnpm 一样。'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },
