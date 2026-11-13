@@ -211,12 +211,17 @@ export const CONFLICTS_PAGE = {
 };
 
 // 按包名查它在冲突页里的那一对（只查 en 数据，zh 用同一索引）
-export function pairFor(pkg, lang) {
-  const groups = CONFLICTS_PAGE[lang]?.groups ?? [];
-  for (const g of groups) {
-    for (const it of g.items ?? []) {
-      if (it.a === pkg) return { other: it.b, keep: it.keep, why: it.why, whyZh: it.whyZh ?? it.why };
-      if (it.b === pkg) return { other: it.a, keep: it.keep, why: it.why, whyZh: it.whyZh ?? it.why };
+export function pairFor(pkg) {
+  const en = CONFLICTS_PAGE.en.groups;
+  const zh = CONFLICTS_PAGE.zh.groups;
+  for (let gi = 0; gi < en.length; gi += 1) {
+    const items = en[gi].items ?? [];
+    for (let ii = 0; ii < items.length; ii += 1) {
+      const it = items[ii];
+      if (it.a !== pkg && it.b !== pkg) continue;
+      const zhWhy = zh[gi]?.items?.[ii]?.why ?? it.why;
+      const other = it.a === pkg ? it.b : it.a;
+      return { other, keep: it.keep, why: it.why, whyZh: zhWhy };
     }
   }
   return null;

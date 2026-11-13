@@ -3,15 +3,15 @@
 
 export const PLUGIN_INDEX = {
   en: {
-    title: 'DeepSeek Harness plugins — what ships and how to install one',
-    desc: 'The dsh plugin model in one page: bundles vs seams, the install command, version checks, plus 62 community plugins grouped by what they do.',
+    title: 'DeepSeek Harness plugins — 21 official packages and libraries plus 62 community plugins',
+    desc: 'The dsh plugin model in one page: 16 profile packages, 5 shared libraries, bundles vs seams, the install command, and 62 community plugins grouped by what they do.',
     h1: 'DeepSeek Harness plugins',
     links: [
       { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '26 pairs that cannot share a profile, by what they fight over' },
     ],
     cite: 'A dsh plugin is an npm package added to a profile; `dsh plugin --profile <name> add <package>` installs it and pnpm owns the rest.',
     lead: [
-      'This page covers both halves: the 16 official packages that make up a profile, and 62 community plugins grouped by the problem they solve.',
+      'This page covers both halves: 21 official packages (16 that make up a profile, plus 5 shared libraries the plugins build on), and 62 community plugins grouped by the problem they solve.',
       'A profile is a stack of patch layers. `dsh-base` is the first layer every profile gets; `dsh-web-app` and `dsh-headless` add a surface on top of it. Everything else is a seam: a swap-in point for one capability, like the filesystem, the shell, or the sandbox.',
       'The community half is grouped by the job it does — finding plugins, cost, sessions, skills, search, appearance, agents, remote access, output, system, providers, data, network, memory, automation, git and editor. Each card links to a page with its own install command and conflict note.',
     ],
@@ -28,15 +28,15 @@ export const PLUGIN_INDEX = {
     related: ['guides/cli', 'guides/what-is-deepseek-harness', 'reference'],
   },
   zh: {
-    title: 'DeepSeek Harness 插件怎么装？16 个官方包 + 62 个社区插件',
-    desc: '一页讲清 dsh 插件：bundle 与 seam 的区别、安装命令、版本检查，外加 62 个社区插件按用途分组。',
+    title: 'DeepSeek Harness 插件怎么装？21 个官方包 + 62 个社区插件',
+    desc: '一页讲清 dsh 插件：16 个 profile 包、5 个公共库、bundle 与 seam 的区别、安装命令，外加 62 个社区插件按用途分组。',
     h1: 'DeepSeek Harness 插件',
     links: [
       { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '26 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },
     ],
     cite: 'dsh 的插件就是一个装进 profile 的 npm 包；`dsh plugin --profile <名字> add <包名>` 负责装，其余交给 pnpm。',
     lead: [
-      '这一页讲两半：组成 profile 的 16 个官方包，以及按用途分组的 62 个社区插件。',
+      '这一页讲两半：21 个官方包（16 个组成 profile，5 个是被这些包反复引用的公共库），以及按用途分组的 62 个社区插件。',
       'profile 是一摞补丁层。`dsh-base` 是每个 profile 的第一层，`dsh-web-app` 和 `dsh-headless` 在它上面加一个界面。剩下的都是 seam：某一项能力的可替换点，比如文件系统、shell、沙箱。',
       '社区那一半按它解决的问题分组：找插件、花费、会话、技能、搜索、外观、多 agent、远程访问、富输出、系统、服务商、数据、网络、记忆、定时任务、git 与编辑器。每张卡片点进去都有独立的安装命令和冲突说明。',
     ],
@@ -56,6 +56,31 @@ export const PLUGIN_INDEX = {
 
 // slug → 包名、版本、一行说明（中英）、类别
 export const PLUGINS = [
+  {
+    slug: 'dsh-home-paths', pkg: '@deepseek-ai/dsh-home-paths', version: '0.2.2-rc.3', kind: 'library',
+    en: 'Shared path helpers: every profile and plugin resolves the DSH home directory through this package, so the paths agree across web, desktop and CLI.',
+    zh: '公共路径工具：每个 profile 和插件都通过它解析 DSH 主目录，所以 web、桌面端与命令行看到的路径是同一套。',
+  },
+  {
+    slug: 'dsh-credentials', pkg: '@deepseek-ai/dsh-credentials', version: '0.2.2-rc.3', kind: 'library',
+    en: 'The credential seam: secrets live behind ctx.credentials, and plugins that need a provider key read it from here instead of keeping their own copy.',
+    zh: '凭据 seam：密钥放在 ctx.credentials 后面，需要服务商 key 的插件从这里读，而不是自己存一份。',
+  },
+  {
+    slug: 'dsh-client-ui-primitives', pkg: '@deepseek-ai/dsh-client-ui-primitives', version: '0.2.2-rc.3', kind: 'library',
+    en: 'React atoms shared by every web-UI plugin: controls, icons, markdown rendering and the KaTeX/Shiki pieces, so two plugins on one screen look like one product.',
+    zh: '所有网页界面插件共用的 React 原子组件：控件、图标、Markdown 渲染，以及 KaTeX 与 Shiki 那部分，两个插件同屏时不至于像两个产品。',
+  },
+  {
+    slug: 'dsh-schemastery', pkg: '@deepseek-ai/schemastery', version: '3.19.0', kind: 'library',
+    en: 'The schema validator behind plugin configuration: a plugin declares its options as a schema, the settings UI renders the form from it, and a bad value is rejected at boot.',
+    zh: '插件配置背后的 schema 校验器：插件把自己的选项声明成 schema，设置界面据此渲染表单，值不对时启动阶段就被拒绝。',
+  },
+  {
+    slug: 'dsh-cordis', pkg: '@deepseek-ai/cordis', version: '4.1.0', kind: 'library',
+    en: 'The plugin framework itself: it owns the context object (ctx), plugin lifecycle, dependency injection and the loader that reads the patch stack.',
+    zh: '插件框架本身：它拥有上下文对象 ctx、插件生命周期、依赖注入，以及读取补丁栈的 loader。',
+  },
   {
     slug: 'dsh-base', pkg: '@deepseek-ai/dsh-base', version: '0.0.1-rc.1', kind: 'bundle',
     en: 'The shared core as a profile bundle: every profile\'s first patch layer, inserting the base plugin rows over the empty profile root.',

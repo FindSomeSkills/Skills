@@ -39,7 +39,7 @@ A working tool matrix plus a verified plugin directory for DeepSeek Harness. Eve
 
 ## Plugins
 
-- **Plugin directory** (https://www.dshtoolbox.com/plugins/) — 78 package pages in total: 16 official `@deepseek-ai/dsh-*` packages that make up a profile, plus 62 community plugins grouped by what they solve (find and install, cost, sessions and archives, skills, search, appearance, agents, remote, output, system, providers, data, network, memory, automation, git and editor).
+- **Plugin directory** (https://www.dshtoolbox.com/plugins/) — 83 package pages in total: 21 official packages (16 that make up a profile, plus 5 shared libraries — `dsh-home-paths`, `dsh-credentials`, `dsh-client-ui-primitives`, `@deepseek-ai/schemastery`, `@deepseek-ai/cordis`) and 62 community plugins grouped by what they solve (find and install, cost, sessions and archives, skills, search, appearance, agents, remote, output, system, providers, data, network, memory, automation, git and editor).
 - **Conflict map** (https://www.dshtoolbox.com/plugins/conflicts/) — 26 plugin pairs that cannot share a profile, grouped by what they fight over: competing for one UI slot, competing for one config row, calling the same external endpoint, and doing the same job. Each pair names the symptom and which side to keep.
 - Each plugin page carries the version, last publish date, `engines.dsh` range, author and repository read from the npm registry, plus an "If two plugins fight" note naming the official package or community plugin it collides with.
 

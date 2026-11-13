@@ -1,23 +1,51 @@
-// 插件页的渲染后处理：冲突说明、FAQ、两段增量正文、页尾链接块。
+// 插件页渲染后处理：冲突说明、FAQ、增量正文、页尾链接块、Title 后缀。
 import { faqFor, sectionsFor } from './community-extras.mjs';
 
 const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
 
-// 只有这 16 个官方包有详情页，其余 peer 不生成链接
+// 有详情页的官方包：16 个 profile 包 + 5 个被反复引用的支撑包
+const OFFICIAL_HREF = {
+  cordis: '/plugins/dsh-cordis/',
+  schemastery: '/plugins/dsh-schemastery/',
+};
 const OFFICIAL_SLUGS = new Set([
   'dsh-base', 'dsh-web-app', 'dsh-headless', 'dsh-session', 'dsh-compaction', 'dsh-tools',
   'dsh-skill', 'dsh-fs', 'dsh-shell', 'dsh-sandbox', 'dsh-sandbox-local', 'dsh-acp',
   'dsh-jobs', 'dsh-web', 'dsh-workspace', 'dsh-otel',
+  'dsh-home-paths', 'dsh-credentials', 'dsh-client-ui-primitives', 'dsh-schemastery', 'dsh-cordis',
 ]);
 
-// 页尾链接块需要的数据：目录页、冲突页、peer 的官方包
+function peerHref(pkg) {
+  const short = pkg.replace('@deepseek-ai/', '');
+  if (OFFICIAL_HREF[short]) return OFFICIAL_HREF[short];
+  return OFFICIAL_SLUGS.has(short) ? '/plugins/' + short + '/' : '';
+}
+
+// Title 后缀：用这个包自己的用途短语，不再共用分类名
+const TAIL_STOP = new Set([
+  'the', 'a', 'an', 'to', 'of', 'and', 'with', 'for', 'that', 'it', 'in', 'on', 'is', 'are', 'by',
+  'from', 'as', 'they', 'them', 'their', 'this', 'these', 'those', 'be', 'can', 'will', 'which',
+  'when', 'while', 'at', 'into', 'over', 'under', 'than', 'then', 'so', 'but', 'or', 'not',
+]);
+
+function titleTail(page) {
+  const src = page.solvesEn ?? page.en?.cite ?? '';
+  let cut = src.split(/[.;:]/)[0].trim();
+  if (cut.length > 62) cut = cut.slice(0, 62);
+  const words = cut.split(/\s+/);
+  while (words.length > 3 && TAIL_STOP.has(words[words.length - 1].toLowerCase().replace(/[^a-z]/g, ''))) {
+    words.pop();
+  }
+  cut = words.join(' ');
+  return cut.charAt(0).toLowerCase() + cut.slice(1);
+}
+
 function footerFor(page, pair) {
-  const peerNames = page.peerNames ?? [];
   return {
     allHref: '/plugins/',
     allZhHref: '/zh/plugins/',
-    allLabel: 'All 78 plugins',
-    allZhLabel: '全部 78 个插件',
+    allLabel: 'All 83 plugin pages',
+    allZhLabel: '全部 83 个插件页',
     conflict: pair
       ? {
           href: '/plugins/conflicts/',
@@ -26,10 +54,7 @@ function footerFor(page, pair) {
           zhLabel: `和 ${pair.other} 冲突——这一对写在冲突页`,
         }
       : null,
-    peers: peerNames.map((p) => {
-      const short = p.replace('@deepseek-ai/', '');
-      return { pkg: p, href: OFFICIAL_SLUGS.has(short) ? '/plugins/' + short + '/' : '' };
-    }),
+    peers: (page.peerNames ?? []).map((p) => ({ pkg: p, href: peerHref(p) })),
   };
 }
 
@@ -58,10 +83,7 @@ export function renderCommunityPage(page, note, pair, slug) {
       if (isCompat && !page.compat) return { ...s, p: [pkgUnique[lang].noRange] };
       return s;
     });
-    const added = extras.map((x) => ({
-      h: lang === 'en' ? x.h : x.zhH,
-      p: lang === 'en' ? x.p : x.zhP,
-    }));
+    const added = extras.map((x) => ({ h: lang === 'en' ? x.h : x.zhH, p: lang === 'en' ? x.p : x.zhP }));
     out[lang] = {
       ...out[lang],
       sections: [...sections, ...added],
@@ -69,5 +91,7 @@ export function renderCommunityPage(page, note, pair, slug) {
       footer: footerFor(page, pair),
     };
   }
+
+  out.en.title = `${page.pkg} — ${titleTail(page)}`;
   return out;
 }

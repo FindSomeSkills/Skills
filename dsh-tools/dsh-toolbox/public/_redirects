@@ -59,3 +59,6 @@
 /plugins/dsh-atan-daily/ /plugins/artaniszhou/daily-reports/ 301
 /plugins/dsh-ue-asset/ /plugins/Sumcam-L/ue-asset/ 301
 /plugins/dsh-teamflow/ /plugins/xirang-ai/teamflow/ 301
+
+/plugins/cordis/ /plugins/dsh-cordis/ 301
+/plugins/schemastery/ /plugins/dsh-schemastery/ 301

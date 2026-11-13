@@ -6,6 +6,7 @@ const KIND_LABEL = {
   bundle: { en: 'profile bundle', zh: 'profile bundle' },
   seam: { en: 'capability seam', zh: '能力 seam' },
   backend: { en: 'sandbox backend', zh: '沙箱后端' },
+  library: { en: 'shared library', zh: '公共库' },
   service: { en: 'service', zh: '服务' },
 };
 
