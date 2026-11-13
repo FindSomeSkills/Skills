@@ -53,13 +53,25 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
 {plugins.length > 0 && (
   <section>
     <h2>{lang === 'zh' ? '官方包' : 'Official packages'}</h2>
-    <ul class="link-list">
-      {plugins.map((pl) => (
-        <li>
-          <a href={pluginBase + pl.slug + '/'}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh : pl.en} <span class="pkg-version">{pl.version}</span>
-        </li>
-      ))}
-    </ul>
+    {[
+      { kind: 'library', en: 'Shared libraries', zh: '共享库' },
+      { kind: 'other', en: 'Profile packages', zh: 'Profile 包' },
+    ].map((group) => {
+      const list = plugins.filter((pl) => (group.kind === 'library' ? pl.kind === 'library' : pl.kind !== 'library'));
+      if (list.length === 0) return null;
+      return (
+        <div>
+          <h3>{lang === 'zh' ? group.zh : group.en} ({list.length})</h3>
+          <ul class="link-list">
+            {list.map((pl) => (
+              <li>
+                <a href={pluginBase + pl.slug + '/'}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh : pl.en} <span class="pkg-version">{pl.version}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
   </section>
 )}
 
@@ -71,17 +83,19 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
         <table>
           <thead>
             <tr>
-              <th>{lang === 'zh' ? '两个插件' : 'The pair'}</th>
+              <th>{lang === 'zh' ? '包 A' : 'Package A'}</th>
+              <th>{lang === 'zh' ? '包 B' : 'Package B'}</th>
               <th>{lang === 'zh' ? '一起装会看到什么' : 'What you see'}</th>
               <th>{lang === 'zh' ? '留哪个' : 'Keep'}</th>
-              <th>{lang === 'zh' ? '为什么' : 'Why'}</th>
+              <th>{lang === 'zh' ? '为什么留它' : 'Why keep it'}</th>
               <th>{lang === 'zh' ? '为什么不能共存' : 'Why they cannot coexist'}</th>
             </tr>
           </thead>
           <tbody>
             {g.items.map((it) => (
               <tr>
-                <td>{it.aHref ? <a href={it.aHref}><code>{it.a}</code></a> : <code>{it.a}</code>}<br />{it.bHref ? <a href={it.bHref}><code>{it.b}</code></a> : <code>{it.b}</code>}</td>
+                <td>{it.aHref ? <a href={it.aHref}><code>{it.a}</code></a> : <code>{it.a}</code>}</td>
+                <td>{it.bHref ? <a href={it.bHref}><code>{it.b}</code></a> : <code>{it.b}</code>}</td>
                 <td set:html={inline(it.symptom)} />
                 <td><code>{it.keep}</code></td>
                 <td set:html={inline(it.why)} />
@@ -126,7 +140,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
         <li>
           {lang === 'zh' ? '它 peer 的官方包：' : 'Official packages it peers: '}
           {t.footer.peers.map((p, i) => (
-            <span>{i > 0 && ', '}{p.href ? <a href={p.href}>{p.pkg}</a> : <code>{p.pkg}</code>}</span>
+            <span>{i > 0 && ', '}{p.href ? <a href={lang === 'zh' ? (p.zhHref || p.href) : p.href}>{p.pkg}</a> : <code>{p.pkg}</code>}</span>
           ))}
         </li>
       )}

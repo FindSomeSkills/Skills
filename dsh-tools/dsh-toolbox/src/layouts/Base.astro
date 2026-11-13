@@ -130,6 +130,12 @@ const graph = [
     <footer class="site">
       <div class="wrap">
         <p class="footer-line">{copy.footer.note}</p>
+        <nav class="footer-nav" aria-label={lang === 'zh' ? '站内导航' : 'Site links'}>
+          <a href={`${lang === 'zh' ? '/zh' : ''}/plugins/`}>{lang === 'zh' ? '插件目录' : 'Plugin directory'}</a>
+          <a href={lang === 'zh' ? '/zh/plugins/conflicts/' : '/plugins/conflicts/'}>{lang === 'zh' ? '冲突页' : 'Which plugins conflict'}</a>
+          <a href={lang === 'zh' ? '/zh/guides/errors/' : '/guides/errors/'}>{lang === 'zh' ? '报错对照' : 'Error reference'}</a>
+          <a href={lang === 'zh' ? '/zh/reference/' : '/reference/'}>{lang === 'zh' ? '存储参考' : 'Storage reference'}</a>
+        </nav>
         <p class="footer-updated">{lang === 'zh' ? '最后更新' : 'Last updated'}: {updatedFor(baseSlug)}</p>
       </div>
     </footer>

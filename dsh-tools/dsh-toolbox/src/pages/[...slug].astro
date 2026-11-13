@@ -114,22 +114,74 @@ const breadcrumb = {
   ],
 };
 
-const software = {
-  '@type': page === 'syncHub' ? 'SoftwareApplication' : 'WebApplication',
-  name: page === 'syncHub' ? 'DSH Sync Hub' : t.h1,
-  url: `${base}/${slug ? `${slug}/` : ''}`,
-  applicationCategory: 'DeveloperApplication',
-  dateModified: updatedFor(baseSlug),
-  datePublished: updatedFor(baseSlug),
-  operatingSystem: 'Windows, macOS, Linux, Android',
-  description: t.desc,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-  isAccessibleForFree: true,
-  inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
-  ...(page === 'syncHub'
-    ? { softwareVersion: '0.1.0', license: 'https://opensource.org/licenses/MIT' }
-    : { browserRequirements: 'Requires JavaScript. Runs entirely client-side.' }),
-};
+// 页面类型分流：工具页 = WebApplication；插件页/库页 = SoftwareApplication；
+// 指南/对比/报错/冲突 = TechArticle；插件目录 = CollectionPage；首页 = 不加实体节点（Base 里有 WebSite）。
+const isToolPage = baseSlug === 'sync-hub' || baseSlug.startsWith('tools/');
+const isPluginDetail = baseSlug.startsWith('plugins/') && baseSlug !== 'plugins' && baseSlug !== 'plugins/conflicts';
+const isPluginsIndex = baseSlug === 'plugins';
+const isArticlePage = baseSlug.startsWith('guides/') || baseSlug.startsWith('compare/') || baseSlug === 'plugins/conflicts' || baseSlug === 'reference';
+const pageUrl = `${base}/${slug ? `${slug}/` : ''}`;
+
+const software = isToolPage
+  ? {
+      '@type': 'WebApplication',
+      name: page === 'syncHub' ? 'DSH Sync Hub' : t.h1,
+      url: pageUrl,
+      applicationCategory: 'DeveloperApplication',
+      dateModified: updatedFor(baseSlug),
+      datePublished: updatedFor(baseSlug),
+      operatingSystem: 'Windows, macOS, Linux, Android',
+      description: t.desc,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      isAccessibleForFree: true,
+      inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+      ...(page === 'syncHub'
+        ? { softwareVersion: '0.1.0', license: 'https://opensource.org/licenses/MIT' }
+        : { browserRequirements: 'Requires JavaScript. Runs entirely client-side.' }),
+    }
+  : isPluginDetail
+    ? {
+        '@type': 'SoftwareApplication',
+        name: t.h1,
+        url: pageUrl,
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Windows, macOS, Linux',
+        description: t.desc,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        isAccessibleForFree: true,
+        inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+        dateModified: updatedFor(baseSlug),
+        datePublished: updatedFor(baseSlug),
+      }
+    : null;
+
+const collection = isPluginsIndex
+  ? {
+      '@type': 'CollectionPage',
+      name: t.h1,
+      url: pageUrl,
+      description: t.desc,
+      inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: PLUGINS.length + COMMUNITY.length,
+        itemListElement: [
+          ...PLUGINS.map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: p.pkg,
+            url: `${base}${lang === 'zh' ? '/zh' : ''}/plugins/${p.slug}/`,
+          })),
+          ...COMMUNITY.map((c, i) => ({
+            '@type': 'ListItem',
+            position: PLUGINS.length + i + 1,
+            name: c.pkg,
+            url: `${base}${lang === 'zh' ? '/zh' : ''}/plugins/${c.owner}/${c.slug}/`,
+          })),
+        ],
+      },
+    }
+  : null;
 
 const howTo = page === 'syncHub' && Array.isArray(t.steps)
   ? {
@@ -148,7 +200,7 @@ const howTo = page === 'syncHub' && Array.isArray(t.steps)
     }
   : null;
 
-const techArticle = page === 'reference'
+const techArticle = isArticlePage
   ? {
       '@type': 'TechArticle',
       headline: t.h1,
@@ -159,11 +211,11 @@ const techArticle = page === 'reference'
       author: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
       publisher: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
       about: { '@type': 'SoftwareApplication', name: 'DeepSeek Harness' },
-      mainEntityOfPage: `${base}/${slug}/`,
+      mainEntityOfPage: pageUrl,
     }
   : null;
 
-const jsonLd = [software, faqLd, breadcrumb, howTo, techArticle].filter(Boolean);
+const jsonLd = [software, collection, faqLd, breadcrumb, howTo, techArticle].filter(Boolean);
 
 // page → 内容 id，用于内链与 Related
 const CONTENT_ID = {

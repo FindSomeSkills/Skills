@@ -50,8 +50,8 @@ export function faqFor(page, pair, pkg) {
           ? `\`${pkg}\` is the one to keep here: ${pair.why.replace(/\.\s+/g, ' — ')}`
           : `For \`${pkg}\` the recommendation is \`${pair.keep}\`: ${pair.why.replace(/\.\s+/g, ' — ')}`,
         zh: keepsSelf
-          ? `这一对里该留 \`${pkg}\`：${pair.whyZh.replace(/。/g, '；')}`
-          : `就 \`${pkg}\` 而言，建议留 \`${pair.keep}\`：${pair.whyZh.replace(/。/g, '；')}`,
+          ? `这一对里该留 \`${pkg}\`：${pair.whyZh.replace(/。/g, '；').replace(/；$/, '')}。`
+          : `就 \`${pkg}\` 而言，建议留 \`${pair.keep}\`：${pair.whyZh.replace(/。/g, '；').replace(/；$/, '')}。`,
       }
     : {
         en: `Its manifest names no community counterpart, so the check is manual: after \`dsh plugin add ${pkg}\`, run \`dsh --profile web --dump-config\` and look for two rows claiming the same slot.`,

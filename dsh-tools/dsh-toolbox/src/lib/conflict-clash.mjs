@@ -6,8 +6,8 @@ export const CLASH = {
     zh: '两个都写主题那一行，而那一行只存一个值——没有可合并的分插件主题层。',
   },
   'dsh-pet|dsh-plugin-wallpaper-engine': {
-    en: 'They mount into the same overlay slot, and the slot draws one layer per position; the second mount lands on top instead of beside.',
-    zh: '它们挂进同一个浮层位，而那个位每个位置只画一层；第二个挂上去是叠在上面，不是并排。',
+    en: 'Both mount into the same overlay slot of dsh-client-ui-slots, and that slot renders one component per slot id. Neither plugin declares its own id, so the second mount replaces the first.',
+    zh: '两个都挂进 dsh-client-ui-slots 的同一个 overlay slot，而一个 slot id 只渲染一个组件。两者都没声明自己的 id，所以第二次挂载替换第一次。',
   },
   '@chengze/dsh-skill-manager|dsh-skill-browser': {
     en: 'Both claim the skills panel entry in the sidebar and both read the skill directory, so the list you toggle is not necessarily the list the agent loads.',
@@ -18,8 +18,8 @@ export const CLASH = {
     zh: '一个插件的全部界面就是一条侧栏入口，另一个把它折进折叠组，于是界面还在却点不到。',
   },
   'dsh-genui|deep-view': {
-    en: 'Both register a renderer for the same block type in answers, and the block format has no discriminator that would let the two split the work.',
-    zh: '两个都在回答里注册同一种块的渲染器，而块格式里没有能让两者分工的判别字段。',
+    en: 'Both register a renderer for the same answer-block content type. The block has no discriminator field, and the renderer registry keeps one handler per type, so the later registration replaces the earlier one.',
+    zh: '两个都为同一种回答块内容类型注册渲染器。块里没有判别字段，而渲染器注册表每种类型只留一个处理器，所以后注册的替换先注册的。',
   },
   '@yugoo-design/dsh-design-panel|dsh-genui': {
     en: 'Design panels and generated blocks share the block slot; whichever renderer registers last takes the whole slot, not just its own blocks.',
@@ -78,8 +78,8 @@ export const CLASH = {
     zh: '闸门把白名单外的工具全部延后，数据库工具虽然注册了，不进白名单就不会被声明给模型。',
   },
   '@nanmicoder/dsh-agent-teams|dsh-agent-compare': {
-    en: 'Both orchestrate agents from the chat surface and both patch that row — the later layer replaces the earlier one\'s controls entirely.',
-    zh: '两个都从对话界面编排 agent，也都在改那一行——后加载的层把前一个的控件整行换掉。',
+    en: 'Both patch the composer row in dsh-client-ui-chat. A patch replaces the whole row config, and that row carries a single control set, so the later layer takes the controls away from the earlier one.',
+    zh: '两个都改 dsh-client-ui-chat 里的 composer 行。补丁替换整行 config，而这一行只挂一套控件，所以后加载的层把控件从先加载的手里拿走。',
   },
   '@nanmicoder/dsh-agent-teams|@xirang-ai/dsh-teamflow': {
     en: 'Two role systems describe the same requirement-to-defect pipeline, so the agent gets two conflicting sets of roles for one task.',
@@ -94,12 +94,12 @@ export const CLASH = {
     zh: '两个都在每轮前把上下文块注入同一个位置，谁都没标自己比对方更权威。',
   },
   'dsh-cost-meter|dsh-whale-widget': {
-    en: 'Both price the same usage through the same credentials and both draw into the header area, so the numbers compete for one place and one meaning.',
-    zh: '两个用同一套凭据给同一份用量计价，又都画在头部区域，于是两组数字抢一个位置、一个含义。',
+    en: 'Both target the conversation header slot in dsh-client-ui-slots, which mounts one component per slot id. Neither declares a distinct id, so the two readouts cannot both stay mounted.',
+    zh: '两个都指向 dsh-client-ui-slots 的会话头部 slot，而一个 slot id 只挂一个组件。两者都没声明独立 id，所以两组读数不可能同时挂着。',
   },
   'dsh-custom-theme|dsh-exv-flat-corners': {
-    en: 'Two stylesheets set the same corner-radius variables; CSS resolves by load order, so intent does not decide which wins.',
-    zh: '两份样式表设同一批圆角变量；CSS 按加载顺序解决，谁赢不由意图决定。',
+    en: 'Both declare the same --radius-* custom properties in the web client scope. A custom property holds one value per element, and neither plugin namespaces its selectors, so the later declaration wins outright.',
+    zh: '两个都在网页客户端作用域里声明同一批 --radius-* 自定义属性。自定义属性每个元素只存一个值，而两者都没给选择器加命名空间，后声明的直接覆盖。',
   },
   '@dickpy/dsh-imagegen|dsh-meme': {
     en: 'Both add an image path next to the composer, and the composer area lays out one action row — two entries push a third control out.',

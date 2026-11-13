@@ -328,6 +328,9 @@ textarea { width: 100%; font-family: var(--mono); font-size: 13px; line-height: 
 
 .explain { font-size: 14px; color: var(--fg); margin: 16px 0 0; }
 footer.site .footer-line { font-size: 14px; color: var(--muted); margin: 0; }
+footer.site .footer-nav { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 12px 0 0; font-size: 14px; }
+footer.site .footer-nav a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+footer.site .footer-nav a:hover { color: var(--ink); border-bottom-color: currentColor; }
 
 [data-panel="cli"] pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 [data-panel="cli"] pre code { font-size: 12px; }

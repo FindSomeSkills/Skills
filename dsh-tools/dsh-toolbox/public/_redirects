@@ -62,3 +62,5 @@
 
 /plugins/cordis/ /plugins/dsh-cordis/ 301
 /plugins/schemastery/ /plugins/dsh-schemastery/ 301
+/zh/plugins/cordis/ /zh/plugins/dsh-cordis/ 301
+/zh/plugins/schemastery/ /zh/plugins/dsh-schemastery/ 301
