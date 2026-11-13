@@ -82,7 +82,22 @@ const howTo = page === 'syncHub' && Array.isArray(t.steps)
     }
   : null;
 
-const jsonLd = [software, faqLd, breadcrumb, howTo].filter(Boolean);
+const techArticle = page === 'reference'
+  ? {
+      '@type': 'TechArticle',
+      headline: t.h1,
+      description: t.desc,
+      datePublished: '2026-11-13',
+      dateModified: new Date().toISOString().slice(0, 10),
+      inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
+      author: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
+      publisher: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
+      about: { '@type': 'SoftwareApplication', name: 'DeepSeek Harness' },
+      mainEntityOfPage: `${base}/${slug}/`,
+    }
+  : null;
+
+const jsonLd = [software, faqLd, breadcrumb, howTo, techArticle].filter(Boolean);
 
 // page → 内容 id，用于内链与 Related
 const CONTENT_ID = {
