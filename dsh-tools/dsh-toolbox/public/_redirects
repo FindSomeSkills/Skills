@@ -1,0 +1,2 @@
+﻿# 百度的文件验证要求 .html 原样返回，Cloudflare Pages 默认会 308 去掉扩展名
+/baidu_verify_codeva-he5mAz3Npz.html /baidu_verify_codeva-he5mAz3Npz 200
