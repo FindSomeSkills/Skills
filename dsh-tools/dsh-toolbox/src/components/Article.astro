@@ -140,8 +140,15 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
         <li>
           {lang === 'zh' ? '它 peer 的官方包：' : 'Official packages it peers: '}
           {t.footer.peers.map((p, i) => (
-            <span>{i > 0 && ', '}{p.href ? <a href={lang === 'zh' ? (p.zhHref || p.href) : p.href}>{p.pkg}</a> : <code>{p.pkg}</code>}</span>
+            <span>{i > 0 && ', '}<a href={lang === 'zh' ? (p.zhHref || p.href) : p.href}>{p.pkg}</a></span>
           ))}
+        </li>
+      )}
+      {t.footer.peersUnlinked?.length > 0 && (
+        <li>
+          {lang === 'zh'
+            ? `另外 peer 了 ${t.footer.peersUnlinked.join('、')}（本站目录里没有这两者的页面，故不给链接）`
+            : `It also peers ${t.footer.peersUnlinked.join(', ')} — neither package has a page in this directory, so they are not linked.`}
         </li>
       )}
     </ul>

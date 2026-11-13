@@ -99,8 +99,12 @@ export function sectionsFor(page, peerNames, group, pkg) {
     ? `\`${pkg}\` 落盘的东西走 \`${storagePeer}\`、存在 \`$DSH_HOME\` 下，它自己的依赖行在 \`$DSH_HOME/profiles/<名字>/package.json\` 里。`
     : `\`${pkg}\` 的清单里没有存储相关的 peer，所以能指认的文件只有 \`$DSH_HOME/profiles/<名字>/package.json\` 里那一行依赖；包说明里没写别的。`;
 
-  const removeEn = `Removing \`${pkg}\` is the mirror command, \`dsh plugin --profile web remove ${pkg}\`; the surface goes with it, and anything it stored under \`$DSH_HOME\` stays until you delete it.`;
-  const removeZh = `卸掉 \`${pkg}\` 用对称的那条命令 \`dsh plugin --profile web remove ${pkg}\`；它加的那块界面跟着消失，存在 \`$DSH_HOME\` 下的东西留着，得自己删。`;
+  const removeEn = storagePeer
+    ? `Removing \`${pkg}\` is the mirror command, \`dsh plugin --profile web remove ${pkg}\`; the surface goes with it, and whatever it stored under \`$DSH_HOME\` stays until you delete it.`
+    : `Removing \`${pkg}\` is the mirror command, \`dsh plugin --profile web remove ${pkg}\`. Its manifest declares no storage peer, so it writes nothing under \`$DSH_HOME\`; removing it leaves no files behind.`;
+  const removeZh = storagePeer
+    ? `卸掉 \`${pkg}\` 用对称的那条命令 \`dsh plugin --profile web remove ${pkg}\`；它加的那块界面跟着消失，存在 \`$DSH_HOME\` 下的东西留着，得自己删。`
+    : `卸掉 \`${pkg}\` 用对称的那条命令 \`dsh plugin --profile web remove ${pkg}\`。它的清单里没有存储相关 peer，不会往 \`$DSH_HOME\` 写东西，卸完没有残留。`;
 
   return [
     { h: 'After install', zhH: '装完会看到什么', p: [afterEn], zhP: [afterZh] },

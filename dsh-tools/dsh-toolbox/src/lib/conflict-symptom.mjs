@@ -1,6 +1,23 @@
 // 8 行 What you see 的症状改写：只描述屏幕上看到的现象，不写机制。
 // 键按 Package A|Package B 原样（与 content-conflicts-page.mjs 的 P() 顺序一致），渲染时覆盖。
 export const SYMPTOM_OVERRIDE = {
+  'dsh-free-search|@liustack/modsearch': {
+    en: 'Ask the same question twice and the answers come from different search engines, with no way for you to say which one.',
+    zh: '同一个问题问两次，答案来自不同的搜索引擎，你也没法指定用哪个。',
+  },
+  '@nanmicoder/dsh-agent-teams|dsh-agent-compare': {
+    en: 'Install the second one and the button the first plugin added is simply gone.',
+    zh: '装完第二个，第一个插件加的那个按钮就不见了。',
+  },
+  'dsh-octop-memory|dsh-mnemon': {
+    en: 'The agent brings up a memory you have no recollection of, or two plugins\' memories contradict each other in the same answer.',
+    zh: 'agent 会引用一条你完全没印象的旧记忆，或者两个插件的记忆在同一条回答里互相打架。',
+  },
+  'dsh-skill-browser|dsh-toomuch-plugins': {
+    en: 'After you install it the plugin\'s panel looks like it never arrived — the entry is there but clicking it goes nowhere.',
+    zh: '装完之后那个插件的面板像没装，入口点不进去。',
+  },
+
   'dshmarket|universal-plugin-hub': {
     en: 'Install a plugin from one of the two, then look at the list: the entry you just added is gone, or the count is one short.',
     zh: '从其中一个装完插件，回到列表一看：刚装的那个不见了，或者总数少一个。',

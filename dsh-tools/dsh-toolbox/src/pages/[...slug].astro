@@ -24,6 +24,7 @@ import { CONFLICTS_PAGE } from '../lib/content-conflicts-page.mjs';
 import { COMMUNITY } from '../lib/content-community.mjs';
 import { CLASH } from '../lib/conflict-clash.mjs';
 import { LIBRARY } from '../lib/library-pages.mjs';
+import PKG_CREATED from '../../docs/pkg-created.json';
 import { SYMPTOM_OVERRIDE } from '../lib/conflict-symptom.mjs';
 import { PURGE_SECTIONS } from '../lib/content-purge-sections.mjs';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
@@ -153,7 +154,7 @@ const software = isToolPage
         description: t.desc,
         inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
         dateModified: updatedFor(baseSlug),
-        datePublished: updatedFor(baseSlug),
+        ...(PKG_CREATED[t.h1] ? { datePublished: PKG_CREATED[t.h1] } : {}),
       }
     : isPluginDetail
     ? {
@@ -167,7 +168,7 @@ const software = isToolPage
         isAccessibleForFree: true,
         inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
         dateModified: updatedFor(baseSlug),
-        datePublished: updatedFor(baseSlug),
+        ...(PKG_CREATED[t.h1] ? { datePublished: PKG_CREATED[t.h1] } : {}),
       }
     : null;
 

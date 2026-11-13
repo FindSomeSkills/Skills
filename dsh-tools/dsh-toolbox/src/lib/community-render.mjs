@@ -54,7 +54,8 @@ function footerFor(page, pair) {
           zhLabel: `和 ${pair.other} 冲突——这一对写在冲突页`,
         }
       : null,
-    peers: (page.peerNames ?? []).map((p) => {
+    peersUnlinked: (page.peerNames ?? []).filter((p) => !peerHref(p)),
+    peers: (page.peerNames ?? []).filter((p) => peerHref(p)).map((p) => {
       const href = peerHref(p);
       return { pkg: p, href, zhHref: href ? '/zh' + href : '' };
     }),

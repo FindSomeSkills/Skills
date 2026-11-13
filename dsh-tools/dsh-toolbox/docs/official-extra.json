@@ -1,0 +1,74 @@
+[
+  {
+    "name": "@deepseek-ai/dsh-home-paths",
+    "version": "0.0.1-rc.3",
+    "description": "Shared filesystem path helpers for the DeepSeek Harness",
+    "engines": {},
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "updated": "2026-08-12",
+    "deps": []
+  },
+  {
+    "name": "@deepseek-ai/dsh-credentials",
+    "version": "0.0.1-rc.1",
+    "description": "Abstract credential seam (ctx.credentials): settings carry references to secrets, providers own the values",
+    "engines": {},
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "updated": "2026-08-10",
+    "deps": []
+  },
+  {
+    "name": "@deepseek-ai/dsh-client-ui-primitives",
+    "version": "0.0.1-rc.1",
+    "description": "Pure React atoms for the dsh web UI: controls, icons, markdown, and JSON inspectors (zero cordis)",
+    "engines": {},
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "updated": "2026-08-10",
+    "deps": [
+      "clsx",
+      "anser",
+      "katex",
+      "react",
+      "shiki",
+      "react-dom",
+      "@types/mdast",
+      "@shikijs/langs",
+      "mdast-util-gfm",
+      "mdast-util-math",
+      "micromark-util-types",
+      "micromark-util-symbol",
+      "micromark-extension-gfm",
+      "micromark-factory-space",
+      "mdast-util-from-markdown",
+      "micromark-extension-math",
+      "micromark-util-character",
+      "micromark-core-commonmark",
+      "micromark-util-sanitize-uri",
+      "micromark-util-classify-character"
+    ]
+  },
+  {
+    "name": "@deepseek-ai/schemastery",
+    "version": "3.19.0",
+    "description": "Type driven schema validator",
+    "engines": {},
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "updated": "2026-11-04",
+    "deps": [
+      "@deepseek-ai/cosmokit",
+      "@standard-schema/spec"
+    ]
+  },
+  {
+    "name": "@deepseek-ai/cordis",
+    "version": "4.1.0",
+    "description": "Meta-Framework for Modern JavaScript Applications",
+    "engines": {},
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "updated": "2026-11-04",
+    "deps": [
+      "@deepseek-ai/cosmokit",
+      "@standard-schema/spec"
+    ]
+  }
+]
