@@ -4,7 +4,7 @@ export const PURGE = {
     title: 'Delete DeepSeek Harness session files safely — see what takes the space first',
     desc: 'Point the tool at your sessions folder, see which files are large, and get the backup and delete commands. Runs in the browser; no upload, no account.',
     h1: 'Delete DeepSeek Harness sessions',
-    cite: 'A DSH session sits three folders deep: `$DSH_HOME/sessions/--<project>--/<session-id>/session.v4.jsonl.zstd`. The project folder is a readable key built from the working directory — spaces become `~0020`, so `C:\\Knowledge base` turns into `--C-Knowledge~0020base--` — and a session with no working directory lands under `_no-cwd/`. Deleting an old one is still a file operation, but its entry in `workspace.json` stays until the index is rebuilt.',
+    cite: 'A DSH session sits three folders deep: `$DSH_HOME/sessions/--<project>--/<session-id>/session.v4.jsonl.zstd`. The project folder is a readable key built from the working directory — spaces become `~0020`, so `C:\\Users\\you\\my project` turns into `--C-Users-you-my~0020project--` — and a session with no working directory lands under `_no-cwd/`. Deleting an old one is still a file operation, but its entry in `workspace.json` stays until the index is rebuilt.',
     lead: [
       'Pick the `sessions` folder inside your `$DSH_HOME` (by default `~/.dsh`). The tool reads file names, sizes and dates locally, then gives you a backup command and a delete command.',
       'Nothing is uploaded. The browser cannot delete anything by itself — the commands are what you run.',
@@ -21,6 +21,8 @@ export const PURGE = {
     empty: 'No `.zstd` or session `.jsonl` files in that folder. Pick the folder that contains them, not the profile directory.',
     planH: 'Backup, then delete',
     planP: 'Copy the whole sessions folder first. It is the only copy of the conversation payloads.',
+    backupCmd: '# macOS / Linux\ncp -a ~/.dsh/sessions ~/dsh-backup/\n\n# Windows PowerShell\nCopy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
+    deleteShape: '# macOS / Linux — replace <project> and <session-id> with the values from the table\nrm -rf ~/.dsh/sessions/--<project>--/<session-id>/\n\n# Windows PowerShell\nRemove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\--<project>--\\<session-id>"',
     deleteP: 'Only after the copy finishes. These commands delete the files you selected, nothing else.',
     afterP: 'Deleting files leaves their entries in `workspace.json`. Run Session Index Doctor afterwards to see the gap, or rebuild the index from the profile.',
     archiveH: 'Archive or delete',
@@ -33,6 +35,18 @@ export const PURGE = {
     faqH: 'Common questions',
     faq: [
       {
+        q: 'Does archiving free disk space?',
+        a: 'No. Archiving only hides a session from the views; the log file and its size stay exactly as they were. The only way to get the space back is deleting files.',
+      },
+      {
+        q: 'After I delete a session file, is it still in the list?',
+        a: 'Yes. Deleting the file does not remove its entry from `workspace.json`, so the list keeps claiming a session whose payload is gone until the index is rebuilt.',
+      },
+      {
+        q: 'Can I delete a session that is running right now?',
+        a: 'No. Close the session in the UI first, confirm the process is gone, then delete the file.',
+      },
+      {
         q: 'Is this the dsh-purge plugin?',
         a: 'No. dsh-purge is a plugin for red-teaming your own setup: it changes prompts and approval policy. This page is a session-file cleanup tool that reads `$DSH_HOME/sessions` in your browser and uploads nothing.',
       },
@@ -43,17 +57,18 @@ export const PURGE = {
       { label: 'DSH Sync Hub', href: '/sync-hub/', note: 'move sessions to another machine instead of deleting them' },
       { label: '@michengai/dsh-archive-manager', href: '/plugins/MichengAI/archive-manager/', note: 'archive a session out of the active list without touching the payload' },
     ],
-    nojs: 'This tool needs JavaScript to read the folder you pick. Without it, use `ls -S ~/.dsh/sessions/*/*.zstd` to sort by size.',
+    nojs: 'This tool needs JavaScript to read the folder you pick. Without it, use `ls -S ~/.dsh/sessions/*/*/*.zstd` to sort by size.',
     js: {
-      noFiles: 'No `.zstd` or session `.jsonl` files in that folder. Pick the folder that contains them.',
+      noFiles: 'No .zstd or session .jsonl files in that folder. Pick the level that actually holds them, not the profile directory.',
       picking: 'Reading folder…',
+      delComment: ':: Windows PowerShell (delete one by one; paths are relative to sessions/)',
     },
   },
   zh: {
     title: 'dsh 会话文件太大怎么清理？先备份再看能省多少',
     desc: '选一下 sessions 目录，按大小列出会话文件，算出能释放多少空间，再给备份和删除命令。在浏览器里跑，不上传，不要账号。',
     h1: '删除 / 清理 DeepSeek Harness 会话',
-    cite: 'DSH 的一个会话落在三层目录里：`$DSH_HOME/sessions/--<项目>--/<session-id>/session.v4.jsonl.zstd`。项目目录名是从工作目录转写来的可读名——空格变成 `~0020`，所以 `C:\\Knowledge base` 会写成 `--C-Knowledge~0020base--`——没有工作目录的会话落在 `_no-cwd/` 下。删旧会话本质还是删文件，但 `workspace.json` 里的条目不会自己消失。',
+    cite: 'DSH 的一个会话落在三层目录里：`$DSH_HOME/sessions/--<项目>--/<session-id>/session.v4.jsonl.zstd`。项目目录名是从工作目录转写来的可读名——空格变成 `~0020`，所以 `C:\\Users\\you\\my project` 会写成 `--C-Users-you-my~0020project--`——没有工作目录的会话落在 `_no-cwd/` 下。删旧会话本质还是删文件，但 `workspace.json` 里的条目不会自己消失。',
     lead: [
       '选 `$DSH_HOME` 里的 `sessions` 目录（默认 `~/.dsh`）。工具在本地读文件名、大小和日期，然后给出备份命令和删除命令。',
       '整个过程不上传。浏览器自己删不掉东西——真正执行的是你粘贴的那两条命令。',
@@ -67,9 +82,11 @@ export const PURGE = {
     totalLabel: '全部会话',
     selectedLabel: '已选中',
     sessionsLabel: '已选文件',
-    empty: '这个目录里没有 `.zstd` 或会话 `.jsonl` 文件。要选装这些文件的那一层，不是 profile 目录。',
+    empty: '这个目录里没有 `.zstd` 或 `session.jsonl` 文件。要选装这些文件的那一层，不是 profile 目录。',
     planH: '先备份，再删',
     planP: '先把整个 sessions 目录复制一份。对话内容只有这一份。',
+    backupCmd: '# macOS / Linux\ncp -a ~/.dsh/sessions ~/dsh-backup/\n\n# Windows PowerShell\nCopy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
+    deleteShape: '# macOS / Linux——把 <项目> 与 <会话 id> 换成表里的值\nrm -rf ~/.dsh/sessions/--<项目>--/<会话 id>/\n\n# Windows PowerShell\nRemove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\--<项目>--\\<会话 id>"',
     deleteP: '复制完成后再执行。这些命令只删你选中的文件，别的都不动。',
     afterP: '删了文件，`workspace.json` 里的条目还在。删完跑一次会话索引体检，看差在哪；或者从 profile 重建索引。',
     archiveH: '归档还是删除',
@@ -82,6 +99,18 @@ export const PURGE = {
     faqH: '常见问题',
     faq: [
       {
+        q: '归档会释放磁盘吗？',
+        a: '不会。归档只是把会话从各个视图里藏起来，日志文件和占用一点没变。要把空间拿回来，只有删文件。',
+      },
+      {
+        q: '删了会话文件，列表里还会有吗？',
+        a: '会。文件删了，`workspace.json` 里那一行还在；在索引重建之前，列表仍然认这个负载已经没了的会话。',
+      },
+      {
+        q: '正在运行的会话能删吗？',
+        a: '不能。先在界面里关掉会话，确认进程没了，再删文件。',
+      },
+      {
         q: '这就是那个 dsh-purge 插件吗？',
         a: '不是。dsh-purge 是做自身环境红队测试的插件，改的是提示词和审批策略；这页是会话文件清理工具，在浏览器里读 `$DSH_HOME/sessions`，不上传任何文件。',
       },
@@ -92,10 +121,11 @@ export const PURGE = {
       { label: 'DSH Sync Hub', href: '/zh/sync-hub/', note: '不想删就搬到另一台机器' },
       { label: '@michengai/dsh-archive-manager', href: '/zh/plugins/MichengAI/archive-manager/', note: '归档出活跃列表，负载不动' },
     ],
-    nojs: '这个工具要用 JavaScript 读你选的目录。没有的话，用 `ls -S ~/.dsh/sessions/*/*.zstd` 按大小排。',
+    nojs: '这个工具要用 JavaScript 读你选的目录。没有的话，用 `ls -S ~/.dsh/sessions/*/*/*.zstd` 按大小排。',
     js: {
-      noFiles: '这个目录里没有 `.zstd` 或会话 `.jsonl` 文件。',
+      noFiles: '这个目录里没有 .zstd 或 session.jsonl 文件。要选真正装着这些文件的那一层，不是 profile 目录。',
       picking: '正在读取目录…',
+      delComment: ':: Windows PowerShell（逐条删，路径相对 sessions/）',
     },
   },
 };

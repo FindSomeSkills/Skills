@@ -146,9 +146,21 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
       )}
       {t.footer.peersUnlinked?.length > 0 && (
         <li>
-          {lang === 'zh'
-            ? `另外 peer 了 ${t.footer.peersUnlinked.join('、')}（本站目录里没有这两者的页面，故不给链接）`
-            : `It also peers ${t.footer.peersUnlinked.join(', ')} — neither package has a page in this directory, so they are not linked.`}
+          {(() => {
+            const n = t.footer.peersUnlinked.length;
+            const names = t.footer.peersUnlinked.join(lang === 'zh' ? '、' : ', ');
+            if (lang === 'zh') return `另外 peer 了 ${names}——这些包在本站目录里没有页面，故不给链接。`;
+            if (n === 1) return `It also peers ${names} — that package has no page in this directory, so it is not linked.`;
+            if (n === 2) return `It also peers ${names} — neither has a page in this directory, so neither is linked.`;
+            return `It also peers ${names} — none of these packages has a page in this directory, so none are linked.`;
+          })()}
+        </li>
+      )}
+      {t.footer.tool && (
+        <li>
+          <a href={lang === 'zh' ? t.footer.tool.zhHref : t.footer.tool.href}>
+            {lang === 'zh' ? t.footer.tool.zhLabel : t.footer.tool.label}
+          </a>
         </li>
       )}
     </ul>

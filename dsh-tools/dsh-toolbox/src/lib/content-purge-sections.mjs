@@ -37,7 +37,7 @@ export const PURGE_SECTIONS = {
       h: 'What happens to a session that is running right now',
       p: [
         'Do not delete it. The file is appended to while the agent works, and on POSIX a deleted file stays open until the process closes it, so you can end up with a session that writes to a file no longer in the directory.',
-        'Close the session in the UI first, confirm the process is gone, then delete. If you only need space back, archiving through `@michengai/dsh-archive-manager` moves the session out of the active list without touching the payload.',
+        'Close the session in the UI first, confirm the process is gone, then delete. If you only want it out of the list, archive it with `@michengai/dsh-archive-manager`; archiving changes nothing on disk, so if the goal is space, deleting the files is the only way to get it.',
       ],
     },
   ],
@@ -76,7 +76,7 @@ export const PURGE_SECTIONS = {
       h: '正在跑的会话会怎样',
       p: [
         '不要删。agent 干活时会持续往这个文件追加，而 POSIX 上被删的文件要等进程关闭才真正释放，结果可能是它还在往一个目录里已经不存在的文件写。',
-        '先在界面里关掉会话，确认进程没了，再删。如果只是想要回空间，用 `@michengai/dsh-archive-manager` 归档，会话会从活跃列表里移走，负载不动。',
+        '先在界面里关掉会话，确认进程没了，再删。只是不想在列表里看到它，就用 `@michengai/dsh-archive-manager` 归档；归档不改磁盘占用，要拿回空间，只有删文件这一条路。',
       ],
     },
   ],

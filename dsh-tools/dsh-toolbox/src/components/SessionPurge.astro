@@ -1,5 +1,5 @@
 ---
-// 会话清理工具：本地读目录，按大小列出会话文件，算出可释放空间，给出备份与删除命令。全程不上传。
+// Session cleanup: read a local folder, list session files by size, work out the recoverable space, and print backup and delete commands. Nothing is uploaded.
 const { t, sections = [] } = Astro.props;
 import { inline } from '../lib/inline.mjs';
 const labels = t.js ?? {};
@@ -39,12 +39,18 @@ const labels = t.js ?? {};
 
   <p id="purgeEmpty" class="muted" hidden set:html={inline(t.empty)} />
 
-  <section id="purgePlan" hidden>
+  <section>
+    <h2>{t.portH}</h2>
+    <p set:html={inline(t.portP)} />
+    <pre><code>{t.portCmd}</code></pre>
+  </section>
+
+  <section id="purgePlan">
     <h2>{t.planH}</h2>
     <p set:html={inline(t.planP)} />
-    <pre><code id="purgeBackupCmd"></code></pre>
+    <pre><code id="purgeBackupCmd">{t.backupCmd}</code></pre>
     <p set:html={inline(t.deleteP)} />
-    <pre><code id="purgeDeleteCmd"></code></pre>
+    <pre><code id="purgeDeleteCmd">{t.deleteShape}</code></pre>
     <p set:html={inline(t.afterP)} />
   </section>
 
@@ -52,12 +58,6 @@ const labels = t.js ?? {};
     <h2>{t.archiveH}</h2>
     <p set:html={inline(t.archiveP)} />
     <p><a href={t.archiveHref}>{t.archiveLabel}</a></p>
-  </section>
-
-  <section>
-    <h2>{t.portH}</h2>
-    <p set:html={inline(t.portP)} />
-    <pre><code>{t.portCmd}</code></pre>
   </section>
 
   {(sections ?? []).map((sec) => (
@@ -90,7 +90,7 @@ const labels = t.js ?? {};
   <noscript><p set:html={inline(t.nojs)} /></noscript>
 </section>
 
-<script is:inline define:vars={{ noFiles: labels.noFiles ?? 'No session files found in that folder.', picking: labels.picking ?? 'Reading folder…' }}>
+<script is:inline define:vars={{ noFiles: labels.noFiles ?? 'No session files found in that folder.', picking: labels.picking ?? 'Reading folder…', delComment: labels.delComment ?? '# delete these, relative to sessions/' }}>
   (() => {
     const input = document.getElementById('purgeDir');
     const wrap = document.getElementById('purgeTableWrap');
@@ -109,7 +109,7 @@ const labels = t.js ?? {};
       return (n / 1024 / 1024 / 1024).toFixed(2) + ' GB';
     };
 
-    // webkitRelativePath 以选择的那层目录名开头，命令里只保留它后面的部分
+    // webkitRelativePath starts with the picked folder name; commands keep only the part after it
     const relOf = (p) => p.split('/').slice(1).join('/') || p;
 
     const render = () => {
@@ -120,19 +120,18 @@ const labels = t.js ?? {};
       document.getElementById('purgeSelected').textContent = fmt(sel);
       document.getElementById('purgeCount').textContent = selected.length + ' / ' + files.length;
       summary.hidden = files.length === 0;
-      plan.hidden = selected.length === 0;
       if (!selected.length) return;
 
       const rels = selected.map((f) => relOf(f.path));
       const backup = [
-        ':: Windows PowerShell',
-        'Copy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
-        '',
         '# macOS / Linux',
         'cp -a ~/.dsh/sessions ~/dsh-backup/',
+        '',
+        '# Windows PowerShell',
+        'Copy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
       ].join('\n');
       const del = [
-        ':: Windows PowerShell（逐条删，路径相对 sessions/）',
+        delComment,
         ...rels.map((r) => 'Remove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\' + r.replace(/\//g, '\\') + '"'),
         '',
         '# macOS / Linux',

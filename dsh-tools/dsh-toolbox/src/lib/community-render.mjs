@@ -28,10 +28,13 @@ const TAIL_STOP = new Set([
   'when', 'while', 'at', 'into', 'over', 'under', 'than', 'then', 'so', 'but', 'or', 'not',
 ]);
 
-function titleTail(page) {
+function titleTail(page, budget = 58) {
   const src = page.solvesEn ?? page.en?.cite ?? '';
   let cut = src.split(/[.;:]/)[0].trim();
-  if (cut.length > 62) cut = cut.slice(0, 62);
+  if (cut.length > budget) {
+    cut = cut.slice(0, budget);
+    cut = cut.slice(0, cut.lastIndexOf(' ')); // 只在词边界截，绝不切半个单词
+  }
   const words = cut.split(/\s+/);
   while (words.length > 3 && TAIL_STOP.has(words[words.length - 1].toLowerCase().replace(/[^a-z]/g, ''))) {
     words.pop();
@@ -39,6 +42,46 @@ function titleTail(page) {
   cut = words.join(' ');
   return cut.charAt(0).toLowerCase() + cut.slice(1);
 }
+
+// 分组 → 工具页（不逐包判断，按目录页已有的分组映射）
+const TOOL_BY_GROUP = {
+  sessions: {
+    href: '/tools/session-purge/',
+    zhHref: '/zh/tools/session-purge/',
+    label: 'Session Purge — see which session files are large, then back up and delete',
+    zhLabel: 'Session Purge — 先看清哪些会话文件大，再备份和删',
+  },
+  remote: {
+    href: '/sync-hub/',
+    zhHref: '/zh/sync-hub/',
+    label: 'DSH Sync Hub — move sessions to another machine instead of deleting them',
+    zhLabel: 'DSH Sync Hub — 不想删就搬到另一台机器',
+  },
+  skills: {
+    href: '/tools/skill-load-audit/',
+    zhHref: '/zh/tools/skill-load-audit/',
+    label: 'Skill Load Audit — which skill is eating your context',
+    zhLabel: '技能开销审计 — 看哪个技能在吃上下文',
+  },
+  memory: {
+    href: '/tools/skill-load-audit/',
+    zhHref: '/zh/tools/skill-load-audit/',
+    label: 'Skill Load Audit — what each recalled block and skill costs per turn',
+    zhLabel: '技能开销审计 — 看每轮回召内容与技能各占多少',
+  },
+  appearance: {
+    href: '/tools/deai-kit/',
+    zhHref: '/zh/tools/deai-kit/',
+    label: 'De-AI Kit — check the UI text and styles for template traces',
+    zhLabel: 'De-AI Kit — 查界面文案与样式里的模板痕迹',
+  },
+  'find-plugins': {
+    href: '/tools/session-index-doctor/',
+    zhHref: '/zh/tools/session-index-doctor/',
+    label: 'Session Index Doctor — why an installed item never reaches the list',
+    zhLabel: '会话索引体检 — 装了却不进列表时先查它',
+  },
+};
 
 function footerFor(page, pair) {
   return {
@@ -54,6 +97,7 @@ function footerFor(page, pair) {
           zhLabel: `和 ${pair.other} 冲突——这一对写在冲突页`,
         }
       : null,
+    tool: TOOL_BY_GROUP[page.group] ?? null,
     peersUnlinked: (page.peerNames ?? []).filter((p) => !peerHref(p)),
     peers: (page.peerNames ?? []).filter((p) => peerHref(p)).map((p) => {
       const href = peerHref(p);
@@ -109,6 +153,6 @@ export function renderCommunityPage(page, note, pair, slug) {
     };
   }
 
-  out.en.title = `${page.pkg} — ${titleTail(page)}`;
+  out.en.title = `${page.pkg} — ${titleTail(page, Math.max(24, 58 - page.pkg.length))}`;
   return out;
 }
