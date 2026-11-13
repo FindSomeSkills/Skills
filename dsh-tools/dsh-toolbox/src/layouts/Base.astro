@@ -103,6 +103,7 @@ const graph = [
     <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })} />
   </head>
   <body>
+  <a class="skip-link" href="#main">{lang === 'zh' ? '跳到主要内容' : 'Skip to content'}</a>
     <header class="site">
       <div class="wrap">
         <a class="brand" href={homeHref}><span class="dot"></span>{SITE.name}</a>
@@ -118,7 +119,7 @@ const graph = [
       </div>
     </header>
 
-    <main class="wrap">
+    <main class="wrap" id="main">
       <slot />
     </main>
 

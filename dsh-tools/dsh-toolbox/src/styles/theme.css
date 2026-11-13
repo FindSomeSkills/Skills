@@ -207,3 +207,20 @@ a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px
   gap: 8px;
   margin-bottom: 4px;
 }
+
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
