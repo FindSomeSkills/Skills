@@ -7,7 +7,7 @@ export const COPY_PAGES = {
       demoCta: 'See a sample result →',
       outcomes: {
         'sync-hub': {
-          outcome: 'Same session list on both machines, conflicts kept as copies',
+          outcome: 'Same list on both machines, no lost sessions',
           demo: '/sync-hub/',
           demoLabel: 'How it works →',
         },

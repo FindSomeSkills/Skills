@@ -20,6 +20,12 @@ const altUrl = `${base}${alternateFor(slug)}`;
 const altLang = lang === 'en' ? 'zh-Hans' : 'en';
 const homeHref = lang === 'en' ? '/' : '/zh/';
 const langHref = lang === 'en' ? alternateFor(slug) : alternateFor(slug);
+const ariaTpl = lang === 'en'
+  ? 'Appearance: {cur}. Click for {next}'
+  : '当前{cur}，点击切换到{next}';
+const themeLabels = lang === 'en'
+  ? { light: 'Light', dark: 'Dark', auto: 'System' }
+  : { light: '浅色', dark: '深色', auto: '跟随系统' };
 const graph = [
   {
     '@type': 'WebSite',
@@ -39,7 +45,7 @@ const graph = [
 <html lang={lang === 'zh' ? 'zh-Hans' : 'en'}>
   <head>
     <script is:inline>
-      // 主题默认浅色。优先级：URL 参数 > 上次选择 > light
+      // Light by default. Priority: URL param, then saved choice, then light.
       (() => {
         const param = new URLSearchParams(location.search).get('theme');
         const saved = localStorage.getItem('theme');
@@ -85,7 +91,7 @@ const graph = [
           <a href={`${homeHref}sync-hub/`}>Sync Hub</a>
           <button type="button" class="theme-toggle" id="theme-toggle" aria-live="polite">
           </button>
-          <a href={langHref} hreflang={altLang} lang={lang === 'en' ? 'zh-Hans' : 'en'}>{copy.nav.lang}</a>
+          <a href={langHref} hreflang={lang === 'zh' ? 'en' : 'zh-Hans'}>{lang === 'zh' ? 'English' : 'Chinese'}</a>
         </nav>
       </div>
     </header>
@@ -100,18 +106,18 @@ const graph = [
       </div>
     </footer>
     <script is:inline>
-      // 导航：滚动超过 8px 变实，材质对比更明显
+      // Header: solidify after 8px of scroll so the blur reads as material.
       const head = document.querySelector('header.site');
       const onScroll = () => head && head.classList.toggle('scrolled', window.scrollY > 8);
       addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      // 滚动浮现：逐块淡入，尊重 reduced-motion
+      // Reveal on scroll: fade each block in, respecting reduced motion.
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduce && 'IntersectionObserver' in window) {
         const targets = [...document.querySelectorAll('main h2, main > p, main .grid > *, main pre, main table, .kit-strip')];
         targets.forEach((el) => el.classList.add('reveal'));
-        // 先接管再隐藏：CSS 里只有 html.js-reveal 才会把 .reveal 设为透明
+        // Take over first, hide second: only html.js-reveal makes .reveal transparent.
         document.documentElement.classList.add('js-reveal');
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) {
@@ -119,19 +125,19 @@ const graph = [
           }
         }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
         targets.forEach((el) => io.observe(el));
-        // 保险：1.2 秒后仍未显形的，全部无条件显形
+        // Safety net: anything still hidden after 1.2s is shown unconditionally.
         setTimeout(() => {
           targets.forEach((el) => el.classList.add('in'));
         }, 1200);
       }
     </script>
-    <script is:inline>
+    <script is:inline define:vars={{ themeLabels, ariaTpl }}>
       (() => {
         const btn = document.getElementById('theme-toggle');
         if (!btn) return;
-        // 按钮显示当前状态（Apple 的做法），点击后的结果放在 title 与 aria-label 里
-        const name = { light: '浅色', dark: '深色', auto: '跟随系统' };
+        const name = themeLabels;
         const order = ['light', 'dark', 'auto'];
+        const say = (cur, next) => ariaTpl.replace('{cur}', cur).replace('{next}', next);
         const apply = (mode) => {
           const resolved = mode === 'auto'
             ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
@@ -140,10 +146,10 @@ const graph = [
           root.dataset.theme = resolved;
           root.dataset.themeMode = mode;
           root.style.colorScheme = resolved;
-          const next = order[(order.indexOf(mode) + 1) % order.length];
+          const nextName = name[order[(order.indexOf(mode) + 1) % order.length]];
           btn.textContent = name[mode];
-          btn.setAttribute('aria-label', '当前' + name[mode] + '，点击切换到' + name[next]);
-          btn.title = '当前' + name[mode] + '，点击切换到' + name[next];
+          btn.setAttribute('aria-label', say(name[mode], nextName));
+          btn.title = say(name[mode], nextName);
           btn.dataset.mode = mode;
         };
         apply(document.documentElement.dataset.themeMode || 'light');
