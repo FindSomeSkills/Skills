@@ -7,28 +7,28 @@ export const COPY_PAGES = {
       demoCta: 'See a sample result →',
       outcomes: {
         'sync-hub': {
-          outcome: 'You get: the same session list on both machines, with titles, and a conflict copy instead of a lost session.',
+          outcome: 'Both machines show the same session list, with titles — and a conflict copy when they disagree',
           demo: '/sync-hub/',
           demoLabel: 'How it works →',
         },
         'zstd-frame-inspector': {
-          outcome: 'You get: how many append batches a session file holds, and how big the next sync would be.',
+          outcome: 'How many writes a session file holds, and how much the next sync will send',
           demo: '/tools/zstd-frame-inspector/?demo=1',
         },
         'context-budget': {
-          outcome: 'You get: the turn number where you should compact, and whether you have room for one more task.',
+          outcome: 'The turn where you should compact, and whether you have room for one more task',
           demo: '/tools/context-budget/?demo=1',
         },
         'session-index-doctor': {
-          outcome: 'You get: the exact session ids that exist on disk but will never appear in the list.',
+          outcome: 'The session ids sitting on disk that will never show up in the list',
           demo: '/tools/session-index-doctor/?demo=1',
         },
         'skill-load-audit': {
-          outcome: 'You get: tokens per skill, ranked, so you know what to archive before it costs you a window.',
+          outcome: 'Skills ranked by token cost, so you archive before one eats a whole window',
           demo: '/tools/skill-load-audit/?demo=1',
         },
         'deai-kit': {
-          outcome: 'You get: the exact lines that read like a template, and one sentence on how to fix each.',
+          outcome: 'The exact lines that read like a template, each with one sentence on fixing it',
           demo: '/tools/deai-kit/',
           demoLabel: 'Open the checker →',
         },
@@ -177,28 +177,28 @@ export const COPY_PAGES = {
       demoCta: '看示例结果 →',
       outcomes: {
         'sync-hub': {
-          outcome: '你会得到：两台机器上同一份会话列表（带标题），以及冲突时的一份副本，而不是丢一个会话。',
+          outcome: '两台机器显示同一份会话列表，带标题；不一致时留一份冲突副本，不丢会话',
           demo: '/zh/sync-hub/',
           demoLabel: '看怎么用 →',
         },
         'zstd-frame-inspector': {
-          outcome: '你会得到：这个会话文件里累积了多少次追加写入，以及下次同步大概要传多少字节。',
+          outcome: '这个文件累积了多少次写入，以及下次同步大概要传多少',
           demo: '/zh/tools/zstd-frame-inspector/?demo=1',
         },
         'context-budget': {
-          outcome: '你会得到：该在第几回合压缩，以及还够不够再做一件事。',
+          outcome: '该在第几回合压缩，以及还够不够再做一件事',
           demo: '/zh/tools/context-budget/?demo=1',
         },
         'session-index-doctor': {
-          outcome: '你会得到：哪些会话 id 在磁盘上存在、却永远不会出现在列表里。',
+          outcome: '哪些会话 id 躺在磁盘上，却永远不会出现在列表里',
           demo: '/zh/tools/session-index-doctor/?demo=1',
         },
         'skill-load-audit': {
-          outcome: '你会得到：每个技能的 token 成本排名，以及该在吃掉一个窗口之前归档哪些。',
+          outcome: '技能按 token 成本排名，赶在某个技能吃掉整个窗口之前归档',
           demo: '/zh/tools/skill-load-audit/?demo=1',
         },
         'deai-kit': {
-          outcome: '你会得到：哪些行读起来像模板，每一处配一句改法。',
+          outcome: '哪几行读起来像模板，每一处配一句改法',
           demo: '/zh/tools/deai-kit/',
           demoLabel: '去检查一下 →',
         },

@@ -131,3 +131,58 @@ header.site nav a { display: inline-flex; align-items: center; height: 28px; }
   font-size: 13px;
   vertical-align: middle;
 }
+/* ---------- 工具卡片：4 列、图标、描述两行截断 ---------- */
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+  gap: 20px;
+}
+a.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--fg);
+}
+a.card:hover { text-decoration: none; }
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  margin-bottom: 4px;
+}
+a.card h3 {
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--fg);
+}
+.card-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+.card-outcome {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fg);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 41px;
+}
+.card-more {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 14px;
+  color: var(--accent);
+}
+a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px; }

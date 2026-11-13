@@ -1,5 +1,6 @@
 ---
 import { TOOLS, COPY } from '../lib/content.mjs';
+import { iconFor } from '../lib/icons.mjs';
 const { lang } = Astro.props;
 const t = COPY[lang].home;
 const extra = COPY[lang].homeExtra;
@@ -15,16 +16,13 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
   {TOOLS.map((tool) => {
     const detail = extra.outcomes[tool.slug];
     return (
-      <div class="card">
-        <div class="head">
-          <code>{tool.slug}</code>
-          <span class:list={['pill', tool.status === 'beta' ? 'beta' : 'ok']}>{tool.status}</span>
-        </div>
-        <h3><a href={toolHref(tool.slug)}>{tool.name}</a></h3>
-        <p>{tool.meta[lang]}</p>
-        {detail?.outcome && <p class="outcome">{detail.outcome}</p>}
-        {detail?.demo && <a class="demo" href={detail.demo}>{detail.demoLabel ?? extra.demoCta}</a>}
-      </div>
+      <a class="card" href={toolHref(tool.slug)}>
+        <span class="card-icon" set:html={iconFor(tool.slug)} />
+        <h3>{tool.name}</h3>
+        <p class="card-meta">{tool.meta[lang]}</p>
+        <p class="card-outcome">{detail?.outcome}</p>
+        <span class="card-more">{detail?.demoLabel ?? extra.demoCta}</span>
+      </a>
     );
   })}
 </div>
