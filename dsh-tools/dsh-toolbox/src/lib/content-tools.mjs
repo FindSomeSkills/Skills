@@ -3,7 +3,7 @@ export const EXTRA_COPY = {
   en: {
     doctor: {
       title: 'DSH Session Index Doctor — why a session is missing from the list',
-      desc: 'Compare sessions/ against storages/workspace.json and session_projcache.json in a DSH data folder. Read-only: it finds what is out of sync and tells you how to fix it. Nothing is uploaded.',
+      desc: 'Compare sessions/ against workspace.json and session_projcache.json in a DSH folder. Read-only; shows what is out of sync and the fix.',
       h1: 'Session Index Doctor',
       lede: 'Session Index Doctor is a browser page that finds DSH sessions which exist on disk but never appear in the session list. In DSH a session file and a session list entry are two different things. When they disagree the symptom is always the same — “my session is gone”. This checks which side is missing what.',
       pick: 'Choose your DSH data folder',
@@ -75,7 +75,7 @@ export const EXTRA_COPY = {
     },
     skills: {
       title: 'DSH Skill Load Audit — which skill is eating your context',
-      desc: 'Pick your skills folder and see how many tokens each skill injects, which descriptions are copy-pasted, and which skills are dead weight. Runs locally, nothing uploaded.',
+      desc: 'Pick your skills folder: tokens each skill injects, which descriptions are copy-pasted, which skills are dead weight. Runs locally.',
       h1: 'Skill Load Audit',
       lede: 'Skill Load Audit is a browser page that ranks installed DSH skills by the context they cost before you use them. Every installed skill costs context before you use it. This measures the bill: resident cost (name + description) and full cost (the whole SKILL.md).',
       pick: 'Choose your skills folder',

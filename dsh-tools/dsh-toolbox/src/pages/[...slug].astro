@@ -79,8 +79,10 @@ const CONTENT_ID = {
   compare: 'compare',
 };
 const contentId = CONTENT_ID[page];
+const pageTitle = t.title ?? `${t.h1} — ${SITE.name}`;
+const pageDesc = t.desc ?? `${t.lede}`.slice(0, 155);
 ---
-<Base title={t.title} description={t.desc} lang={lang} slug={slug} jsonLd={jsonLd}>
+<Base title={pageTitle} description={pageDesc} lang={lang} slug={slug} jsonLd={jsonLd}>
   {page === 'home' && <HomePage lang={lang} />}
   {page === 'syncHub' && <SyncHubPage lang={lang} />}
   {page === 'zstd' && <ZstdInspector lang={lang} />}

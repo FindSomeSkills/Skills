@@ -66,7 +66,7 @@ export const COPY = {
     },
     home: {
       title: 'DSH Toolbox — free tools for DeepSeek Harness',
-      desc: 'Client-side tools for DeepSeek Harness (DSH): sync sessions across machines, inspect .zstd session frames, and plan your context budget. Nothing is uploaded.',
+      desc: 'Client-side tools for DeepSeek Harness: sync sessions across machines, inspect .zstd frames, plan your context budget. Nothing is uploaded.',
       h1: 'Tools for people who actually run DeepSeek Harness',
       lede: 'Everything here runs in the browser. No signup, no upload, no telemetry — open a page, drop a file, read the numbers.',
       toolsH: 'The tools',
@@ -96,7 +96,7 @@ export const COPY = {
     },
     syncHub: {
       title: 'DSH Sync Hub — sync DSH sessions across machines',
-      desc: 'Sync DeepSeek Harness sessions and the workspace index between machines and DSH builds. Opaque-byte transfer, append-only delta uploads, conflicts keep both copies.',
+      desc: 'Sync DSH sessions and the workspace index across machines. Opaque-byte transfer, append-only deltas, conflicts keep both copies.',
       h1: 'DSH Sync Hub',
       lede: 'DSH Sync Hub is a self-hosted tool that keeps DSH sessions and the workspace index identical across machines. Sync sessions and the workspace index across machines and DSH builds — web, desktop, terminal. Session files are moved as opaque bytes, never parsed.',
       status: 'Free · runs on your own machine · needs Node.js 20 or newer · no third-party packages',
@@ -134,7 +134,7 @@ export const COPY = {
     },
     zstd: {
       title: 'Zstd Frame Inspector — count frames in a .zstd file',
-      desc: 'Drop a .zstd / .zst file to see its frame boundaries, per-frame compressed size and block counts. Runs locally; nothing is uploaded. Built for DSH session files.',
+      desc: 'Drop a .zstd file to see frame boundaries, per-frame size and block counts. Runs locally; nothing is uploaded. Built for DSH sessions.',
       h1: 'Zstd Frame Inspector',
       lede: 'Zstd Frame Inspector is a browser page that reads the frame structure of a `.zstd` DSH session file without decompressing it. DSH sessions are append-only multi-frame zstd. When one grows to 20 MB, the useful question is not “how big” but “how many frames, and where do they end”.',
       drop: 'Drop a .zstd / .zst file here',

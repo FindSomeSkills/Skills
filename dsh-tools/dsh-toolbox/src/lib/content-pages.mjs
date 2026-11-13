@@ -49,8 +49,8 @@ export const COPY_PAGES = {
     },
 
     reference: {
-      title: 'DSH storage layout reference — session formats, indexes, and what breaks',
-      desc: 'A structured reference for DeepSeek Harness on-disk storage: the v4 and legacy session formats, the directory layout, workspace.json and session_projcache fields, and the failure modes that follow. Measured on DSH 0.2.1-rc.2.',
+      title: 'DSH storage reference — session formats and indexes',
+      desc: 'DeepSeek Harness on-disk storage: v4 and legacy session formats, directory layout, index fields, and the failures that follow. Measured on DSH 0.2.1-rc.2.',
       h1: 'DSH storage layout reference',
       lede: 'What DSH writes to disk, measured on a real install (0.2.1-rc.2). The payload, the list entry and the title are three separate things on disk. Treat them as one and you get an empty-looking session list while every file is still there.',
       updated: 'Measured 2026-11-13 on DSH 0.2.1-rc.2, Windows.',
@@ -117,7 +117,7 @@ export const COPY_PAGES = {
 
     compare: {
       title: 'DSH session sync: Sync Hub vs dsh-session-sync vs dsh-remote-mobile',
-      desc: 'An honest comparison of three ways to continue DeepSeek Harness work across devices: git-mirrored session sync, single-instance remote access, and a self-hosted sync hub. Includes where each one fails.',
+      desc: 'Three ways to continue DSH work across devices: git-mirrored sync, single-instance remote access, self-hosted hub. Includes where each fails.',
       h1: 'Three ways to continue DSH work on another device',
       lede: 'They are not competitors so much as different answers to different questions. This page says which question each one answers, and where each one breaks — including ours.',
       verdictH: 'One-line answer',

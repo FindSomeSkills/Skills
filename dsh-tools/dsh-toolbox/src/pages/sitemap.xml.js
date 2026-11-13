@@ -10,6 +10,7 @@ export function GET({ site }) {
         : `${base}/zh/${p.slug ? `${p.slug}/` : ''}`;
       return `  <url>
     <loc>${loc}</loc>
+    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'zh-Hans' : 'en'}" href="${loc}"/>
     <xhtml:link rel="alternate" hreflang="${p.lang === 'zh' ? 'en' : 'zh-Hans'}" href="${alt}"/>
     <changefreq>weekly</changefreq>
