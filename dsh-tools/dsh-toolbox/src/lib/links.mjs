@@ -14,6 +14,8 @@ const TOOL_LABEL = {
   'guides/install': { en: 'Install DeepSeek Harness', zh: '安装 DeepSeek Harness' },
   'guides/cli': { en: 'dsh CLI cheat sheet', zh: 'dsh 命令速查表' },
   'guides/desktop': { en: 'Desktop vs dsh web', zh: '桌面版与 dsh web' },
+  'guides/android': { en: 'On Android', zh: '在安卓上用' },
+  'guides/docker': { en: 'In Docker', zh: '用 Docker 跑' },
   'compare/vs-claude-code': { en: 'vs Claude Code', zh: '对比 Claude Code' },
   'compare/vs-codex-harness': { en: 'vs Codex CLI', zh: '对比 Codex CLI' },
   'compare/vs-opencode': { en: 'vs OpenCode', zh: '对比 OpenCode' },

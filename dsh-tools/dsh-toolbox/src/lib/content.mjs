@@ -377,6 +377,10 @@ export function pageList() {
     { slug: 'zh/guides/cli', lang: 'zh', page: 'article' },
     { slug: 'guides/desktop', lang: 'en', page: 'article' },
     { slug: 'zh/guides/desktop', lang: 'zh', page: 'article' },
+    { slug: 'guides/android', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/android', lang: 'zh', page: 'article' },
+    { slug: 'guides/docker', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/docker', lang: 'zh', page: 'article' },
     // —— 插件目录 ——
     { slug: 'plugins', lang: 'en', page: 'article' },
     { slug: 'zh/plugins', lang: 'zh', page: 'article' },

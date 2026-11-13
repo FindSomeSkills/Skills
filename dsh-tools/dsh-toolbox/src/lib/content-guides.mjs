@@ -1,6 +1,8 @@
 // 需求页（Guide）内容。事实来自：本机 @deepseek-ai/dsh 0.2.1-rc.2 的 README 与 dsh --help 输出、
 // npm registry 上的 @deepseek-ai/dsh 元数据（engines / dist-tags）。没有引用未经核实的文档。
 
+import { MORE_GUIDES } from './content-guides-more.mjs';
+
 export const GUIDES = {
   'guides/what-is-deepseek-harness': {
     en: {
@@ -87,8 +89,8 @@ export const GUIDES = {
 
   'guides/install': {
     en: {
-      title: 'Install DeepSeek Harness on Windows, macOS and Linux',
-      desc: 'Install the dsh CLI with npm, check the version, boot the web profile, and fix the two failures people hit first: Node too old, and a plugin built for another dsh version.',
+      title: 'Install DeepSeek Harness — Node.js 24.9.0+ Required (v22 Fails)',
+      desc: 'Install the dsh CLI on Node.js 24.9.0 or newer. Node 22 and older fail at start-up with a syntax error; this page gives the exact versions, commands and the two first-boot failures.',
       h1: 'Install DeepSeek Harness',
       cite: 'Install with `npm install -g @deepseek-ai/dsh` on Node.js 24.9.0 or newer, then run `dsh web` to open the browser UI.',
       lead: [
@@ -139,8 +141,8 @@ export const GUIDES = {
       related: ['guides/what-is-deepseek-harness', 'guides/cli', 'tools/session-index-doctor'],
     },
     zh: {
-      title: 'DeepSeek Harness 安装 — Windows / macOS / Linux',
-      desc: '用 npm 装 dsh 命令行工具，查版本，启动 web profile，并处理最先遇到的两种失败：Node 版本太低，以及插件和 dsh 版本不匹配。',
+      title: 'DeepSeek Harness 安装 — 需要 Node.js 24.9.0 以上（v22 会失败）',
+      desc: '用 npm 在 Node.js 24.9.0 或更高版本上装 dsh。Node 22 及更老版本会在启动时报语法错误；这页给出版本要求、命令，以及最先遇到的两种失败。',
       h1: 'DeepSeek Harness 安装',
       cite: '在 Node.js 24.9.0 或更高版本上执行 `npm install -g @deepseek-ai/dsh`，然后 `dsh web` 打开浏览器界面。',
       lead: [
@@ -390,3 +392,6 @@ export const GUIDES = {
     },
   },
 };
+
+Object.assign(GUIDES, MORE_GUIDES);
+

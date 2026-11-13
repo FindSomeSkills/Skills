@@ -16,6 +16,8 @@ export const UPDATED = {
   'guides/install': '2026-11-14',
   'guides/cli': '2026-11-14',
   'guides/desktop': '2026-11-14',
+  'guides/android': '2026-11-14',
+  'guides/docker': '2026-11-14',
   'compare/vs-claude-code': '2026-11-14',
   'compare/vs-codex-harness': '2026-11-14',
   'compare/vs-opencode': '2026-11-14',
