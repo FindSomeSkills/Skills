@@ -4,13 +4,14 @@
 export const PLUGIN_INDEX = {
   en: {
     title: 'DeepSeek Harness plugins — what ships and how to install one',
-    desc: 'The dsh plugin model in one page: bundles vs seams, the install command, how versions are checked, and the 14 packages that make up a profile.',
+    desc: 'The dsh plugin model in one page: bundles vs seams, the install command, version checks, plus 62 community plugins grouped by what they do.',
     h1: 'DeepSeek Harness plugins',
     links: [
       { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '25 pairs that cannot share a profile, by what they fight over' },
     ],
     cite: 'A dsh plugin is an npm package added to a profile; `dsh plugin --profile <name> add <package>` installs it and pnpm owns the rest.',
     lead: [
+      'This page covers both halves: the 16 official packages that make up a profile, and 62 community plugins grouped by the problem they solve.',
       'A profile is a stack of patch layers. `dsh-base` is the first layer every profile gets; `dsh-web-app` and `dsh-headless` add a surface on top of it. Everything else is a seam: a swap-in point for one capability, like the filesystem, the shell, or the sandbox.',
       'This page lists the packages published under `@deepseek-ai/dsh-*` that make up a default profile, and the two commands that add or remove one.',
     ],
@@ -28,7 +29,7 @@ export const PLUGIN_INDEX = {
   },
   zh: {
     title: 'DeepSeek Harness 插件怎么装？16 个官方包 + 62 个社区插件',
-    desc: '一页讲清 dsh 的插件模型：bundle 与 seam 的区别、安装命令、版本怎么检查，以及组成一个 profile 的 14 个包。',
+    desc: '一页讲清 dsh 插件：bundle 与 seam 的区别、安装命令、版本检查，外加 62 个社区插件按用途分组。',
     h1: 'DeepSeek Harness 插件',
     links: [
       { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '25 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },

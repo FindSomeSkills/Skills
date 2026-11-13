@@ -12,7 +12,7 @@ const pluginBase = linkFor('plugins', lang).href;
 // 冲突页的分组：items 带 a/b/symptom/keep/why
 const isPairGroup = (g) => Array.isArray(g.items) && g.items.length > 0 && 'symptom' in g.items[0];
 const isPluginGroup = (g) => Array.isArray(g.items) && g.items.length > 0 && 'pkg' in g.items[0];
-const allGroups = [...(t.groups ?? []), ...groups];
+const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
 ---
 <h1>{t.h1}</h1>
 
@@ -79,7 +79,7 @@ const allGroups = [...(t.groups ?? []), ...groups];
           <tbody>
             {g.items.map((it) => (
               <tr>
-                <td><code>{it.a}</code><br /><code>{it.b}</code></td>
+                <td>{it.aHref ? <a href={it.aHref}><code>{it.a}</code></a> : <code>{it.a}</code>}<br />{it.bHref ? <a href={it.bHref}><code>{it.b}</code></a> : <code>{it.b}</code>}</td>
                 <td set:html={inline(it.symptom)} />
                 <td><code>{it.keep}</code></td>
                 <td set:html={inline(it.why)} />
@@ -107,6 +107,26 @@ const allGroups = [...(t.groups ?? []), ...groups];
     <h2>{lang === 'zh' ? '这几个报错' : 'The other four'}</h2>
     <ul class="link-list">
       {siblings.map((x) => <li><a href={x.href}>{x.label}</a></li>)}
+    </ul>
+  </section>
+)}
+
+{t.footer && (
+  <section class="related">
+    <h2>{lang === 'zh' ? '相关入口' : 'Where to go next'}</h2>
+    <ul class="link-list">
+      <li><a href={lang === 'zh' ? t.footer.allZhHref : t.footer.allHref}>{lang === 'zh' ? t.footer.allZhLabel : t.footer.allLabel}</a></li>
+      {t.footer.conflict && (
+        <li><a href={lang === 'zh' ? t.footer.conflict.zhHref : t.footer.conflict.href}>{lang === 'zh' ? t.footer.conflict.zhLabel : t.footer.conflict.label}</a></li>
+      )}
+      {t.footer.peers.length > 0 && (
+        <li>
+          {lang === 'zh' ? '它 peer 的官方包：' : 'Official packages it peers: '}
+          {t.footer.peers.map((p, i) => (
+            <span>{i > 0 && ', '}<a href={p.href}>{p.pkg}</a></span>
+          ))}
+        </li>
+      )}
     </ul>
   </section>
 )}

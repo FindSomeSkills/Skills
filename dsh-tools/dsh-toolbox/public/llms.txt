@@ -2,12 +2,12 @@
 
 Site: https://dshtoolbox.com
 
-> DSH Toolbox is a set of free, client-side tools for people who run DeepSeek Harness (DSH) on more than one machine: session sync, session-file inspection, context budgeting, index repair, skill cost audit, and a text/UI template checker. No account, no upload, no telemetry.
+> DSH Toolbox is a free, client-side toolkit for people who run DeepSeek Harness (DSH): session sync between machines, session-file inspection, context budgeting, index repair, skill cost audit, session cleanup, a text/UI template checker, and a plugin directory with per-plugin conflict notes. No account, no upload, no telemetry.
 > Every checker runs in the browser tab; the one downloadable component (DSH Sync Hub) is a self-hosted Node command-line tool.
 
 ## What this site is
 
-A tool matrix for people who run DeepSeek Harness on more than one machine. Each page is a working tool or a citable reference, not an ad.
+A working tool matrix plus a verified plugin directory for DeepSeek Harness. Every page is a tool, a citable reference, or a package record whose version and `engines.dsh` range come from the npm registry, not from marketing copy.
 
 ## Tools
 
@@ -15,6 +15,7 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 - **Zstd Frame Inspector** (https://www.dshtoolbox.com/tools/zstd-frame-inspector/) — counts zstd frames and block boundaries inside a `.zstd` session file without decompressing it; shows how many append writes a file holds.
 - **Context Budget** (https://www.dshtoolbox.com/tools/context-budget/) — estimates how many turns remain before a DSH session hits its context window, and which turn to compact at.
 - **Session Index Doctor** (https://www.dshtoolbox.com/tools/session-index-doctor/) — compares `sessions/` against `storages/workspace.json` and `session_projcache.json`; returns the session ids that exist on disk but will never appear in the list.
+- **Session Purge** (https://www.dshtoolbox.com/tools/session-purge/) — pick `$DSH_HOME/sessions`, see every session with its size, and get the backup plus per-file delete commands; nothing is uploaded and the browser deletes nothing itself.
 - **Skill Load Audit** (https://www.dshtoolbox.com/tools/skill-load-audit/) — per-skill token cost: resident (name + description) and full (`SKILL.md`), with duplicate-description detection.
 - **De-AI Kit** (https://www.dshtoolbox.com/tools/deai-kit/) — pastes text or CSS and lists mechanical template markers (buzzword density, absolute claims, gradient text, backdrop blur on cards, spacing off the 4px grid). It reports markers; it does not score writing.
 
@@ -23,10 +24,24 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 - **What is DeepSeek Harness** (https://www.dshtoolbox.com/guides/what-is-deepseek-harness/) — the `dsh` CLI, profiles as patch layers, `$DSH_HOME`, and why a session is three files.
 - **Install** (https://www.dshtoolbox.com/guides/install/) — `npm install -g @deepseek-ai/dsh` on Node.js 24.9.0+, Windows/macOS/Linux, and the two first-boot failures.
 - **CLI cheat sheet** (https://www.dshtoolbox.com/guides/cli/) — boot a profile, web flags, `dsh plugin`, `--dump-config`, and how app arguments are forwarded.
+- **Desktop** (https://www.dshtoolbox.com/guides/desktop/) — why `desktop` is a reserved profile name and what the CLI does when you ask for it.
+- **Android** (https://www.dshtoolbox.com/guides/android/) — bind the web UI to a LAN address with `--host` and open it from the phone; there is no app to install.
+- **Docker** (https://www.dshtoolbox.com/guides/docker/) — run the CLI in a container with `$DSH_HOME` on a volume, and why `--host 0.0.0.0` is rejected.
+- **Error reference** (https://www.dshtoolbox.com/guides/errors/) — overview of five failures, each with its own page: `deepseek messages transport failed`, `zsh: command not found: corepack`, `Plugin X is incompatible with dsh Y`, `EBADENGINE`, and `--host` refusing a wildcard address.
+
+## Error pages
+
+- **messages transport failed** (https://www.dshtoolbox.com/guides/errors/messages-transport-failed/) — proxy stream limits, a revoked key, a model id the profile does not have; one `--dump-config` command to tell them apart.
+- **corepack missing** (https://www.dshtoolbox.com/guides/errors/corepack-command-not-found/) — plugin management shells out to pnpm through corepack; `corepack enable`, then retry.
+- **plugin incompatible** (https://www.dshtoolbox.com/guides/errors/plugin-incompatible/) — how to read `engines.dsh` and what `dsh plugin allow-version` does.
+- **EBADENGINE** (https://www.dshtoolbox.com/guides/errors/ebadengine/) — the floor is Node.js 24.9.0; npm often warns and installs anyway, then the CLI dies at start-up.
+- **wildcard address rejected** (https://www.dshtoolbox.com/guides/errors/host-wildcard-rejected/) — `--host` takes one concrete interface; pass the LAN address and add `--trusted-host`.
 
 ## Plugins
 
-- **Plugin directory** (https://www.dshtoolbox.com/plugins/) — the 16 `@deepseek-ai/dsh-*` packages that make up a profile (bundles, seams, backends) with install commands.
+- **Plugin directory** (https://www.dshtoolbox.com/plugins/) — 78 package pages in total: 16 official `@deepseek-ai/dsh-*` packages that make up a profile, plus 62 community plugins grouped by what they solve (find and install, cost, sessions and archives, skills, search, appearance, agents, remote, output, system, providers, data, network, memory, automation, git and editor).
+- **Conflict map** (https://www.dshtoolbox.com/plugins/conflicts/) — 26 plugin pairs that cannot share a profile, grouped by what they fight over: competing for one UI slot, competing for one config row, calling the same external endpoint, and doing the same job. Each pair names the symptom and which side to keep.
+- Each plugin page carries the version, last publish date, `engines.dsh` range, author and repository read from the npm registry, plus an "If two plugins fight" note naming the official package or community plugin it collides with.
 
 ## Comparisons
 
@@ -43,6 +58,7 @@ A tool matrix for people who run DeepSeek Harness on more than one machine. Each
 
 - **DSH (DeepSeek Harness)** — a local agent runtime with web, desktop and terminal builds. It stores each session on disk as `session*.jsonl.zstd`, plus index files.
 - **Session** — one conversation record: a zstd-compressed JSONL payload on disk, a workspace index entry, and a title/stat cache row. All three are separate files.
+- **Profile** — a named stack of patch layers under `$DSH_HOME/profiles/<name>/`; `dsh plugin --profile <name> add <package>` writes into that stack.
 - **Context window** — the token budget a model can hold in one request. DSH sessions grow until they must be compacted.
 
 ## Session format table (measured on DSH 0.2.1-rc.2)
@@ -70,15 +86,17 @@ DSH keeps three things apart, and conflating them is the source of almost every 
 - An append of 10 KB to a 150 KB session transferred **28,928 compressed bytes instead of 160,000** when only changed chunks were sent.
 - Adding a session id only to `archivedSessionIds` hides it; the payload still occupies disk (observed: 11 archived sessions keeping 1.4 MB).
 - On one real install (114 sessions on disk), only 38 ids were present in the workspace index — 76 sessions were invisible in the list.
+- Deleting a session file leaves its row in `storages/workspace.json` and in `session_projcache`; the list keeps claiming it exists.
 
 ## Language
 
 - English: https://www.dshtoolbox.com/
 - 简体中文: https://www.dshtoolbox.com/zh/
-  - Guides: https://www.dshtoolbox.com/zh/guides/what-is-deepseek-harness/ · https://www.dshtoolbox.com/zh/guides/install/ · https://www.dshtoolbox.com/zh/guides/cli/ · https://www.dshtoolbox.com/zh/guides/desktop/
-  - Plugins: https://www.dshtoolbox.com/zh/plugins/
+  - Guides: https://www.dshtoolbox.com/zh/guides/what-is-deepseek-harness/ · https://www.dshtoolbox.com/zh/guides/install/ · https://www.dshtoolbox.com/zh/guides/cli/ · https://www.dshtoolbox.com/zh/guides/desktop/ · https://www.dshtoolbox.com/zh/guides/android/ · https://www.dshtoolbox.com/zh/guides/docker/ · https://www.dshtoolbox.com/zh/guides/errors/
+  - Error pages: https://www.dshtoolbox.com/zh/guides/errors/messages-transport-failed/ · https://www.dshtoolbox.com/zh/guides/errors/corepack-command-not-found/ · https://www.dshtoolbox.com/zh/guides/errors/plugin-incompatible/ · https://www.dshtoolbox.com/zh/guides/errors/ebadengine/ · https://www.dshtoolbox.com/zh/guides/errors/host-wildcard-rejected/
+  - Plugins: https://www.dshtoolbox.com/zh/plugins/ · https://www.dshtoolbox.com/zh/plugins/conflicts/
   - Comparisons: https://www.dshtoolbox.com/zh/compare/vs-claude-code/ · https://www.dshtoolbox.com/zh/compare/vs-codex-harness/ · https://www.dshtoolbox.com/zh/compare/vs-opencode/ · https://www.dshtoolbox.com/zh/compare/sync-hub-vs-plugins/
-  - Tools: https://www.dshtoolbox.com/zh/tools/zstd-frame-inspector/ · https://www.dshtoolbox.com/zh/tools/context-budget/ · https://www.dshtoolbox.com/zh/tools/session-index-doctor/ · https://www.dshtoolbox.com/zh/tools/skill-load-audit/ · https://www.dshtoolbox.com/zh/tools/deai-kit/ · https://www.dshtoolbox.com/zh/sync-hub/ · https://www.dshtoolbox.com/zh/reference/
+  - Tools: https://www.dshtoolbox.com/zh/tools/zstd-frame-inspector/ · https://www.dshtoolbox.com/zh/tools/context-budget/ · https://www.dshtoolbox.com/zh/tools/session-index-doctor/ · https://www.dshtoolbox.com/zh/tools/session-purge/ · https://www.dshtoolbox.com/zh/tools/skill-load-audit/ · https://www.dshtoolbox.com/zh/tools/deai-kit/ · https://www.dshtoolbox.com/zh/sync-hub/ · https://www.dshtoolbox.com/zh/reference/
 
 ## Contact
 

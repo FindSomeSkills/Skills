@@ -1,8 +1,8 @@
-// 第三方插件目录。作者、版本、仓库、兼容区间、peers 数量来自 npm registry 元数据。
+// 第三方插件目录。作者、版本、仓库、兼容区间、peers 名单来自 npm registry 元数据。
 import { CONFLICTS } from './content-community-conflicts.mjs';
 import { CONFLICTS_B2 } from './content-community-conflicts-b2.mjs';
-import { faqFor, sectionsFor } from './community-extras.mjs';
-import { ZH_OVERRIDES } from './community-zh-overrides.mjs';
+import { renderCommunityPage } from './community-render.mjs';
+import { pairFor } from './content-conflicts-page.mjs';
 
 const ALL_CONFLICTS = { ...CONFLICTS, ...CONFLICTS_B2 };
 
@@ -195,7 +195,12 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dshmarket`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings"
+    ]
   },
   {
     "slug": "community-marketplace",
@@ -302,7 +307,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-plugin`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "plugin-catalog",
@@ -409,7 +417,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-plugin-catalog`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "cost-meter",
@@ -516,7 +525,11 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-cost-meter`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials"
+    ]
   },
   {
     "slug": "balance-widget",
@@ -623,7 +636,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-whale-widget`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "archive-manager",
@@ -730,7 +744,25 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @michengai/dsh-archive-manager`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-workspace",
+      "@deepseek-ai/dsh-spill-local",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-typert-registry",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-workspace",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-session-format-catalog",
+      "@deepseek-ai/dsh-session-projection-cache"
+    ]
   },
   {
     "slug": "session-superagent",
@@ -837,7 +869,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-session-superagent`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "skills-manager",
@@ -944,7 +979,18 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @michengai/dsh-skills-manager`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-web-app",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ]
   },
   {
     "slug": "free-search",
@@ -1051,7 +1097,16 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-free-search`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-client-ui-commands",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-client-ui-plugin-manager"
+    ]
   },
   {
     "slug": "modsearch",
@@ -1158,7 +1213,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @liustack/modsearch`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "dream-skin",
@@ -1265,7 +1321,16 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-dream-skin`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-client-ui-theme",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-settings-general"
+    ]
   },
   {
     "slug": "claude-style",
@@ -1372,7 +1437,11 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-claude-style`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ]
   },
   {
     "slug": "wallpaper-engine",
@@ -1479,7 +1548,13 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-plugin-wallpaper-engine`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-client-runtime",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots"
+    ]
   },
   {
     "slug": "pet",
@@ -1586,7 +1661,19 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-pet`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-agent-default-model",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ]
   },
   {
     "slug": "meme",
@@ -1693,7 +1780,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-meme`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/dsh-tools"
+    ]
   },
   {
     "slug": "agent-teams",
@@ -1800,7 +1890,32 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @nanmicoder/dsh-agent-teams`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-subagent",
+      "@deepseek-ai/dsh-util-values",
+      "@deepseek-ai/dsh-client-store",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-layout",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-client-ui-renderer",
+      "@deepseek-ai/dsh-session-projection",
+      "@deepseek-ai/dsh-client-ui-primitives",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-ui-conversation",
+      "@deepseek-ai/dsh-client-ui-model-selection"
+    ]
   },
   {
     "slug": "agent-compare",
@@ -1907,7 +2022,20 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-agent-compare`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-subprocess",
+      "@deepseek-ai/dsh-win32-process",
+      "@deepseek-ai/dsh-client-ui-chat",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-conversation"
+    ]
   },
   {
     "slug": "mobile-plugin",
@@ -2014,7 +2142,15 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-mobile-plugin`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-runtime"
+    ]
   },
   {
     "slug": "remote",
@@ -2121,7 +2257,17 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-remote`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-renderer"
+    ]
   },
   {
     "slug": "harness-remote",
@@ -2228,7 +2374,21 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove ds-harness-remote`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-api-gateway",
+      "@deepseek-ai/dsh-client-locale",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-client-ui-sidebar",
+      "@deepseek-ai/dsh-client-ui-settings",
+      "@deepseek-ai/dsh-client-ui-plugin-manager",
+      "@deepseek-ai/dsh-client-ui-settings-general",
+      "@deepseek-ai/dsh-client-ui-settings-plugins",
+      "@deepseek-ai/dsh-client-ui-settings-plugin-inventory"
+    ]
   },
   {
     "slug": "im-bridge",
@@ -2335,7 +2495,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @xmanrui/dsh-im`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "qq-bot",
@@ -2442,7 +2603,15 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @tencent-connect/dsh-qqbot`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-user-approval"
+    ]
   },
   {
     "slug": "genui",
@@ -2549,7 +2718,14 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-genui`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-client-ui-primitives"
+    ]
   },
   {
     "slug": "deep-view",
@@ -2656,7 +2832,13 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove deep-view`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-web",
+      "@deepseek-ai/dsh-tools"
+    ]
   },
   {
     "slug": "univer-office",
@@ -2763,7 +2945,18 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-univer-office`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-host-webserver"
+    ]
   },
   {
     "slug": "ops",
@@ -2870,7 +3063,11 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-ops`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/dsh",
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "unlag",
@@ -2977,7 +3174,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-unlag`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "windows-mcp",
@@ -3084,7 +3282,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-windows-mcp`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "tui",
@@ -3191,7 +3390,47 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @deepseek-harness-tui/dsh-tui`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-scope",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/dsh-cmdline",
+      "@deepseek-ai/dsh-persona",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-storage",
+      "@deepseek-ai/dsh-web-app",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-app-boot",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-terminal",
+      "@deepseek-ai/dsh-llm-pi-ai",
+      "@deepseek-ai/dsh-workspace",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-http-proxy",
+      "@deepseek-ai/dsh-tool-cordis",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-storage-json",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-terminal-bash",
+      "@deepseek-ai/dsh-tool-ask-user",
+      "@deepseek-ai/dsh-tool-subagent",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-host-webserver",
+      "@deepseek-ai/dsh-plugin-manager",
+      "@deepseek-ai/dsh-storage-domain",
+      "@deepseek-ai/dsh-user-questions",
+      "@deepseek-ai/dsh-deepseek-account",
+      "@deepseek-ai/dsh-ptc-runtime-node",
+      "@deepseek-ai/dsh-agent-instructions",
+      "@deepseek-ai/dsh-cordis-host-runner",
+      "@deepseek-ai/dsh-launch-environment",
+      "@deepseek-ai/dsh-tool-bash-persistent",
+      "@deepseek-ai/dsh-agent-preset-registry"
+    ]
   },
   {
     "slug": "universal-plugin-hub",
@@ -3298,7 +3537,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove universal-plugin-hub`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "skill-mcp-market",
@@ -3405,7 +3647,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-skill-mcp-market`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "skill-manager",
@@ -3512,7 +3755,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @chengze/dsh-skill-manager`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "skill-browser",
@@ -3619,7 +3863,12 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-skill-browser`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/dsh",
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm"
+    ]
   },
   {
     "slug": "evolution-bundle",
@@ -3726,7 +3975,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @lmzhen/dsh-evolution-all`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "skill-health-panel",
@@ -3833,7 +4083,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @lmzhen/dsh-evolution-skill-health`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "custom-theme",
@@ -3940,7 +4193,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-custom-theme`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "flat-corners",
@@ -4047,7 +4301,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-exv-flat-corners`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "sidebar-fold",
@@ -4154,7 +4409,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-toomuch-plugins`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "aishell-brand",
@@ -4261,7 +4517,11 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @huaweidevtools/aishell-dsh-brand`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-system-prompt"
+    ]
   },
   {
     "slug": "llm-proxy",
@@ -4368,7 +4628,13 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @aiwayds/dsh-llm-proxy`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-skill",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-settings"
+    ]
   },
   {
     "slug": "database-tool",
@@ -4475,7 +4741,11 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-tool-database`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools"
+    ]
   },
   {
     "slug": "providers-hub",
@@ -4582,7 +4852,14 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-providers-hub`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-commands",
+      "@deepseek-ai/dsh-credentials"
+    ]
   },
   {
     "slug": "permission-remote",
@@ -4689,7 +4966,21 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-permission-remote`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/cosmokit",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery",
+      "@deepseek-ai/dsh-fs-patch",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-credentials",
+      "@deepseek-ai/dsh-atomic-write",
+      "@deepseek-ai/dsh-typert-protocol"
+    ]
   },
   {
     "slug": "simple-worktree",
@@ -4796,7 +5087,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @voltage12/dsh-simple-worktree`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "web-ide",
@@ -4903,7 +5195,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @zhaoyang10/dsh-web-ide`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "computers",
@@ -5010,7 +5303,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-computers`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "cloud-relay",
@@ -5117,7 +5411,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dshost-plugin`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "design-panel",
@@ -5224,7 +5519,17 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @yugoo-design/dsh-design-panel`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-api-remotes",
+      "@deepseek-ai/dsh-client-ui-tool",
+      "@deepseek-ai/dsh-client-ui-slots",
+      "@deepseek-ai/dsh-typert-protocol",
+      "@deepseek-ai/dsh-client-ui-session",
+      "@deepseek-ai/dsh-api-session-controller",
+      "@deepseek-ai/dsh-client-ui-conversation"
+    ]
   },
   {
     "slug": "codegraph",
@@ -5331,7 +5636,13 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-codegraph-visualizer`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/schemastery"
+    ]
   },
   {
     "slug": "tool-gate",
@@ -5438,7 +5749,13 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @mzzsfy/dsh-tool-gate`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/schemastery"
+    ]
   },
   {
     "slug": "tool-surface",
@@ -5545,7 +5862,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @logictan/dsh-tool-surface`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "tool-plus",
@@ -5652,7 +5970,25 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @xiaoso/dsh-tool-plus`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-fs",
+      "@deepseek-ai/dsh-llm",
+      "@deepseek-ai/dsh-jobs",
+      "@deepseek-ai/dsh-agent",
+      "@deepseek-ai/dsh-shell",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-sandbox",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-settings",
+      "@deepseek-ai/dsh-shell-env",
+      "@deepseek-ai/dsh-attachment",
+      "@deepseek-ai/dsh-agent-preset",
+      "@deepseek-ai/dsh-system-prompt",
+      "@deepseek-ai/dsh-client-connection",
+      "@deepseek-ai/dsh-agent-preset-registry"
+    ]
   },
   {
     "slug": "octop-memory",
@@ -5759,7 +6095,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-octop-memory`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/dsh"
+    ]
   },
   {
     "slug": "config-sync",
@@ -5866,7 +6205,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-syn-config`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "plugin-updater",
@@ -5973,7 +6313,10 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-better-plugin-updater`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis"
+    ]
   },
   {
     "slug": "whiteboard-skill",
@@ -6080,7 +6423,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-claude-whiteboard`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "motion-skill",
@@ -6187,7 +6531,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-claude-motion`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "daily-reports",
@@ -6294,7 +6639,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-atan-daily`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "ue-asset",
@@ -6401,7 +6747,8 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove dsh-ue-asset`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": []
   },
   {
     "slug": "teamflow",
@@ -6508,7 +6855,16 @@ export const COMMUNITY = [
           "a": "用 `dsh plugin --profile web remove @xirang-ai/dsh-teamflow`，和装的时候对称。"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-tools",
+      "@deepseek-ai/dsh-session",
+      "@deepseek-ai/dsh-home-paths",
+      "@deepseek-ai/dsh-user-approval",
+      "@deepseek-ai/dsh-sandbox-policy",
+      "@deepseek-ai/dsh-typert-protocol"
+    ]
   },
   {
     "slug": "mnemon",
@@ -6605,7 +6961,12 @@ export const COMMUNITY = [
           "a": "placeholder"
         }
       ]
-    }
+    },
+    "peerNames": [
+      "@deepseek-ai/cordis",
+      "@deepseek-ai/dsh-app-boot",
+      "@deepseek-ai/dsh-typert-protocol"
+    ]
   },
   {
     "slug": "imagegen",
@@ -6702,52 +7063,20 @@ export const COMMUNITY = [
           "a": "placeholder"
         }
       ]
-    }
+    },
+    "peerNames": []
   }
 ];
 
 
 const BY_SLUG = new Map(COMMUNITY.map((p) => [p.owner + '/' + p.slug, p]));
 
-const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
-
-// 从冲突说明里找出它点名的对撞包
-const SHORT_NAMES = new Set(COMMUNITY.map((p) => p.pkg.split('/').pop()));
-
-function counterpartOf(note) {
-  if (!note) return '';
-  const tokens = [...note.en.matchAll(/\`([@a-z0-9][\w@/.-]*)\`/g)].map((m) => m[1]);
-  const isVersion = (t) => /^\d/.test(t) || /^[<>^~=]/.test(t);
-  const community = tokens.find((t) => SHORT_NAMES.has(t));
-  if (community) return community;
-  const official = tokens.find((t) => t.startsWith('@deepseek-ai/') && !isVersion(t));
-  return official ?? '';
-}
-
-function withConflicts(slug, page) {
-  const note = ALL_CONFLICTS[slug];
-  const counterpart = counterpartOf(note);
-  const extras = sectionsFor(page, [], page.group);
-  const [q1, q2] = faqFor(page, note, counterpart);
-
-  const out = { en: { ...page.en }, zh: { ...page.zh } };
-  for (const lang of ['en', 'zh']) {
-    const sections = (out[lang].sections ?? []).map((s) =>
-      note && s.h === CONFLICT_HEAD[lang] ? { ...s, p: [note[lang]] } : s,
-    );
-    const added = extras.map((x) => ({ h: lang === 'en' ? x.h : x.zhH, p: lang === 'en' ? x.p : x.zhP }));
-    out[lang] = { ...out[lang], sections: [...sections, ...added], faq: [q1[lang], q2[lang]] };
-  }
-  const zh = ZH_OVERRIDES[slug];
-  if (zh) {
-    out.zh = { ...out.zh, title: zh.title, cite: zh.cite };
-  }
-  return out;
-}
-
 export function communityPage(slug) {
   const page = BY_SLUG.get(slug);
-  return page ? withConflicts(slug, page) : null;
+  if (!page) return null;
+  const note = ALL_CONFLICTS[slug] ?? null;
+  const pair = pairFor(page.pkg, 'en');
+  return renderCommunityPage(page, note, pair, slug);
 }
 
 export function communityByGroup() {

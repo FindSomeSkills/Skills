@@ -78,7 +78,7 @@ export const ERRORS = {
     ],
     sections: [
       {
-        h: 'DeepSeek messages transport failed',
+        h: 'Transfer interrupted',
         p: [
           'The session is fine; the request to the model provider never completed. Usually the network path, a proxy that drops long-lived streams, or a provider key that expired.',
           'Check which profile and provider are configured before touching anything else:',
@@ -86,7 +86,7 @@ export const ERRORS = {
         code: 'dsh --profile web --dump-config',
       },
       {
-        h: 'zsh: command not found: corepack',
+        h: 'corepack missing',
         p: [
           'Plugin management runs pnpm through corepack. Node 24 ships corepack, but some version managers and Linux packages strip it.',
           'Enable it once, then retry the plugin command:',
@@ -94,7 +94,7 @@ export const ERRORS = {
         code: 'corepack enable && dsh plugin --profile web add @deepseek-ai/dsh-otel',
       },
       {
-        h: 'Plugin X is incompatible with dsh Y',
+        h: 'Plugin version mismatch',
         p: [
           'The plugin declares `engines.dsh`, and your dsh is outside that range. The CLI skips the plugin at boot instead of running a combination that may crash.',
           'Upgrade dsh, or accept the risk for that one package:',
@@ -102,7 +102,7 @@ export const ERRORS = {
         code: 'dsh plugin allow-version <package>',
       },
       {
-        h: 'EBADENGINE (Node version too old)',
+        h: 'Node too old',
         p: [
           'The package requires Node.js 24.9.0 or newer. npm prints EBADENGINE and installs anyway, then the CLI fails at start-up with a syntax error.',
           'Check the version, then install the current LTS:',
@@ -110,7 +110,7 @@ export const ERRORS = {
         code: 'node --version\nnpm install -g @deepseek-ai/dsh@latest',
       },
       {
-        h: '--host refuses 0.0.0.0',
+        h: 'Wildcard address rejected',
         p: [
           '`--host` takes one concrete local IPv4 or IPv6 literal. Wildcard addresses are rejected on purpose, so a container or a LAN setup that expects `0.0.0.0` fails at boot.',
           'Pass the address you actually want to bind:',
@@ -140,7 +140,7 @@ export const ERRORS = {
     lead: ['每一节就是你看到的报错、为什么会这样、以及该跑的那一条命令。不猜。'],
     sections: [
       {
-        h: 'deepseek messages transport failed',
+        h: '传输中断',
         p: [
           '会话本身没事，是发往模型服务商的请求没走完。常见原因是网络路径、会掐长连接的代理、或者过期的 key。',
           '先看清当前 profile 用的是哪个 provider：',
@@ -148,7 +148,7 @@ export const ERRORS = {
         code: 'dsh --profile web --dump-config',
       },
       {
-        h: 'zsh: command not found: corepack',
+        h: 'corepack 缺失',
         p: [
           '插件管理通过 corepack 调 pnpm。Node 24 自带 corepack，但某些版本管理器和 Linux 发行版会把它剥掉。',
           '启用一次，再重试插件命令：',
@@ -156,7 +156,7 @@ export const ERRORS = {
         code: 'corepack enable && dsh plugin --profile web add @deepseek-ai/dsh-otel',
       },
       {
-        h: 'Plugin X is incompatible with dsh Y',
+        h: '插件版本不匹配',
         p: [
           '插件声明了 `engines.dsh`，你当前的 dsh 不在这个区间里。命令行会在启动时跳过它，而不是带着一个可能崩的组合跑。',
           '要么升级 dsh，要么只对这一个包放行：',
@@ -164,7 +164,7 @@ export const ERRORS = {
         code: 'dsh plugin allow-version <package>',
       },
       {
-        h: 'EBADENGINE（Node 版本太低）',
+        h: 'Node 太低',
         p: [
           '这个包要求 Node.js 24.9.0 或更高。npm 打了 EBADENGINE 还是装上了，然后命令行在启动时报语法错误。',
           '先看版本，再装当前 LTS：',
@@ -172,7 +172,7 @@ export const ERRORS = {
         code: 'node --version\nnpm install -g @deepseek-ai/dsh@latest',
       },
       {
-        h: '--host 拒绝 0.0.0.0',
+        h: '通配地址被拒',
         p: [
           '`--host` 只接受一个具体的本机 IPv4 或 IPv6 地址，通配地址是有意拒绝的。所以容器里、局域网里写 `0.0.0.0` 会在启动时失败。',
           '填你真正想绑的地址：',

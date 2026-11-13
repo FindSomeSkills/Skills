@@ -3,8 +3,8 @@ const P = (a, b, symptom, keep, why) => ({ a, b, symptom, keep, why });
 
 export const CONFLICTS_PAGE = {
   en: {
-    title: 'Which DeepSeek Harness plugins conflict — 25 pairs that cannot share a profile',
-    desc: 'Twenty-five pairs of community plugins that fight, grouped by what they fight over: the same UI slot, the same config row, the same external endpoint, or the same job.',
+    title: 'Which DeepSeek Harness plugins conflict — 26 pairs that cannot share a profile',
+    desc: 'Twenty-six pairs of community plugins that fight, grouped by what they fight over: the same UI slot, the same config row, the same external endpoint, or the same job.',
     h1: 'Which DeepSeek Harness plugins conflict',
     cite: 'Most plugin conflicts come from two plugins patching the same row: a patch replaces the whole config, so the later layer wins and the earlier one silently disappears.',
     lead: [
@@ -145,8 +145,8 @@ export const CONFLICTS_PAGE = {
     related: ['plugins', 'guides/errors', 'guides/cli'],
   },
   zh: {
-    title: 'DFS 插件冲突：哪些不能一起装（25 对）',
-    desc: '25 对会打架的社区插件，按四类分组：抢同一个界面位、抢同一个配置项、打同一个外部接口、干同一件事。每对写清症状和该留哪个。',
+    title: 'DFS 插件冲突：哪些不能一起装（26 对）',
+    desc: '26 对会打架的社区插件，按四类分组：抢同一个界面位、抢同一个配置项、打同一个外部接口、干同一件事。每对写清症状和该留哪个。',
     h1: '哪些 DeepSeek Harness 插件不能一起装',
     cite: '插件冲突多数来自两个插件改同一行：补丁替换整行 config，后加载的赢，前一个静默消失。',
     lead: [
@@ -209,3 +209,18 @@ export const CONFLICTS_PAGE = {
     related: ['plugins', 'guides/errors', 'guides/cli'],
   },
 };
+
+// 按包名查它在冲突页里的那一对（只查 en 数据，zh 用同一索引）
+export function pairFor(pkg, lang) {
+  const groups = CONFLICTS_PAGE[lang]?.groups ?? [];
+  for (const g of groups) {
+    for (const it of g.items ?? []) {
+      if (it.a === pkg) return { other: it.b, keep: it.keep, why: it.why, whyZh: it.whyZh ?? it.why };
+      if (it.b === pkg) return { other: it.a, keep: it.keep, why: it.why, whyZh: it.whyZh ?? it.why };
+    }
+  }
+  return null;
+}
+
+// 冲突页表格里的包名 → 详情页链接
+export const PKG_HREF = (pkg) => '/plugins/' + pkg.replace('@deepseek-ai/', '').replace(/^@[^/]+\//, '') + '/';
