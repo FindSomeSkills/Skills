@@ -28,7 +28,7 @@ const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 
 const faqItems = Array.isArray(t.faq) ? t.faq : (FAQ_EXTRA[lang]?.[page] ?? []);
 
-const faqLd = Array.isArray(faqItems)
+const faqLd = Array.isArray(faqItems) && faqItems.length > 0
   ? {
       '@type': 'FAQPage',
       mainEntity: faqItems.map((item) => ({
@@ -65,7 +65,24 @@ const software = {
     : { browserRequirements: 'Requires JavaScript. Runs entirely client-side.' }),
 };
 
-const jsonLd = [software, faqLd, breadcrumb].filter(Boolean);
+const howTo = page === 'syncHub' && Array.isArray(t.steps)
+  ? {
+      '@type': 'HowTo',
+      name: lang === 'zh' ? '如何跨设备同步 DSH 会话' : 'How to sync DSH sessions across machines',
+      description: t.desc,
+      totalTime: 'PT10M',
+      tool: [{ '@type': 'HowToTool', name: 'DSH Sync Hub' }],
+      step: t.steps.map((step, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: step.h,
+        text: step.p,
+        url: `${base}/${slug}/#step-${i + 1}`,
+      })),
+    }
+  : null;
+
+const jsonLd = [software, faqLd, breadcrumb, howTo].filter(Boolean);
 
 // page → 内容 id，用于内链与 Related
 const CONTENT_ID = {

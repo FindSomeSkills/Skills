@@ -13,6 +13,14 @@ const label = (id) => {
   return id;
 };
 
+const oneLiner = (id) => {
+  const outcome = COPY[lang].homeExtra?.outcomes?.[id]?.outcome;
+  if (outcome) return outcome;
+  if (id === 'reference') return lang === 'zh' ? '会话格式、目录结构、索引字段' : 'Session formats, layout, index fields';
+  if (id === 'compare') return lang === 'zh' ? '三种方案各自在哪失效' : 'Where each of the three options fails';
+  return '';
+};
+
 const href = (id) => {
   if (id === 'reference') return `${prefix}/reference/`;
   if (id === 'compare') return `${prefix}/compare/sync-hub-vs-plugins/`;
@@ -27,6 +35,7 @@ const href = (id) => {
       <a class="card" href={href(id)}>
         <div class="head"><code>{id}</code></div>
         <h3>{label(id)}</h3>
+        {oneLiner(id) && <p class="card-outcome">{oneLiner(id)}</p>}
       </a>
     ))}
   </div>

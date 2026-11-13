@@ -39,6 +39,7 @@ const graph = [
     '@type': 'Organization',
     name: SITE.name,
     url: `${base}/`,
+    sameAs: [SITE.repo],
   },
   ...jsonLd,
   ...(slug === '' || slug === 'zh'

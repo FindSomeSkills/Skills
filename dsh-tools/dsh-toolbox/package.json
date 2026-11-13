@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "node tools/serve.mjs",
-    "polish": "node ../deai-tool/src/cli.ts ui src --fix && node ../deai-tool/src/cli.ts ui src && npm run build && node tools/visual-check.mjs",
+    "polish": "node ../deai-tool/src/cli.ts ui src --fix && node ../deai-tool/src/cli.ts ui src && npm run build && node tools/check-schema.mjs && node tools/visual-check.mjs",
     "visual": "node tools/visual-check.mjs",
     "deploy": "node tools/deploy-pages.mjs"
   },
