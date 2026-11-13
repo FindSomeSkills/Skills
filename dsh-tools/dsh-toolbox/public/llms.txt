@@ -75,6 +75,10 @@ DSH keeps three things apart, and conflating them is the source of almost every 
 
 - English: https://www.dshtoolbox.com/
 - 简体中文: https://www.dshtoolbox.com/zh/
+  - Guides: https://www.dshtoolbox.com/zh/guides/what-is-deepseek-harness/ · https://www.dshtoolbox.com/zh/guides/install/ · https://www.dshtoolbox.com/zh/guides/cli/ · https://www.dshtoolbox.com/zh/guides/desktop/
+  - Plugins: https://www.dshtoolbox.com/zh/plugins/
+  - Comparisons: https://www.dshtoolbox.com/zh/compare/vs-claude-code/ · https://www.dshtoolbox.com/zh/compare/vs-codex-harness/ · https://www.dshtoolbox.com/zh/compare/vs-opencode/ · https://www.dshtoolbox.com/zh/compare/sync-hub-vs-plugins/
+  - Tools: https://www.dshtoolbox.com/zh/tools/zstd-frame-inspector/ · https://www.dshtoolbox.com/zh/tools/context-budget/ · https://www.dshtoolbox.com/zh/tools/session-index-doctor/ · https://www.dshtoolbox.com/zh/tools/skill-load-audit/ · https://www.dshtoolbox.com/zh/tools/deai-kit/ · https://www.dshtoolbox.com/zh/sync-hub/ · https://www.dshtoolbox.com/zh/reference/
 
 ## Contact
 

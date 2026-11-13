@@ -298,4 +298,95 @@ export const GUIDES = {
       related: ['guides/install', 'guides/what-is-deepseek-harness', 'plugins'],
     },
   },
+
+  'guides/desktop': {
+    en: {
+      title: 'DeepSeek Harness Desktop — why dsh desktop fails and what to run',
+      desc: 'The desktop profile name belongs to the Electron app, so the CLI rejects dsh desktop. What the desktop build adds over dsh web, and the two commands that actually start a UI.',
+      h1: 'DeepSeek Harness desktop',
+      cite: '\`desktop\` is a reserved profile name: the Electron app owns it, so the CLI rejects \`dsh desktop\`. The shipped CLI profiles are web, headless, sdk, sdk-minimal and acp.',
+      lead: [
+        'If you typed \`dsh desktop\` and got an error, that is not a missing install. The name is taken by the Electron application, and the launcher refuses boot and config-dump requests for it on purpose.',
+        'There are two different things people mean by "desktop": an Electron app that wraps the same runtime, and the browser UI that ships inside the CLI. Only one of them starts from the npm package.',
+      ],
+      sections: [
+        {
+          h: 'Why \`dsh desktop\` fails',
+          p: [
+            'The \`desktop\` profile name is reserved for the Electron-owned profile. The CLI rejects boot and config-dump requests for that name, and the npm CLI also rejects plugin-management requests for it — so \`dsh plugin --profile desktop add <package>\` will not work either.',
+            'The desktop-installed command can manage the initialized Desktop profile, because it runs with that installation\'s runtime. From the npm package, tooling for that profile is simply unavailable.',
+          ],
+        },
+        {
+          h: 'Desktop app vs \`dsh web\`',
+          p: [
+            '\`dsh web\` boots the \`web\` profile and serves the browser UI from your machine. It takes \`--host\`, \`--port\`, \`--no-open\`, \`--public-url\`, \`--trusted-host\` and optional TLS flags.',
+            'The desktop app is a separate carrier around the same runtime: it ships its own profile and its own command, and it is where the reserved name comes from. Running \`dsh web\` gives you the same sessions and the same \`$DSH_HOME\` directory, just in a browser tab instead of a native window.',
+          ],
+        },
+        {
+          h: 'What to run instead',
+          p: [
+            'Start the browser UI on the default port, or pin one and skip the auto-open:',
+          ],
+          code: 'dsh web\ndash web --port 8080 --no-open',
+        },
+        {
+          h: 'If you need to inspect what the profile actually composes',
+          p: [
+            'Use a real shipped profile name. \`desktop\` will refuse; \`web\` works:',
+          ],
+          code: 'dsh --profile web --dump-config\ndash --profile web --dump-config-schema',
+        },
+      ],
+      faq: [
+        { q: 'Does the npm package include the desktop app?', a: 'No. The npm package installs the \`dsh\` launcher and the shipped CLI profiles. The desktop app is a separate download with its own command.' },
+        { q: 'Can I rename my profile to desktop?', a: 'No. The name is reserved: boot and config-dump requests for \`desktop\` are rejected, so pick another name when you copy a template.' },
+        { q: 'Is \`dsh web\` the same UI as the desktop app?', a: 'It is the browser surface of the same runtime. Sessions, \`$DSH_HOME\` and the profile model are the same; the window is not.' },
+      ],
+      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'guides/install'],
+    },
+    zh: {
+      title: 'DeepSeek Harness 桌面版 — dsh desktop 为什么启动失败',
+      desc: 'desktop 这个名字被 Electron 应用占用，命令行会拒绝 dsh desktop。桌面版和 dsh web 差在哪，想用界面该跑哪两条命令。',
+      h1: 'DeepSeek Harness 桌面版',
+      cite: '\`desktop\` 是保留的 profile 名：Electron 应用占用它，所以命令行会拒绝 \`dsh desktop\`。随 CLI 出货的是 web、headless、sdk、sdk-minimal、acp。',
+      lead: [
+        '敲 \`dsh desktop\` 报错，不是没装好。这个名字归 Electron 应用所有，启动器对它的 boot 与配置导出请求一律拒绝。',
+        '大家说的“桌面版”其实是两样东西：一个是包着同一套运行时的 Electron 应用，一个是 CLI 自带的浏览器界面。npm 包里只能启动后者。',
+      ],
+      sections: [
+        {
+          h: '\`dsh desktop\` 为什么失败',
+          p: [
+            '\`desktop\` 这个 profile 名留给 Electron。命令行会拒绝它的 boot 和配置导出请求，npm 版的 CLI 还会拒绝它的插件管理请求——所以 \`dsh plugin --profile desktop add <包名>\` 同样不行。',
+            '桌面版自带的那条命令可以管理已初始化的 Desktop profile，因为它用的是那个安装自己的运行时。从 npm 包装的 CLI 里，针对这个 profile 的工具是关掉的。',
+          ],
+        },
+        {
+          h: '桌面应用和 \`dsh web\` 的区别',
+          p: [
+            '\`dsh web\` 启动 \`web\` profile，从本机提供浏览器界面。它接受 \`--host\`、\`--port\`、\`--no-open\`、\`--public-url\`、\`--trusted-host\` 以及可选的 TLS 参数。',
+            '桌面应用是包在同一套运行时外面的独立载体：它有自己的 profile 和自己的命令，那个保留名就是从这来的。跑 \`dsh web\` 用的是同一批会话、同一个 \`$DSH_HOME\` 目录，只是窗口从原生换成浏览器标签页。',
+          ],
+        },
+        {
+          h: '那该跑什么',
+          p: ['起默认端口的浏览器界面，或者固定端口并跳过自动打开：'],
+          code: 'dsh web\ndash web --port 8080 --no-open',
+        },
+        {
+          h: '想看清 profile 到底合成成什么样',
+          p: ['用真实存在的 profile 名。\`desktop\` 会被拒绝，\`web\` 可以：'],
+          code: 'dsh --profile web --dump-config\ndash --profile web --dump-config-schema',
+        },
+      ],
+      faq: [
+        { q: 'npm 包里带桌面应用吗？', a: '不带。npm 包装的是 \`dsh\` 启动器和随包的几个 CLI profile；桌面应用是另一个下载，有自己的命令。' },
+        { q: '能把自己的 profile 改名成 desktop 吗？', a: '不能。这个名字是保留的，boot 与配置导出请求都会被拒绝，复制模板时换个名字。' },
+        { q: '\`dsh web\` 和桌面应用是同一个界面吗？', a: '是同一套运行时的浏览器界面。会话、\`$DSH_HOME\` 和 profile 模型都一样，只有窗口不一样。' },
+      ],
+      related: ['guides/what-is-deepseek-harness', 'guides/cli', 'guides/install'],
+    },
+  },
 };

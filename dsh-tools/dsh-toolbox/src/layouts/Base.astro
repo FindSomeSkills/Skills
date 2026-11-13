@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/apple.css';
 import '../styles/theme.css';
 import { SITE, COPY, TOOLS, alternateFor } from '../lib/content.mjs';
+import { updatedFor } from '../lib/updated.mjs';
 
 const {
   lang = 'en',
@@ -14,6 +15,7 @@ const {
 } = Astro.props;
 
 const copy = COPY[lang];
+const baseSlug = slug.replace(/^zh\/?/, '');
 const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 const canonical = `${base}/${slug ? `${slug}/` : ''}`;
 const altUrl = `${base}${alternateFor(slug)}`;
@@ -26,7 +28,7 @@ const ariaTpl = lang === 'en'
 const themeLabels = lang === 'en'
   ? { light: 'Light', dark: 'Dark', auto: 'System' }
   : { light: '浅色', dark: '深色', auto: '跟随系统' };
-const buildDate = new Date().toISOString().slice(0, 10);
+const buildDate = updatedFor(baseSlug);
 const graph = [
   {
     '@type': 'WebSite',
@@ -51,7 +53,7 @@ const graph = [
             '@type': 'ListItem',
             position: i + 1,
             name: t.name,
-            url: `${base}${lang === 'zh' ? '/zh' : ''}/tools/${t.slug}/`,
+            url: `${base}${lang === 'zh' ? '/zh' : ''}/${t.slug === 'sync-hub' ? 'sync-hub' : `tools/${t.slug}`}/`,
           })),
         },
       ]
@@ -127,6 +129,7 @@ const graph = [
     <footer class="site">
       <div class="wrap">
         <p class="footer-line">{copy.footer.note}</p>
+        <p class="footer-updated">{lang === 'zh' ? '最后更新' : 'Last updated'}: {updatedFor(baseSlug)}</p>
       </div>
     </footer>
     <script is:inline>

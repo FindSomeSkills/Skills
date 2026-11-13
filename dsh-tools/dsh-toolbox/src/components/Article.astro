@@ -31,7 +31,7 @@ const related = (t.related ?? []).map((id) => ({ id, ...linkFor(id, lang) }));
 
 {(t.sections ?? []).map((s) => (
   <section>
-    <h2>{s.h}</h2>
+    <h2 set:html={inline(s.h)} />
     {(s.p ?? []).map((p) => <p set:html={inline(p)} />)}
     {s.code && <pre><code>{s.code}</code></pre>}
   </section>

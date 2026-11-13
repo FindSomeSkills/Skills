@@ -8,7 +8,7 @@ const { items, heading = 'Common questions' } = Astro.props;
     <h2>{heading}</h2>
     {items.map((item) => (
       <details>
-        <summary>{item.q}</summary>
+        <summary set:html={inline(item.q)} />
         <p set:html={inline(item.a)} />
       </details>
     ))}

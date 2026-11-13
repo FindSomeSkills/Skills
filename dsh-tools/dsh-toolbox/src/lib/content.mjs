@@ -65,9 +65,9 @@ export const COPY = {
       free: '',
     },
     home: {
-      title: 'DSH Toolbox — free tools for DeepSeek Harness',
+      title: 'DeepSeek Harness Tools — Sync, Inspect and Budget Session Files',
       desc: 'Client-side tools for DeepSeek Harness: sync sessions across machines, inspect .zstd frames, plan your context budget. Nothing is uploaded.',
-      h1: 'Tools for people who actually run DeepSeek Harness',
+      h1: 'DeepSeek Harness tools that run in your browser',
       lede: 'DSH Toolbox is a free set of browser tools for DeepSeek Harness: sync sessions across machines, inspect session files, repair the session index, audit what each skill costs, and check text or UI for template traces. Everything runs in the browser — no signup, no upload, no telemetry.',
       toolsH: 'The tools',
       toolsNote: 'Six tools are live; more land as usage shows',
@@ -345,6 +345,7 @@ export const COPY = {
 };
 
 import { PLUGINS } from './content-plugins.mjs';
+import { EXPANDED as EXPANDED_PLUGINS } from './plugin-page.mjs';
 
 export function pageList() {
   return [
@@ -374,6 +375,8 @@ export function pageList() {
     { slug: 'zh/guides/install', lang: 'zh', page: 'article' },
     { slug: 'guides/cli', lang: 'en', page: 'article' },
     { slug: 'zh/guides/cli', lang: 'zh', page: 'article' },
+    { slug: 'guides/desktop', lang: 'en', page: 'article' },
+    { slug: 'zh/guides/desktop', lang: 'zh', page: 'article' },
     // —— 插件目录 ——
     { slug: 'plugins', lang: 'en', page: 'article' },
     { slug: 'zh/plugins', lang: 'zh', page: 'article' },
@@ -385,8 +388,8 @@ export function pageList() {
     { slug: 'compare/vs-opencode', lang: 'en', page: 'article' },
     { slug: 'zh/compare/vs-opencode', lang: 'zh', page: 'article' },
     ...PLUGINS.flatMap((p) => [
-      { slug: `plugins/${p.slug}`, lang: 'en', page: 'article' },
-      { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article' },
+      { slug: `plugins/${p.slug}`, lang: 'en', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },
+      { slug: `zh/plugins/${p.slug}`, lang: 'zh', page: 'article', noindex: !EXPANDED_PLUGINS.includes(p.slug) },
     ]),
   ];
 }

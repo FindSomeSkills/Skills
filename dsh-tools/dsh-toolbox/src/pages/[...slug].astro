@@ -17,15 +17,16 @@ import { VERSUS } from '../lib/content-versus.mjs';
 import { PLUGIN_INDEX, PLUGINS, pluginPage } from '../lib/content-plugins.mjs';
 import DeaiKit from '../components/DeaiKit.astro';
 import { COPY, SITE, pageList } from '../lib/content.mjs';
+import { updatedFor } from '../lib/updated.mjs';
 
 export function getStaticPaths() {
   return pageList().map((p) => ({
     params: { slug: p.slug === '' ? undefined : p.slug },
-    props: { lang: p.lang, page: p.page, slug: p.slug },
+    props: { lang: p.lang, page: p.page, slug: p.slug, noindex: p.noindex ?? false },
   }));
 }
 
-const { lang, page, slug } = Astro.props;
+const { lang, page, slug, noindex = false } = Astro.props;
 const copy = COPY[lang];
 const baseSlug = lang === 'zh' ? slug.replace(/^zh\/?/, '') : slug;
 const article =
@@ -62,9 +63,9 @@ const breadcrumb = {
 const software = {
   '@type': page === 'syncHub' ? 'SoftwareApplication' : 'WebApplication',
   name: page === 'syncHub' ? 'DSH Sync Hub' : t.h1,
-  url: `${base}/${slug}/`,
+  url: `${base}/${slug ? `${slug}/` : ''}`,
   applicationCategory: 'DeveloperApplication',
-  dateModified: new Date().toISOString().slice(0, 10),
+  dateModified: updatedFor(baseSlug),
   operatingSystem: 'Windows, macOS, Linux, Android',
   description: t.desc,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -98,7 +99,7 @@ const techArticle = page === 'reference'
       headline: t.h1,
       description: t.desc,
       datePublished: '2026-11-13',
-      dateModified: new Date().toISOString().slice(0, 10),
+      dateModified: updatedFor(baseSlug),
       inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
       author: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
       publisher: { '@type': 'Organization', name: SITE.name, url: `${base}/` },
@@ -124,7 +125,7 @@ const contentId = CONTENT_ID[page];
 const pageTitle = t.title ?? `${t.h1} — ${SITE.name}`;
 const pageDesc = t.desc ?? `${t.lede}`.slice(0, 155);
 ---
-<Base title={pageTitle} description={pageDesc} lang={lang} slug={slug} jsonLd={jsonLd}>
+<Base title={pageTitle} description={pageDesc} lang={lang} slug={slug} jsonLd={jsonLd} robots={article?.noindex || noindex ? 'noindex,follow' : 'index,follow'}>
   {page === 'home' && <HomePage lang={lang} />}
   {page === 'syncHub' && <SyncHubPage lang={lang} />}
   {page === 'zstd' && <ZstdInspector lang={lang} />}

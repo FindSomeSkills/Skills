@@ -141,39 +141,4 @@ const KIND_LABEL = {
   service: { en: 'service', zh: '服务' },
 };
 
-// 每个插件一个详情页；正文只用 npm 元数据与已知的 dsh 行为，不编功能。
-export function pluginPage(slug, lang) {
-  const p = pluginBySlug(slug);
-  if (!p) return null;
-  const zh = lang === 'zh';
-  const kind = KIND_LABEL[p.kind][lang];
-  const desc = (zh ? p.zh : p.en);
-  return {
-    title: `${p.pkg} — DeepSeek Harness ${kind}`,
-    desc: zh ? `${p.pkg} 是 DeepSeek Harness 的${kind}，当前版本 ${p.version}。` : `${p.pkg} is a DeepSeek Harness ${kind}, currently ${p.version}.`,
-    h1: p.pkg,
-    cite: zh ? `${p.pkg} 是 dsh 的一个${kind}：${desc}` : `${p.pkg} is a DeepSeek Harness ${kind}: ${desc}`,
-    lead: [
-      desc,
-      zh
-        ? `这个包发布在 npm 上，当前版本 ${p.version}。它进 profile 的方式和其他插件一样：装进 \`$DSH_HOME/profiles/<名字>\`，成为那份 \`package.json\` 的依赖。`
-        : `Published on npm at ${p.version}. It enters a profile the same way as any other plugin: installed into \`$DSH_HOME/profiles/<name>\` as a dependency in that profile's \`package.json\`.`,
-    ],
-    sections: [
-      {
-        h: zh ? '安装' : 'Install',
-        p: [zh ? '插件管理会把参数转发给 profile 目录里的 pnpm，所以这条命令的行为和 `pnpm add` 一致。' : 'Plugin management forwards to pnpm inside the profile directory, so this behaves like `pnpm add`.'],
-        code: `dsh plugin --profile web add ${p.pkg}`,
-      },
-      {
-        h: zh ? '它解决什么' : 'What it is for',
-        p: [desc, zh ? '要确认它是否已经在你的 profile 里，看 `$DSH_HOME/profiles/<名字>/package.json` 的依赖，或用 `--dump-config` 看合成后的树。' : 'To check whether it is already in your profile, look at the dependencies in `$DSH_HOME/profiles/<name>/package.json`, or read the composed tree with `--dump-config`.'],
-      },
-    ],
-    faq: [
-      { q: zh ? '装错了怎么卸掉？' : 'How do I remove it again?', a: zh ? `用 \`dsh plugin --profile <名字> remove ${p.pkg}\`，和装的时候对称。` : `Use \`dsh plugin --profile <name> remove ${p.pkg}\`, the mirror of the install command.` },
-      { q: zh ? '版本不匹配会怎样？' : 'What if the version does not match my dsh?', a: zh ? '插件通过 `engines.dsh` 或 peer 依赖声明兼容区间，不在区间内会被跳过并打印要求。' : 'Plugins declare a compatible range through `engines.dsh` or DSH peer dependencies. Outside that range the CLI skips the plugin and prints the requirement.' },
-    ],
-    related: ['plugins', 'guides/cli', 'guides/install'],
-  };
-}
+export { pluginPage } from './plugin-page.mjs';
