@@ -20,8 +20,9 @@ const base = Astro.site?.href?.replace(/\/$/, '') ?? 'http://127.0.0.1:4321';
 const canonical = `${base}/${slug ? `${slug}/` : ''}`;
 const altUrl = `${base}${alternateFor(slug)}`;
 const altLang = lang === 'en' ? 'zh-Hans' : 'en';
+const is404 = slug === '404';
 const homeHref = lang === 'en' ? '/' : '/zh/';
-const langHref = lang === 'en' ? alternateFor(slug) : alternateFor(slug);
+const langHref = is404 ? (lang === 'en' ? '/zh/' : '/') : alternateFor(slug);
 const ariaTpl = lang === 'en'
   ? 'Appearance: {cur}. Click for {next}'
   : '当前{cur}，点击切换到{next}';

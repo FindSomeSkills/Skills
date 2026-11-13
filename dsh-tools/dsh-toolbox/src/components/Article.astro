@@ -123,7 +123,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
         <li>
           {lang === 'zh' ? '它 peer 的官方包：' : 'Official packages it peers: '}
           {t.footer.peers.map((p, i) => (
-            <span>{i > 0 && ', '}<a href={p.href}>{p.pkg}</a></span>
+            <span>{i > 0 && ', '}{p.href ? <a href={p.href}>{p.pkg}</a> : <code>{p.pkg}</code>}</span>
           ))}
         </li>
       )}

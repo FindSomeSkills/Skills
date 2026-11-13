@@ -341,7 +341,7 @@ export const COPY_PAGES = {
       sources: [
         ['dsh-session-sync', 'https://github.com/PerryLink/dsh-session-sync'],
         ['dsh-remote-mobile', 'https://github.com/IceApriler/dsh-remote-mobile'],
-        ['实测记录', '/zh/reference/'],
+        ['实测记录', '/reference/'],
       ],
       faqH: '常见问题',
       faq: [

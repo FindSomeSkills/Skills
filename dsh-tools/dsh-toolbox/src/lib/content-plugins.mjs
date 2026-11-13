@@ -7,13 +7,13 @@ export const PLUGIN_INDEX = {
     desc: 'The dsh plugin model in one page: bundles vs seams, the install command, version checks, plus 62 community plugins grouped by what they do.',
     h1: 'DeepSeek Harness plugins',
     links: [
-      { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '25 pairs that cannot share a profile, by what they fight over' },
+      { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '26 pairs that cannot share a profile, by what they fight over' },
     ],
     cite: 'A dsh plugin is an npm package added to a profile; `dsh plugin --profile <name> add <package>` installs it and pnpm owns the rest.',
     lead: [
       'This page covers both halves: the 16 official packages that make up a profile, and 62 community plugins grouped by the problem they solve.',
       'A profile is a stack of patch layers. `dsh-base` is the first layer every profile gets; `dsh-web-app` and `dsh-headless` add a surface on top of it. Everything else is a seam: a swap-in point for one capability, like the filesystem, the shell, or the sandbox.',
-      'This page lists the packages published under `@deepseek-ai/dsh-*` that make up a default profile, and the two commands that add or remove one.',
+      'The community half is grouped by the job it does — finding plugins, cost, sessions, skills, search, appearance, agents, remote access, output, system, providers, data, network, memory, automation, git and editor. Each card links to a page with its own install command and conflict note.',
     ],
     sections: [
       { h: 'Install or remove one', p: ['Plugin management forwards to pnpm inside the profile directory, so argument order and package specs behave the way pnpm behaves.'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },
@@ -32,12 +32,13 @@ export const PLUGIN_INDEX = {
     desc: '一页讲清 dsh 插件：bundle 与 seam 的区别、安装命令、版本检查，外加 62 个社区插件按用途分组。',
     h1: 'DeepSeek Harness 插件',
     links: [
-      { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '25 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },
+      { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '26 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },
     ],
     cite: 'dsh 的插件就是一个装进 profile 的 npm 包；`dsh plugin --profile <名字> add <包名>` 负责装，其余交给 pnpm。',
     lead: [
+      '这一页讲两半：组成 profile 的 16 个官方包，以及按用途分组的 62 个社区插件。',
       'profile 是一摞补丁层。`dsh-base` 是每个 profile 的第一层，`dsh-web-app` 和 `dsh-headless` 在它上面加一个界面。剩下的都是 seam：某一项能力的可替换点，比如文件系统、shell、沙箱。',
-      '这一页列出组成默认 profile 的那些 `@deepseek-ai/dsh-*` 包，以及添加和移除它们的两条命令。',
+      '社区那一半按它解决的问题分组：找插件、花费、会话、技能、搜索、外观、多 agent、远程访问、富输出、系统、服务商、数据、网络、记忆、定时任务、git 与编辑器。每张卡片点进去都有独立的安装命令和冲突说明。',
     ],
     sections: [
       { h: '装一个，或卸一个', p: ['插件管理会把参数转发给 profile 目录里的 pnpm，所以参数顺序和包名写法跟 pnpm 一样。'], code: 'dsh plugin --profile web add @deepseek-ai/dsh-otel\ndsh plugin --profile web remove @deepseek-ai/dsh-otel' },

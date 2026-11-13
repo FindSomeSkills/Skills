@@ -3,6 +3,13 @@ import { faqFor, sectionsFor } from './community-extras.mjs';
 
 const CONFLICT_HEAD = { en: 'If two plugins fight', zh: '两个插件打架时' };
 
+// 只有这 16 个官方包有详情页，其余 peer 不生成链接
+const OFFICIAL_SLUGS = new Set([
+  'dsh-base', 'dsh-web-app', 'dsh-headless', 'dsh-session', 'dsh-compaction', 'dsh-tools',
+  'dsh-skill', 'dsh-fs', 'dsh-shell', 'dsh-sandbox', 'dsh-sandbox-local', 'dsh-acp',
+  'dsh-jobs', 'dsh-web', 'dsh-workspace', 'dsh-otel',
+]);
+
 // 页尾链接块需要的数据：目录页、冲突页、peer 的官方包
 function footerFor(page, pair) {
   const peerNames = page.peerNames ?? [];
@@ -19,10 +26,10 @@ function footerFor(page, pair) {
           zhLabel: `和 ${pair.other} 冲突——这一对写在冲突页`,
         }
       : null,
-    peers: peerNames.map((p) => ({
-      pkg: p,
-      href: '/plugins/' + p.replace('@deepseek-ai/', '') + '/',
-    })),
+    peers: peerNames.map((p) => {
+      const short = p.replace('@deepseek-ai/', '');
+      return { pkg: p, href: OFFICIAL_SLUGS.has(short) ? '/plugins/' + short + '/' : '' };
+    }),
   };
 }
 
