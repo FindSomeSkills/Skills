@@ -152,22 +152,22 @@ const labels = t.js ?? {};
       if (!base) { clearPlan(baseMissing); return; }
 
       const rels = selected.map((f) => relOf(f.path));
-      const posixBase = base;
-      const winBase = base;
-      const backup = [
-        '# macOS / Linux',
-        'cp -a -- ' + shq(posixBase) + ' "$HOME/dsh-backup/"',
-        '',
-        '# Windows PowerShell',
-        'Copy-Item -LiteralPath ' + psq(winBase) + ' -Destination "$env:USERPROFILE\\dsh-backup\\sessions" -Recurse',
-      ].join('\n');
-      const del = [
-        delComment,
-        ...rels.map((r) => 'Remove-Item -LiteralPath ' + psq(winBase.replace(/\//g, '\\') + '\\' + r.replace(/\//g, '\\')) + ' -Recurse'),
-        '',
-        '# macOS / Linux',
-        ...rels.map((r) => 'rm -rf -- ' + shq(posixBase.replace(/\/+$/, '') + '/' + r)),
-      ].join('\n');
+      const isWin = /Windows/i.test(navigator.userAgent);
+      const backup = isWin
+        ? [
+            delComment.replace('one line per selected file', 'backup'),
+            'Copy-Item -LiteralPath ' + psq(base) + ' -Destination "$env:USERPROFILE\\dsh-backup\\sessions" -Recurse',
+          ].join('\n')
+        : ['# macOS / Linux', 'cp -a -- ' + shq(base) + ' "$HOME/dsh-backup/"'].join('\n');
+      const del = isWin
+        ? [
+            delComment,
+            ...rels.map((r) => 'Remove-Item -LiteralPath ' + psq(base.replace(/\//g, '\\') + '\\' + r.replace(/\//g, '\\')) + ' -Recurse'),
+          ].join('\n')
+        : [
+            '# macOS / Linux — one line per selected file, absolute paths',
+            ...rels.map((r) => 'rm -rf -- ' + shq(base.replace(/\/+$/, '') + '/' + r)),
+          ].join('\n');
       document.getElementById('purgeBackupCmd').textContent = backup;
       document.getElementById('purgeDeleteCmd').textContent = del;
     };

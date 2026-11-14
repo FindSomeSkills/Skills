@@ -70,7 +70,7 @@ export const PURGE = {
     js: {
       noFiles: 'No .zstd or session .jsonl files in that folder. Pick the folder that contains them, not the profile directory.',
       picking: 'Reading folder…',
-      delComment: '# Windows PowerShell (delete one by one; paths are relative to sessions/)',
+      delComment: '# Windows PowerShell — one line per selected file, absolute paths',
     },
   },
   zh: {
@@ -143,7 +143,7 @@ export const PURGE = {
     js: {
       noFiles: '这个目录里没有 .zstd 或 session.jsonl 文件。要选装这些文件的那一层，不是 profile 目录。',
       picking: '正在读取目录…',
-      delComment: '# Windows PowerShell（逐条删，路径相对 sessions/）',
+      delComment: '# Windows PowerShell——每个选中的文件一行，绝对路径',
     },
   },
 };
