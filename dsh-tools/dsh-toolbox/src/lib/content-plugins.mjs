@@ -5,7 +5,7 @@ export const PLUGIN_INDEX = {
   en: {
     title: 'DeepSeek Harness plugins — 21 official packages and libraries plus 62 community plugins',
     desc: 'The dsh plugin model in one page: 16 profile packages, 5 shared libraries, bundles vs seams, the install command, and 62 community plugins grouped by what they do.',
-    h1: 'DeepSeek Harness plugins',
+    h1: 'DeepSeek Harness plugins — the dsh plugin model',
     links: [
       { label: 'Which plugins conflict', href: '/plugins/conflicts/', note: '26 pairs that cannot share a profile, by what they fight over' },
     ],
@@ -30,7 +30,7 @@ export const PLUGIN_INDEX = {
   zh: {
     title: 'DeepSeek Harness 插件怎么装？21 个官方包 + 62 个社区插件',
     desc: '一页讲清 dsh 插件：16 个 profile 包、5 个公共库、bundle 与 seam 的区别、安装命令，外加 62 个社区插件按用途分组。',
-    h1: 'DeepSeek Harness 插件',
+    h1: 'DeepSeek Harness 插件（dsh 插件）',
     links: [
       { label: '哪些插件不能一起装', href: '/zh/plugins/conflicts/', note: '26 对会打架的组合，按抢界面位 / 抢配置 / 抢接口 / 功能重叠分组' },
     ],

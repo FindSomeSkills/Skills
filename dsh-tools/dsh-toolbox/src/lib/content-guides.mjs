@@ -8,11 +8,12 @@ export const GUIDES = {
     en: {
       title: 'What Is DeepSeek Harness — the dsh CLI explained',
       desc: 'DeepSeek Harness (DSH) is a Node command-line tool that boots a profile of plugin layers and runs an agent session. What it installs, where it puts files, what dsh web does.',
-      h1: 'What is DeepSeek Harness',
+      h1: 'What is DeepSeek Harness (DSH)',
       cite: 'DeepSeek Harness is the Node command line tool `dsh`: it boots a profile of layered plugins and runs agent sessions on your machine.',
       lead: [
         'DeepSeek Harness is the program behind the `dsh` command. It runs an agent loop on your own machine, keeps each conversation in a session file on disk, and is assembled from plugins rather than shipped as one fixed binary.',
         'The npm package is `@deepseek-ai/dsh`. Its `bin` entry is `dsh`, and it declares Node.js 24.9.0 or newer. At the time of writing the published versions are 0.2.2-rc.1 (`latest`), 0.2.2-rc.3 (`next`) and 0.2.2-alpha.3 (`alpha`).',
+        'Three names for one thing: the npm package is @deepseek-ai/dsh, the command is dsh, and people shorten it to DSH in issues, posts and plugin docs. If you searched for dsh or DSH, this is the page.',
       ],
       sections: [
         {
@@ -48,11 +49,12 @@ export const GUIDES = {
     zh: {
       title: 'dsh 命令怎么用（常用命令速查）',
       desc: 'DeepSeek Harness（DSH）是一个 Node 命令行工具：启动由插件层组成的 profile，在本机跑 agent 会话。装了什么、文件放在哪、dsh web 是做什么的。',
-      h1: 'DeepSeek Harness 是什么',
+      h1: 'DeepSeek Harness 是什么（dsh）',
       cite: 'DeepSeek Harness 就是 `dsh` 这个 Node 命令行工具：它启动一组分层的插件（profile），在本机跑 agent 会话。',
       lead: [
         'DeepSeek Harness 是 `dsh` 命令背后的程序。它在本机跑 agent 循环，把每段对话存成磁盘上的会话文件，本体由插件拼成，而不是一个固定的二进制。',
         'npm 包名是 `@deepseek-ai/dsh`，`bin` 指向 `dsh`，要求 Node.js 24.9.0 或更高版本。目前发布版本：0.2.2-rc.1（latest）、0.2.2-rc.3（next）、0.2.2-alpha.3（alpha）。',
+        '它在群里和帖子里常被简写成 dsh 或 DSH，指的是同一个东西。',
       ],
       sections: [
         {
