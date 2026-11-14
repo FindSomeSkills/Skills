@@ -48,6 +48,11 @@ const labels = t.js ?? {};
   <section id="purgePlan">
     <h2>{t.planH}</h2>
     <p set:html={inline(t.planP)} />
+    <p class="purge-base">
+      <label for="purgeBase">{t.baseLabel}</label>
+      <input id="purgeBase" type="text" autocomplete="off" spellcheck="false" placeholder={t.basePlaceholder} />
+    </p>
+    <p class="muted">{t.baseHint}</p>
     <pre><code id="purgeBackupCmd">{t.backupCmd}</code></pre>
     <p set:html={inline(t.deleteP)} />
     <pre><code id="purgeDeleteCmd">{t.deleteShape}</code></pre>
@@ -102,7 +107,7 @@ const labels = t.js ?? {};
   <noscript><p set:html={inline(t.nojs)} /></noscript>
 </section>
 
-<script is:inline define:vars={{ noFiles: labels.noFiles ?? 'No session files found in that folder.', picking: labels.picking ?? 'Reading folder…', delComment: labels.delComment ?? '# delete these, relative to sessions/' }}>
+<script is:inline define:vars={{ noFiles: labels.noFiles ?? 'No session files found in that folder.', picking: labels.picking ?? 'Reading folder…', delComment: labels.delComment ?? '# delete these, relative to sessions/', baseMissing: t.baseMissing ?? labels.baseMissing ?? 'Fill in the folder path above to generate the commands.' }}>
   (() => {
     const input = document.getElementById('purgeDir');
     const wrap = document.getElementById('purgeTableWrap');
@@ -124,7 +129,17 @@ const labels = t.js ?? {};
     // webkitRelativePath starts with the picked folder name; commands keep only the part after it
     const relOf = (p) => p.split('/').slice(1).join('/') || p;
 
+    const shq = (x) => "'" + String(x).replace(/'/g, "'\\''") + "'";
+    const psq = (x) => "'" + String(x).replace(/'/g, "''") + "'";
+    const baseInput = document.getElementById('purgeBase');
+
+    const clearPlan = (msg) => {
+      document.getElementById('purgeBackupCmd').textContent = msg;
+      document.getElementById('purgeDeleteCmd').textContent = msg;
+    };
+
     const render = () => {
+      const base = (baseInput?.value || '').trim().replace(/[\\/]+$/, '');
       const selected = files.filter((f) => f.checked);
       const total = files.reduce((s, f) => s + f.size, 0);
       const sel = selected.reduce((s, f) => s + f.size, 0);
@@ -132,26 +147,32 @@ const labels = t.js ?? {};
       document.getElementById('purgeSelected').textContent = fmt(sel);
       document.getElementById('purgeCount').textContent = selected.length + ' / ' + files.length;
       summary.hidden = files.length === 0;
-      if (!selected.length) return;
+
+      if (!selected.length) { clearPlan(''); return; }
+      if (!base) { clearPlan(baseMissing); return; }
 
       const rels = selected.map((f) => relOf(f.path));
+      const posixBase = base;
+      const winBase = base;
       const backup = [
         '# macOS / Linux',
-        'cp -a ~/.dsh/sessions ~/dsh-backup/',
+        'cp -a -- ' + shq(posixBase) + ' "$HOME/dsh-backup/"',
         '',
         '# Windows PowerShell',
-        'Copy-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions" "$env:USERPROFILE\\dsh-backup\\sessions"',
+        'Copy-Item -LiteralPath ' + psq(winBase) + ' -Destination "$env:USERPROFILE\\dsh-backup\\sessions" -Recurse',
       ].join('\n');
       const del = [
         delComment,
-        ...rels.map((r) => 'Remove-Item -Recurse "$env:USERPROFILE\\.dsh\\sessions\\' + r.replace(/\//g, '\\') + '"'),
+        ...rels.map((r) => 'Remove-Item -LiteralPath ' + psq(winBase.replace(/\//g, '\\') + '\\' + r.replace(/\//g, '\\')) + ' -Recurse'),
         '',
         '# macOS / Linux',
-        ...rels.map((r) => 'rm -rf ~/.dsh/sessions/' + r),
+        ...rels.map((r) => 'rm -rf -- ' + shq(posixBase.replace(/\/+$/, '') + '/' + r)),
       ].join('\n');
       document.getElementById('purgeBackupCmd').textContent = backup;
       document.getElementById('purgeDeleteCmd').textContent = del;
     };
+
+    if (baseInput) baseInput.addEventListener('input', () => render());
 
     input.addEventListener('change', () => {
       files = [...input.files]
@@ -164,6 +185,7 @@ const labels = t.js ?? {};
         empty.textContent = noFiles;
         summary.hidden = true;
         plan.hidden = true;
+        clearPlan('');
         return;
       }
       empty.hidden = true;

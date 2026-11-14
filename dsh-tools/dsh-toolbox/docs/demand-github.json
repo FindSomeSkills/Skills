@@ -1,0 +1,42 @@
+[
+  {
+    "term": "session",
+    "count": 0
+  },
+  {
+    "term": "context",
+    "count": 0
+  },
+  {
+    "term": "install",
+    "count": 0
+  },
+  {
+    "term": "workspace",
+    "count": 0
+  },
+  {
+    "term": "plugin conflict",
+    "count": 0
+  },
+  {
+    "term": "zstd",
+    "count": 0
+  },
+  {
+    "term": "skill",
+    "count": 0
+  },
+  {
+    "term": "token",
+    "count": 0
+  },
+  {
+    "term": "delete session",
+    "count": 0
+  },
+  {
+    "term": "sync",
+    "count": 0
+  }
+]

@@ -47,7 +47,7 @@ export const GUIDES = {
       related: ['guides/install', 'guides/cli', 'reference'],
     },
     zh: {
-      title: 'dsh 命令怎么用（常用命令速查）',
+      title: 'DeepSeek Harness 是什么？dsh 命令、profile 与会话文件',
       desc: 'DeepSeek Harness（DSH）是一个 Node 命令行工具：启动由插件层组成的 profile，在本机跑 agent 会话。装了什么、文件放在哪、dsh web 是做什么的。',
       h1: 'DeepSeek Harness 是什么（dsh）',
       cite: 'DeepSeek Harness 就是 `dsh` 这个 Node 命令行工具：它启动一组分层的插件（profile），在本机跑 agent 会话。',

@@ -3,6 +3,7 @@ export const SITE = {
   short: 'dsh-toolbox',
   repo: 'https://github.com/FindSomeSkills/Skills',
   syncHubRepo: 'https://github.com/FindSomeSkills/Skills/tree/main/dsh-tools/dsh-sync-hub',
+  syncHubBlob: 'https://github.com/FindSomeSkills/Skills/blob/main/dsh-tools/dsh-sync-hub',
 };
 
 export const TOOLS = [
@@ -69,14 +70,14 @@ export const COPY = {
     nav: { home: 'Home', tools: 'Tools', guides: 'Guides', plugins: 'Plugins', github: 'GitHub', lang: '中文', deai: 'De-AI' },
     kitStrip: 'Try the De-AI Kit in your browser: paste text or CSS, get the lines that read like a template',
     footer: {
-      note: 'Every tool runs entirely in your browser, nothing is uploaded — free, no account, no telemetry',
+      note: 'The browser tools run entirely in your browser and upload nothing; Sync Hub runs on your own machines — free, no account, no telemetry',
       free: '',
     },
     home: {
       title: 'DeepSeek Harness Tools — Sync, Inspect, Budget and Clean Up Session Files',
-      desc: 'Browser tools for DeepSeek Harness: session sync, .zstd frames, context budget, index repair, skill cost, session purge, De-AI checks.',
-      h1: 'DeepSeek Harness tools that run in your browser',
-      lede: 'DSH Toolbox is a free set of browser tools for DeepSeek Harness: sync sessions across machines, inspect session files, repair the session index, audit what each skill costs, clean up session files that grew too large, and check text or UI for template traces.',
+      desc: 'Tools for DeepSeek Harness: session sync, .zstd frames, context budget, index checks, skill cost, session purge, De-AI checks.',
+      h1: 'Tools and guides for DeepSeek Harness',
+      lede: 'DSH Toolbox is a free set of tools for DeepSeek Harness: browser pages that read session files, check the session index and estimate context cost, plus a self-hosted command-line tool for syncing sessions between machines.',
       toolsH: 'The tools',
       toolsNote: 'Seven tools are live; more land as usage shows',
       whyH: 'Why these tools',
@@ -212,14 +213,14 @@ export const COPY = {
     nav: { home: '首页', tools: '工具', guides: '指南', plugins: '插件', github: 'GitHub', lang: 'English', deai: 'De-AI' },
     kitStrip: '在浏览器里试 De-AI Kit：贴文字或 CSS，直接看出哪几行像模板',
     footer: {
-      note: '所有工具都在浏览器里跑完，文件不会上传——免费，不需要账号、没有埋点',
+      note: '浏览器里的工具都在本机跑完，文件不会上传；Sync Hub 跑在你自己的机器上——免费，不需要账号、没有埋点',
       free: '',
     },
     home: {
             title: 'DeepSeek Harness 工具 — 同步、查看、预算与清理会话文件',
-      desc: '面向 DeepSeek Harness 的浏览器工具：会话同步、.zstd 帧、上下文预算、索引修复、技能开销、会话清理、De-AI 检查。',
-      h1: '给真正在用 DeepSeek Harness 的人做的工具',
-      lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费浏览器工具：跨设备同步会话、查看会话文件、修会话索引、算技能开销、清理长大了的会话文件、检查文字与界面里的模板痕迹。',
+      desc: '面向 DeepSeek Harness 的工具：会话同步、.zstd 帧、上下文预算、索引检查、技能开销、会话清理、De-AI 检查。',
+      h1: 'DeepSeek Harness 工具与使用指南',
+      lede: 'DSH Toolbox 是一组面向 DeepSeek Harness 的免费工具：浏览器里的页面读会话文件、检查会话索引、估算上下文开销，另有一个自托管的命令行工具做跨机器会话同步。',
       toolsH: '工具',
       toolsNote: '七个工具已上线，之后按使用情况扩展',
       whyH: '为什么做这些工具',
