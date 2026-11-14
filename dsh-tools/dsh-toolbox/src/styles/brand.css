@@ -141,3 +141,88 @@ header nav a:hover {
 h1 {
   letter-spacing: -0.02em;
 }
+
+/* 第二轮：把版式拉开，让改动一眼可见（只改观感） */
+h1 {
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin: 56px 0 16px;
+  max-width: 20ch;
+}
+
+h2 {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+  margin: 56px 0 16px;
+}
+
+.lede {
+  font-size: 18.5px;
+  line-height: 1.55;
+  max-width: 58ch;
+  margin-bottom: 28px;
+}
+
+.kit-strip {
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  padding: 20px 20px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme='dark'] .kit-strip {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.card {
+  padding: 20px 24px;
+  border-radius: 14px;
+}
+
+.card h3 {
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  font-weight: 650;
+}
+
+.card .card-icon,
+.card .icon {
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  border-radius: 10px;
+}
+
+.status-badge {
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+header.site .wrap {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+header nav a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+header nav a:hover {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+.theme-toggle {
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+a {
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
