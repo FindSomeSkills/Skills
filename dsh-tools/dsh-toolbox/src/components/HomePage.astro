@@ -28,18 +28,13 @@ const toolHref = (slug) => (slug === 'sync-hub' ? `${prefix}sync-hub/` : `${pref
         <span class="card-more">{detail?.demoLabel ?? extra.demoCta}</span>
       </a>
     );
-    if (tool.slug !== 'session-purge') return card;
-    return (
-      <div class="card-cell">
-        {card}
-        <a class="card-extra" href={`${prefix}tools/session-purge/#one-click`}>
-          {lang === 'zh' ? '想要一键版？' : 'Want a one-click version?'}
-        </a>
-      </div>
-    );
+    return card;
   })}
 </div>
 <p class="note">{t.toolsNote}</p>
+<p class="card-extra">
+  <a href={`${prefix}tools/session-purge/#one-click`}>{lang === 'zh' ? '想要一键版？' : 'Want a one-click version?'}</a>
+</p>
 
 <GuidesBlock lang={lang} />
 

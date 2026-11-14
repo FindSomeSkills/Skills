@@ -1,0 +1,498 @@
+[
+  {
+    "pkg": "dshmarket",
+    "owner": "dsh-market",
+    "slug": "dsh-plugin-market",
+    "npm": "Visual plugin market inside DeepSeek Harness — browse, search, and one-click install community plugins. · DSH 可视化插件市场：逛一逛，点一下，装好。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-plugin",
+    "owner": "dshplugin",
+    "slug": "community-marketplace",
+    "npm": "A community plugin marketplace for DeepSeek Harness, built to the official plugin spec — browse, search and install 6000+ hand-verified npm plugins out of 23000+ indexed, without leaving the app. · DeepSeek Harness 社区插件市场（遵循官方开发规范）：收录 23000+ 社区插件，其中 6000+",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "owner": "awesome-dsh-plugin",
+    "slug": "plugin-catalog",
+    "npm": "The DeepSeek Harness plugin catalog (10778 entries) · DeepSeek Harness 插件目录",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "owner": "Han-1413141",
+    "slug": "cost-meter",
+    "npm": "DeepSeek Harness 会话费用统计插件:本会话成本、当日费用、历史记录与官方价格同步,支持多厂商多模型价格计费(内置 170+ 模型 ID 价格目录与自动匹配)、主流 Coding Plan 订阅额度查询与显示(16 家,含 WorkBuddy 官方积分、OpenDesign 工作区查询、含小米 MiMo Token Plan 控制台 Cookie 查询、SCNet Token Plan 本地 Credits 计量与火山方舟 Volcano Ark Coding Plan AK/SK 签名查询",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "owner": "MeteorNOX",
+    "slug": "balance-widget",
+    "npm": "DSH Web 界面右下角的 DeepSeek 余额小鲸鱼挂件:余额/今日已用/峰谷定价、自定义泡泡点击序列(文本/余额/今日/峰谷/图片/随机语句与并列加权选择)、逐行样式与字体、悬浮快捷编辑、音效与每轮消耗、自定义角色/动图/音效、吸附与翻转自定义",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "owner": "MichengAI",
+    "slug": "archive-manager",
+    "npm": "归档、恢复、收藏和永久删除会话，并诊断损坏的会话日志。 · Archive, restore, favorite, and permanently delete sessions, and diagnose damaged session logs.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "owner": "MYCF711",
+    "slug": "session-superagent",
+    "npm": "Session-level superagent for DeepSeek Harness: watch a GitHub repository and wake a session when something needs doing. Credentials never reach the model.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "owner": "MichengAI",
+    "slug": "skills-manager",
+    "npm": "DSH Skills Manager — 在 DeepSeek Harness 中统一加载并安全管理本机 Agent Skills · Load and safely manage local Agent Skills in DSH",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-free-search",
+    "owner": "DDDMUC",
+    "slug": "free-search",
+    "npm": "Free web search for DeepSeek Harness: 39 engines (Bing/DuckDuckGo/AnySearch/SearXNG/Exa/Tavily/Keenable/Firecrawl/Parallel/You.com keyless; Zhihu global/site via MCP and Perplexity/SerpBase/DeepSeek (official + native tools/search)/Baidu/Kimi/Aliyun/Douba",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "owner": "liustack",
+    "slug": "modsearch",
+    "npm": "The strongest free web search plugin for coding agents. Plug-in web search, X search, and page fetch for models without native web access. Free out of the box: no signup, no API key (Firecrawl keyless, 1,000 free credits/month)",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-dream-skin",
+    "owner": "LLLAAAAA",
+    "slug": "dream-skin",
+    "npm": "DeepSeek Harness 换肤插件（Dream Skin for DSH）：8 套 iOS / Linear 式清透冷调的高质感主题 + 弥散光壁纸 + 每皮肤智能背景 + 强调色 + 主题包分享，把换肤做成材质与配色克制的高级感工艺，而非贴图。Works in native DSH Web and third-party desktop clients (DSH Desktop): 8 original premium themes, glass materials, wallpaper 2.0",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "owner": "Nwflower",
+    "slug": "claude-style",
+    "npm": "Claude Code Desktop theme for DeepSeek Harness (dsh) web GUI — visual & interaction overhaul",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "owner": "elysia395",
+    "slug": "wallpaper-engine",
+    "npm": "Wallpaper Engine backgrounds for the DSH web GUI: render your local Wallpaper Engine wallpapers behind the chat — Scene and Web in real time through the bundled WebWallGL engine, Video played directly — with iOS-style liquid glass, adjustable blur/scrim/b",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-pet",
+    "owner": "PC2005-cloud",
+    "slug": "pet",
+    "npm": "吃白饭的蓝色大肥鱼，赖在 DeepSeek Harness 里不走了。平时爱玩魔方、爱吃各种零食、偶尔打个盹，闲不住就在桌面上溜达两圈，被你拖来甩去也照旧赖着；你忙起来它跟着忙前忙后，也会帮你打理余额钱包，闲下来爱碎碎念，还乐意陪你唠两句。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-meme",
+    "owner": "yyh-001",
+    "slug": "meme",
+    "npm": "DeepSeek Harness 表情包插件：输入框一键发图（图库/情绪多选筛选、悬浮大图预览）、多图库开关、情绪与关键词搜图、AI 学图，图库可从市场一键安装或导入/导出 ZIP。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "owner": "NanmiCoder",
+    "slug": "agent-teams",
+    "npm": "AgentTeams for DeepSeek Harness: multi-agent team collaboration (captain, members, tasks with dependencies, messaging) driven by natural language, with a tree monitor in the web GUI",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "owner": "lijiaqi-AI-Product-Manager",
+    "slug": "agent-compare",
+    "npm": "同一需求，2–4 版真跑：在 DSH 主对话里比较回答、文件与网页，选风格，盲选或公开对比，再审查采用。Compare 2–4 answers, files or live pages in DeepSeek Harness (DSH) Desktop and Web, then review and adopt.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "owner": "WNLUO",
+    "slug": "mobile-plugin",
+    "npm": "Mobile API (/api/mobile/v1) and relay client for the DSH mobile app — desktop profile build (dsh 0.2.x, peers resolved by the host)",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-remote",
+    "owner": "flymysql",
+    "slug": "remote",
+    "npm": "Remote SSH development for DeepSeek Harness: optional IDE layout, remote file and content search, native editor and terminal tabs, Git diffs, and agent tools with compiler diagnostics.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "owner": "liguobao",
+    "slug": "harness-remote",
+    "npm": "P2P-based, end-to-end encrypted remote access to DeepSeek Harness, CodeX, Claude Code, Pi, and other workspaces from web and mobile clients.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "owner": "xmanrui",
+    "slug": "im-bridge",
+    "npm": "把微信、飞书、企微、钉钉、QQ、Telegram、WhatsApp、Slack、Discord、Matrix接入DSH。 Connect Telegram, WhatsApp, Slack, Discord, Matrix, WeChat, Feishu, WeCom, DingTalk, and QQ to DSH.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "owner": "tencent-connect",
+    "slug": "qq-bot",
+    "npm": "在 QQ 私聊和群聊里直接对话 DeepSeek Harness。 Chat with DeepSeek Harness in QQ private and group chats.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-genui",
+    "owner": "lhuans",
+    "slug": "genui",
+    "npm": "GenUI for DeepSeek Harness: interactive charts, forms, calculators, dashboards, and mini apps rendered inline in assistant replies, with actions that flow back to the model.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "deep-view",
+    "owner": "Fei2411",
+    "slug": "deep-view",
+    "npm": "Deep View: interactive views (charts, tables, inputs, answers) in any DeepSeek Harness chat",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "owner": "dream-num",
+    "slug": "univer-office",
+    "npm": "DSH × Univer integration with a bundled collaboration Gateway and Viewer: inline previews, live floating Worktree windows, and session-end review actions in DeepSeek Harness.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-ops",
+    "owner": "T-Auto",
+    "slug": "ops",
+    "npm": "Native file and PTC tools for DSH on Windows x64, Linux x64 and macOS arm64/x64; Windows-only optional Bash payload and host PowerShell integration",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-unlag",
+    "owner": "regrevia",
+    "slug": "unlag",
+    "npm": "DSH 桌面端自己的刷新按钮：改插件不用重启、开久了卡了也点一下，正在进行的会话不受影响。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "owner": "helloHub1212",
+    "slug": "windows-mcp",
+    "npm": "Windows desktop automation for DeepSeek Harness — plugs CursorTouch/Windows-MCP (screenshot, UI automation, input, clipboard, processes, registry) into DSH through the official MCP client bridge.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "owner": "ccch1mneyyy",
+    "slug": "tui",
+    "npm": "Interactive terminal interface for DeepSeek Harness agents, sessions and tools.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "universal-plugin-hub",
+    "owner": "Ultmebius",
+    "slug": "universal-plugin-hub",
+    "npm": "在 DSH 中使用 Claude Code、Codex 等软件生态的插件，一站式管理插件、Skills 与 MCP。支持添加 Git 插件源和 marketplace、上传插件和 Skills、添加 MCP 服务器，自动扫描并开关本地 Skills，接入插件提供的子代理、MCP、Hooks 与 LSP。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-skill-mcp-market",
+    "owner": "kuailexiaozixin",
+    "slug": "skill-mcp-market",
+    "npm": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@chengze/dsh-skill-manager",
+    "owner": "xiechenghua01",
+    "slug": "skill-manager",
+    "npm": "Skills manager for the DeepSeek Harness Web GUI: a sidebar panel that lists skills by install location, edits and disables them, diagnoses silently skipped skills, and installs skills from market indexes.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-skill-browser",
+    "owner": "loyalchiiina",
+    "slug": "skill-browser",
+    "npm": "技能浏览器：悬浮球打开面板，把本机技能库变成可浏览、可检索、可治理的资产——五个 Tab（技能浏览/调用台账/MCP 管理/市场/快速上手）、树状/平铺双视图、手动+关键词+AI 三种分组（分组只改视图不动技能文件）、调用台账看板（调用次数/成功率/趋势图/技能调用排行）、130 款三球同步皮肤（6 列宽屏菜单）、9 步快速上手、MCP 管理（读取运行时 MCP 配置、真实连接状态、工具清单与自动功能概括、调用统计落盘、启停即时跟随/重连/卸载/导出标准 mcpServers JSON、重绘不跳顶且面板记",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-all",
+    "owner": "lmzhen",
+    "slug": "evolution-bundle",
+    "npm": "Full-functionality evolution bundle — DEFAULT install: host automation + model tools, all profile-root (community build)",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-skill-health",
+    "owner": "lmzhen",
+    "slug": "skill-health-panel",
+    "npm": "Web surface for skill health: the sidebar panel that shows what the linter found (community build)",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-custom-theme",
+    "owner": "Sparrived",
+    "slug": "custom-theme",
+    "npm": "User-editable CSS themes and background images for the DSH Web GUI and Desktop app, with pickers in Settings",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-exv-flat-corners",
+    "owner": "VMWHW",
+    "slug": "flat-corners",
+    "npm": "Removes every corner radius from the DSH Web interface.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-toomuch-plugins",
+    "owner": "rivenshanghai",
+    "slug": "sidebar-fold",
+    "npm": "Collapses the global panel entries above the workspace in the DSH Web left sidebar into one toggle, with a grid-display settings page",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@huaweidevtools/aishell-dsh-brand",
+    "owner": "yusheng-g",
+    "slug": "aishell-brand",
+    "npm": "AI Shell brand reskin for DSH web — replaces sidebar and hero brand marks with AI Shell SVG",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@aiwayds/dsh-llm-proxy",
+    "owner": "fan56",
+    "slug": "llm-proxy",
+    "npm": "dsh plugin: SYSTEM proxy (env) + LLM traffic-splitting proxy via a process-global undici routing dispatcher",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-tool-database",
+    "owner": "SouleyMoni1",
+    "slug": "database-tool",
+    "npm": "DeepSeek Harness database tool plugin — SQL Server / PostgreSQL / MySQL over native drivers, multi-source, read-only by default, credentials stay host-side (no MCP server in between)",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-providers-hub",
+    "owner": "iJetLi",
+    "slug": "providers-hub",
+    "npm": "DeepSeek Harness plugin: one hub for AI coding providers — account login, multi-account pools, silent credential refresh, credit claiming, and a local OpenAI-compatible gateway",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-permission-remote",
+    "owner": "weicy98",
+    "slug": "permission-remote",
+    "npm": "SSH remote workspaces for the dsh web GUI, reusing the session sandbox mode and approval flow.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@voltage12/dsh-simple-worktree",
+    "owner": "voltage12",
+    "slug": "simple-worktree",
+    "npm": "DSH Web plugin: create and remove git worktrees from the conversation UI",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@zhaoyang10/dsh-web-ide",
+    "owner": "fengzhaoy",
+    "slug": "web-ide",
+    "npm": "IDE tab for the dsh web client: a VSCode-style read-only code viewer with the Dark Modern theme, registered into the conversation view ring.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-computers",
+    "owner": "9Ashwin",
+    "slug": "computers",
+    "npm": "Connect your own machines to a DSH Web deployment and run commands on them from the agent.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dshost-plugin",
+    "owner": "NoelJudeNoel",
+    "slug": "cloud-relay",
+    "npm": "Official remote cloud relay plugin for DSHost (dshost.me): securely access your dsh Web UI from anywhere",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@yugoo-design/dsh-design-panel",
+    "owner": "alibaba-damo-academy",
+    "slug": "design-panel",
+    "npm": "Declarative design-panel interpreter for the dsh Web UI: renders Design Files as editable panels in a conversation.view workspace.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-codegraph-visualizer",
+    "owner": "xuanyuanchumo",
+    "slug": "codegraph",
+    "npm": "DSH 代码图谱可视化插件 - 打通 dsh-codegraph/dsh-tool-lens 数据源 → 聚合转换 → 交互式代码图谱",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@mzzsfy/dsh-tool-gate",
+    "owner": "mzzsfy",
+    "slug": "tool-gate",
+    "npm": "工具白名单延迟加载(全局层与全部 per-agent scope 层):白名单内工具全量注入,白名单外统一打 deferLoading 交给宿主 deferred tool loading 链(API 服务端按需搜索激活);声明式收敛,行退场按 undo journal 还原原状",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@logictan/dsh-tool-surface",
+    "owner": "dale0525",
+    "slug": "tool-surface",
+    "npm": "DSH 工具公告面子插件：把每轮随请求发送的工具定义收到一份实测白名单，并把被撤下工具的参数写进系统提示词。",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@xiaoso/dsh-tool-plus",
+    "owner": "xiaoso456",
+    "slug": "tool-plus",
+    "npm": "Oh My Pi bash runtime ported as a deepseek-harness tool plugin: persistent shell session, output minimizer, managed background jobs, command interception",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-octop-memory",
+    "owner": "ArvinQi",
+    "slug": "octop-memory",
+    "npm": "DSH (DeepSeek Harness) plugin for octop-memory: recall shared memory before each turn and report each turn afterwards.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-syn-config",
+    "owner": "Dreamaniax",
+    "slug": "config-sync",
+    "npm": "Cross-platform (macOS + Windows) DeepSeek Harness plugin that syncs DSH config — skills, profile settings, AGENTS.md — with a private dsh-config repository.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-better-plugin-updater",
+    "owner": "Mooling0602",
+    "slug": "plugin-updater",
+    "npm": "Manual multi-source update checks and update plans for DeepSeek Harness plugin bundles.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-claude-whiteboard",
+    "owner": "JimLiu",
+    "slug": "whiteboard-skill",
+    "npm": "DeepSeek Harness plugin: the claude-whiteboard skill from baoyu-design. The agent lays out diagrams, flows, maps of ideas and plans on a whiteboard and opens it in a local board editor where you move, draw and comment.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-claude-motion",
+    "owner": "JimLiu",
+    "slug": "motion-skill",
+    "npm": "DeepSeek Harness plugin: the claude-motion skill from baoyu-design. The agent writes short animated films as code, scene by scene, and plays them in a local Motion player that exports MP4 or GIF.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-atan-daily",
+    "owner": "artaniszhou",
+    "slug": "daily-reports",
+    "npm": "DeepSeek Harness plugin: scheduled collection tasks that each file a timestamped report.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-ue-asset",
+    "owner": "Sumcam-L",
+    "slug": "ue-asset",
+    "npm": "DeepSeek Harness plugin: browse, preview and export Unreal Engine 4/5 assets from local PAK archives through CUE4Parse.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@xirang-ai/dsh-teamflow",
+    "owner": "xirang-ai",
+    "slug": "teamflow",
+    "npm": "DeepSeek Harness plugin: Xirang workbench for the requirement → development → defect pipeline.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "dsh-mnemon",
+    "owner": "omdsh-dev",
+    "slug": "mnemon",
+    "npm": "Composable, view-based context for DeepSeek Harness. Pluggable sources and strategies, with layered memory and self-evolving skills out of the box.",
+    "readme": null,
+    "source": "npm"
+  },
+  {
+    "pkg": "@dickpy/dsh-imagegen",
+    "owner": "dickpy",
+    "slug": "imagegen",
+    "npm": "AI image generation plugin for the dsh web GUI: text-to-image and image-to-image through configurable provider channels (gpt-image-2 / grok-imagine-image / nanobanana series / seedream-5.0-pro / dall-e-3, with native xAI Grok Imagine, Google Nano Banana a",
+    "readme": null,
+    "source": "npm"
+  }
+]

@@ -1,6 +1,13 @@
 /* 主题层：显式 data-theme 控制，默认浅色。
    放在文件最后，靠更高特异性压过前面的 prefers-color-scheme 媒体查询。 */
 
+:root {
+  --line: var(--hairline);
+  --card: var(--surface);
+  --ink: var(--fg);
+  --font-body: var(--sans);
+}
+
 html[data-theme='light'] {
   color-scheme: light;
   --bg: #fbfbfd;
@@ -11,6 +18,10 @@ html[data-theme='light'] {
   --hairline: rgba(0, 0, 0, 0.06);
   --accent: #0071e3;
   --accent-soft: rgba(0, 113, 227, 0.08);
+  --line: var(--hairline);
+  --card: var(--surface);
+  --ink: var(--fg);
+  --font-body: var(--sans);
 }
 
 html[data-theme='dark'] {
@@ -23,6 +34,10 @@ html[data-theme='dark'] {
   --hairline: rgba(255, 255, 255, 0.1);
   --accent: #4da3ff;
   --accent-soft: rgba(77, 163, 255, 0.16);
+  --line: var(--hairline);
+  --card: var(--surface);
+  --ink: var(--fg);
+  --font-body: var(--sans);
 }
 
 /* ---------- 浅色 ---------- */

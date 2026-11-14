@@ -65,7 +65,7 @@ const allGroups = groups.length > 0 ? groups : (t.groups ?? []);
           <ul class="link-list">
             {list.map((pl) => (
               <li>
-                <a href={pluginBase + pl.slug + '/'}>{pl.pkg}</a> — {lang === 'zh' ? pl.zh : pl.en} <span class="pkg-version">{pl.version}</span>
+                <a href={pluginBase + pl.slug + '/'}>{pl.pkg}</a> — <span set:html={inline(lang === 'zh' ? pl.zh : pl.en)} /> <span class="pkg-version">{pl.version}</span>
               </li>
             ))}
           </ul>
