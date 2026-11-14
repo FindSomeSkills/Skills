@@ -81,6 +81,26 @@ h2 {
   margin-bottom: 28px;
 }
 
+/* 中文按字排版：标题不拆词、正文行宽收窄、行距放松 */
+html[lang='zh-Hans'] h1 {
+  max-width: 15em;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+html[lang='zh-Hans'] main > .lede {
+  max-width: 30em;
+  line-height: 1.75;
+}
+
+/* 宽目录页的 88ch 上限对中文没有意义，中文正文按字数收 */
+html[lang='zh-Hans'] main.wrap > .lede,
+html[lang='zh-Hans'] main.wrap:has(.grid) > .lede {
+  max-width: 30em;
+}
+
 header.site {
   background: color-mix(in srgb, var(--surface) 72%, transparent);
   backdrop-filter: blur(14px) saturate(140%);
