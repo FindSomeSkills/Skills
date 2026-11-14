@@ -7,7 +7,7 @@ export const COPY_PAGES = {
       demoCta: 'See a sample result →',
       outcomes: {
         'sync-hub': {
-          outcome: 'Same list on both machines, no lost sessions',
+          outcome: 'Same list on both machines after a sync that reports success',
           demo: '/sync-hub/',
           demoLabel: 'How it works →',
         },
@@ -186,7 +186,7 @@ export const COPY_PAGES = {
       demoCta: '看示例结果 →',
       outcomes: {
         'sync-hub': {
-          outcome: '两台机器同一份会话列表，冲突时留副本',
+          outcome: '同步报告成功后，两台机器同一份会话列表；冲突时留副本',
           demo: '/zh/sync-hub/',
           demoLabel: '看怎么用 →',
         },
