@@ -57,12 +57,12 @@ const labels = t.js ?? {};
   <section id="one-click" class="one-click">
     <h2>{t.oneClickH}</h2>
     <p set:html={inline(t.oneClickP)} />
-    <form action={t.oneClickAction} method="post" target="_blank" rel="noopener nofollow" class="one-click-form">
-      <label for="oneClickEmail" class="visually-hidden">{t.oneClickEmailLabel}</label>
-      <input id="oneClickEmail" type="email" name="email" required placeholder="you@example.com" autocomplete="email" />
-      <button type="submit">{t.oneClickBtn}</button>
-    </form>
-    <p class="one-click-fallback">{t.oneClickFallback}</p>
+    <p class="one-click-fallback">
+      <a
+        class="one-click-mail"
+        href={`mailto:hello@dshtoolbox.com?subject=${encodeURIComponent(t.oneClickSubject)}&body=${encodeURIComponent(t.oneClickBody)}`}
+      >{t.oneClickMailLabel}</a>
+    </p>
   </section>
 
   <section>

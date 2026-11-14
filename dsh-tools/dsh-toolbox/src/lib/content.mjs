@@ -69,7 +69,7 @@ export const COPY = {
     nav: { home: 'Home', tools: 'Tools', guides: 'Guides', plugins: 'Plugins', github: 'GitHub', lang: '中文', deai: 'De-AI' },
     kitStrip: 'Try the De-AI Kit in your browser: paste text or CSS, get the lines that read like a template',
     footer: {
-      note: 'Every tool runs entirely in your browser, nothing is uploaded — free, no account, no email, no telemetry',
+      note: 'Every tool runs entirely in your browser, nothing is uploaded — free, no account, no telemetry',
       free: '',
     },
     home: {
@@ -212,7 +212,7 @@ export const COPY = {
     nav: { home: '首页', tools: '工具', guides: '指南', plugins: '插件', github: 'GitHub', lang: 'English', deai: 'De-AI' },
     kitStrip: '在浏览器里试 De-AI Kit：贴文字或 CSS，直接看出哪几行像模板',
     footer: {
-      note: '所有工具都在浏览器里跑完，文件不会上传——免费，不需要账号、不需要邮箱、没有埋点',
+      note: '所有工具都在浏览器里跑完，文件不会上传——免费，不需要账号、没有埋点',
       free: '',
     },
     home: {
