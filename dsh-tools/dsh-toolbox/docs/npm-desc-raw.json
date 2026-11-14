@@ -1,0 +1,436 @@
+[
+  {
+    "pkg": "dshmarket",
+    "url": "https://registry.npmjs.org/dshmarket/latest",
+    "status": 200,
+    "description": "Visual plugin market inside DeepSeek Harness — browse, search, and one-click install community plugins. · DSH 可视化插件市场：逛一逛，点一下，装好。",
+    "len": 129
+  },
+  {
+    "pkg": "dsh-plugin",
+    "url": "https://registry.npmjs.org/dsh-plugin/latest",
+    "status": 200,
+    "description": "A community plugin marketplace for DeepSeek Harness, built to the official plugin spec — browse, search and install 6000+ hand-verified npm plugins out of 23000+ indexed, without leaving the app. · DeepSeek Harness 社区插件市场（遵循官方开发规范）：收录 23000+ 社区插件，其中 6000+",
+    "len": 255
+  },
+  {
+    "pkg": "dsh-plugin-catalog",
+    "url": "https://registry.npmjs.org/dsh-plugin-catalog/latest",
+    "status": 200,
+    "description": "The DeepSeek Harness plugin catalog (10778 entries) · DeepSeek Harness 插件目录",
+    "len": 75
+  },
+  {
+    "pkg": "dsh-cost-meter",
+    "url": "https://registry.npmjs.org/dsh-cost-meter/latest",
+    "status": 200,
+    "description": "DeepSeek Harness 会话费用统计插件:本会话成本、当日费用、历史记录与官方价格同步,支持多厂商多模型价格计费(内置 170+ 模型 ID 价格目录与自动匹配)、主流 Coding Plan 订阅额度查询与显示(16 家,含 WorkBuddy 官方积分、OpenDesign 工作区查询、含小米 MiMo Token Plan 控制台 Cookie 查询、SCNet Token Plan 本地 Credits 计量与火山方舟 Volcano Ark Coding Plan AK/SK 签名查询",
+    "len": 255
+  },
+  {
+    "pkg": "dsh-whale-widget",
+    "url": "https://registry.npmjs.org/dsh-whale-widget/latest",
+    "status": 200,
+    "description": "DSH Web 界面右下角的 DeepSeek 余额小鲸鱼挂件:余额/今日已用/峰谷定价、自定义泡泡点击序列(文本/余额/今日/峰谷/图片/随机语句与并列加权选择)、逐行样式与字体、悬浮快捷编辑、音效与每轮消耗、自定义角色/动图/音效、吸附与翻转自定义",
+    "len": 126
+  },
+  {
+    "pkg": "@michengai/dsh-archive-manager",
+    "url": "https://registry.npmjs.org/@michengai/dsh-archive-manager/latest",
+    "status": 200,
+    "description": "归档、恢复、收藏和永久删除会话，并诊断损坏的会话日志。 · Archive, restore, favorite, and permanently delete sessions, and diagnose damaged session logs.",
+    "len": 125
+  },
+  {
+    "pkg": "dsh-session-superagent",
+    "url": "https://registry.npmjs.org/dsh-session-superagent/latest",
+    "status": 200,
+    "description": "Session-level superagent for DeepSeek Harness: watch a GitHub repository and wake a session when something needs doing. Credentials never reach the model.",
+    "len": 154
+  },
+  {
+    "pkg": "@michengai/dsh-skills-manager",
+    "url": "https://registry.npmjs.org/@michengai/dsh-skills-manager/latest",
+    "status": 200,
+    "description": "DSH Skills Manager — 在 DeepSeek Harness 中统一加载并安全管理本机 Agent Skills · Load and safely manage local Agent Skills in DSH",
+    "len": 116
+  },
+  {
+    "pkg": "dsh-free-search",
+    "url": "https://registry.npmjs.org/dsh-free-search/latest",
+    "status": 200,
+    "description": "Free web search for DeepSeek Harness: 39 engines (Bing/DuckDuckGo/AnySearch/SearXNG/Exa/Tavily/Keenable/Firecrawl/Parallel/You.com keyless; Zhihu global/site via MCP and Perplexity/SerpBase/DeepSeek (official + native tools/search)/Baidu/Kimi/Aliyun/Douba",
+    "len": 255
+  },
+  {
+    "pkg": "@liustack/modsearch",
+    "url": "https://registry.npmjs.org/@liustack/modsearch/latest",
+    "status": 200,
+    "description": "The strongest free web search plugin for coding agents. Plug-in web search, X search, and page fetch for models without native web access. Free out of the box: no signup, no API key (Firecrawl keyless, 1,000 free credits/month)",
+    "len": 227
+  },
+  {
+    "pkg": "dsh-dream-skin",
+    "url": "https://registry.npmjs.org/dsh-dream-skin/latest",
+    "status": 200,
+    "description": "DeepSeek Harness 换肤插件（Dream Skin for DSH）：8 套 iOS / Linear 式清透冷调的高质感主题 + 弥散光壁纸 + 每皮肤智能背景 + 强调色 + 主题包分享，把换肤做成材质与配色克制的高级感工艺，而非贴图。Works in native DSH Web and third-party desktop clients (DSH Desktop): 8 original premium themes, glass materials, wallpaper 2.0",
+    "len": 255
+  },
+  {
+    "pkg": "dsh-claude-style",
+    "url": "https://registry.npmjs.org/dsh-claude-style/latest",
+    "status": 200,
+    "description": "Claude Code Desktop theme for DeepSeek Harness (dsh) web GUI — visual & interaction overhaul",
+    "len": 92
+  },
+  {
+    "pkg": "dsh-plugin-wallpaper-engine",
+    "url": "https://registry.npmjs.org/dsh-plugin-wallpaper-engine/latest",
+    "status": 200,
+    "description": "Wallpaper Engine backgrounds for the DSH web GUI: render your local Wallpaper Engine wallpapers behind the chat — Scene and Web in real time through the bundled WebWallGL engine, Video played directly — with iOS-style liquid glass, adjustable blur/scrim/b",
+    "len": 255
+  },
+  {
+    "pkg": "dsh-pet",
+    "url": "https://registry.npmjs.org/dsh-pet/latest",
+    "status": 200,
+    "description": "吃白饭的蓝色大肥鱼，赖在 DeepSeek Harness 里不走了。平时爱玩魔方、爱吃各种零食、偶尔打个盹，闲不住就在桌面上溜达两圈，被你拖来甩去也照旧赖着；你忙起来它跟着忙前忙后，也会帮你打理余额钱包，闲下来爱碎碎念，还乐意陪你唠两句。",
+    "len": 120
+  },
+  {
+    "pkg": "dsh-meme",
+    "url": "https://registry.npmjs.org/dsh-meme/latest",
+    "status": 200,
+    "description": "DeepSeek Harness 表情包插件：输入框一键发图（图库/情绪多选筛选、悬浮大图预览）、多图库开关、情绪与关键词搜图、AI 学图，图库可从市场一键安装或导入/导出 ZIP。",
+    "len": 91
+  },
+  {
+    "pkg": "@nanmicoder/dsh-agent-teams",
+    "url": "https://registry.npmjs.org/@nanmicoder/dsh-agent-teams/latest",
+    "status": 200,
+    "description": "AgentTeams for DeepSeek Harness: multi-agent team collaboration (captain, members, tasks with dependencies, messaging) driven by natural language, with a tree monitor in the web GUI",
+    "len": 181
+  },
+  {
+    "pkg": "dsh-agent-compare",
+    "url": "https://registry.npmjs.org/dsh-agent-compare/latest",
+    "status": 200,
+    "description": "同一需求，2–4 版真跑：在 DSH 主对话里比较回答、文件与网页，选风格，盲选或公开对比，再审查采用。Compare 2–4 answers, files or live pages in DeepSeek Harness (DSH) Desktop and Web, then review and adopt.",
+    "len": 158
+  },
+  {
+    "pkg": "dsh-mobile-plugin",
+    "url": "https://registry.npmjs.org/dsh-mobile-plugin/latest",
+    "status": 200,
+    "description": "Mobile API (/api/mobile/v1) and relay client for the DSH mobile app — desktop profile build (dsh 0.2.x, peers resolved by the host)",
+    "len": 131
+  },
+  {
+    "pkg": "dsh-remote",
+    "url": "https://registry.npmjs.org/dsh-remote/latest",
+    "status": 200,
+    "description": "Remote SSH development for DeepSeek Harness: optional IDE layout, remote file and content search, native editor and terminal tabs, Git diffs, and agent tools with compiler diagnostics.",
+    "len": 184
+  },
+  {
+    "pkg": "ds-harness-remote",
+    "url": "https://registry.npmjs.org/ds-harness-remote/latest",
+    "status": 200,
+    "description": "P2P-based, end-to-end encrypted remote access to DeepSeek Harness, CodeX, Claude Code, Pi, and other workspaces from web and mobile clients.",
+    "len": 140
+  },
+  {
+    "pkg": "@xmanrui/dsh-im",
+    "url": "https://registry.npmjs.org/@xmanrui/dsh-im/latest",
+    "status": 200,
+    "description": "把微信、飞书、企微、钉钉、QQ、Telegram、WhatsApp、Slack、Discord、Matrix接入DSH。 Connect Telegram, WhatsApp, Slack, Discord, Matrix, WeChat, Feishu, WeCom, DingTalk, and QQ to DSH.",
+    "len": 160
+  },
+  {
+    "pkg": "@tencent-connect/dsh-qqbot",
+    "url": "https://registry.npmjs.org/@tencent-connect/dsh-qqbot/latest",
+    "status": 200,
+    "description": "在 QQ 私聊和群聊里直接对话 DeepSeek Harness。 Chat with DeepSeek Harness in QQ private and group chats.",
+    "len": 91
+  },
+  {
+    "pkg": "dsh-genui",
+    "url": "https://registry.npmjs.org/dsh-genui/latest",
+    "status": 200,
+    "description": "GenUI for DeepSeek Harness: interactive charts, forms, calculators, dashboards, and mini apps rendered inline in assistant replies, with actions that flow back to the model.",
+    "len": 173
+  },
+  {
+    "pkg": "deep-view",
+    "url": "https://registry.npmjs.org/deep-view/latest",
+    "status": 200,
+    "description": "Deep View: interactive views (charts, tables, inputs, answers) in any DeepSeek Harness chat",
+    "len": 91
+  },
+  {
+    "pkg": "dsh-univer-office",
+    "url": "https://registry.npmjs.org/dsh-univer-office/latest",
+    "status": 200,
+    "description": "DSH × Univer integration with a bundled collaboration Gateway and Viewer: inline previews, live floating Worktree windows, and session-end review actions in DeepSeek Harness.",
+    "len": 174
+  },
+  {
+    "pkg": "dsh-ops",
+    "url": "https://registry.npmjs.org/dsh-ops/latest",
+    "status": 200,
+    "description": "Native file and PTC tools for DSH on Windows x64, Linux x64 and macOS arm64/x64; Windows-only optional Bash payload and host PowerShell integration",
+    "len": 147
+  },
+  {
+    "pkg": "dsh-unlag",
+    "url": "https://registry.npmjs.org/dsh-unlag/latest",
+    "status": 200,
+    "description": "DSH 桌面端自己的刷新按钮：改插件不用重启、开久了卡了也点一下，正在进行的会话不受影响。",
+    "len": 45
+  },
+  {
+    "pkg": "dsh-windows-mcp",
+    "url": "https://registry.npmjs.org/dsh-windows-mcp/latest",
+    "status": 200,
+    "description": "Windows desktop automation for DeepSeek Harness — plugs CursorTouch/Windows-MCP (screenshot, UI automation, input, clipboard, processes, registry) into DSH through the official MCP client bridge.",
+    "len": 195
+  },
+  {
+    "pkg": "@deepseek-harness-tui/dsh-tui",
+    "url": "https://registry.npmjs.org/@deepseek-harness-tui/dsh-tui/latest",
+    "status": 200,
+    "description": "Interactive terminal interface for DeepSeek Harness agents, sessions and tools.",
+    "len": 79
+  },
+  {
+    "pkg": "universal-plugin-hub",
+    "url": "https://registry.npmjs.org/universal-plugin-hub/latest",
+    "status": 200,
+    "description": "在 DSH 中使用 Claude Code、Codex 等软件生态的插件，一站式管理插件、Skills 与 MCP。支持添加 Git 插件源和 marketplace、上传插件和 Skills、添加 MCP 服务器，自动扫描并开关本地 Skills，接入插件提供的子代理、MCP、Hooks 与 LSP。",
+    "len": 152
+  },
+  {
+    "pkg": "dsh-skill-mcp-market",
+    "url": "https://registry.npmjs.org/dsh-skill-mcp-market/latest",
+    "status": 200,
+    "description": "DSH 技能市场与 MCP 连接器市场：浏览实时技能源，一键安装 SKILL.md 技能与 MCP 连接器，装完即刻可用、无需重启。SKILL & MCP marketplace for DeepSeek Harness — browse live sources, install skills and MCP connectors, effective immediately.",
+    "len": 191
+  },
+  {
+    "pkg": "@chengze/dsh-skill-manager",
+    "url": "https://registry.npmjs.org/@chengze/dsh-skill-manager/latest",
+    "status": 200,
+    "description": "Skills manager for the DeepSeek Harness Web GUI: a sidebar panel that lists skills by install location, edits and disables them, diagnoses silently skipped skills, and installs skills from market indexes.",
+    "len": 204
+  },
+  {
+    "pkg": "dsh-skill-browser",
+    "url": "https://registry.npmjs.org/dsh-skill-browser/latest",
+    "status": 200,
+    "description": "技能浏览器：悬浮球打开面板，把本机技能库变成可浏览、可检索、可治理的资产——五个 Tab（技能浏览/调用台账/MCP 管理/市场/快速上手）、树状/平铺双视图、手动+关键词+AI 三种分组（分组只改视图不动技能文件）、调用台账看板（调用次数/成功率/趋势图/技能调用排行）、130 款三球同步皮肤（6 列宽屏菜单）、9 步快速上手、MCP 管理（读取运行时 MCP 配置、真实连接状态、工具清单与自动功能概括、调用统计落盘、启停即时跟随/重连/卸载/导出标准 mcpServers JSON、重绘不跳顶且面板记",
+    "len": 255
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-all",
+    "url": "https://registry.npmjs.org/@lmzhen/dsh-evolution-all/latest",
+    "status": 200,
+    "description": "Full-functionality evolution bundle — DEFAULT install: host automation + model tools, all profile-root (community build)",
+    "len": 120
+  },
+  {
+    "pkg": "@lmzhen/dsh-evolution-skill-health",
+    "url": "https://registry.npmjs.org/@lmzhen/dsh-evolution-skill-health/latest",
+    "status": 200,
+    "description": "Web surface for skill health: the sidebar panel that shows what the linter found (community build)",
+    "len": 98
+  },
+  {
+    "pkg": "dsh-custom-theme",
+    "url": "https://registry.npmjs.org/dsh-custom-theme/latest",
+    "status": 200,
+    "description": "User-editable CSS themes and background images for the DSH Web GUI and Desktop app, with pickers in Settings",
+    "len": 108
+  },
+  {
+    "pkg": "dsh-exv-flat-corners",
+    "url": "https://registry.npmjs.org/dsh-exv-flat-corners/latest",
+    "status": 200,
+    "description": "Removes every corner radius from the DSH Web interface.",
+    "len": 55
+  },
+  {
+    "pkg": "dsh-toomuch-plugins",
+    "url": "https://registry.npmjs.org/dsh-toomuch-plugins/latest",
+    "status": 200,
+    "description": "Collapses the global panel entries above the workspace in the DSH Web left sidebar into one toggle, with a grid-display settings page",
+    "len": 133
+  },
+  {
+    "pkg": "@huaweidevtools/aishell-dsh-brand",
+    "url": "https://registry.npmjs.org/@huaweidevtools/aishell-dsh-brand/latest",
+    "status": 200,
+    "description": "AI Shell brand reskin for DSH web — replaces sidebar and hero brand marks with AI Shell SVG",
+    "len": 91
+  },
+  {
+    "pkg": "@aiwayds/dsh-llm-proxy",
+    "url": "https://registry.npmjs.org/@aiwayds/dsh-llm-proxy/latest",
+    "status": 200,
+    "description": "dsh plugin: SYSTEM proxy (env) + LLM traffic-splitting proxy via a process-global undici routing dispatcher",
+    "len": 107
+  },
+  {
+    "pkg": "dsh-tool-database",
+    "url": "https://registry.npmjs.org/dsh-tool-database/latest",
+    "status": 200,
+    "description": "DeepSeek Harness database tool plugin — SQL Server / PostgreSQL / MySQL over native drivers, multi-source, read-only by default, credentials stay host-side (no MCP server in between)",
+    "len": 182
+  },
+  {
+    "pkg": "dsh-providers-hub",
+    "url": "https://registry.npmjs.org/dsh-providers-hub/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: one hub for AI coding providers — account login, multi-account pools, silent credential refresh, credit claiming, and a local OpenAI-compatible gateway",
+    "len": 176
+  },
+  {
+    "pkg": "dsh-permission-remote",
+    "url": "https://registry.npmjs.org/dsh-permission-remote/latest",
+    "status": 200,
+    "description": "SSH remote workspaces for the dsh web GUI, reusing the session sandbox mode and approval flow.",
+    "len": 94
+  },
+  {
+    "pkg": "@voltage12/dsh-simple-worktree",
+    "url": "https://registry.npmjs.org/@voltage12/dsh-simple-worktree/latest",
+    "status": 200,
+    "description": "DSH Web plugin: create and remove git worktrees from the conversation UI",
+    "len": 72
+  },
+  {
+    "pkg": "@zhaoyang10/dsh-web-ide",
+    "url": "https://registry.npmjs.org/@zhaoyang10/dsh-web-ide/latest",
+    "status": 200,
+    "description": "IDE tab for the dsh web client: a VSCode-style read-only code viewer with the Dark Modern theme, registered into the conversation view ring.",
+    "len": 140
+  },
+  {
+    "pkg": "dsh-computers",
+    "url": "https://registry.npmjs.org/dsh-computers/latest",
+    "status": 200,
+    "description": "Connect your own machines to a DSH Web deployment and run commands on them from the agent.",
+    "len": 90
+  },
+  {
+    "pkg": "dshost-plugin",
+    "url": "https://registry.npmjs.org/dshost-plugin/latest",
+    "status": 200,
+    "description": "Official remote cloud relay plugin for DSHost (dshost.me): securely access your dsh Web UI from anywhere",
+    "len": 104
+  },
+  {
+    "pkg": "@yugoo-design/dsh-design-panel",
+    "url": "https://registry.npmjs.org/@yugoo-design/dsh-design-panel/latest",
+    "status": 200,
+    "description": "Declarative design-panel interpreter for the dsh Web UI: renders Design Files as editable panels in a conversation.view workspace.",
+    "len": 130
+  },
+  {
+    "pkg": "dsh-codegraph-visualizer",
+    "url": "https://registry.npmjs.org/dsh-codegraph-visualizer/latest",
+    "status": 200,
+    "description": "DSH 代码图谱可视化插件 - 打通 dsh-codegraph/dsh-tool-lens 数据源 → 聚合转换 → 交互式代码图谱",
+    "len": 67
+  },
+  {
+    "pkg": "@mzzsfy/dsh-tool-gate",
+    "url": "https://registry.npmjs.org/@mzzsfy/dsh-tool-gate/latest",
+    "status": 200,
+    "description": "工具白名单延迟加载(全局层与全部 per-agent scope 层):白名单内工具全量注入,白名单外统一打 deferLoading 交给宿主 deferred tool loading 链(API 服务端按需搜索激活);声明式收敛,行退场按 undo journal 还原原状",
+    "len": 140
+  },
+  {
+    "pkg": "@logictan/dsh-tool-surface",
+    "url": "https://registry.npmjs.org/@logictan/dsh-tool-surface/latest",
+    "status": 200,
+    "description": "DSH 工具公告面子插件：把每轮随请求发送的工具定义收到一份实测白名单，并把被撤下工具的参数写进系统提示词。",
+    "len": 54
+  },
+  {
+    "pkg": "@xiaoso/dsh-tool-plus",
+    "url": "https://registry.npmjs.org/@xiaoso/dsh-tool-plus/latest",
+    "status": 200,
+    "description": "Oh My Pi bash runtime ported as a deepseek-harness tool plugin: persistent shell session, output minimizer, managed background jobs, command interception",
+    "len": 153
+  },
+  {
+    "pkg": "dsh-octop-memory",
+    "url": "https://registry.npmjs.org/dsh-octop-memory/latest",
+    "status": 200,
+    "description": "DSH (DeepSeek Harness) plugin for octop-memory: recall shared memory before each turn and report each turn afterwards.",
+    "len": 118
+  },
+  {
+    "pkg": "dsh-syn-config",
+    "url": "https://registry.npmjs.org/dsh-syn-config/latest",
+    "status": 200,
+    "description": "Cross-platform (macOS + Windows) DeepSeek Harness plugin that syncs DSH config — skills, profile settings, AGENTS.md — with a private dsh-config repository.",
+    "len": 156
+  },
+  {
+    "pkg": "dsh-better-plugin-updater",
+    "url": "https://registry.npmjs.org/dsh-better-plugin-updater/latest",
+    "status": 200,
+    "description": "Manual multi-source update checks and update plans for DeepSeek Harness plugin bundles.",
+    "len": 87
+  },
+  {
+    "pkg": "dsh-claude-whiteboard",
+    "url": "https://registry.npmjs.org/dsh-claude-whiteboard/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: the claude-whiteboard skill from baoyu-design. The agent lays out diagrams, flows, maps of ideas and plans on a whiteboard and opens it in a local board editor where you move, draw and comment.",
+    "len": 218
+  },
+  {
+    "pkg": "dsh-claude-motion",
+    "url": "https://registry.npmjs.org/dsh-claude-motion/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: the claude-motion skill from baoyu-design. The agent writes short animated films as code, scene by scene, and plays them in a local Motion player that exports MP4 or GIF.",
+    "len": 195
+  },
+  {
+    "pkg": "dsh-atan-daily",
+    "url": "https://registry.npmjs.org/dsh-atan-daily/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: scheduled collection tasks that each file a timestamped report.",
+    "len": 88
+  },
+  {
+    "pkg": "dsh-ue-asset",
+    "url": "https://registry.npmjs.org/dsh-ue-asset/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: browse, preview and export Unreal Engine 4/5 assets from local PAK archives through CUE4Parse.",
+    "len": 119
+  },
+  {
+    "pkg": "@xirang-ai/dsh-teamflow",
+    "url": "https://registry.npmjs.org/@xirang-ai/dsh-teamflow/latest",
+    "status": 200,
+    "description": "DeepSeek Harness plugin: Xirang workbench for the requirement → development → defect pipeline.",
+    "len": 94
+  },
+  {
+    "pkg": "dsh-mnemon",
+    "url": "https://registry.npmjs.org/dsh-mnemon/latest",
+    "status": 200,
+    "description": "Composable, view-based context for DeepSeek Harness. Pluggable sources and strategies, with layered memory and self-evolving skills out of the box.",
+    "len": 147
+  },
+  {
+    "pkg": "@dickpy/dsh-imagegen",
+    "url": "https://registry.npmjs.org/@dickpy/dsh-imagegen/latest",
+    "status": 200,
+    "description": "AI image generation plugin for the dsh web GUI: text-to-image and image-to-image through configurable provider channels (gpt-image-2 / grok-imagine-image / nanobanana series / seedream-5.0-pro / dall-e-3, with native xAI Grok Imagine, Google Nano Banana a",
+    "len": 255
+  }
+]

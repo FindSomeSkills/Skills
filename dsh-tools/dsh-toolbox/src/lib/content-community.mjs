@@ -7079,13 +7079,13 @@ export function communityPage(slug) {
   return renderCommunityPage(page, note, pair, slug);
 }
 
-import { BLURBS } from './plugin-blurbs.mjs';
+import { blurbFor } from './plugin-blurbs.mjs';
 
 export function communityByGroup() {
   return COMMUNITY_GROUPS.map((g) => ({
     ...g,
     items: COMMUNITY.filter((p) => p.group === g.id).map((p) => {
-      const b = BLURBS[p.pkg];
+      const b = blurbFor(p.pkg);
       return {
         ...p,
         en: { ...(p.en ?? {}), solves: b ? b.en : 'No description published on npm.' },

@@ -1,6 +1,10 @@
 // 62 个社区插件在 /plugins/ 列表里的一句话说明。
 // 事实来源：各包 npm 的 description 字段（docs/plugin-descriptions.json，逐条核对）。
 export const BLURBS = {
+  modsearch: {
+    en: 'Adds web search, X search and page fetch for models without native web access, with keyless providers so it runs without signup or an API key.',
+    zh: '给没有原生联网能力的模型补上网页搜索、X 搜索和取页，走免密钥通道，不用注册、不用 API key。',
+  },
   dshmarket: {
     en: 'Adds a visual plugin market inside DeepSeek Harness, so you can browse, search and install community plugins from the web UI in one click.',
     zh: '在 DeepSeek Harness 里加一个可视化插件市场，社区插件可以浏览、搜索，点一下从网页界面装上。',
@@ -62,8 +66,8 @@ export const BLURBS = {
     zh: '输入框旁多一个表情包选择器，另给 agent 一个发图工具，支持多个图库、按情绪筛图，还能让 AI 学图。',
   },
   'dsh-agent-teams': {
-    en: 'Adds multi-agent teamwork with a captain, members and dependent tasks, driven by natural language so one request can be split across several agents.',
-    zh: '加上多 agent 协作：队长、成员、带依赖的任务，用自然语言下指令，一个需求可以拆给几个 agent 做。',
+    en: 'Adds multi-agent teamwork with a captain, members, dependent tasks and messaging, driven by natural language, plus a tree monitor in the web interface.',
+    zh: '加上多 agent 协作：队长、成员、带依赖的任务与消息传递都用自然语言驱动，网页界面里还有一棵任务树。',
   },
   'dsh-agent-compare': {
     en: 'Runs the same request through two to four models and shows answers, files or live pages side by side, with blind or open comparison before you adopt one.',
@@ -86,8 +90,8 @@ export const BLURBS = {
     zh: '把微信、飞书、企微、钉钉、QQ、Telegram、WhatsApp、Slack、Discord、Matrix 接进 DSH，从哪个聊天软件都能对话。',
   },
   'dsh-qqbot': {
-    en: 'Connects DSH to QQ private and group chats, so a session can be driven from QQ and answers arrive where the conversation already happens.',
-    zh: '把 DSH 接进 QQ 私聊和群聊，会话可以在 QQ 里驱动，回答直接落在本来就在聊的那个窗口。',
+    en: 'Chats with DeepSeek Harness inside QQ private and group chats, so the agent answers where the conversation already happens instead of another window.',
+    zh: '在 QQ 私聊和群聊里直接对话 DeepSeek Harness，回答落在本来就在聊的那个窗口，不用另开界面。',
   },
   'dsh-genui': {
     en: 'Renders interactive charts, forms, calculators, dashboards and small apps inline in replies, with actions that report results back to the agent.',
@@ -126,8 +130,8 @@ export const BLURBS = {
     zh: '加一个技能与 MCP 市场：浏览实时源，一键装 SKILL.md 技能和 MCP 连接器，装完立刻可用，不用重启。',
   },
   'dsh-skill-manager': {
-    en: 'Adds a sidebar panel that lists skills by install location, edits and disables them, and reports skills that fail to load silently.',
-    zh: '侧栏多一个面板，按安装位置列技能，能改、能禁用，加载失败却不报错的技能也会被指出来。',
+    en: 'Adds a sidebar panel that lists skills by install location, edits and disables them, reports skills skipped without an error, and installs from market indexes.',
+    zh: '侧栏多一个面板，按安装位置列技能，能改能禁用，被静默跳过的技能会指出来，还能从市场索引装技能。',
   },
   'dsh-skill-browser': {
     en: 'Turns the local skill library into a browsable panel with five tabs, tree and grid views, call ledgers and charts, plus market and MCP management.',
@@ -250,3 +254,8 @@ export const BLURBS = {
     zh: '在网页版里生成和改图，走你配好的图片服务商通道，文生图与图生图都能在对话里完成。',
   },
 };
+
+// 按完整包名取说明；scoped 包与无 scope 的包都能命中
+export function blurbFor(pkg) {
+  return BLURBS[pkg] ?? BLURBS[String(pkg).split('/').pop()] ?? null;
+}
